@@ -33,6 +33,7 @@ jobs:
           sudo apt-get install fontconfig
           sudo wget https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansCN.zip -O ${GITHUB_WORKSPACE}/SourceHanSansCN.zip
           sudo unzip -o ${GITHUB_WORKSPACE}/SourceHanSansCN.zip -d ${GITHUB_WORKSPACE}/SourceHanSans/
+          sudo mkdir -p /usr/share/fonts/chinese/opentype/
           sudo mv -f ${GITHUB_WORKSPACE}/SourceHanSans/SubsetOTF/CN/* /usr/share/fonts/chinese/opentype/
           sudo fc-cache -fv
 
