@@ -19,15 +19,12 @@ jobs:
         with:
           java-version: 1.8
 
-      - name: Delete Previous Image
-        run: sudo rm -f mcbbs_modpack_period.png
-
       - name: Install Chinese Language Pack
         run: | 
           sudo apt-get install language-pack-zh-han*
           sudo apt-get install language-pack-gnome-zh-han*
           sudo apt-get install language-pack-kde-zh-han*
-          sudo mv -f ${GITHUB_WORKSPACE}/misc/locale /etc/default/locale
+          sudo cp -f ${GITHUB_WORKSPACE}/misc/locale /etc/default/locale
 
       - name: Run DateImage
         run: sudo java -jar ${GITHUB_WORKSPACE}/mcbbs_modpack_period/DateImage.jar
