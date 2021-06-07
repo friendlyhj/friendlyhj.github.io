@@ -28,10 +28,21 @@ jobs:
           sudo apt-get install language-pack-gnome-zh-han*
           sudo apt-get install language-pack-kde-zh-han*
 
+      - name: Install SourceHanSansCN Fonts
+        run: |
+          sudo apt-get install fontconfig
+          sudo wget https://github.com/adobe-fonts/source-han-sans/releases/download/2.004R/SourceHanSansCN.zip -O ${GITHUB_WORKSPACE}/SourceHanSansCN.zip
+          sudo unzip -o ${GITHUB_WORKSPACE}/font/SourceHanSansCN.zip -d ${GITHUB_WORKSPACE}/SourceHanSans/
+          sudo mv -f ${GITHUB_WORKSPACE}/SourceHanSans/SubsetOTF/CN/* /usr/share/fonts/chinese/opentype
+          sudo fc-cache -fv
+
       - name: Run DateImage
-        run: sudo java -jar ${GITHUB_WORKSPACE}/mcbbs_modpack_period/DateImage.jar
+        run: sudo java -jar ${GITHUB_WORKSPACE}/mcbbs_modpack_period/DateImage-1.0.jar -font SourceHanSansCN-Regular
 
       - name: Commit processor changes
         uses: EndBug/add-and-commit@v7
         with:
+          add: "mcbbs_modpack_period.png"
+          author_name: github-actions
+          author_email: github-actions@users.noreply.github.com
           message: "Update MCBBS Modpack Period Image"
