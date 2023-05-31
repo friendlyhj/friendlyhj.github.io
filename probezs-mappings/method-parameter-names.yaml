@@ -8,20 +8,6 @@ crafttweaker.api.entity.IEntityEquipmentSlot:
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot
   paramNames:
   - other
-crafttweaker.zenscript.expand.ExpandItemStack:
-- name: asWeightedItemStack
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - value
-crafttweaker.api.event.EntityLivingDeathDropsEvent:
-- name: addItem
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - item
-- name: addItem
-  paramsSignature: crafttweaker.api.entity.IEntityItem
-  paramNames:
-  - entityItem
 crafttweaker.api.oredict.IOreDictEntry:
 - name: add
   paramsSignature: crafttweaker.api.item.IItemStack[]
@@ -60,11 +46,6 @@ crafttweaker.api.formatting.IFormattedText:
   paramsSignature: crafttweaker.api.formatting.IFormattedText
   paramNames:
   - other
-crafttweaker.api.tooltip.ITooltipFunction:
-- name: process
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - ingredient
 crafttweaker.mc1120.oredict.ExpandOreDictEntry:
 - name: percent
   paramsSignature: crafttweaker.api.oredict.IOreDictEntry,float
@@ -76,6 +57,47 @@ crafttweaker.mc1120.oredict.ExpandOreDictEntry:
   paramNames:
   - thisEntry
   - p
+youyihj.zenutils.api.ftbq.FTBQEventManager:
+- name: onTaskCompleted
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
+- name: onQuestCompleted
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
+- name: onChapterCompleted
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
+- name: onTaskStarted
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
+- name: onCustomReward
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
+- name: onCustomTask
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
+- name: clearFTBQEvents
+  paramsSignature: crafttweaker.api.event.IEventManager
+  paramNames:
+  - manager
+youyihj.zenutils.api.network.IClientMessageHandler:
+- name: handle
+  paramsSignature: crafttweaker.api.player.IPlayer,youyihj.zenutils.api.network.IByteBuf
+  paramNames:
+  - player
+  - byteBuf
 crafttweaker.mc1120.world.expand.ExpandFacing:
 - name: fromString
   paramsSignature: java.lang.String
@@ -86,30 +108,56 @@ crafttweaker.mc1120.world.expand.ExpandFacing:
   paramNames:
   - pos
   - placer
-crafttweaker.util.IEventHandler:
-- name: handle
-  paramsSignature: T
-  paramNames:
-  - event
 crafttweaker.api.block.IMaterial:
 - name: matches
   paramsSignature: crafttweaker.api.block.IMaterial
   paramNames:
   - other
-crafttweaker.api.event.INoteBlockEvent:
-- name: setNote
+youyihj.zenutils.api.util.ZenUtilsGlobal:
+- name: typeof
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: toString
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: typeof
+  paramsSignature: int
+  paramNames:
+  - unused
+- name: typeof
+  paramsSignature: byte
+  paramNames:
+  - unused
+- name: typeof
+  paramsSignature: short
+  paramNames:
+  - unused
+- name: typeof
+  paramsSignature: long
+  paramNames:
+  - unused
+- name: typeof
+  paramsSignature: char
+  paramNames:
+  - unused
+- name: typeof
+  paramsSignature: float
+  paramNames:
+  - unused
+- name: typeof
+  paramsSignature: double
+  paramNames:
+  - unused
+- name: typeof
+  paramsSignature: boolean
+  paramNames:
+  - unused
+- name: addRegexLogFilter
   paramsSignature: java.lang.String
   paramNames:
-  - note
-- name: setOctave
-  paramsSignature: java.lang.String
-  paramNames:
-  - octave
-- name: setBoth
-  paramsSignature: java.lang.String,java.lang.String
-  paramNames:
-  - note
-  - octave
+  - regex
 crafttweaker.api.recipes.ICraftingInventory:
 - name: getStack
   paramsSignature: int
@@ -131,15 +179,6 @@ crafttweaker.api.recipes.ICraftingInventory:
   paramNames:
   - i
   - stack
-crafttweaker.api.block.IBlockPattern:
-- name: matches
-  paramsSignature: crafttweaker.api.block.IBlock
-  paramNames:
-  - block
-- name: or
-  paramsSignature: crafttweaker.api.block.IBlockPattern
-  paramNames:
-  - pattern
 crafttweaker.api.event.IPotionBrewEvent:
 - name: getItem
   paramsSignature: int
@@ -150,16 +189,11 @@ crafttweaker.api.event.IPotionBrewEvent:
   paramNames:
   - index
   - stack
-crafttweaker.api.container.IContainer:
-- name: getStack
-  paramsSignature: int
+youyihj.zenutils.api.util.catenation.Catenation:
+- name: tick
+  paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
-  - i
-- name: setStack
-  paramsSignature: int,crafttweaker.api.item.IItemStack
-  paramNames:
-  - i
-  - stack
+  - world
 crafttweaker.zenscript.expand.ExpandString:
 - name: add
   paramsSignature: java.lang.String,crafttweaker.api.formatting.IFormattedText
@@ -216,19 +250,161 @@ crafttweaker.zenscript.expand.ExpandInt:
   paramsSignature: int
   paramNames:
   - value
-crafttweaker.tests.Optionals:
-- name: print
-  paramsSignature: java.lang.String
+youyihj.zenutils.api.world.ZenUtilsWorld:
+- name: getPlayerByName
+  paramsSignature: crafttweaker.api.world.IWorld,java.lang.String
   paramNames:
-  - value
-- name: print2
-  paramsSignature: crafttweaker.api.item.IItemStack
+  - iWorld
+  - name
+- name: getPlayerByUUID
+  paramsSignature: crafttweaker.api.world.IWorld,youyihj.zenutils.api.util.CrTUUID
   paramNames:
-  - value
-- name: print3
-  paramsSignature: int
+  - iWorld
+  - uuid
+- name: getAllPlayers
+  paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
-  - value
+  - iWorld
+- name: getClosestPlayerToEntity
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.entity.IEntity,double,boolean
+  paramNames:
+  - iWorld
+  - iEntity
+  - distance
+  - spectator
+- name: getClosestPlayer
+  paramsSignature: crafttweaker.api.world.IWorld,double,double,double,double,boolean
+  paramNames:
+  - iWorld
+  - posX
+  - posY
+  - posZ
+  - distance
+  - spectator
+- name: getEntities
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - iWorld
+- name: getEntityItems
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - iWorld
+- name: getPlayers
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - iWorld
+- name: getCustomWorldData
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
+- name: setCustomWorldData
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.data.IData
+  paramNames:
+  - world
+  - data
+- name: updateCustomWorldData
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.data.IData
+  paramNames:
+  - world
+  - data
+- name: getCustomChunkData
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - posToGetChunk
+- name: setCustomChunkData
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.data.IData,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - data
+  - posToGetChunk
+- name: updateCustomChunkData
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.data.IData,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - data
+  - posToGetChunk
+- name: destroyBlock
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,boolean
+  paramNames:
+  - world
+  - pos
+  - dropBlock
+- name: getItemHandler
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - world
+  - pos
+  - facing
+- name: getLiquidHandler
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - world
+  - pos
+  - facing
+- name: catenation
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
+- name: persistedCatenation
+  paramsSignature: crafttweaker.api.world.IWorld,java.lang.String
+  paramNames:
+  - world
+  - catenationKey
+- name: getBlockBrightness
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: getSkyBrightness
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,boolean
+  paramNames:
+  - world
+  - pos
+  - subtracted
+- name: getBrightnessSubtracted
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: getGameRuleHelper
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
+youyihj.zenutils.api.liquid.CrTLiquidHandler:
+- name: drain
+  paramsSignature: int,boolean
+  paramNames:
+  - maxDrain
+  - doDrain
+- name: drain
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean
+  paramNames:
+  - resource
+  - doDrain
+- name: fill
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean
+  paramNames:
+  - resource
+  - doFill
+youyihj.zenutils.api.command.IGetTabCompletion:
+- name: get
+  paramsSignature: crafttweaker.api.server.IServer,youyihj.zenutils.api.command.ZenUtilsCommandSender,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - server
+  - sender
+  - targetPos
+youyihj.zenutils.api.util.catenation.IWorldCondition:
+- name: apply
+  paramsSignature: crafttweaker.api.world.IWorld,youyihj.zenutils.api.util.catenation.CatenationContext
+  paramNames:
+  - world
+  - context
+- name: apply
+  paramsSignature: crafttweaker.api.world.IWorld,youyihj.zenutils.api.util.catenation.CatenationContext
+  paramNames:
+  - world
+  - context
 crafttweaker.tests.test.Expansion:
 - name: print
   paramsSignature: crafttweaker.api.item.WeightedItemStack
@@ -321,6 +497,16 @@ crafttweaker.api.world.IWorldProvider:
   paramsSignature: crafttweaker.api.world.IBlockPos
   paramNames:
   - pos
+youyihj.zenutils.api.command.ZenCommandTree:
+- name: create
+  paramsSignature: java.lang.String,youyihj.zenutils.api.command.ZenCommand[]
+  paramNames:
+  - name
+  - commands
+- name: getUsage
+  paramsSignature: net.minecraft.command.ICommandSender
+  paramNames:
+  - sender
 crafttweaker.mc1120.item.ExpandItemStack:
 - name: isBlock
   paramsSignature: crafttweaker.api.item.IItemStack
@@ -346,29 +532,23 @@ crafttweaker.mc1120.item.ExpandItemStack:
   paramNames:
   - stack
   - capNBT
-crafttweaker.api.block.IBlockStateMatcher:
-- name: matches
-  paramsSignature: crafttweaker.api.block.IBlockState
+youyihj.zenutils.api.util.ExpandGame:
+- name: getPotion
+  paramsSignature: crafttweaker.api.game.IGame,java.lang.String
   paramNames:
-  - blockState
-- name: or
-  paramsSignature: crafttweaker.api.block.IBlockStateMatcher
-  paramNames:
-  - matcher
-- name: allowValuesForProperty
-  paramsSignature: java.lang.String,java.lang.String[]
-  paramNames:
+  - game
   - name
-  - values
-- name: withMatchedValuesForProperty
-  paramsSignature: java.lang.String,java.lang.String[]
+youyihj.zenutils.api.event.ExpandEventManager:
+- name: onEntityRemove
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
   paramNames:
-  - name
-  - values
-- name: getMatchedValuesForProperty
-  paramsSignature: java.lang.String
+  - manager
+  - ev
+- name: onEntityItemFall
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
   paramNames:
-  - name
+  - manager
+  - ev
 crafttweaker.api.item.IItemTransformerNew:
 - name: transform
   paramsSignature: crafttweaker.api.item.IItemStack
@@ -385,21 +565,6 @@ crafttweaker.mc1120.potions.MCPotionRecipe:
   - input
   - ingredient
   - output
-crafttweaker.mc1120.entity.expand.ExpandEntityItem:
-- name: setItem
-  paramsSignature: crafttweaker.api.entity.IEntityItem,crafttweaker.api.item.IItemStack
-  paramNames:
-  - itemEntity
-  - stack
-crafttweaker.api.entity.IEntityArrowTipped:
-- name: setPotionEffect
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - stack
-- name: addPotionEffect
-  paramsSignature: crafttweaker.api.potions.IPotionEffect
-  paramNames:
-  - effect
 crafttweaker.api.block.IMobilityFlag:
 - name: matches
   paramsSignature: crafttweaker.api.block.IMobilityFlag
@@ -443,6 +608,1634 @@ crafttweaker.api.enchantments.IEnchantmentDefinition:
   paramsSignature: crafttweaker.api.enchantments.IEnchantmentDefinition
   paramNames:
   - other
+youyihj.zenutils.api.ftbq.event.CTCustomTaskEvent$ITaskChecker:
+- name: check
+  paramsSignature: crafttweaker.api.player.IPlayer,int
+  paramNames:
+  - player
+  - currentProgress
+youyihj.zenutils.api.command.ICommandExecute:
+- name: execute
+  paramsSignature: youyihj.zenutils.api.command.ZenCommand,crafttweaker.api.server.IServer,youyihj.zenutils.api.command.ZenUtilsCommandSender,java.lang.String[]
+  paramNames:
+  - command
+  - server
+  - sender
+  - args
+crafttweaker.api.entity.IEntityFishHook:
+- name: setState
+  paramsSignature: java.lang.String
+  paramNames:
+  - state
+- name: setCaughtEntity
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - entity
+- name: setLureSpeed
+  paramsSignature: int
+  paramNames:
+  - lureSpeed
+- name: setLuck
+  paramsSignature: int
+  paramNames:
+  - luck
+crafttweaker.api.command.ICommandSender:
+- name: sendMessage
+  paramsSignature: java.lang.String
+  paramNames:
+  - text
+youyihj.zenutils.api.network.IByteBufWriter:
+- name: write
+  paramsSignature: youyihj.zenutils.api.network.IByteBuf
+  paramNames:
+  - byteBuf
+crafttweaker.api.command.ICommandManager:
+- name: executeCommand
+  paramsSignature: crafttweaker.api.command.ICommandSender,java.lang.String
+  paramNames:
+  - sender
+  - rawCommand
+- name: getTabCompletions
+  paramsSignature: crafttweaker.api.command.ICommandSender,java.lang.String,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - sender
+  - input
+  - pos
+- name: getPossibleCommands
+  paramsSignature: crafttweaker.api.command.ICommandSender
+  paramNames:
+  - sender
+youyihj.zenutils.api.player.DefaultStatFormatters:
+- name: numberFormat
+  paramsSignature: int
+  paramNames:
+  - amount
+- name: decimalFormat
+  paramsSignature: double
+  paramNames:
+  - amount
+youyihj.zenutils.api.command.TabCompletion:
+- name: create
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - info
+crafttweaker.mc1120.util.expand.ExpandAxisAlignedBB:
+- name: create
+  paramsSignature: double,double,double,double,double,double
+  paramNames:
+  - minX
+  - minY
+  - minZ
+  - maxX
+  - maxY
+  - maxZ
+- name: create
+  paramsSignature: crafttweaker.api.world.IBlockPos
+  paramNames:
+  - pos
+- name: create
+  paramsSignature: crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - pos1
+  - pos2
+- name: create
+  paramsSignature: crafttweaker.api.world.IVector3d,crafttweaker.api.world.IVector3d
+  paramNames:
+  - min
+  - max
+crafttweaker.mc1120.world.expand.ExpandVector3d:
+- name: create
+  paramsSignature: double,double,double
+  paramNames:
+  - x
+  - y
+  - z
+crafttweaker.mc1120.item.ExpandItemDefinition:
+- name: isArrow
+  paramsSignature: crafttweaker.api.item.IItemDefinition
+  paramNames:
+  - item
+- name: setAlwaysEdible
+  paramsSignature: crafttweaker.api.item.IItemDefinition
+  paramNames:
+  - item
+- name: removeDispenserBehavior
+  paramsSignature: crafttweaker.api.item.IItemDefinition
+  paramNames:
+  - item
+- name: addDispenserBehavior
+  paramsSignature: crafttweaker.api.item.IItemDefinition,crafttweaker.api.dispenser.IDispenserBehavior,crafttweaker.api.dispenser.IDispenserSoundFunction
+  paramNames:
+  - item
+  - behavior
+  - soundFunction
+- name: addShootingProjectileDispenserBehavior
+  paramsSignature: crafttweaker.api.item.IItemDefinition,crafttweaker.api.entity.IEntityDefinition,float,float
+  paramNames:
+  - item
+  - projectile
+  - inaccuracy
+  - velocity
+crafttweaker.api.item.IItemCondition:
+- name: matches
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+youyihj.zenutils.api.cotx.function.IBlockActivated:
+- name: activate
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos,com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState,com.teamacronymcoders.contenttweaker.api.ctobjects.entity.player.ICTPlayer,com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Hand,com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing,crafttweaker.api.util.Position3f
+  paramNames:
+  - world
+  - pos
+  - state
+  - player
+  - hand
+  - facing
+  - blockHit
+crafttweaker.api.entity.IEntityCreature:
+- name: isPositionWithinHomeDistance
+  paramsSignature: crafttweaker.api.world.IBlockPos
+  paramNames:
+  - pos
+- name: setHomePositionAndDistance
+  paramsSignature: crafttweaker.api.world.IBlockPos,int
+  paramNames:
+  - pos
+  - distance
+crafttweaker.mc1120.player.expand.ExpandPlayer:
+- name: getBedLocation
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: getFishHook
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: getInventoryContainer
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: sendRichTextStatusMessage
+  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.text.ITextComponent,boolean
+  paramNames:
+  - player
+  - textComponent
+  - hotbar
+- name: isSleeping
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: isFullyAsleep
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: getSleepTimer
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+crafttweaker.api.player.IFoodStats:
+- name: addStats
+  paramsSignature: int,float
+  paramNames:
+  - foodValue
+  - saturationLevel
+- name: onUpdate
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: addExhaustion
+  paramsSignature: float
+  paramNames:
+  - exhaustion
+crafttweaker.api.util.Position3f:
+- name: setX
+  paramsSignature: float
+  paramNames:
+  - x
+- name: setY
+  paramsSignature: float
+  paramNames:
+  - y
+- name: setZ
+  paramsSignature: float
+  paramNames:
+  - z
+crafttweaker.api.block.IBlockProperties:
+- name: getLightValue
+  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - access
+  - pos
+- name: getWeakPower
+  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - access
+  - pos
+  - facing
+- name: getComparatorInputOverride
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: canEntitySpawn
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - entity
+- name: doesSideBlockRendering
+  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - access
+  - pos
+  - facing
+- name: getActualState
+  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - access
+  - pos
+- name: getBlockHardness
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: getLightOpacity
+  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - access
+  - pos
+- name: getPlayerRelativeBlockHardness
+  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - player
+  - world
+  - pos
+- name: getStrongPower
+  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - access
+  - pos
+  - facing
+- name: isSideSolid
+  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - access
+  - pos
+  - facing
+crafttweaker.api.game.IGame:
+- name: getLiquid
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: getEntity
+  paramsSignature: java.lang.String
+  paramNames:
+  - entityName
+- name: setLocalization
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - key
+  - value
+- name: setLocalization
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - lang
+  - key
+  - value
+- name: localize
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: localize
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - key
+  - lang
+youyihj.zenutils.api.util.delay.CTDelayManager:
+- name: addDelayWork
+  paramsSignature: youyihj.zenutils.api.util.delay.DelayRunnable,long
+  paramNames:
+  - runnable
+  - delay
+- name: addDelayWork
+  paramsSignature: youyihj.zenutils.api.util.delay.DelayRunnable,youyihj.zenutils.api.util.delay.IsExecute,long
+  paramNames:
+  - runnable
+  - isExecute
+  - delay
+crafttweaker.api.dispenser.IDispenserSoundFunction:
+- name: apply
+  paramsSignature: crafttweaker.api.dispenser.IBlockSource
+  paramNames:
+  - source
+stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithStaticMethod:
+- name: apply
+  paramsSignature: int
+  paramNames:
+  - a
+- name: apply
+  paramsSignature: int
+  paramNames:
+  - a
+crafttweaker.zenscript.expand.ExpandDouble:
+- name: asData
+  paramsSignature: double
+  paramNames:
+  - value
+crafttweaker.api.event.NoteBlockPlayEvent:
+- name: setInstrument
+  paramsSignature: java.lang.String
+  paramNames:
+  - instrument
+crafttweaker.mc1120.damage.expand.MCDamageSourceExpand:
+- name: createEntityDamage
+  paramsSignature: java.lang.String,crafttweaker.api.entity.IEntity
+  paramNames:
+  - damagetype
+  - source
+- name: createIndirectDamage
+  paramsSignature: java.lang.String,crafttweaker.api.entity.IEntity,crafttweaker.api.entity.IEntity
+  paramNames:
+  - damagetype
+  - source
+  - indirectEntity
+- name: createMobDamage
+  paramsSignature: crafttweaker.api.entity.IEntityLivingBase
+  paramNames:
+  - mob
+- name: createIndirectDamage
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.entity.IEntityLivingBase
+  paramNames:
+  - source
+  - indirectEntityIn
+- name: createPlayerDamage
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: createThrownDamage
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.entity.IEntity
+  paramNames:
+  - source
+  - indirectEntityIn
+- name: createIndirectMagicDamage
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.entity.IEntity
+  paramNames:
+  - source
+  - indirectEntityIn
+- name: createThornsDamage
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - source
+- name: createExplosionDamage
+  paramsSignature: crafttweaker.api.entity.IEntityLivingBase
+  paramNames:
+  - entityLivingBaseIn
+- name: createOfType
+  paramsSignature: java.lang.String
+  paramNames:
+  - type
+- name: isDamageUnblockable
+  paramsSignature: crafttweaker.api.damage.IDamageSource
+  paramNames:
+  - source
+- name: getDamageLocation
+  paramsSignature: crafttweaker.api.damage.IDamageSource
+  paramNames:
+  - source
+youyihj.zenutils.api.util.catenation.persistence.CatenationPersistenceAPI:
+- name: registerPersistedCatenation
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: startPersistedCatenation
+  paramsSignature: java.lang.String,crafttweaker.api.world.IWorld
+  paramNames:
+  - key
+  - world
+crafttweaker.api.block.IBlockDefinition:
+- name: getLightOpacity
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - state
+- name: getLightOpacity
+  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - state
+  - world
+  - pos
+- name: getLightLevel
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - state
+- name: getLightLevel
+  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - state
+  - world
+  - pos
+- name: getResistance
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.entity.IEntity,crafttweaker.api.world.IExplosion
+  paramNames:
+  - world
+  - pos
+  - entity
+  - explosion
+- name: setHarvestLevel
+  paramsSignature: java.lang.String,int,crafttweaker.api.block.IBlockState
+  paramNames:
+  - toolClass
+  - level
+  - state
+- name: getHarvestLevel
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - state
+- name: getHarvestTool
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - state
+- name: tickRate
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
+- name: canPlaceBlockOnSide
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - world
+  - pos
+  - facing
+- name: canPlaceBlockAt
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: getSlipperiness
+  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.entity.IEntity
+  paramNames:
+  - state
+  - access
+  - pos
+  - entity
+- name: getStateFromMeta
+  paramsSignature: int
+  paramNames:
+  - meta
+- name: isToolEffective
+  paramsSignature: java.lang.String,crafttweaker.api.block.IBlockState
+  paramNames:
+  - type
+  - state
+crafttweaker.api.entity.IEntityAgeable:
+- name: ageUp
+  paramsSignature: int,boolean
+  paramNames:
+  - seconds
+  - forced
+- name: addGrowth
+  paramsSignature: int
+  paramNames:
+  - seconds
+youyihj.zenutils.api.util.catenation.CatenationContext:
+- name: setData
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: getPlayer
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: getPosition
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: getPersistedData
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: getEntity
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+youyihj.zenutils.api.network.ZenNetworkHandler:
+- name: registerServer2ClientMessage
+  paramsSignature: java.lang.String,youyihj.zenutils.api.network.IClientMessageHandler
+  paramNames:
+  - key
+  - clientMessageHandler
+- name: sendToDimension
+  paramsSignature: java.lang.String,int,youyihj.zenutils.api.network.IByteBufWriter
+  paramNames:
+  - key
+  - dimensionID
+  - byteBufWriter
+- name: sendToAll
+  paramsSignature: java.lang.String,youyihj.zenutils.api.network.IByteBufWriter
+  paramNames:
+  - key
+  - byteBufWriter
+- name: sendToAllAround
+  paramsSignature: java.lang.String,double,double,double,double,int,youyihj.zenutils.api.network.IByteBufWriter
+  paramNames:
+  - key
+  - x
+  - y
+  - z
+  - range
+  - dimensionID
+  - byteBufWriter
+- name: sendTo
+  paramsSignature: java.lang.String,crafttweaker.api.player.IPlayer,youyihj.zenutils.api.network.IByteBufWriter
+  paramNames:
+  - key
+  - player
+  - byteBufWriter
+- name: sendToServer
+  paramsSignature: java.lang.String,youyihj.zenutils.api.network.IByteBufWriter
+  paramNames:
+  - key
+  - byteBufWriter
+- name: registerClient2ServerMessage
+  paramsSignature: java.lang.String,youyihj.zenutils.api.network.IServerMessageHandler
+  paramNames:
+  - key
+  - serverMessageHandler
+crafttweaker.tests.test.CompareTests:
+- name: compare
+  paramsSignature: crafttweaker.tests.test.CompareTests
+  paramNames:
+  - other
+crafttweaker.api.util.IAxisAlignedBB:
+- name: contract
+  paramsSignature: double,double,double
+  paramNames:
+  - x
+  - y
+  - z
+- name: expand
+  paramsSignature: double,double,double
+  paramNames:
+  - x
+  - y
+  - z
+- name: grow
+  paramsSignature: double
+  paramNames:
+  - value
+- name: grow
+  paramsSignature: double,double,double
+  paramNames:
+  - x
+  - y
+  - z
+- name: shrink
+  paramsSignature: double
+  paramNames:
+  - value
+- name: intersect
+  paramsSignature: crafttweaker.api.util.IAxisAlignedBB
+  paramNames:
+  - other
+- name: intersects
+  paramsSignature: crafttweaker.api.util.IAxisAlignedBB
+  paramNames:
+  - other
+- name: contains
+  paramsSignature: crafttweaker.api.world.IVector3d
+  paramNames:
+  - vec
+- name: union
+  paramsSignature: crafttweaker.api.util.IAxisAlignedBB
+  paramNames:
+  - other
+crafttweaker.api.entity.attribute.IEntityAttributeInstance:
+- name: setBaseValue
+  paramsSignature: double
+  paramNames:
+  - baseValue
+- name: getModifiersByOperation
+  paramsSignature: int
+  paramNames:
+  - operation
+- name: hasModifier
+  paramsSignature: crafttweaker.api.entity.attribute.IEntityAttributeModifier
+  paramNames:
+  - modifier
+- name: getModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - uuid
+- name: applyModifier
+  paramsSignature: crafttweaker.api.entity.attribute.IEntityAttributeModifier
+  paramNames:
+  - modifier
+- name: removeModifier
+  paramsSignature: crafttweaker.api.entity.attribute.IEntityAttributeModifier
+  paramNames:
+  - modifier
+- name: removeModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - uuid
+youyihj.zenutils.api.util.ExpandPotion:
+- name: getFromNumericalId
+  paramsSignature: int
+  paramNames:
+  - id
+youyihj.zenutils.api.cotx.function.ITileEntityTick:
+- name: tick
+  paramsSignature: youyihj.zenutils.api.cotx.tile.TileEntityContent,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos
+  paramNames:
+  - tileEntity
+  - world
+  - pos
+crafttweaker.zenscript.expand.ExpandBool:
+- name: asData
+  paramsSignature: boolean
+  paramNames:
+  - value
+crafttweaker.api.block.IBlockState:
+- name: isReplaceable
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - blockPos
+- name: compare
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - other
+- name: withProperty
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - name
+  - value
+- name: getPropertyValue
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: getAllowedValuesForProperty
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+crafttweaker.api.text.ITextComponent:
+- name: append
+  paramsSignature: crafttweaker.api.text.ITextComponent
+  paramNames:
+  - text
+- name: cat
+  paramsSignature: crafttweaker.api.text.ITextComponent
+  paramNames:
+  - text
+crafttweaker.api.world.IExplosion:
+- name: onExplosionStart
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
+- name: doExplosionB
+  paramsSignature: boolean
+  paramNames:
+  - spawnParticles
+crafttweaker.api.damage.IDamageSource:
+- name: getDeathMessage
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - entity
+crafttweaker.api.vanilla.ISeedRegistry:
+- name: addSeed
+  paramsSignature: crafttweaker.api.item.WeightedItemStack
+  paramNames:
+  - item
+- name: removeSeed
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - item
+crafttweaker.runtime.ILogger:
+- name: logCommand
+  paramsSignature: java.lang.String
+  paramNames:
+  - message
+- name: logInfo
+  paramsSignature: java.lang.String
+  paramNames:
+  - message
+- name: logWarning
+  paramsSignature: java.lang.String
+  paramNames:
+  - message
+- name: logError
+  paramsSignature: java.lang.String
+  paramNames:
+  - message
+- name: logError
+  paramsSignature: java.lang.String,java.lang.Throwable
+  paramNames:
+  - message
+  - exception
+- name: logPlayer
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: logDefault
+  paramsSignature: java.lang.String
+  paramNames:
+  - message
+youyihj.zenutils.api.util.ExpandData:
+- name: deepUpdate
+  paramsSignature: crafttweaker.api.data.IData,crafttweaker.api.data.IData,crafttweaker.api.data.IData
+  paramNames:
+  - data
+  - toUpdate
+  - updateOperation
+crafttweaker.api.game.ITeam:
+- name: formatString
+  paramsSignature: java.lang.String
+  paramNames:
+  - input
+stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithZenMethod:
+- name: apply
+  paramsSignature: int
+  paramNames:
+  - a
+- name: apply
+  paramsSignature: int
+  paramNames:
+  - a
+youyihj.zenutils.api.cotx.function.IEntityItemUpdate:
+- name: update
+  paramsSignature: crafttweaker.api.entity.IEntityItem
+  paramNames:
+  - entityItem
+youyihj.zenutils.api.util.CommandUtils:
+- name: getCommandSenderAsPlayer
+  paramsSignature: youyihj.zenutils.api.command.ZenUtilsCommandSender
+  paramNames:
+  - sender
+- name: getPlayer
+  paramsSignature: crafttweaker.api.server.IServer,youyihj.zenutils.api.command.ZenUtilsCommandSender,java.lang.String
+  paramNames:
+  - server
+  - sender
+  - target
+- name: getPlayers
+  paramsSignature: crafttweaker.api.server.IServer,youyihj.zenutils.api.command.ZenUtilsCommandSender,java.lang.String
+  paramNames:
+  - server
+  - sender
+  - target
+- name: getEntity
+  paramsSignature: crafttweaker.api.server.IServer,youyihj.zenutils.api.command.ZenUtilsCommandSender,java.lang.String
+  paramNames:
+  - server
+  - sender
+  - target
+- name: getEntityList
+  paramsSignature: crafttweaker.api.server.IServer,youyihj.zenutils.api.command.ZenUtilsCommandSender,java.lang.String
+  paramNames:
+  - server
+  - sender
+  - target
+- name: getItemByText
+  paramsSignature: youyihj.zenutils.api.command.ZenUtilsCommandSender,java.lang.String
+  paramNames:
+  - sender
+  - id
+- name: getBlockByText
+  paramsSignature: youyihj.zenutils.api.command.ZenUtilsCommandSender,java.lang.String
+  paramNames:
+  - sender
+  - id
+- name: notifyWrongUsage
+  paramsSignature: java.lang.String
+  paramNames:
+  - message
+- name: notifyWrongUsage
+  paramsSignature: java.lang.String,java.lang.Object[]
+  paramNames:
+  - message
+  - replacements
+- name: notifyWrongUsage
+  paramsSignature: youyihj.zenutils.api.command.ZenCommand,youyihj.zenutils.api.command.ZenUtilsCommandSender
+  paramNames:
+  - command
+  - sender
+crafttweaker.api.tooltip.IngredientTooltips:
+- name: addTooltip
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - ingredient
+  - tooltip
+- name: addAdvancedTooltip
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.tooltip.ITooltipFunction
+  paramNames:
+  - ingredient
+  - function
+- name: addShiftTooltip
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.formatting.IFormattedText,crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - ingredient
+  - tooltip
+  - showMessage
+- name: addShiftTooltip
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.tooltip.ITooltipFunction,crafttweaker.api.tooltip.ITooltipFunction
+  paramNames:
+  - ingredient
+  - function
+  - showMessage
+- name: clearTooltip
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - ingredient
+- name: clearTooltip
+  paramsSignature: crafttweaker.api.item.IIngredient,boolean
+  paramNames:
+  - ingredient
+  - leaveName
+- name: removeTooltip
+  paramsSignature: crafttweaker.api.item.IIngredient,java.lang.String
+  paramNames:
+  - ingredient
+  - regex
+- name: removeTooltipLine
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - ingredient
+  - line
+crafttweaker.api.liquid.ILiquidDefinition:
+- name: asStack
+  paramsSignature: int
+  paramNames:
+  - millibuckets
+crafttweaker.api.item.IngredientTransform:
+- name: transformDamage
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - ingredient
+- name: transformDamage
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - ingredient
+  - damage
+- name: transformReplace
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
+  paramNames:
+  - ingredient
+  - withItem
+- name: transformConsume
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - ingredient
+  - amount
+- name: noReturn
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - ingredient
+- name: giveBack
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
+  paramNames:
+  - ingredient
+  - givenItem
+- name: reuse
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - ingredient
+crafttweaker.api.world.IBlockPos:
+- name: getOffset
+  paramsSignature: crafttweaker.api.world.IFacing,int
+  paramNames:
+  - direction
+  - offset
+crafttweaker.api.vanilla.ILootRegistry:
+- name: addChestLoot
+  paramsSignature: java.lang.String,crafttweaker.api.item.WeightedItemStack
+  paramNames:
+  - name
+  - item
+- name: addChestLoot
+  paramsSignature: java.lang.String,crafttweaker.api.item.WeightedItemStack,int,int
+  paramNames:
+  - name
+  - item
+  - min
+  - max
+- name: removeChestLoot
+  paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient
+  paramNames:
+  - name
+  - ingredient
+- name: getLoot
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+youyihj.zenutils.api.cotx.tile.TileEntityContent:
+- name: updateCustomData
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+crafttweaker.mc1120.world.expand.ExpandWorldProvider:
+- name: getFromID
+  paramsSignature: int
+  paramNames:
+  - id
+crafttweaker.api.item.IItemUtils:
+- name: createPotion
+  paramsSignature: java.lang.Object[][]
+  paramNames:
+  - params
+- name: createPotion
+  paramsSignature: crafttweaker.api.potions.IPotionEffect[]
+  paramNames:
+  - params
+- name: enchantItem
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.enchantments.IEnchantment[]
+  paramNames:
+  - item
+  - enchantments
+- name: createEnchantedBook
+  paramsSignature: crafttweaker.api.enchantments.IEnchantment[]
+  paramNames:
+  - enchantments
+- name: combineEnchantments
+  paramsSignature: java.lang.String,crafttweaker.api.enchantments.IEnchantment[]
+  paramNames:
+  - baseKey
+  - enchantments
+- name: combineEnchantments
+  paramsSignature: crafttweaker.api.enchantments.IEnchantment[]
+  paramNames:
+  - enchantments
+- name: getItemsByRegexRegistryName
+  paramsSignature: java.lang.String
+  paramNames:
+  - regex
+- name: getItem
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - location
+  - meta
+- name: getItemsByRegexUnlocalizedName
+  paramsSignature: java.lang.String
+  paramNames:
+  - regex
+- name: createSpawnEgg
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,crafttweaker.api.data.IData
+  paramNames:
+  - entity
+  - customNBT
+stanhebben.zenscript.tests.TestFunctionTypes$MyNativeType:
+- name: create
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+crafttweaker.api.formatting.IFormatter:
+- name: black
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: darkBlue
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: darkGreen
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: darkAqua
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: darkRed
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: darkPurple
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: gold
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: gray
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: darkGray
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: blue
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: green
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: aqua
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: red
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: lightPurple
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: yellow
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: white
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: obfuscated
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: bold
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: strikethrough
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: underline
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+- name: italic
+  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  paramNames:
+  - text
+crafttweaker.api.entity.IEntityDefinition:
+- name: addDrop
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int,float
+  paramNames:
+  - stack
+  - min
+  - max
+  - chance
+- name: addDrop
+  paramsSignature: crafttweaker.api.item.WeightedItemStack,int,int
+  paramNames:
+  - stack
+  - min
+  - max
+- name: addDropFunction
+  paramsSignature: crafttweaker.api.entity.IEntityDropFunction
+  paramNames:
+  - function
+- name: addPlayerOnlyDrop
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int,float
+  paramNames:
+  - stack
+  - min
+  - max
+  - chance
+- name: addPlayerOnlyDrop
+  paramsSignature: crafttweaker.api.item.WeightedItemStack,int,int
+  paramNames:
+  - stack
+  - min
+  - max
+- name: removeDrop
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+- name: createEntity
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
+- name: spawnEntity
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+crafttweaker.mc1120.world.expand.ExpandPosition3f:
+- name: create
+  paramsSignature: float,float,float
+  paramNames:
+  - x
+  - y
+  - z
+crafttweaker.api.event.PlayerDeathDropsEvent:
+- name: addItem
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - item
+- name: addItem
+  paramsSignature: crafttweaker.api.entity.IEntityItem
+  paramNames:
+  - entityItem
+youyihj.zenutils.api.util.JourneyMap:
+- name: createWaypoint
+  paramsSignature: java.lang.String,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IWorld,int
+  paramNames:
+  - name
+  - pos
+  - world
+  - color
+stanhebben.zenscript.tests.TestLambdas$FunInterface:
+- name: apply
+  paramsSignature: int
+  paramNames:
+  - a
+crafttweaker.api.world.IBlockAccess:
+- name: getBlockState
+  paramsSignature: crafttweaker.api.world.IBlockPos
+  paramNames:
+  - pos
+- name: isAirBlock
+  paramsSignature: crafttweaker.api.world.IBlockPos
+  paramNames:
+  - pos
+- name: getStrongPower
+  paramsSignature: crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - pos
+  - facing
+youyihj.zenutils.api.player.ZenUtilsPlayer:
+- name: replaceItemInInventory
+  paramsSignature: crafttweaker.api.player.IPlayer,int,crafttweaker.api.item.IItemStack
+  paramNames:
+  - iPlayer
+  - inventorySlot
+  - itemStack
+- name: getPlayerInventoryItemHandler
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: readStat
+  paramsSignature: crafttweaker.api.player.IPlayer,youyihj.zenutils.api.player.PlayerStat
+  paramNames:
+  - player
+  - stat
+- name: addStat
+  paramsSignature: crafttweaker.api.player.IPlayer,youyihj.zenutils.api.player.PlayerStat,int
+  paramNames:
+  - player
+  - stat
+  - amount
+- name: takeStat
+  paramsSignature: crafttweaker.api.player.IPlayer,youyihj.zenutils.api.player.PlayerStat
+  paramNames:
+  - player
+  - stat
+- name: isFake
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+crafttweaker.mc1120.entity.expand.ExpandEntity:
+- name: getUUID
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: getBoundingBox
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: setBoundingBox
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.util.IAxisAlignedBB
+  paramNames:
+  - internal
+  - aabb
+- name: getStepHeight
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: setStepHeight
+  paramsSignature: crafttweaker.api.entity.IEntity,float
+  paramNames:
+  - internal
+  - stepHeight
+- name: setTeam
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.game.ITeam
+  paramNames:
+  - internal
+  - team
+- name: removeFromWorld
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: doWaterSplashEffect
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: getUpdateBlocked
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: setUpdateBlocked
+  paramsSignature: crafttweaker.api.entity.IEntity,boolean
+  paramNames:
+  - internal
+  - updateBlocked
+- name: getInPortal
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: setInPortal
+  paramsSignature: crafttweaker.api.entity.IEntity,boolean
+  paramNames:
+  - internal
+  - inPortal
+- name: getPortalCounter
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: setPortalCounter
+  paramsSignature: crafttweaker.api.entity.IEntity,int
+  paramNames:
+  - internal
+  - portalCounter
+- name: getLastPortalVec
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: setLastPortalVec
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.world.IVector3d
+  paramNames:
+  - internal
+  - lastPortalVec
+- name: getLastPortalPos
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: setLastPortalPos
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - internal
+  - lastPortalPos
+- name: getLastPortalDirection
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+- name: setLastPortalDirection
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.world.IFacing
+  paramNames:
+  - internal
+  - teleportDirection
+- name: getHorizontalFacing
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - internal
+crafttweaker.api.entity.IEntityAnimal:
+- name: isBreedingItem
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - itemStack
+- name: setInLove
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: canMateWith
+  paramsSignature: crafttweaker.api.entity.IEntityAnimal
+  paramNames:
+  - other
+crafttweaker.api.entity.IEntityMob:
+- name: isPreventingPlayerRest
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+crafttweaker.api.recipes.IFurnaceManager:
+- name: remove
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+  - input
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,double
+  paramNames:
+  - output
+  - input
+  - xp
+- name: setFuel
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - item
+  - fuel
+- name: getFuel
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - item
+- name: getSmeltingResult
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+youyihj.zenutils.api.block.ZenUtilsBlock:
+- name: getItem
+  paramsSignature: crafttweaker.api.block.IBlock,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.block.IBlockState
+  paramNames:
+  - block
+  - world
+  - pos
+  - state
+youyihj.zenutils.api.util.catenation.ICatenationBuilder:
+- name: run
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
+  paramNames:
+  - function
+- name: sleep
+  paramsSignature: long
+  paramNames:
+  - ticks
+- name: sleepUntil
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldCondition
+  paramNames:
+  - condition
+- name: stopWhen
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldCondition
+  paramNames:
+  - condition
+- name: onStop
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
+  paramNames:
+  - function
+- name: then
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
+  paramNames:
+  - function
+youyihj.zenutils.api.network.IByteBuf:
+- name: writeInt
+  paramsSignature: int
+  paramNames:
+  - value
+- name: writeByte
+  paramsSignature: byte
+  paramNames:
+  - value
+- name: writeLong
+  paramsSignature: long
+  paramNames:
+  - value
+- name: writeFloat
+  paramsSignature: float
+  paramNames:
+  - value
+- name: writeDouble
+  paramsSignature: double
+  paramNames:
+  - value
+- name: writeString
+  paramsSignature: java.lang.String
+  paramNames:
+  - string
+- name: writeBlockPos
+  paramsSignature: crafttweaker.api.world.IBlockPos
+  paramNames:
+  - pos
+- name: writeItemStack
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - itemStack
+- name: writeData
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: writeUUID
+  paramsSignature: youyihj.zenutils.api.util.CrTUUID
+  paramNames:
+  - uuid
+youyihj.zenutils.api.command.ZenCommand:
+- name: create
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: getUsage
+  paramsSignature: net.minecraft.command.ICommandSender
+  paramNames:
+  - sender
+crafttweaker.zenscript.expand.ExpandItemStack:
+- name: asWeightedItemStack
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - value
+crafttweaker.api.event.EntityLivingDeathDropsEvent:
+- name: addItem
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - item
+- name: addItem
+  paramsSignature: crafttweaker.api.entity.IEntityItem
+  paramNames:
+  - entityItem
+crafttweaker.api.tooltip.ITooltipFunction:
+- name: process
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - ingredient
+youyihj.zenutils.api.util.catenation.persistence.PersistedCatenationStarter:
+- name: withPlayer
+  paramsSignature: crafttweaker.api.player.IPlayer,java.lang.String
+  paramNames:
+  - player
+  - key
+- name: withPosition
+  paramsSignature: crafttweaker.api.world.IBlockPos,java.lang.String
+  paramNames:
+  - pos
+  - key
+- name: withData
+  paramsSignature: crafttweaker.api.data.IData,java.lang.String
+  paramNames:
+  - data
+  - key
+- name: withEntity
+  paramsSignature: crafttweaker.api.entity.IEntity,java.lang.String
+  paramNames:
+  - entity
+  - key
+crafttweaker.util.IEventHandler:
+- name: handle
+  paramsSignature: T
+  paramNames:
+  - event
+youyihj.zenutils.api.util.ZenUtilsClient:
+- name: catenation
+  paramsSignature: crafttweaker.api.client.IClient
+  paramNames:
+  - client
+crafttweaker.api.event.INoteBlockEvent:
+- name: setNote
+  paramsSignature: java.lang.String
+  paramNames:
+  - note
+- name: setOctave
+  paramsSignature: java.lang.String
+  paramNames:
+  - octave
+- name: setBoth
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - note
+  - octave
+youyihj.zenutils.api.cotx.ExpandVanillaFactory:
+- name: createEnergyItem
+  paramsSignature: java.lang.String,int,int,int
+  paramNames:
+  - unlocalizedName
+  - capacity
+  - maxReceive
+  - maxExtract
+- name: createExpandBlock
+  paramsSignature: java.lang.String,com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialDefinition
+  paramNames:
+  - unlocalizedName
+  - blockMaterial
+- name: createDirectionalBlock
+  paramsSignature: java.lang.String,com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialDefinition,java.lang.String
+  paramNames:
+  - unlocalizedName
+  - blockMaterial
+  - directions
+- name: createExpandItem
+  paramsSignature: java.lang.String
+  paramNames:
+  - unlocalizedName
+- name: createActualTileEntity
+  paramsSignature: int
+  paramNames:
+  - id
+- name: putTileEntityTickFunction
+  paramsSignature: int,youyihj.zenutils.api.cotx.function.ITileEntityTick
+  paramNames:
+  - id
+  - tileEntityTick
+crafttweaker.api.block.IBlockPattern:
+- name: matches
+  paramsSignature: crafttweaker.api.block.IBlock
+  paramNames:
+  - block
+- name: or
+  paramsSignature: crafttweaker.api.block.IBlockPattern
+  paramNames:
+  - pattern
+youyihj.zenutils.api.cotx.tile.ExpandWorldForTile:
+- name: getCustomTileEntity
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+crafttweaker.api.container.IContainer:
+- name: getStack
+  paramsSignature: int
+  paramNames:
+  - i
+- name: setStack
+  paramsSignature: int,crafttweaker.api.item.IItemStack
+  paramNames:
+  - i
+  - stack
+crafttweaker.tests.Optionals:
+- name: print
+  paramsSignature: java.lang.String
+  paramNames:
+  - value
+- name: print2
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - value
+- name: print3
+  paramsSignature: int
+  paramNames:
+  - value
+youyihj.zenutils.api.item.CrTItemHandler:
+- name: getStackInSlot
+  paramsSignature: int
+  paramNames:
+  - slot
+- name: insertItem
+  paramsSignature: int,crafttweaker.api.item.IItemStack,boolean
+  paramNames:
+  - slot
+  - stack
+  - simulate
+- name: extractItem
+  paramsSignature: int,int,boolean
+  paramNames:
+  - slot
+  - amount
+  - simulate
+- name: getSlotLimit
+  paramsSignature: int
+  paramNames:
+  - slot
+- name: isItemValid
+  paramsSignature: int,crafttweaker.api.item.IItemStack
+  paramNames:
+  - slot
+  - stack
+crafttweaker.api.block.IBlockStateMatcher:
+- name: matches
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - blockState
+- name: or
+  paramsSignature: crafttweaker.api.block.IBlockStateMatcher
+  paramNames:
+  - matcher
+- name: allowValuesForProperty
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - name
+  - values
+- name: withMatchedValuesForProperty
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - name
+  - values
+- name: getMatchedValuesForProperty
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+youyihj.zenutils.api.block.ZenUtilsBlockDefinition:
+- name: getFromNumericalId
+  paramsSignature: int
+  paramNames:
+  - id
+youyihj.zenutils.api.cotx.function.IEntityCollided:
+- name: call
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos,com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState,crafttweaker.api.entity.IEntity
+  paramNames:
+  - world
+  - pos
+  - state
+  - entity
+crafttweaker.mc1120.entity.expand.ExpandEntityItem:
+- name: setItem
+  paramsSignature: crafttweaker.api.entity.IEntityItem,crafttweaker.api.item.IItemStack
+  paramNames:
+  - itemEntity
+  - stack
+crafttweaker.api.entity.IEntityArrowTipped:
+- name: setPotionEffect
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+- name: addPotionEffect
+  paramsSignature: crafttweaker.api.potions.IPotionEffect
+  paramNames:
+  - effect
+youyihj.zenutils.api.cotx.function.IGetEntityLifeSpan:
+- name: get
+  paramsSignature: crafttweaker.api.item.IItemStack,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld
+  paramNames:
+  - iItemStack
+  - world
+youyihj.zenutils.api.util.CrTUUID:
+- name: fromString
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: compareTo
+  paramsSignature: youyihj.zenutils.api.util.CrTUUID
+  paramNames:
+  - other
+- name: equals
+  paramsSignature: java.lang.Object
+  paramNames:
+  - o
 crafttweaker.api.world.IWorld:
 - name: getBrightness
   paramsSignature: crafttweaker.api.world.IBlockPos
@@ -562,6 +2355,15 @@ crafttweaker.mc1120.liquid.ExpandLiquidStack:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - thisStack
+youyihj.zenutils.api.liquid.ILiquidTankProperties:
+- name: canFillFluidType
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - liquidStack
+- name: canDrainFluidType
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - liquidStack
 crafttweaker.api.entity.IEntity:
 - name: setDimension
   paramsSignature: int
@@ -664,80 +2466,44 @@ crafttweaker.api.entity.IEntity:
   paramsSignature: crafttweaker.api.data.IData
   paramNames:
   - data
-crafttweaker.api.entity.IEntityFishHook:
-- name: setState
+youyihj.zenutils.api.util.catenation.persistence.CatenationPersistenceEntryBuilder:
+- name: setCatenationFactory
+  paramsSignature: youyihj.zenutils.api.util.catenation.persistence.ICatenationFactory
+  paramNames:
+  - catenationFactory
+- name: addPlayerHolder
   paramsSignature: java.lang.String
   paramNames:
-  - state
-- name: setCaughtEntity
-  paramsSignature: crafttweaker.api.entity.IEntity
+  - objectKey
+- name: addPositionHolder
+  paramsSignature: java.lang.String
   paramNames:
-  - entity
-- name: setLureSpeed
-  paramsSignature: int
+  - objectKey
+- name: addDataHolder
+  paramsSignature: java.lang.String
   paramNames:
-  - lureSpeed
-- name: setLuck
-  paramsSignature: int
+  - objectKey
+- name: addEntityHolder
+  paramsSignature: java.lang.String
   paramNames:
-  - luck
+  - objectKey
 crafttweaker.api.entity.IEntityDropFunction:
 - name: handle
   paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.damage.IDamageSource
   paramNames:
   - entity
   - dmgSource
+youyihj.zenutils.api.util.catenation.CatenationStatus:
+- name: zenEquals
+  paramsSignature: youyihj.zenutils.api.util.catenation.CatenationStatus
+  paramNames:
+  - status
 crafttweaker.mc1120.command.expand.ExpandCommandSender:
 - name: sendRichTextMessage
   paramsSignature: crafttweaker.api.command.ICommandSender,crafttweaker.api.text.ITextComponent
   paramNames:
   - sender
   - textComponent
-crafttweaker.api.command.ICommandSender:
-- name: sendMessage
-  paramsSignature: java.lang.String
-  paramNames:
-  - text
-crafttweaker.api.command.ICommandManager:
-- name: executeCommand
-  paramsSignature: crafttweaker.api.command.ICommandSender,java.lang.String
-  paramNames:
-  - sender
-  - rawCommand
-- name: getTabCompletions
-  paramsSignature: crafttweaker.api.command.ICommandSender,java.lang.String,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - sender
-  - input
-  - pos
-- name: getPossibleCommands
-  paramsSignature: crafttweaker.api.command.ICommandSender
-  paramNames:
-  - sender
-crafttweaker.mc1120.util.expand.ExpandAxisAlignedBB:
-- name: create
-  paramsSignature: double,double,double,double,double,double
-  paramNames:
-  - minX
-  - minY
-  - minZ
-  - maxX
-  - maxY
-  - maxZ
-- name: create
-  paramsSignature: crafttweaker.api.world.IBlockPos
-  paramNames:
-  - pos
-- name: create
-  paramsSignature: crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - pos1
-  - pos2
-- name: create
-  paramsSignature: crafttweaker.api.world.IVector3d,crafttweaker.api.world.IVector3d
-  paramNames:
-  - min
-  - max
 crafttweaker.api.entity.IProjectile:
 - name: shoot
   paramsSignature: double,double,double,float,float
@@ -755,39 +2521,904 @@ crafttweaker.api.entity.IProjectile:
   - z
   - velocity
   - inaccuracy
-crafttweaker.mc1120.world.expand.ExpandVector3d:
-- name: create
-  paramsSignature: double,double,double
+youyihj.zenutils.api.util.StaticString:
+- name: valueOf
+  paramsSignature: int
   paramNames:
-  - x
-  - y
-  - z
-crafttweaker.mc1120.item.ExpandItemDefinition:
-- name: isArrow
-  paramsSignature: crafttweaker.api.item.IItemDefinition
+  - i
+- name: valueOf
+  paramsSignature: boolean
   paramNames:
-  - item
-- name: setAlwaysEdible
-  paramsSignature: crafttweaker.api.item.IItemDefinition
+  - b
+- name: valueOf
+  paramsSignature: long
   paramNames:
-  - item
-- name: removeDispenserBehavior
-  paramsSignature: crafttweaker.api.item.IItemDefinition
+  - l
+- name: valueOf
+  paramsSignature: float
   paramNames:
-  - item
-- name: addDispenserBehavior
-  paramsSignature: crafttweaker.api.item.IItemDefinition,crafttweaker.api.dispenser.IDispenserBehavior,crafttweaker.api.dispenser.IDispenserSoundFunction
+  - f
+- name: valueOf
+  paramsSignature: double
   paramNames:
-  - item
-  - behavior
-  - soundFunction
-- name: addShootingProjectileDispenserBehavior
-  paramsSignature: crafttweaker.api.item.IItemDefinition,crafttweaker.api.entity.IEntityDefinition,float,float
+  - d
+- name: valueOf
+  paramsSignature: java.lang.Object
   paramNames:
-  - item
-  - projectile
-  - inaccuracy
-  - velocity
+  - obj
+- name: format
+  paramsSignature: java.lang.String,java.lang.Object[]
+  paramNames:
+  - format
+  - args
+- name: trim
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: trimToNull
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: trimToEmpty
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: truncate
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - maxWidth
+- name: truncate
+  paramsSignature: java.lang.String,int,int
+  paramNames:
+  - str
+  - offset
+  - maxWidth
+- name: strip
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: strip
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - stripChars
+- name: stripToNull
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: stripStart
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - stripChars
+- name: stripEnd
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - stripChars
+- name: stripAll
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - strings
+- name: stripAll
+  paramsSignature: java.lang.String[],java.lang.String
+  paramNames:
+  - strings
+  - stripChars
+- name: stripAccents
+  paramsSignature: java.lang.String
+  paramNames:
+  - input
+- name: stripToEmpty
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: compare
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str1
+  - str2
+- name: compare
+  paramsSignature: java.lang.String,java.lang.String,boolean
+  paramNames:
+  - str1
+  - str2
+  - nullIsLess
+- name: compareIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str1
+  - str2
+- name: compareIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String,boolean
+  paramNames:
+  - str1
+  - str2
+  - nullIsLess
+- name: substring
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - start
+- name: substring
+  paramsSignature: java.lang.String,int,int
+  paramNames:
+  - str
+  - start
+  - end
+- name: left
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - len
+- name: right
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - len
+- name: mid
+  paramsSignature: java.lang.String,int,int
+  paramNames:
+  - str
+  - pos
+  - len
+- name: substringBefore
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - separator
+- name: substringAfter
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - separator
+- name: substringBeforeLast
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - separator
+- name: substringAfterLast
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - separator
+- name: substringBetween
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - tag
+- name: substringBetween
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - open
+  - close
+- name: substringsBetween
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - open
+  - close
+- name: split
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: split
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - separatorChar
+- name: split
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - separatorChars
+  - max
+- name: splitByWholeSeparator
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - separator
+- name: splitByWholeSeparator
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - separator
+  - max
+- name: splitByWholeSeparatorPreserveAllTokens
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - separator
+- name: splitByWholeSeparatorPreserveAllTokens
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - separator
+  - max
+- name: splitPreserveAllTokens
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: splitPreserveAllTokens
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - separatorChar
+- name: splitPreserveAllTokens
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - separatorChars
+  - max
+- name: splitByCharacterType
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: splitByCharacterTypeCamelCase
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: deleteWhitespace
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: removeStart
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - remove
+- name: removeStartIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - remove
+- name: removeEnd
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - remove
+- name: removeEndIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - remove
+- name: remove
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - remove
+- name: removeIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - remove
+- name: removeAll
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - text
+  - regex
+- name: removeFirst
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - text
+  - regex
+- name: replaceOnce
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - text
+  - searchString
+  - replacement
+- name: replaceOnceIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - text
+  - searchString
+  - replacement
+- name: replacePattern
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - source
+  - regex
+  - replacement
+- name: removePattern
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - source
+  - regex
+- name: replaceAll
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - text
+  - regex
+  - replacement
+- name: replaceFirst
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - text
+  - regex
+  - replacement
+- name: replace
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - text
+  - searchString
+  - replacement
+- name: replaceIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - text
+  - searchString
+  - replacement
+- name: replace
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String,int
+  paramNames:
+  - text
+  - searchString
+  - replacement
+  - max
+- name: replaceIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String,int
+  paramNames:
+  - text
+  - searchString
+  - replacement
+  - max
+- name: replaceEach
+  paramsSignature: java.lang.String,java.lang.String[],java.lang.String[]
+  paramNames:
+  - text
+  - searchList
+  - replacementList
+- name: replaceEachRepeatedly
+  paramsSignature: java.lang.String,java.lang.String[],java.lang.String[]
+  paramNames:
+  - text
+  - searchList
+  - replacementList
+- name: replaceChars
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - searchChars
+  - replaceChars
+- name: overlay
+  paramsSignature: java.lang.String,java.lang.String,int,int
+  paramNames:
+  - str
+  - overlay
+  - start
+  - end
+- name: chomp
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: chop
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: repeat
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - repeat
+- name: repeat
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - separator
+  - repeat
+- name: rightPad
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - size
+- name: rightPad
+  paramsSignature: java.lang.String,int,java.lang.String
+  paramNames:
+  - str
+  - size
+  - padStr
+- name: leftPad
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - size
+- name: leftPad
+  paramsSignature: java.lang.String,int,java.lang.String
+  paramNames:
+  - str
+  - size
+  - padStr
+- name: center
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - size
+- name: center
+  paramsSignature: java.lang.String,int,java.lang.String
+  paramNames:
+  - str
+  - size
+  - padStr
+- name: upperCase
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: lowerCase
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: capitalize
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: uncapitalize
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: swapCase
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: defaultString
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: defaultString
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - defaultStr
+- name: rotate
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - shift
+- name: reverse
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: reverseDelimited
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - separatorChar
+- name: abbreviate
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - str
+  - maxWidth
+- name: abbreviate
+  paramsSignature: java.lang.String,int,int
+  paramNames:
+  - str
+  - offset
+  - maxWidth
+- name: abbreviateMiddle
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - middle
+  - length
+- name: difference
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str1
+  - str2
+- name: getCommonPrefix
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - strs
+- name: normalizeSpace
+  paramsSignature: java.lang.String
+  paramNames:
+  - str
+- name: wrap
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - wrapWith
+- name: wrapIfMissing
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - wrapWith
+- name: isEmpty
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isNotEmpty
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isAnyEmpty
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - css
+- name: isNoneEmpty
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - css
+- name: isBlank
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isNotBlank
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isAnyBlank
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - css
+- name: isNoneBlank
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - css
+- name: equals
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - cs1
+  - cs2
+- name: equalsIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str1
+  - str2
+- name: equalsAny
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - string
+  - searchStrings
+- name: equalsAnyIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - string
+  - searchStrings
+- name: indexOf
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - seq
+  - searchChar
+- name: indexOf
+  paramsSignature: java.lang.String,int,int
+  paramNames:
+  - seq
+  - searchChar
+  - startPos
+- name: indexOf
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - seq
+  - searchSeq
+- name: indexOf
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - seq
+  - searchSeq
+  - startPos
+- name: ordinalIndexOf
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - searchStr
+  - ordinal
+- name: indexOfIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - searchStr
+- name: indexOfIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - searchStr
+  - startPos
+- name: lastIndexOf
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - seq
+  - searchChar
+- name: lastIndexOf
+  paramsSignature: java.lang.String,int,int
+  paramNames:
+  - seq
+  - searchChar
+  - startPos
+- name: lastIndexOf
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - seq
+  - searchSeq
+- name: lastOrdinalIndexOf
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - searchStr
+  - ordinal
+- name: lastIndexOf
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - seq
+  - searchSeq
+  - startPos
+- name: lastIndexOfIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - searchStr
+- name: lastIndexOfIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - str
+  - searchStr
+  - startPos
+- name: contains
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - seq
+  - searchChar
+- name: contains
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - seq
+  - searchSeq
+- name: containsIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - searchStr
+- name: containsWhitespace
+  paramsSignature: java.lang.String
+  paramNames:
+  - seq
+- name: indexOfAny
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - cs
+  - searchChars
+- name: containsAny
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - cs
+  - searchChars
+- name: containsAny
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - cs
+  - searchStrings
+- name: indexOfAnyBut
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - seq
+  - searchChars
+- name: containsOnly
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - cs
+  - validChars
+- name: containsNone
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - cs
+  - invalidChars
+- name: indexOfAny
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - str
+  - searchStrs
+- name: lastIndexOfAny
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - str
+  - searchStrs
+- name: join
+  paramsSignature: java.lang.Object[],java.lang.String
+  paramNames:
+  - array
+  - separator
+- name: join
+  paramsSignature: long[],java.lang.String
+  paramNames:
+  - array
+  - separator
+- name: join
+  paramsSignature: int[],java.lang.String
+  paramNames:
+  - array
+  - separator
+- name: join
+  paramsSignature: short[],java.lang.String
+  paramNames:
+  - array
+  - separator
+- name: join
+  paramsSignature: float[],java.lang.String
+  paramNames:
+  - array
+  - separator
+- name: join
+  paramsSignature: double[],java.lang.String
+  paramNames:
+  - array
+  - separator
+- name: join
+  paramsSignature: java.lang.Object[],java.lang.String,int,int
+  paramNames:
+  - array
+  - separator
+  - startIndex
+  - endIndex
+- name: join
+  paramsSignature: long[],java.lang.String,int,int
+  paramNames:
+  - array
+  - separator
+  - startIndex
+  - endIndex
+- name: join
+  paramsSignature: int[],java.lang.String,int,int
+  paramNames:
+  - array
+  - separator
+  - startIndex
+  - endIndex
+- name: join
+  paramsSignature: short[],java.lang.String,int,int
+  paramNames:
+  - array
+  - separator
+  - startIndex
+  - endIndex
+- name: join
+  paramsSignature: float[],java.lang.String,int,int
+  paramNames:
+  - array
+  - separator
+  - startIndex
+  - endIndex
+- name: join
+  paramsSignature: double[],java.lang.String,int,int
+  paramNames:
+  - array
+  - separator
+  - startIndex
+  - endIndex
+- name: joinWith
+  paramsSignature: java.lang.String,java.lang.Object[]
+  paramNames:
+  - separator
+  - objects
+- name: length
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: countMatches
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - sub
+- name: isAlpha
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isAlphaSpace
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isAlphanumeric
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isAlphanumericSpace
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isAsciiPrintable
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isNumeric
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isNumericSpace
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isWhitespace
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isAllLowerCase
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: isAllUpperCase
+  paramsSignature: java.lang.String
+  paramNames:
+  - cs
+- name: indexOfDifference
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - cs1
+  - cs2
+- name: indexOfDifference
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - css
+- name: getLevenshteinDistance
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - s
+  - t
+- name: getLevenshteinDistance
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - s
+  - t
+  - threshold
+- name: getJaroWinklerDistance
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - first
+  - second
+- name: startsWith
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - prefix
+- name: startsWithIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - prefix
+- name: startsWithAny
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - sequence
+  - searchStrings
+- name: endsWith
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - suffix
+- name: endsWithIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - str
+  - suffix
+- name: endsWithAny
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - sequence
+  - searchStrings
+- name: appendIfMissing
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
+  paramNames:
+  - str
+  - suffix
+  - suffixes
+- name: appendIfMissingIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
+  paramNames:
+  - str
+  - suffix
+  - suffixes
+- name: prependIfMissing
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
+  paramNames:
+  - str
+  - prefix
+  - prefixes
+- name: prependIfMissingIgnoreCase
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
+  paramNames:
+  - str
+  - prefix
+  - prefixes
 java.lang.String:
 - name: equals
   paramsSignature: java.lang.Object
@@ -1033,11 +3664,6 @@ crafttweaker.api.player.IPlayer:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - item
-crafttweaker.api.item.IItemCondition:
-- name: matches
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - stack
 crafttweaker.api.entity.attribute.IEntityAttribute:
 - name: clampValue
   paramsSignature: double
@@ -1110,16 +3736,19 @@ crafttweaker.api.data.IData:
   paramsSignature: crafttweaker.api.data.IData
   paramNames:
   - data
-crafttweaker.api.entity.IEntityCreature:
-- name: isPositionWithinHomeDistance
-  paramsSignature: crafttweaker.api.world.IBlockPos
+youyihj.zenutils.api.command.ExpandedCommandManager:
+- name: executeCommandSilent
+  paramsSignature: crafttweaker.api.command.ICommandManager,crafttweaker.api.command.ICommandSender,java.lang.String
   paramNames:
-  - pos
-- name: setHomePositionAndDistance
-  paramsSignature: crafttweaker.api.world.IBlockPos,int
+  - commandManager
+  - sender
+  - rawCommand
+youyihj.zenutils.api.command.TabCompletionCase:
+- name: add
+  paramsSignature: java.lang.String,java.util.List
   paramNames:
-  - pos
-  - distance
+  - key
+  - value
 crafttweaker.tests.test.IRanges:
 - name: printRange
   paramsSignature: stanhebben.zenscript.value.IntRange
@@ -1134,64 +3763,11 @@ crafttweaker.api.oredict.IOreDict:
   paramsSignature: java.lang.String
   paramNames:
   - name
-crafttweaker.mc1120.player.expand.ExpandPlayer:
-- name: getBedLocation
-  paramsSignature: crafttweaker.api.player.IPlayer
+youyihj.zenutils.api.command.IGetCommandUsage:
+- name: getCommandUsage
+  paramsSignature: youyihj.zenutils.api.command.ZenUtilsCommandSender
   paramNames:
-  - player
-- name: getFishHook
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: getInventoryContainer
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: sendRichTextStatusMessage
-  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.text.ITextComponent,boolean
-  paramNames:
-  - player
-  - textComponent
-  - hotbar
-- name: isSleeping
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: isFullyAsleep
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: getSleepTimer
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-crafttweaker.api.player.IFoodStats:
-- name: addStats
-  paramsSignature: int,float
-  paramNames:
-  - foodValue
-  - saturationLevel
-- name: onUpdate
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: addExhaustion
-  paramsSignature: float
-  paramNames:
-  - exhaustion
-crafttweaker.api.util.Position3f:
-- name: setX
-  paramsSignature: float
-  paramNames:
-  - x
-- name: setY
-  paramsSignature: float
-  paramNames:
-  - y
-- name: setZ
-  paramsSignature: float
-  paramNames:
-  - z
+  - sender
 crafttweaker.zenscript.expand.ExpandShort:
 - name: asNBT
   paramsSignature: short
@@ -1229,100 +3805,6 @@ crafttweaker.mods.jei.JEI:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - stack
-crafttweaker.api.block.IBlockProperties:
-- name: getLightValue
-  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - access
-  - pos
-- name: getWeakPower
-  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
-  paramNames:
-  - access
-  - pos
-  - facing
-- name: getComparatorInputOverride
-  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - world
-  - pos
-- name: canEntitySpawn
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - entity
-- name: doesSideBlockRendering
-  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
-  paramNames:
-  - access
-  - pos
-  - facing
-- name: getActualState
-  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - access
-  - pos
-- name: getBlockHardness
-  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - world
-  - pos
-- name: getLightOpacity
-  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - access
-  - pos
-- name: getPlayerRelativeBlockHardness
-  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - player
-  - world
-  - pos
-- name: getStrongPower
-  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
-  paramNames:
-  - access
-  - pos
-  - facing
-- name: isSideSolid
-  paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
-  paramNames:
-  - access
-  - pos
-  - facing
-crafttweaker.api.game.IGame:
-- name: getLiquid
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
-- name: getEntity
-  paramsSignature: java.lang.String
-  paramNames:
-  - entityName
-- name: setLocalization
-  paramsSignature: java.lang.String,java.lang.String
-  paramNames:
-  - key
-  - value
-- name: setLocalization
-  paramsSignature: java.lang.String,java.lang.String,java.lang.String
-  paramNames:
-  - lang
-  - key
-  - value
-- name: localize
-  paramsSignature: java.lang.String
-  paramNames:
-  - key
-- name: localize
-  paramsSignature: java.lang.String,java.lang.String
-  paramNames:
-  - key
-  - lang
-crafttweaker.api.dispenser.IDispenserSoundFunction:
-- name: apply
-  paramsSignature: crafttweaker.api.dispenser.IBlockSource
-  paramNames:
-  - source
 stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithDefaultMethod:
 - name: apply
   paramsSignature: int
@@ -1496,15 +3978,16 @@ crafttweaker.api.item.IItemStack:
   - toolClass
   - player
   - blockState
-stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithStaticMethod:
-- name: apply
-  paramsSignature: int
+youyihj.zenutils.api.util.CrTIntRange:
+- name: get
+  paramsSignature: int,int
   paramNames:
-  - a
-- name: apply
-  paramsSignature: int
+  - from
+  - to
+- name: get
+  paramsSignature: stanhebben.zenscript.value.IntRange
   paramNames:
-  - a
+  - range
 crafttweaker.api.item.IMutableItemStack:
 - name: shrink
   paramsSignature: int
@@ -1519,11 +4002,6 @@ crafttweaker.api.item.IMutableItemStack:
   paramNames:
   - amount
   - player
-crafttweaker.zenscript.expand.ExpandDouble:
-- name: asData
-  paramsSignature: double
-  paramNames:
-  - value
 crafttweaker.zenscript.expand.ExpandAnyArray:
 - name: asData
   paramsSignature: crafttweaker.api.data.IData[]
@@ -1601,6 +4079,13 @@ crafttweaker.api.world.IVector3d:
   paramsSignature: double
   paramNames:
   - factor
+youyihj.zenutils.api.cotx.function.IEntityWalk:
+- name: call
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos,crafttweaker.api.entity.IEntity
+  paramNames:
+  - world
+  - pos
+  - entity
 crafttweaker.api.creativetabs.ICreativeTab:
 - name: setBackgroundImageName
   paramsSignature: java.lang.String
@@ -1631,11 +4116,6 @@ crafttweaker.api.util.IRandom:
   paramNames:
   - minimum
   - maximum
-crafttweaker.api.event.NoteBlockPlayEvent:
-- name: setInstrument
-  paramsSignature: java.lang.String
-  paramNames:
-  - instrument
 crafttweaker.mc1120.entity.attribute.expand.ExpandEntityAttributeModifier:
 - name: createModifier
   paramsSignature: java.lang.String,double,int,java.lang.String
@@ -1658,61 +4138,6 @@ crafttweaker.api.event.PlayerVisibilityEvent:
   paramsSignature: double
   paramNames:
   - modifier
-crafttweaker.mc1120.damage.expand.MCDamageSourceExpand:
-- name: createEntityDamage
-  paramsSignature: java.lang.String,crafttweaker.api.entity.IEntity
-  paramNames:
-  - damagetype
-  - source
-- name: createIndirectDamage
-  paramsSignature: java.lang.String,crafttweaker.api.entity.IEntity,crafttweaker.api.entity.IEntity
-  paramNames:
-  - damagetype
-  - source
-  - indirectEntity
-- name: createMobDamage
-  paramsSignature: crafttweaker.api.entity.IEntityLivingBase
-  paramNames:
-  - mob
-- name: createIndirectDamage
-  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.entity.IEntityLivingBase
-  paramNames:
-  - source
-  - indirectEntityIn
-- name: createPlayerDamage
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: createThrownDamage
-  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.entity.IEntity
-  paramNames:
-  - source
-  - indirectEntityIn
-- name: createIndirectMagicDamage
-  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.entity.IEntity
-  paramNames:
-  - source
-  - indirectEntityIn
-- name: createThornsDamage
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - source
-- name: createExplosionDamage
-  paramsSignature: crafttweaker.api.entity.IEntityLivingBase
-  paramNames:
-  - entityLivingBaseIn
-- name: createOfType
-  paramsSignature: java.lang.String
-  paramNames:
-  - type
-- name: isDamageUnblockable
-  paramsSignature: crafttweaker.api.damage.IDamageSource
-  paramNames:
-  - source
-- name: getDamageLocation
-  paramsSignature: crafttweaker.api.damage.IDamageSource
-  paramNames:
-  - source
 crafttweaker.api.recipes.IRecipeManager:
 - name: getRecipesFor
   paramsSignature: crafttweaker.api.item.IIngredient
@@ -1830,176 +4255,25 @@ crafttweaker.api.recipes.IRecipeManager:
   - toReplace
   - replaceWith
   - forOutput
-crafttweaker.api.block.IBlockDefinition:
-- name: getLightOpacity
-  paramsSignature: crafttweaker.api.block.IBlockState
-  paramNames:
-  - state
-- name: getLightOpacity
-  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - state
-  - world
-  - pos
-- name: getLightLevel
-  paramsSignature: crafttweaker.api.block.IBlockState
-  paramNames:
-  - state
-- name: getLightLevel
-  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - state
-  - world
-  - pos
-- name: getResistance
-  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.entity.IEntity,crafttweaker.api.world.IExplosion
-  paramNames:
-  - world
-  - pos
-  - entity
-  - explosion
-- name: setHarvestLevel
-  paramsSignature: java.lang.String,int,crafttweaker.api.block.IBlockState
-  paramNames:
-  - toolClass
-  - level
-  - state
-- name: getHarvestLevel
-  paramsSignature: crafttweaker.api.block.IBlockState
-  paramNames:
-  - state
-- name: getHarvestTool
-  paramsSignature: crafttweaker.api.block.IBlockState
-  paramNames:
-  - state
-- name: tickRate
-  paramsSignature: crafttweaker.api.world.IWorld
-  paramNames:
-  - world
-- name: canPlaceBlockOnSide
-  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
-  paramNames:
-  - world
-  - pos
-  - facing
-- name: canPlaceBlockAt
-  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - world
-  - pos
-- name: getSlipperiness
-  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos,crafttweaker.api.entity.IEntity
-  paramNames:
-  - state
-  - access
-  - pos
-  - entity
-- name: getStateFromMeta
-  paramsSignature: int
-  paramNames:
-  - meta
-- name: isToolEffective
-  paramsSignature: java.lang.String,crafttweaker.api.block.IBlockState
-  paramNames:
-  - type
-  - state
 crafttweaker.mc1120.world.expand.ExpandBiomeType:
 - name: getBiomes
   paramsSignature: crafttweaker.api.world.IBiomeType
   paramNames:
   - biomeType
-crafttweaker.api.entity.IEntityAgeable:
-- name: ageUp
-  paramsSignature: int,boolean
+youyihj.zenutils.api.cotx.ExpandHand:
+- name: asEntityEquipmentSlot
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Hand
   paramNames:
-  - seconds
-  - forced
-- name: addGrowth
+  - hand
+youyihj.zenutils.api.util.HexHelper:
+- name: toHexString
   paramsSignature: int
   paramNames:
-  - seconds
-crafttweaker.tests.test.CompareTests:
-- name: compare
-  paramsSignature: crafttweaker.tests.test.CompareTests
-  paramNames:
-  - other
-crafttweaker.api.util.IAxisAlignedBB:
-- name: contract
-  paramsSignature: double,double,double
-  paramNames:
-  - x
-  - y
-  - z
-- name: expand
-  paramsSignature: double,double,double
-  paramNames:
-  - x
-  - y
-  - z
-- name: grow
-  paramsSignature: double
-  paramNames:
-  - value
-- name: grow
-  paramsSignature: double,double,double
-  paramNames:
-  - x
-  - y
-  - z
-- name: shrink
-  paramsSignature: double
-  paramNames:
-  - value
-- name: intersect
-  paramsSignature: crafttweaker.api.util.IAxisAlignedBB
-  paramNames:
-  - other
-- name: intersects
-  paramsSignature: crafttweaker.api.util.IAxisAlignedBB
-  paramNames:
-  - other
-- name: contains
-  paramsSignature: crafttweaker.api.world.IVector3d
-  paramNames:
-  - vec
-- name: union
-  paramsSignature: crafttweaker.api.util.IAxisAlignedBB
-  paramNames:
-  - other
-crafttweaker.api.entity.attribute.IEntityAttributeInstance:
-- name: setBaseValue
-  paramsSignature: double
-  paramNames:
-  - baseValue
-- name: getModifiersByOperation
-  paramsSignature: int
-  paramNames:
-  - operation
-- name: hasModifier
-  paramsSignature: crafttweaker.api.entity.attribute.IEntityAttributeModifier
-  paramNames:
-  - modifier
-- name: getModifier
+  - i
+- name: toDecInteger
   paramsSignature: java.lang.String
   paramNames:
-  - uuid
-- name: applyModifier
-  paramsSignature: crafttweaker.api.entity.attribute.IEntityAttributeModifier
-  paramNames:
-  - modifier
-- name: removeModifier
-  paramsSignature: crafttweaker.api.entity.attribute.IEntityAttributeModifier
-  paramNames:
-  - modifier
-- name: removeModifier
-  paramsSignature: java.lang.String
-  paramNames:
-  - uuid
-crafttweaker.zenscript.expand.ExpandBool:
-- name: asData
-  paramsSignature: boolean
-  paramNames:
-  - value
+  - hex
 crafttweaker.api.dispenser.IDispenserBehavior:
 - name: apply
   paramsSignature: crafttweaker.api.dispenser.IBlockSource,crafttweaker.api.item.IItemStack
@@ -2011,38 +4285,6 @@ crafttweaker.api.dispenser.IDispenserBehavior:
   paramNames:
   - source
   - stack
-crafttweaker.api.block.IBlockState:
-- name: isReplaceable
-  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - world
-  - blockPos
-- name: compare
-  paramsSignature: crafttweaker.api.block.IBlockState
-  paramNames:
-  - other
-- name: withProperty
-  paramsSignature: java.lang.String,java.lang.String
-  paramNames:
-  - name
-  - value
-- name: getPropertyValue
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
-- name: getAllowedValuesForProperty
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
-crafttweaker.api.text.ITextComponent:
-- name: append
-  paramsSignature: crafttweaker.api.text.ITextComponent
-  paramNames:
-  - text
-- name: cat
-  paramsSignature: crafttweaker.api.text.ITextComponent
-  paramNames:
-  - text
 crafttweaker.api.item.IItemDefinition:
 - name: makeStack
   paramsSignature: int
@@ -2065,6 +4307,78 @@ crafttweaker.api.item.IItemDefinition:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - itemStack
+youyihj.zenutils.api.util.StringList:
+- name: create
+  paramsSignature: java.util.Collection
+  paramNames:
+  - list
+- name: create
+  paramsSignature: java.lang.Object[]
+  paramNames:
+  - objects
+- name: singletonList
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: get
+  paramsSignature: int
+  paramNames:
+  - index
+- name: set
+  paramsSignature: int,java.lang.Object
+  paramNames:
+  - index
+  - obj
+- name: add
+  paramsSignature: java.lang.Object
+  paramNames:
+  - obj
+- name: remove
+  paramsSignature: java.lang.Object
+  paramNames:
+  - obj
+- name: removeIf
+  paramsSignature: youyihj.zenutils.api.util.StringPredicate
+  paramNames:
+  - predicate
+- name: contains
+  paramsSignature: java.lang.Object
+  paramNames:
+  - obj
+- name: add
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: remove
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: contains
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: indexOf
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: lastIndexOf
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: subList
+  paramsSignature: int,int
+  paramNames:
+  - fromIndex
+  - toIndex
+youyihj.zenutils.api.ftbq.CTQuestObjectBase:
+- name: hasTag
+  paramsSignature: java.lang.String
+  paramNames:
+  - tag
+- name: equals
+  paramsSignature: youyihj.zenutils.api.ftbq.CTQuestObjectBase
+  paramNames:
+  - others
 crafttweaker.zenscript.expand.ExpandIntArray:
 - name: asData
   paramsSignature: int[]
@@ -2160,20 +4474,6 @@ crafttweaker.mc1120.entity.expand.ExpandEntityLivingBase:
   paramNames:
   - entityLivingBase
   - moveVertical
-crafttweaker.api.world.IExplosion:
-- name: onExplosionStart
-  paramsSignature: crafttweaker.api.world.IWorld
-  paramNames:
-  - world
-- name: doExplosionB
-  paramsSignature: boolean
-  paramNames:
-  - spawnParticles
-crafttweaker.api.damage.IDamageSource:
-- name: getDeathMessage
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - entity
 crafttweaker.zenscript.expand.ExpandFloat:
 - name: asData
   paramsSignature: float
@@ -2200,50 +4500,6 @@ crafttweaker.api.event.PlayerInteractEvent:
   paramsSignature: int
   paramNames:
   - amount
-crafttweaker.api.vanilla.ISeedRegistry:
-- name: addSeed
-  paramsSignature: crafttweaker.api.item.WeightedItemStack
-  paramNames:
-  - item
-- name: removeSeed
-  paramsSignature: crafttweaker.api.item.IIngredient
-  paramNames:
-  - item
-crafttweaker.runtime.ILogger:
-- name: logCommand
-  paramsSignature: java.lang.String
-  paramNames:
-  - message
-- name: logInfo
-  paramsSignature: java.lang.String
-  paramNames:
-  - message
-- name: logWarning
-  paramsSignature: java.lang.String
-  paramNames:
-  - message
-- name: logError
-  paramsSignature: java.lang.String
-  paramNames:
-  - message
-- name: logError
-  paramsSignature: java.lang.String,java.lang.Throwable
-  paramNames:
-  - message
-  - exception
-- name: logPlayer
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: logDefault
-  paramsSignature: java.lang.String
-  paramNames:
-  - message
-crafttweaker.api.game.ITeam:
-- name: formatString
-  paramsSignature: java.lang.String
-  paramNames:
-  - input
 crafttweaker.api.entity.IEntityArrow:
 - name: setDamage
   paramsSignature: double
@@ -2274,15 +4530,21 @@ crafttweaker.api.entity.IEntityArrow:
   - roll
   - velocity
   - inaccuracy
-stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithZenMethod:
-- name: apply
-  paramsSignature: int
+youyihj.zenutils.api.entity.ZenUtilsEntity:
+- name: setMotionVector
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.world.IVector3d
   paramNames:
-  - a
-- name: apply
-  paramsSignature: int
+  - entity
+  - vector
+- name: getUUIDObject
+  paramsSignature: crafttweaker.api.entity.IEntity
   paramNames:
-  - a
+  - entity
+- name: updateNBT
+  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.data.IData
+  paramNames:
+  - entity
+  - data
 crafttweaker.api.recipes.IRecipeFunction:
 - name: process
   paramsSignature: crafttweaker.api.item.IItemStack,java.util.Map,crafttweaker.api.recipes.ICraftingInfo
@@ -2295,53 +4557,6 @@ stanhebben.zenscript.tests.TestZenProperty$PropertyTester:
   paramsSignature: java.lang.String
   paramNames:
   - b
-crafttweaker.api.tooltip.IngredientTooltips:
-- name: addTooltip
-  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - ingredient
-  - tooltip
-- name: addAdvancedTooltip
-  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.tooltip.ITooltipFunction
-  paramNames:
-  - ingredient
-  - function
-- name: addShiftTooltip
-  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.formatting.IFormattedText,crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - ingredient
-  - tooltip
-  - showMessage
-- name: addShiftTooltip
-  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.tooltip.ITooltipFunction,crafttweaker.api.tooltip.ITooltipFunction
-  paramNames:
-  - ingredient
-  - function
-  - showMessage
-- name: clearTooltip
-  paramsSignature: crafttweaker.api.item.IIngredient
-  paramNames:
-  - ingredient
-- name: clearTooltip
-  paramsSignature: crafttweaker.api.item.IIngredient,boolean
-  paramNames:
-  - ingredient
-  - leaveName
-- name: removeTooltip
-  paramsSignature: crafttweaker.api.item.IIngredient,java.lang.String
-  paramNames:
-  - ingredient
-  - regex
-- name: removeTooltipLine
-  paramsSignature: crafttweaker.api.item.IIngredient,int
-  paramNames:
-  - ingredient
-  - line
-crafttweaker.api.liquid.ILiquidDefinition:
-- name: asStack
-  paramsSignature: int
-  paramNames:
-  - millibuckets
 crafttweaker.tests.wiki.DevWikiMethod:
 - name: staticMethod
   paramsSignature: int
@@ -2355,39 +4570,6 @@ crafttweaker.tests.wiki.DevWikiMethod:
   paramsSignature: int[]
   paramNames:
   - args
-crafttweaker.api.item.IngredientTransform:
-- name: transformDamage
-  paramsSignature: crafttweaker.api.item.IIngredient
-  paramNames:
-  - ingredient
-- name: transformDamage
-  paramsSignature: crafttweaker.api.item.IIngredient,int
-  paramNames:
-  - ingredient
-  - damage
-- name: transformReplace
-  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
-  paramNames:
-  - ingredient
-  - withItem
-- name: transformConsume
-  paramsSignature: crafttweaker.api.item.IIngredient,int
-  paramNames:
-  - ingredient
-  - amount
-- name: noReturn
-  paramsSignature: crafttweaker.api.item.IIngredient
-  paramNames:
-  - ingredient
-- name: giveBack
-  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
-  paramNames:
-  - ingredient
-  - givenItem
-- name: reuse
-  paramsSignature: crafttweaker.api.item.IIngredient
-  paramNames:
-  - ingredient
 crafttweaker.api.recipes.IRecipeAction:
 - name: process
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.recipes.ICraftingInfo,crafttweaker.api.player.IPlayer
@@ -2395,12 +4577,6 @@ crafttweaker.api.recipes.IRecipeAction:
   - output
   - craftingInfo
   - player
-crafttweaker.api.world.IBlockPos:
-- name: getOffset
-  paramsSignature: crafttweaker.api.world.IFacing,int
-  paramNames:
-  - direction
-  - offset
 crafttweaker.api.event.IEventManager:
 - name: onPlayerLoggedOut
   paramsSignature: crafttweaker.util.IEventHandler
@@ -2810,28 +4986,6 @@ crafttweaker.api.event.IEventManager:
   paramsSignature: crafttweaker.util.IEventHandler
   paramNames:
   - ev
-crafttweaker.api.vanilla.ILootRegistry:
-- name: addChestLoot
-  paramsSignature: java.lang.String,crafttweaker.api.item.WeightedItemStack
-  paramNames:
-  - name
-  - item
-- name: addChestLoot
-  paramsSignature: java.lang.String,crafttweaker.api.item.WeightedItemStack,int,int
-  paramNames:
-  - name
-  - item
-  - min
-  - max
-- name: removeChestLoot
-  paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient
-  paramNames:
-  - name
-  - ingredient
-- name: getLoot
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
 crafttweaker.runtime.GlobalFunctions:
 - name: print
   paramsSignature: java.lang.String
@@ -2841,6 +4995,13 @@ crafttweaker.runtime.GlobalFunctions:
   paramsSignature: java.lang.Object
   paramNames:
   - any
+youyihj.zenutils.api.network.IServerMessageHandler:
+- name: handle
+  paramsSignature: crafttweaker.api.server.IServer,youyihj.zenutils.api.network.IByteBuf,crafttweaker.api.player.IPlayer
+  paramNames:
+  - server
+  - byteBuf
+  - player
 crafttweaker.api.item.IItemTransformer:
 - name: transform
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.player.IPlayer
@@ -2865,21 +5026,39 @@ crafttweaker.api.potions.IPotion:
   - amplifier
   - ambient
   - showParticles
+youyihj.zenutils.api.util.CrTI18n:
+- name: hasKey
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: format
+  paramsSignature: java.lang.String,java.lang.Object[]
+  paramNames:
+  - format
+  - args
+- name: format
+  paramsSignature: java.lang.String
+  paramNames:
+  - format
 crafttweaker.api.world.IFacing:
 - name: compare
   paramsSignature: crafttweaker.api.world.IFacing
   paramNames:
   - other
-crafttweaker.mc1120.world.expand.ExpandWorldProvider:
-- name: getFromID
-  paramsSignature: int
-  paramNames:
-  - id
 crafttweaker.zenscript.expand.ExpandAnyDict:
 - name: asData
   paramsSignature: java.util.Map
   paramNames:
   - values
+youyihj.zenutils.api.util.delay.IsExecute:
+- name: setExec
+  paramsSignature: boolean
+  paramNames:
+  - exec
+- name: of
+  paramsSignature: boolean
+  paramNames:
+  - exec
 crafttweaker.mc1120.text.expand.ExpandTextComponent:
 - name: fromString
   paramsSignature: java.lang.String
@@ -2898,146 +5077,34 @@ crafttweaker.mc1120.text.expand.ExpandTextComponent:
   paramsSignature: crafttweaker.api.data.IData
   paramNames:
   - data
-crafttweaker.api.item.IItemUtils:
-- name: createPotion
-  paramsSignature: java.lang.Object[][]
-  paramNames:
-  - params
-- name: createPotion
-  paramsSignature: crafttweaker.api.potions.IPotionEffect[]
-  paramNames:
-  - params
-- name: enchantItem
-  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.enchantments.IEnchantment[]
-  paramNames:
-  - item
-  - enchantments
-- name: createEnchantedBook
-  paramsSignature: crafttweaker.api.enchantments.IEnchantment[]
-  paramNames:
-  - enchantments
-- name: combineEnchantments
-  paramsSignature: java.lang.String,crafttweaker.api.enchantments.IEnchantment[]
-  paramNames:
-  - baseKey
-  - enchantments
-- name: combineEnchantments
-  paramsSignature: crafttweaker.api.enchantments.IEnchantment[]
-  paramNames:
-  - enchantments
-- name: getItemsByRegexRegistryName
-  paramsSignature: java.lang.String
-  paramNames:
-  - regex
-- name: getItem
-  paramsSignature: java.lang.String,int
-  paramNames:
-  - location
-  - meta
-- name: getItemsByRegexUnlocalizedName
-  paramsSignature: java.lang.String
-  paramNames:
-  - regex
-- name: createSpawnEgg
-  paramsSignature: crafttweaker.api.entity.IEntityDefinition,crafttweaker.api.data.IData
-  paramNames:
-  - entity
-  - customNBT
 crafttweaker.api.event.BlockHarvestDropsEvent:
 - name: addItem
   paramsSignature: crafttweaker.api.item.WeightedItemStack
   paramNames:
   - itemStack
-stanhebben.zenscript.tests.TestFunctionTypes$MyNativeType:
-- name: create
+youyihj.zenutils.api.world.GameRuleHelper:
+- name: getBoolean
   paramsSignature: java.lang.String
   paramNames:
-  - s
-crafttweaker.api.formatting.IFormatter:
-- name: black
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  - name
+- name: getString
+  paramsSignature: java.lang.String
   paramNames:
-  - text
-- name: darkBlue
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  - name
+- name: getInt
+  paramsSignature: java.lang.String
   paramNames:
-  - text
-- name: darkGreen
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  - name
+- name: hasRule
+  paramsSignature: java.lang.String
   paramNames:
-  - text
-- name: darkAqua
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
+  - name
+- name: addGameRule
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
   paramNames:
-  - text
-- name: darkRed
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: darkPurple
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: gold
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: gray
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: darkGray
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: blue
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: green
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: aqua
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: red
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: lightPurple
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: yellow
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: white
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: obfuscated
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: bold
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: strikethrough
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: underline
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
-- name: italic
-  paramsSignature: crafttweaker.api.formatting.IFormattedText
-  paramNames:
-  - text
+  - key
+  - value
+  - type
 crafttweaker.mc1120.block.expand.ExpandBlockState:
 - name: getBlockState
   paramsSignature: java.lang.String,java.lang.String[]
@@ -3082,6 +5149,60 @@ crafttweaker.api.mods.ILoadedMods:
   paramsSignature: java.lang.String
   paramNames:
   - name
+youyihj.zenutils.api.player.PlayerStat:
+- name: getBasicStat
+  paramsSignature: java.lang.String
+  paramNames:
+  - id
+- name: getBlockStats
+  paramsSignature: crafttweaker.api.block.IBlockDefinition
+  paramNames:
+  - block
+- name: getCraftStats
+  paramsSignature: crafttweaker.api.item.IItemDefinition
+  paramNames:
+  - item
+- name: getObjectUseStats
+  paramsSignature: crafttweaker.api.item.IItemDefinition
+  paramNames:
+  - item
+- name: getObjectBreakStats
+  paramsSignature: crafttweaker.api.item.IItemDefinition
+  paramNames:
+  - item
+- name: getObjectsPickedUpStats
+  paramsSignature: crafttweaker.api.item.IItemDefinition
+  paramNames:
+  - item
+- name: getDroppedObjectStats
+  paramsSignature: crafttweaker.api.item.IItemDefinition
+  paramNames:
+  - item
+- name: getKillEntityStats
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition
+  paramNames:
+  - entity
+- name: getKilledByEntityStats
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition
+  paramNames:
+  - entity
+- name: create
+  paramsSignature: java.lang.String,crafttweaker.api.text.ITextComponent,youyihj.zenutils.api.player.IStatFormatter
+  paramNames:
+  - id
+  - name
+  - formatter
+youyihj.zenutils.api.util.catenation.IWorldFunction:
+- name: apply
+  paramsSignature: crafttweaker.api.world.IWorld,youyihj.zenutils.api.util.catenation.CatenationContext
+  paramNames:
+  - world
+  - context
+- name: apply
+  paramsSignature: crafttweaker.api.world.IWorld,youyihj.zenutils.api.util.catenation.CatenationContext
+  paramNames:
+  - world
+  - context
 crafttweaker.api.liquid.ILiquidStack:
 - name: withTag
   paramsSignature: crafttweaker.api.data.IData
@@ -3091,66 +5212,6 @@ crafttweaker.api.liquid.ILiquidStack:
   paramsSignature: int
   paramNames:
   - amount
-crafttweaker.api.entity.IEntityDefinition:
-- name: addDrop
-  paramsSignature: crafttweaker.api.item.IItemStack,int,int,float
-  paramNames:
-  - stack
-  - min
-  - max
-  - chance
-- name: addDrop
-  paramsSignature: crafttweaker.api.item.WeightedItemStack,int,int
-  paramNames:
-  - stack
-  - min
-  - max
-- name: addDropFunction
-  paramsSignature: crafttweaker.api.entity.IEntityDropFunction
-  paramNames:
-  - function
-- name: addPlayerOnlyDrop
-  paramsSignature: crafttweaker.api.item.IItemStack,int,int,float
-  paramNames:
-  - stack
-  - min
-  - max
-  - chance
-- name: addPlayerOnlyDrop
-  paramsSignature: crafttweaker.api.item.WeightedItemStack,int,int
-  paramNames:
-  - stack
-  - min
-  - max
-- name: removeDrop
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - stack
-- name: createEntity
-  paramsSignature: crafttweaker.api.world.IWorld
-  paramNames:
-  - world
-- name: spawnEntity
-  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - world
-  - pos
-crafttweaker.mc1120.world.expand.ExpandPosition3f:
-- name: create
-  paramsSignature: float,float,float
-  paramNames:
-  - x
-  - y
-  - z
-crafttweaker.api.event.PlayerDeathDropsEvent:
-- name: addItem
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - item
-- name: addItem
-  paramsSignature: crafttweaker.api.entity.IEntityItem
-  paramNames:
-  - entityItem
 crafttweaker.api.entity.IEntityLiving:
 - name: setDropChance
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot,float
@@ -3171,132 +5232,11 @@ crafttweaker.api.entity.IEntityLiving:
   paramNames:
   - entity
   - sendAttachNotification
-stanhebben.zenscript.tests.TestLambdas$FunInterface:
-- name: apply
-  paramsSignature: int
+youyihj.zenutils.api.util.catenation.persistence.ICatenationFactory:
+- name: get
+  paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
-  - a
-crafttweaker.api.world.IBlockAccess:
-- name: getBlockState
-  paramsSignature: crafttweaker.api.world.IBlockPos
-  paramNames:
-  - pos
-- name: isAirBlock
-  paramsSignature: crafttweaker.api.world.IBlockPos
-  paramNames:
-  - pos
-- name: getStrongPower
-  paramsSignature: crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
-  paramNames:
-  - pos
-  - facing
-crafttweaker.mc1120.entity.expand.ExpandEntity:
-- name: getUUID
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: getBoundingBox
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: setBoundingBox
-  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.util.IAxisAlignedBB
-  paramNames:
-  - internal
-  - aabb
-- name: getStepHeight
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: setStepHeight
-  paramsSignature: crafttweaker.api.entity.IEntity,float
-  paramNames:
-  - internal
-  - stepHeight
-- name: setTeam
-  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.game.ITeam
-  paramNames:
-  - internal
-  - team
-- name: removeFromWorld
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: doWaterSplashEffect
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: getUpdateBlocked
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: setUpdateBlocked
-  paramsSignature: crafttweaker.api.entity.IEntity,boolean
-  paramNames:
-  - internal
-  - updateBlocked
-- name: getInPortal
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: setInPortal
-  paramsSignature: crafttweaker.api.entity.IEntity,boolean
-  paramNames:
-  - internal
-  - inPortal
-- name: getPortalCounter
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: setPortalCounter
-  paramsSignature: crafttweaker.api.entity.IEntity,int
-  paramNames:
-  - internal
-  - portalCounter
-- name: getLastPortalVec
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: setLastPortalVec
-  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.world.IVector3d
-  paramNames:
-  - internal
-  - lastPortalVec
-- name: getLastPortalPos
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: setLastPortalPos
-  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - internal
-  - lastPortalPos
-- name: getLastPortalDirection
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-- name: setLastPortalDirection
-  paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.world.IFacing
-  paramNames:
-  - internal
-  - teleportDirection
-- name: getHorizontalFacing
-  paramsSignature: crafttweaker.api.entity.IEntity
-  paramNames:
-  - internal
-crafttweaker.api.entity.IEntityAnimal:
-- name: isBreedingItem
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - itemStack
-- name: setInLove
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: canMateWith
-  paramsSignature: crafttweaker.api.entity.IEntityAnimal
-  paramNames:
-  - other
+  - world
 crafttweaker.api.command.ICommand:
 - name: getUsage
   paramsSignature: crafttweaker.api.command.ICommandSender
@@ -3341,36 +5281,26 @@ crafttweaker.mc1120.world.expand.ExpandBlockPos:
   - x
   - y
   - z
-crafttweaker.api.entity.IEntityMob:
-- name: isPreventingPlayerRest
-  paramsSignature: crafttweaker.api.player.IPlayer
+youyihj.zenutils.api.player.IStatFormatter:
+- name: format
+  paramsSignature: int
   paramNames:
-  - player
-crafttweaker.api.recipes.IFurnaceManager:
-- name: remove
-  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient
+  - number
+- name: format
+  paramsSignature: int
   paramNames:
-  - output
-  - input
-- name: addRecipe
-  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,double
+  - number
+youyihj.zenutils.api.cotx.function.IPlacementChecker:
+- name: canPlaceAt
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos
   paramNames:
-  - output
-  - input
-  - xp
-- name: setFuel
-  paramsSignature: crafttweaker.api.item.IIngredient,int
+  - world
+  - pos
+youyihj.zenutils.api.cotx.block.CrTCoTBlockStateBridge:
+- name: castToCrT
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState
   paramNames:
-  - item
-  - fuel
-- name: getFuel
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - item
-- name: getSmeltingResult
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - stack
+  - state
 crafttweaker.api.entity.IEntityLivingBase:
 - name: isPotionActive
   paramsSignature: crafttweaker.api.potions.IPotion
