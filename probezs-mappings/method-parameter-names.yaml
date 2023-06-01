@@ -1,3 +1,14 @@
+com.blamejared.compat.immersivetech.Boiler:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - output
+  - input
+  - time
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
 crafttweaker.zenscript.expand.ExpandLong:
 - name: asData
   paramsSignature: long
@@ -8,6 +19,38 @@ crafttweaker.api.entity.IEntityEquipmentSlot:
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot
   paramNames:
   - other
+com.blamejared.compat.botania.handlers.Brew:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient[],java.lang.String
+  paramNames:
+  - inputItems
+  - brewName
+- name: removeRecipe
+  paramsSignature: java.lang.String
+  paramNames:
+  - brewName
+com.blamejared.compat.thermalexpansion.SawMill:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+  - secondaryOutput
+  - secondaryChance
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+com.blamejared.compat.betterwithmods.base.blockrecipes.BlockRecipeBuilder:
+- name: setInputBlockDrop
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: setInputBlockDrop
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
 crafttweaker.api.oredict.IOreDictEntry:
 - name: add
   paramsSignature: crafttweaker.api.item.IItemStack[]
@@ -92,6 +135,26 @@ youyihj.zenutils.api.ftbq.FTBQEventManager:
   paramsSignature: crafttweaker.api.event.IEventManager
   paramNames:
   - manager
+com.blamejared.compat.betterwithmods.Movement:
+- name: set
+  paramsSignature: crafttweaker.api.item.IItemStack,float
+  paramNames:
+  - input
+  - speed
+com.blamejared.compat.bloodmagic.BloodAltar:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,int,int,int
+  paramNames:
+  - output
+  - input
+  - minimumTier
+  - syphon
+  - consumeRate
+  - drainRate
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
 youyihj.zenutils.api.network.IClientMessageHandler:
 - name: handle
   paramsSignature: crafttweaker.api.player.IPlayer,youyihj.zenutils.api.network.IByteBuf
@@ -468,6 +531,11 @@ crafttweaker.api.item.IngredientCondition:
   paramNames:
   - ingredient
   - amount
+com.blamejared.compat.betterwithmods.PulleyManager:
+- name: addPulleyBlock
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - state
 crafttweaker.api.world.IWorldProvider:
 - name: getBiomeForCoords
   paramsSignature: crafttweaker.api.world.IBlockPos
@@ -532,12 +600,39 @@ crafttweaker.mc1120.item.ExpandItemStack:
   paramNames:
   - stack
   - capNBT
+com.blamejared.compat.betterwithmods.StokedCrucible:
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - secondaryOutput
+  - inputs
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - inputs
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - output
 youyihj.zenutils.api.util.ExpandGame:
 - name: getPotion
   paramsSignature: crafttweaker.api.game.IGame,java.lang.String
   paramNames:
   - game
   - name
+com.blamejared.compat.immersivetech.SolarTower:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - output
+  - input
+  - time
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
 youyihj.zenutils.api.event.ExpandEventManager:
 - name: onEntityRemove
   paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
@@ -558,6 +653,29 @@ crafttweaker.api.item.IItemTransformerNew:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - item
+com.blamejared.compat.betterwithmods.Kiln:
+- name: add
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - input
+  - output
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+  - input
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - outputs
+- name: registerBlock
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - block
 crafttweaker.mc1120.potions.MCPotionRecipe:
 - name: add
   paramsSignature: crafttweaker.api.potions.IPotionType,crafttweaker.api.item.IIngredient,crafttweaker.api.potions.IPotionType
@@ -608,12 +726,67 @@ crafttweaker.api.enchantments.IEnchantmentDefinition:
   paramsSignature: crafttweaker.api.enchantments.IEnchantmentDefinition
   paramNames:
   - other
+com.blamejared.compat.thermalexpansion.dynamos.SteamDynamo:
+- name: addFuel
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - stack
+  - energy
+- name: removeFuel
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+com.blamejared.compat.tconstruct.Melting:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - output
+  - input
+  - temp
+- name: addEntityMelting
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - entity
+  - stack
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+  - input
+- name: removeEntityMelting
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition
+  paramNames:
+  - entity
 youyihj.zenutils.api.ftbq.event.CTCustomTaskEvent$ITaskChecker:
 - name: check
   paramsSignature: crafttweaker.api.player.IPlayer,int
   paramNames:
   - player
   - currentProgress
+com.blamejared.compat.thermalexpansion.Transposer:
+- name: addExtractRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.WeightedItemStack
+  paramNames:
+  - output
+  - input
+  - energy
+  - itemOut
+- name: removeExtractRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: addFillRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - output
+  - input
+  - fluid
+  - energy
+- name: removeFillRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
+  - fluid
 youyihj.zenutils.api.command.ICommandExecute:
 - name: execute
   paramsSignature: youyihj.zenutils.api.command.ZenCommand,crafttweaker.api.server.IServer,youyihj.zenutils.api.command.ZenUtilsCommandSender,java.lang.String[]
@@ -622,6 +795,108 @@ youyihj.zenutils.api.command.ICommandExecute:
   - server
   - sender
   - args
+com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack:
+- name: setAmount
+  paramsSignature: int
+  paramNames:
+  - amount
+com.blamejared.compat.botania.handlers.ManaInfusion:
+- name: addInfusion
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - output
+  - input
+  - mana
+- name: addAlchemy
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - output
+  - input
+  - mana
+- name: addConjuration
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - output
+  - input
+  - mana
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+com.blamejared.compat.betterwithmods.Crucible:
+- name: addStoked
+  paramsSignature: crafttweaker.api.item.IIngredient[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
+  - outputs
+- name: addUnstoked
+  paramsSignature: crafttweaker.api.item.IIngredient[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
+  - outputs
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - secondaryOutput
+  - inputs
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - inputs
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - output
+com.blamejared.compat.botania.handlers.Orechid:
+- name: addOre
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry,int
+  paramNames:
+  - oreDict
+  - weight
+- name: addOre
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - oreDict
+  - weight
+- name: removeOre
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry
+  paramNames:
+  - oreDict
+- name: removeOre
+  paramsSignature: java.lang.String
+  paramNames:
+  - oreDict
+com.blamejared.compat.tconstruct.Alloy:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - output
+  - inputs
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - output
+  - input
+com.blamejared.compat.betterwithmods.base.bulkrecipes.CookingPotBuilder:
+- name: setHeat
+  paramsSignature: int
+  paramNames:
+  - heat
+- name: setIgnoreHeat
+  paramsSignature: boolean
+  paramNames:
+  - ignoreHeat
+- name: setPriority
+  paramsSignature: int
+  paramNames:
+  - priority
+- name: buildRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
+  - outputs
 crafttweaker.api.entity.IEntityFishHook:
 - name: setState
   paramsSignature: java.lang.String
@@ -639,6 +914,40 @@ crafttweaker.api.entity.IEntityFishHook:
   paramsSignature: int
   paramNames:
   - luck
+com.blamejared.compat.forestry.Fermenter:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack,int,float
+  paramNames:
+  - fluidOutput
+  - resource
+  - fluidInput
+  - fermentationValue
+  - fluidOutputModifier
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
+- name: addFuel
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int
+  paramNames:
+  - item
+  - fermentPerCycle
+  - burnDuration
+- name: removeFuel
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - fermenterItem
+com.blamejared.compat.actuallyaddition.OilGen:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int,int
+  paramNames:
+  - fluid
+  - genAmount
+  - genTime
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
 crafttweaker.api.command.ICommandSender:
 - name: sendMessage
   paramsSignature: java.lang.String
@@ -710,6 +1019,12 @@ crafttweaker.mc1120.world.expand.ExpandVector3d:
   - x
   - y
   - z
+com.blamejared.compat.betterwithmods.Buoyancy:
+- name: set
+  paramsSignature: crafttweaker.api.item.IItemStack,float
+  paramNames:
+  - stack
+  - value
 crafttweaker.mc1120.item.ExpandItemDefinition:
 - name: isArrow
   paramsSignature: crafttweaker.api.item.IItemDefinition
@@ -736,11 +1051,64 @@ crafttweaker.mc1120.item.ExpandItemDefinition:
   - projectile
   - inaccuracy
   - velocity
+com.blamejared.compat.betterwithmods.Hopper:
+- name: addFilter
+  paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient
+  paramNames:
+  - name
+  - filter
+- name: addFilteredItem
+  paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient
+  paramNames:
+  - name
+  - item
+- name: addFilteredItem
+  paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - name
+  - items
+- name: addFilterRecipe
+  paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - name
+  - input
+  - outputs
+  - secondary
+- name: addSoulUrnRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - input
+  - outputs
+  - secondary
+- name: clearFilter
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - outputs
+  - secondary
+- name: removeRecipeByInput
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
 crafttweaker.api.item.IItemCondition:
 - name: matches
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - stack
+com.blamejared.compat.thaumcraft.handlers.expand.IEntityAspectExpansion:
+- name: setAspects
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[]
+  paramNames:
+  - definition
+  - aspects
+- name: removeAspects
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[]
+  paramNames:
+  - definition
+  - aspects
 youyihj.zenutils.api.cotx.function.IBlockActivated:
 - name: activate
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos,com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState,com.teamacronymcoders.contenttweaker.api.ctobjects.entity.player.ICTPlayer,com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Hand,com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing,crafttweaker.api.util.Position3f
@@ -762,6 +1130,132 @@ crafttweaker.api.entity.IEntityCreature:
   paramNames:
   - pos
   - distance
+com.blamejared.compat.actuallyaddition.BallOfFur:
+- name: addReturn
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - chance
+- name: removeReturn
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+com.blamejared.compat.inspirations.Cauldron:
+- name: addBrewingRecipe
+  paramsSignature: java.lang.String,java.lang.String,crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+  - input
+  - reagent
+- name: removeBrewingRecipe
+  paramsSignature: java.lang.String,java.lang.String,crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+  - input
+  - reagent
+- name: addPotionRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,java.lang.String
+  paramNames:
+  - output
+  - input
+  - potion
+- name: addPotionRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,java.lang.String,int,java.lang.Boolean
+  paramNames:
+  - output
+  - input
+  - potion
+  - levels
+  - boiling
+- name: removePotionRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,java.lang.String
+  paramNames:
+  - output
+  - input
+  - potion
+- name: addDyeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,java.lang.String
+  paramNames:
+  - output
+  - input
+  - stringDye
+- name: addDyeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,java.lang.String,int
+  paramNames:
+  - output
+  - input
+  - stringDye
+  - levels
+- name: removeDyeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,java.lang.String
+  paramNames:
+  - output
+  - input
+  - stringDye
+- name: addFluidRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - input
+  - fluid
+- name: addFluidRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,java.lang.Boolean
+  paramNames:
+  - output
+  - input
+  - fluid
+  - levels
+  - boiling
+- name: addFluidTransform
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - input
+  - fluid
+- name: addFluidTransform
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,java.lang.Boolean
+  paramNames:
+  - output
+  - input
+  - fluid
+  - maxLevel
+  - boiling
+- name: addFluidMix
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - liquid1
+  - liquid2
+- name: removeFluidRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - input
+  - fluid
+- name: removeFluidTransform
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - input
+  - fluid
+- name: addFillRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
+  - fluid
+- name: addFillRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,crafttweaker.api.item.IItemStack,java.lang.Boolean
+  paramNames:
+  - input
+  - fluid
+  - amount
+  - container
+  - boiling
+- name: removeFillRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
+  - fluid
 crafttweaker.mc1120.player.expand.ExpandPlayer:
 - name: getBedLocation
   paramsSignature: crafttweaker.api.player.IPlayer
@@ -807,6 +1301,32 @@ crafttweaker.api.player.IFoodStats:
   paramsSignature: float
   paramNames:
   - exhaustion
+com.blamejared.compat.betterwithmods.Cauldron:
+- name: addStoked
+  paramsSignature: crafttweaker.api.item.IIngredient[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
+  - outputs
+- name: addUnstoked
+  paramsSignature: crafttweaker.api.item.IIngredient[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
+  - outputs
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - secondaryOutput
+  - inputs
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - inputs
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - output
 crafttweaker.api.util.Position3f:
 - name: setX
   paramsSignature: float
@@ -935,6 +1455,30 @@ stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithStaticMethod:
   paramsSignature: int
   paramNames:
   - a
+com.blamejared.compat.bloodmagic.AlchemyArray:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,java.lang.String
+  paramNames:
+  - output
+  - input
+  - catalyst
+  - textureLocation
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+  - catalyst
+com.blamejared.compat.actuallyaddition.AtomicReconstructor:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - output
+  - input
+  - energyUsed
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 crafttweaker.zenscript.expand.ExpandDouble:
 - name: asData
   paramsSignature: double
@@ -1000,6 +1544,17 @@ crafttweaker.mc1120.damage.expand.MCDamageSourceExpand:
   paramsSignature: crafttweaker.api.damage.IDamageSource
   paramNames:
   - source
+com.blamejared.compat.thaumcraft.handlers.expand.IItemAspectExpansion:
+- name: setAspects
+  paramsSignature: crafttweaker.api.item.IItemStack,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[]
+  paramNames:
+  - stack
+  - aspects
+- name: removeAspects
+  paramsSignature: crafttweaker.api.item.IItemStack,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[]
+  paramNames:
+  - stack
+  - aspects
 youyihj.zenutils.api.util.catenation.persistence.CatenationPersistenceAPI:
 - name: registerPersistedCatenation
   paramsSignature: java.lang.String
@@ -1239,6 +1794,160 @@ youyihj.zenutils.api.util.ExpandPotion:
   paramsSignature: int
   paramNames:
   - id
+com.blamejared.compat.immersivetech.SteamTurbine:
+- name: registerSteam
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - input
+  - burnTime
+- name: removeSteam
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
+com.blamejared.compat.botania.handlers.Lexicon:
+- name: addBrewPage
+  paramsSignature: java.lang.String,java.lang.String,int,java.lang.String,crafttweaker.api.item.IIngredient[],java.lang.String
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - brew
+  - recipe
+  - bottomText
+- name: addCraftingPage
+  paramsSignature: java.lang.String,java.lang.String,int,java.lang.String[]
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - recipeNames
+- name: addElvenPage
+  paramsSignature: java.lang.String,java.lang.String,int,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient[][]
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - outputs
+  - inputs
+- name: addEntityPage
+  paramsSignature: java.lang.String,java.lang.String,int,java.lang.String,int
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - entity
+  - size
+- name: addImagePage
+  paramsSignature: java.lang.String,java.lang.String,int,java.lang.String
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - resource
+- name: addLorePage
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - name
+  - entry
+  - page_number
+- name: addInfusionPage
+  paramsSignature: java.lang.String,java.lang.String,int,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient[],int[]
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - outputs
+  - inputs
+  - mana
+- name: addAlchemyPage
+  paramsSignature: java.lang.String,java.lang.String,int,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient[],int[]
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - outputs
+  - inputs
+  - mana
+- name: addConjurationPage
+  paramsSignature: java.lang.String,java.lang.String,int,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient[],int[]
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - outputs
+  - inputs
+  - mana
+- name: addPetalPage
+  paramsSignature: java.lang.String,java.lang.String,int,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient[][]
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - outputs
+  - inputs
+- name: addRunePage
+  paramsSignature: java.lang.String,java.lang.String,int,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient[][],int[]
+  paramNames:
+  - name
+  - entry
+  - page_number
+  - outputs
+  - inputs
+  - mana
+- name: addTextPage
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - name
+  - entry
+  - page_number
+- name: removePage
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - entry
+  - page_number
+- name: addEntry
+  paramsSignature: java.lang.String,java.lang.String,crafttweaker.api.item.IItemStack
+  paramNames:
+  - entry
+  - category
+  - stack
+- name: removeEntry
+  paramsSignature: java.lang.String
+  paramNames:
+  - entry
+- name: setEntryKnowledgeType
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - entry
+  - knowledgeType
+- name: addCategory
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: removeCategory
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: setCategoryPriority
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - name
+  - priority
+- name: setCategoryIcon
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - name
+  - icon
+- name: addRecipeMapping
+  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String,int
+  paramNames:
+  - stack
+  - entry
+  - page
+- name: removeRecipeMapping
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
 youyihj.zenutils.api.cotx.function.ITileEntityTick:
 - name: tick
   paramsSignature: youyihj.zenutils.api.cotx.tile.TileEntityContent,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos
@@ -1274,6 +1983,25 @@ crafttweaker.api.block.IBlockState:
   paramsSignature: java.lang.String
   paramNames:
   - name
+com.blamejared.compat.botania.handlers.Apothecary:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - input
+- name: addRecipe
+  paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - input
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+- name: removeRecipe
+  paramsSignature: java.lang.String
+  paramNames:
+  - output
 crafttweaker.api.text.ITextComponent:
 - name: append
   paramsSignature: crafttweaker.api.text.ITextComponent
@@ -1306,6 +2034,58 @@ crafttweaker.api.vanilla.ISeedRegistry:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - item
+com.blamejared.compat.thermalexpansion.Compactor:
+- name: addMintRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+- name: addPressRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+- name: addStorageRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+- name: addGearRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+- name: removeMintRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: removePressRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: removeStorageRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: removeGearRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+com.blamejared.compat.thermalexpansion.devicemanagers.Coolant:
+- name: addCoolant
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int,int
+  paramNames:
+  - fluid
+  - coolantRf
+  - coolantFactor
+- name: removeCoolant
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - fluid
 crafttweaker.runtime.ILogger:
 - name: logCommand
   paramsSignature: java.lang.String
@@ -1336,6 +2116,23 @@ crafttweaker.runtime.ILogger:
   paramsSignature: java.lang.String
   paramNames:
   - message
+com.blamejared.compat.actuallyaddition.Empowerer:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,int,int,float[]
+  paramNames:
+  - output
+  - input
+  - modifier1
+  - modifier2
+  - modifier3
+  - modifier4
+  - energyPerStand
+  - time
+  - particleColourArray
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 youyihj.zenutils.api.util.ExpandData:
 - name: deepUpdate
   paramsSignature: crafttweaker.api.data.IData,crafttweaker.api.data.IData,crafttweaker.api.data.IData
@@ -1495,6 +2292,51 @@ crafttweaker.api.item.IngredientTransform:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - ingredient
+com.blamejared.compat.thermalexpansion.Refinery:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.WeightedItemStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - output
+  - outputItem
+  - input
+  - energy
+- name: addRecipePotion
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
+- name: removeRecipePotion
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
+com.blamejared.compat.thermalexpansion.dynamos.ReactantDynamo:
+- name: addReaction
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - stack
+  - fluid
+  - energy
+- name: addReactionElemental
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - stack
+  - fluid
+  - energy
+- name: removeReaction
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - stack
+  - fluid
+- name: removeReactionElemental
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - stack
+  - fluid
 crafttweaker.api.world.IBlockPos:
 - name: getOffset
   paramsSignature: crafttweaker.api.world.IFacing,int
@@ -1523,6 +2365,37 @@ crafttweaker.api.vanilla.ILootRegistry:
   paramsSignature: java.lang.String
   paramNames:
   - name
+com.blamejared.compat.betterwithmods.Turntable:
+- name: add
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputBlock
+  - additionalOutput
+- name: add
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputBlock
+  - productState
+  - additionalOutput
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: removeByProductState
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+com.blamejared.compat.forestry.Centrifuge:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.WeightedItemStack[],crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - ingredients
+  - packagingTime
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
 youyihj.zenutils.api.cotx.tile.TileEntityContent:
 - name: updateCustomData
   paramsSignature: crafttweaker.api.data.IData
@@ -1533,6 +2406,46 @@ crafttweaker.mc1120.world.expand.ExpandWorldProvider:
   paramsSignature: int
   paramNames:
   - id
+com.blamejared.compat.betterwithmods.base.blockrecipes.KilnBuilder:
+- name: setHeat
+  paramsSignature: int
+  paramNames:
+  - heat
+- name: setIgnoreHeat
+  paramsSignature: boolean
+  paramNames:
+  - ignoreHeat
+- name: buildRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - input
+  - outputs
+com.blamejared.compat.thermalexpansion.Insolator:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack,int,int
+  paramNames:
+  - primaryOutput
+  - primaryInput
+  - secondaryInput
+  - energy
+  - secondaryOutput
+  - secondaryChance
+  - water
+- name: addRecipeSaplingInfuser
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack,int,int
+  paramNames:
+  - primaryOutput
+  - primaryInput
+  - secondaryInput
+  - energy
+  - secondaryOutput
+  - secondaryChance
+  - water
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - primaryInput
+  - secondaryInput
 crafttweaker.api.item.IItemUtils:
 - name: createPotion
   paramsSignature: java.lang.Object[][]
@@ -1712,6 +2625,59 @@ crafttweaker.api.entity.IEntityDefinition:
   paramNames:
   - world
   - pos
+com.blamejared.compat.botania.handlers.OrechidIgnem:
+- name: addOre
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry,int
+  paramNames:
+  - oreDict
+  - weight
+- name: addOre
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - oreDict
+  - weight
+- name: removeOre
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry
+  paramNames:
+  - oreDict
+- name: removeOre
+  paramsSignature: java.lang.String
+  paramNames:
+  - oreDict
+com.blamejared.compat.thermalexpansion.dynamos.MagmaticDynamo:
+- name: addFuel
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - stack
+  - energy
+- name: removeFuel
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - stack
+com.blamejared.compat.thermalexpansion.devicemanagers.Factorizer:
+- name: addRecipeSplit
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - in
+  - out
+- name: addRecipeCombine
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - in
+  - out
+- name: addRecipeBoth
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - combined
+  - split
+- name: removeRecipeCombine
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - in
+- name: removeRecipeSplit
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - in
 crafttweaker.mc1120.world.expand.ExpandPosition3f:
 - name: create
   paramsSignature: float,float,float
@@ -1893,11 +2859,66 @@ crafttweaker.api.entity.IEntityAnimal:
   paramsSignature: crafttweaker.api.entity.IEntityAnimal
   paramNames:
   - other
+com.blamejared.compat.thaumcraft.handlers.handlers.SmeltingBonus:
+- name: addSmeltingBonus
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.WeightedItemStack
+  paramNames:
+  - input
+  - stack
+- name: removeSmeltingBonus
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+  - stack
 crafttweaker.api.entity.IEntityMob:
 - name: isPreventingPlayerRest
   paramsSignature: crafttweaker.api.player.IPlayer
   paramNames:
   - player
+com.blamejared.compat.thaumcraft.handlers.handlers.Warp:
+- name: setWarp
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - stack
+  - amount
+com.blamejared.compat.betterwithmods.Mill:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
+  - outputs
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - secondaryOutput
+  - inputs
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - inputs
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - output
+com.blamejared.compat.thaumcraft.handlers.handlers.Crucible:
+- name: registerRecipe
+  paramsSignature: java.lang.String,java.lang.String,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[]
+  paramNames:
+  - name
+  - researchKey
+  - output
+  - input
+  - aspects
+- name: removeRecipe
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 crafttweaker.api.recipes.IFurnaceManager:
 - name: remove
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient
@@ -1923,6 +2944,53 @@ crafttweaker.api.recipes.IFurnaceManager:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - stack
+com.blamejared.compat.tcomplement.Blacklist:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+  - input
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+com.blamejared.compat.betterwithmods.Anvil:
+- name: addShaped
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][]
+  paramNames:
+  - output
+  - inputs
+- name: addShapedFixed
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][]
+  paramNames:
+  - output
+  - inputs
+- name: addShapeless
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - inputs
+- name: removeShaped
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][]
+  paramNames:
+  - output
+  - ingredients
+- name: removeShapedFixed
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][]
+  paramNames:
+  - output
+  - ingredients
+- name: removeShapeless
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - ingredients
+com.blamejared.compat.tconstruct.Fuel:
+- name: registerFuel
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - fluid
+  - duration
 youyihj.zenutils.api.block.ZenUtilsBlock:
 - name: getItem
   paramsSignature: crafttweaker.api.block.IBlock,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.block.IBlockState
@@ -1931,6 +2999,14 @@ youyihj.zenutils.api.block.ZenUtilsBlock:
   - world
   - pos
   - state
+com.blamejared.compat.botania.handlers.Knowledge:
+- name: registerKnowledgeType
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String,boolean
+  paramNames:
+  - unlocalized
+  - localized
+  - color
+  - autoUnlock
 youyihj.zenutils.api.util.catenation.ICatenationBuilder:
 - name: run
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
@@ -2020,11 +3096,48 @@ crafttweaker.api.event.EntityLivingDeathDropsEvent:
   paramsSignature: crafttweaker.api.entity.IEntityItem
   paramNames:
   - entityItem
+com.blamejared.compat.thermalexpansion.Enchanter:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,int,boolean
+  paramNames:
+  - output
+  - input
+  - secondInput
+  - energy
+  - experience
+  - empowered
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+  - secondInput
 crafttweaker.api.tooltip.ITooltipFunction:
 - name: process
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - ingredient
+com.blamejared.compat.forestry.Moistener:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - packagingTime
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+- name: addFuel
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,int
+  paramNames:
+  - item
+  - product
+  - moistenerValue
+  - stage
+- name: removeFuel
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - moistenerItem
 youyihj.zenutils.api.util.catenation.persistence.PersistedCatenationStarter:
 - name: withPlayer
   paramsSignature: crafttweaker.api.player.IPlayer,java.lang.String
@@ -2056,6 +3169,18 @@ youyihj.zenutils.api.util.ZenUtilsClient:
   paramsSignature: crafttweaker.api.client.IClient
   paramNames:
   - client
+com.blamejared.compat.bloodmagic.TartaricForge:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[],double,double
+  paramNames:
+  - output
+  - inputs
+  - minSouls
+  - soulDrain
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
 crafttweaker.api.event.INoteBlockEvent:
 - name: setNote
   paramsSignature: java.lang.String
@@ -2070,6 +3195,21 @@ crafttweaker.api.event.INoteBlockEvent:
   paramNames:
   - note
   - octave
+com.blamejared.compat.thermalexpansion.InductionSmelter:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - primaryOutput
+  - primaryInput
+  - secondaryInput
+  - energy
+  - secondaryOutput
+  - secondaryChance
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - primaryInput
+  - secondaryInput
 youyihj.zenutils.api.cotx.ExpandVanillaFactory:
 - name: createEnergyItem
   paramsSignature: java.lang.String,int,int,int
@@ -2117,6 +3257,18 @@ youyihj.zenutils.api.cotx.tile.ExpandWorldForTile:
   paramNames:
   - world
   - pos
+com.blamejared.compat.extrautils2.Resonator:
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,boolean
+  paramNames:
+  - output
+  - input
+  - energy
+  - addOwnerTag
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 crafttweaker.api.container.IContainer:
 - name: getStack
   paramsSignature: int
@@ -2127,6 +3279,16 @@ crafttweaker.api.container.IContainer:
   paramNames:
   - i
   - stack
+com.blamejared.compat.botania.handlers.ElvenTrade:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - outputs
+  - input
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
 crafttweaker.tests.Optionals:
 - name: print
   paramsSignature: java.lang.String
@@ -2140,6 +3302,19 @@ crafttweaker.tests.Optionals:
   paramsSignature: int
   paramNames:
   - value
+com.blamejared.compat.thermalexpansion.Imbuer:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - output
+  - input
+  - inputFluid
+  - energy
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
+  - secondInput
 youyihj.zenutils.api.item.CrTItemHandler:
 - name: getStackInSlot
   paramsSignature: int
@@ -2166,6 +3341,23 @@ youyihj.zenutils.api.item.CrTItemHandler:
   paramNames:
   - slot
   - stack
+com.blamejared.compat.thaumcraft.handlers.handlers.DustTrigger:
+- name: addSingleConversion
+  paramsSignature: crafttweaker.api.block.IBlock,crafttweaker.api.item.IItemStack,java.lang.String
+  paramNames:
+  - in
+  - out
+  - research
+- name: addSingleConversion
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry,crafttweaker.api.item.IItemStack,java.lang.String
+  paramNames:
+  - in
+  - out
+  - research
+- name: removeSingleConversion
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
 crafttweaker.api.block.IBlockStateMatcher:
 - name: matches
   paramsSignature: crafttweaker.api.block.IBlockState
@@ -2194,6 +3386,24 @@ youyihj.zenutils.api.block.ZenUtilsBlockDefinition:
   paramsSignature: int
   paramNames:
   - id
+com.blamejared.compat.betterwithmods.MiniBlocks:
+- name: getMiniBlock
+  paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient
+  paramNames:
+  - type
+  - parent
+com.blamejared.compat.actuallyaddition.Crusher:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - outputSecondary
+  - outputSecondaryChance
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 youyihj.zenutils.api.cotx.function.IEntityCollided:
 - name: call
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos,com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState,crafttweaker.api.entity.IEntity
@@ -2355,6 +3565,25 @@ crafttweaker.mc1120.liquid.ExpandLiquidStack:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - thisStack
+com.blamejared.compat.betterwithmods.Saw:
+- name: add
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - input
+  - output
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+  - input
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - outputs
 youyihj.zenutils.api.liquid.ILiquidTankProperties:
 - name: canFillFluidType
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
@@ -2364,6 +3593,42 @@ youyihj.zenutils.api.liquid.ILiquidTankProperties:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - liquidStack
+com.blamejared.compat.forestry.ThermionicFabricator:
+- name: addSmelting
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - liquidStack
+  - itemInput
+  - meltingPoint
+- name: addCast
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][],crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+  - ingredients
+  - liquidStack
+  - plan
+- name: removeSmelting
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - itemInput
+- name: removeCast
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - product
+com.blamejared.compat.betterwithmods.base.blockrecipes.TurntableBuilder:
+- name: setRotations
+  paramsSignature: int
+  paramNames:
+  - rotations
+- name: setProductState
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - productState
+- name: buildRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - input
+  - outputs
 crafttweaker.api.entity.IEntity:
 - name: setDimension
   paramsSignature: int
@@ -2466,6 +3731,54 @@ crafttweaker.api.entity.IEntity:
   paramsSignature: crafttweaker.api.data.IData
   paramNames:
   - data
+com.blamejared.compat.forestry.Still:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - fluidOutput
+  - fluidInput
+  - timePerUnit
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - fluidInput
+com.blamejared.compat.betterwithmods.HeatRegistry:
+- name: addHeatSource
+  paramsSignature: crafttweaker.api.block.IBlockState,int
+  paramNames:
+  - state
+  - heat
+- name: addHeatSource
+  paramsSignature: java.util.List,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - states
+  - displayStack
+  - heat
+- name: addHeatSource
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - stack
+  - heat
+com.blamejared.compat.actuallyaddition.MiningLens:
+- name: addStoneOre
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry,int
+  paramNames:
+  - ore
+  - weight
+- name: addNetherOre
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry,int
+  paramNames:
+  - ore
+  - weight
+- name: removeStoneOre
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry
+  paramNames:
+  - ore
+- name: removeNetherOre
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry
+  paramNames:
+  - ore
 youyihj.zenutils.api.util.catenation.persistence.CatenationPersistenceEntryBuilder:
 - name: setCatenationFactory
   paramsSignature: youyihj.zenutils.api.util.catenation.persistence.ICatenationFactory
@@ -2487,6 +3800,16 @@ youyihj.zenutils.api.util.catenation.persistence.CatenationPersistenceEntryBuild
   paramsSignature: java.lang.String
   paramNames:
   - objectKey
+com.blamejared.compat.thermalexpansion.dynamos.EnervationDynamo:
+- name: addFuel
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - stack
+  - energy
+- name: removeFuel
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
 crafttweaker.api.entity.IEntityDropFunction:
 - name: handle
   paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.damage.IDamageSource
@@ -2498,6 +3821,12 @@ youyihj.zenutils.api.util.catenation.CatenationStatus:
   paramsSignature: youyihj.zenutils.api.util.catenation.CatenationStatus
   paramNames:
   - status
+com.blamejared.compat.betterwithmods.Bellows:
+- name: set
+  paramsSignature: crafttweaker.api.item.IItemStack,float
+  paramNames:
+  - stack
+  - value
 crafttweaker.mc1120.command.expand.ExpandCommandSender:
 - name: sendRichTextMessage
   paramsSignature: crafttweaker.api.command.ICommandSender,crafttweaker.api.text.ITextComponent
@@ -3664,6 +4993,16 @@ crafttweaker.api.player.IPlayer:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - item
+com.blamejared.compat.thermalexpansion.dynamos.CompressionDynamo:
+- name: addFuel
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - stack
+  - energy
+- name: removeFuel
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - stack
 crafttweaker.api.entity.attribute.IEntityAttribute:
 - name: clampValue
   paramsSignature: double
@@ -3743,6 +5082,34 @@ youyihj.zenutils.api.command.ExpandedCommandManager:
   - commandManager
   - sender
   - rawCommand
+com.blamejared.compat.tcomplement.highoven.MixRecipeManager:
+- name: addOxidizer
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - oxidizer
+  - consumeChance
+- name: addReducer
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - reducer
+  - consumeChance
+- name: addPurifier
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - purifier
+  - consumeChance
+- name: removeOxidizer
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - oxidizer
+- name: removeReducer
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - reducer
+- name: removePurifier
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - purifier
 youyihj.zenutils.api.command.TabCompletionCase:
 - name: add
   paramsSignature: java.lang.String,java.util.List
@@ -3763,6 +5130,87 @@ crafttweaker.api.oredict.IOreDict:
   paramsSignature: java.lang.String
   paramNames:
   - name
+com.blamejared.compat.betterwithmods.base.bulkrecipes.MillBuilder:
+- name: setPriority
+  paramsSignature: int
+  paramNames:
+  - priority
+- name: setGrindType
+  paramsSignature: java.lang.String
+  paramNames:
+  - sound
+- name: setTicks
+  paramsSignature: int
+  paramNames:
+  - ticks
+- name: buildRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
+  - outputs
+com.blamejared.compat.thermalexpansion.Centrifuge:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.WeightedItemStack[],crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - outputs
+  - input
+  - fluid
+  - energy
+- name: addRecipeMob
+  paramsSignature: java.lang.String,crafttweaker.api.item.WeightedItemStack[],crafttweaker.api.liquid.ILiquidStack,int,int
+  paramNames:
+  - entityId
+  - outputs
+  - fluid
+  - energy
+  - xp
+- name: addRecipeMob
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,crafttweaker.api.item.WeightedItemStack[],crafttweaker.api.liquid.ILiquidStack,int,int
+  paramNames:
+  - entity
+  - outputs
+  - fluid
+  - energy
+  - xp
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: removeRecipeMob
+  paramsSignature: java.lang.String
+  paramNames:
+  - entityId
+- name: removeRecipeMob
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition
+  paramNames:
+  - entity
+com.blamejared.compat.thaumcraft.handlers.handlers.ArcaneWorkbench:
+- name: registerShapedRecipe
+  paramsSignature: java.lang.String,java.lang.String,int,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[],crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][]
+  paramNames:
+  - name
+  - research
+  - vis
+  - aspectList
+  - output
+  - input
+- name: registerShapelessRecipe
+  paramsSignature: java.lang.String,java.lang.String,int,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[],crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - name
+  - research
+  - vis
+  - aspectList
+  - output
+  - input
+- name: removeRecipe
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 youyihj.zenutils.api.command.IGetCommandUsage:
 - name: getCommandUsage
   paramsSignature: youyihj.zenutils.api.command.ZenUtilsCommandSender
@@ -3805,6 +5253,46 @@ crafttweaker.mods.jei.JEI:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - stack
+com.blamejared.compat.tcomplement.highoven.MixRecipeBuilder:
+- name: getOxidizerChance
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - oxidizer
+- name: getReducerChance
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - reducer
+- name: getPurifierChance
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - purifier
+- name: addOxidizer
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - oxidizer
+  - consumeChance
+- name: addReducer
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - reducer
+  - consumeChance
+- name: addPurifier
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - purifier
+  - consumeChance
+- name: removeOxidizer
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - oxidizer
+- name: removeReducer
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - reducer
+- name: removePurifier
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - purifier
 stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithDefaultMethod:
 - name: apply
   paramsSignature: int
@@ -3873,6 +5361,25 @@ crafttweaker.zenscript.expand.ExpandByte:
   paramsSignature: byte
   paramNames:
   - value
+com.blamejared.compat.thaumcraft.handlers.handlers.Infusion:
+- name: registerRecipe
+  paramsSignature: java.lang.String,java.lang.String,crafttweaker.api.item.IItemStack,int,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[],crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - name
+  - research
+  - output
+  - instability
+  - aspects
+  - centralItem
+  - recipe
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+- name: removeRecipe
+  paramsSignature: java.lang.String
+  paramNames:
+  - recipeName
 crafttweaker.api.item.IItemStack:
 - name: amount
   paramsSignature: int
@@ -3988,6 +5495,29 @@ youyihj.zenutils.api.util.CrTIntRange:
   paramsSignature: stanhebben.zenscript.value.IntRange
   paramNames:
   - range
+com.blamejared.compat.thaumcraft.handlers.handlers.LootBag:
+- name: addLoot
+  paramsSignature: crafttweaker.api.item.WeightedItemStack,int[]
+  paramNames:
+  - stack
+  - bagTypes
+- name: removeLoot
+  paramsSignature: crafttweaker.api.item.IItemStack,int[]
+  paramNames:
+  - stack
+  - bagTypes
+com.blamejared.compat.tconstruct.Drying:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - output
+  - input
+  - time
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+  - input
 crafttweaker.api.item.IMutableItemStack:
 - name: shrink
   paramsSignature: int
@@ -4002,6 +5532,68 @@ crafttweaker.api.item.IMutableItemStack:
   paramNames:
   - amount
   - player
+com.blamejared.compat.thermalexpansion.Crucible:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+com.blamejared.compat.forestry.CharcoalPile:
+- name: addWall
+  paramsSignature: crafttweaker.api.block.IBlock,int
+  paramNames:
+  - block
+  - amount
+- name: addWallState
+  paramsSignature: crafttweaker.api.block.IBlockState,int
+  paramNames:
+  - state
+  - amount
+- name: addWallStack
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - stack
+  - amount
+- name: removeWall
+  paramsSignature: crafttweaker.api.block.IBlock
+  paramNames:
+  - block
+- name: removeWallState
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - state
+- name: removeWallStack
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+com.blamejared.compat.thermalexpansion.Infuser:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+com.blamejared.compat.refinedstorage.Solderer:
+- name: addRecipe
+  paramsSignature: java.lang.String,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - name
+  - output
+  - time
+  - rows
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 crafttweaker.zenscript.expand.ExpandAnyArray:
 - name: asData
   paramsSignature: crafttweaker.api.data.IData[]
@@ -4086,6 +5678,19 @@ youyihj.zenutils.api.cotx.function.IEntityWalk:
   - world
   - pos
   - entity
+com.blamejared.compat.thermalexpansion.Pulverizer:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+  - secondaryOutput
+  - secondaryChance
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
 crafttweaker.api.creativetabs.ICreativeTab:
 - name: setBackgroundImageName
   paramsSignature: java.lang.String
@@ -4096,6 +5701,22 @@ crafttweaker.api.chat.IChatMessage:
   paramsSignature: crafttweaker.api.chat.IChatMessage
   paramNames:
   - other
+com.blamejared.compat.betterwithmods.StokedCauldron:
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - secondaryOutput
+  - inputs
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - inputs
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - output
 crafttweaker.api.util.IRandom:
 - name: nextInt
   paramsSignature: int
@@ -4500,6 +6121,18 @@ crafttweaker.api.event.PlayerInteractEvent:
   paramsSignature: int
   paramNames:
   - amount
+com.blamejared.compat.actuallyaddition.TreasureChest:
+- name: addLoot
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int,int
+  paramNames:
+  - returnItem
+  - chance
+  - minAmount
+  - maxAmount
+- name: removeLoot
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - returnItem
 crafttweaker.api.entity.IEntityArrow:
 - name: setDamage
   paramsSignature: double
@@ -4530,6 +6163,31 @@ crafttweaker.api.entity.IEntityArrow:
   - roll
   - velocity
   - inaccuracy
+com.blamejared.compat.tconstruct.materials.ITICMaterial:
+- name: matches
+  paramsSignature: com.blamejared.compat.tconstruct.materials.ITICMaterial
+  paramNames:
+  - var1
+- name: hasStats
+  paramsSignature: java.lang.String
+  paramNames:
+  - stat
+com.blamejared.compat.botania.handlers.PureDaisy:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
+  paramNames:
+  - blockInput
+  - blockOutput
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - blockInput
+  - blockOutput
+  - time
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
 youyihj.zenutils.api.entity.ZenUtilsEntity:
 - name: setMotionVector
   paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.world.IVector3d
@@ -4545,6 +6203,24 @@ youyihj.zenutils.api.entity.ZenUtilsEntity:
   paramNames:
   - entity
   - data
+com.blamejared.compat.tcomplement.Overrides:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - temp
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+  - input
+com.blamejared.compat.betterwithmods.Misc:
+- name: setFurnaceSmeltingTime
+  paramsSignature: crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - ingredient
+  - time
 crafttweaker.api.recipes.IRecipeFunction:
 - name: process
   paramsSignature: crafttweaker.api.item.IItemStack,java.util.Map,crafttweaker.api.recipes.ICraftingInfo
@@ -4552,6 +6228,25 @@ crafttweaker.api.recipes.IRecipeFunction:
   - output
   - inputs
   - craftingInfo
+com.blamejared.compat.chisel.Carving:
+- name: addGroup
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: addVariation
+  paramsSignature: java.lang.String,crafttweaker.api.item.IItemStack
+  paramNames:
+  - groupName
+  - stack
+- name: removeGroup
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: removeVariation
+  paramsSignature: java.lang.String,crafttweaker.api.item.IItemStack
+  paramNames:
+  - groupName
+  - stack
 stanhebben.zenscript.tests.TestZenProperty$PropertyTester:
 - name: setB
   paramsSignature: java.lang.String
@@ -4570,6 +6265,12 @@ crafttweaker.tests.wiki.DevWikiMethod:
   paramsSignature: int[]
   paramNames:
   - args
+com.blamejared.compat.betterwithmods.base.blockrecipes.SawBuilder:
+- name: buildRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - input
+  - outputs
 crafttweaker.api.recipes.IRecipeAction:
 - name: process
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.recipes.ICraftingInfo,crafttweaker.api.player.IPlayer
@@ -5002,6 +6703,20 @@ youyihj.zenutils.api.network.IServerMessageHandler:
   - server
   - byteBuf
   - player
+com.blamejared.compat.immersivetech.Distiller:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,int,double
+  paramNames:
+  - output
+  - outputStack
+  - input
+  - energy
+  - time
+  - chance
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - input
 crafttweaker.api.item.IItemTransformer:
 - name: transform
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.player.IPlayer
@@ -5045,6 +6760,33 @@ crafttweaker.api.world.IFacing:
   paramsSignature: crafttweaker.api.world.IFacing
   paramNames:
   - other
+com.blamejared.compat.forestry.Carpenter:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][],int,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+  - ingredients
+  - packagingTime
+  - fluidInput
+  - box
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - fluidInput
+com.blamejared.compat.forestry.Squeezer:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack[],int,crafttweaker.api.item.WeightedItemStack
+  paramNames:
+  - fluidOutput
+  - ingredients
+  - timePerItem
+  - itemOutput
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - liquid
+  - ingredients
 crafttweaker.zenscript.expand.ExpandAnyDict:
 - name: asData
   paramsSignature: java.util.Map
@@ -5082,6 +6824,18 @@ crafttweaker.api.event.BlockHarvestDropsEvent:
   paramsSignature: crafttweaker.api.item.WeightedItemStack
   paramNames:
   - itemStack
+com.blamejared.compat.extrautils2.Crusher:
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,float
+  paramNames:
+  - output
+  - input
+  - secondaryOutput
+  - secondaryChance
+- name: remove
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
 youyihj.zenutils.api.world.GameRuleHelper:
 - name: getBoolean
   paramsSignature: java.lang.String
@@ -5212,6 +6966,35 @@ crafttweaker.api.liquid.ILiquidStack:
   paramsSignature: int
   paramNames:
   - amount
+com.blamejared.compat.tconstruct.Casting:
+- name: addTableRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,boolean,int
+  paramNames:
+  - output
+  - cast
+  - fluid
+  - amount
+  - consumeCast
+  - time
+- name: addBasinRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,boolean,int
+  paramNames:
+  - output
+  - cast
+  - fluid
+  - amount
+  - consumeCast
+  - time
+- name: removeTableRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - input
+- name: removeBasinRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - input
 crafttweaker.api.entity.IEntityLiving:
 - name: setDropChance
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot,float
@@ -5237,6 +7020,18 @@ youyihj.zenutils.api.util.catenation.persistence.ICatenationFactory:
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
   - world
+com.blamejared.compat.actuallyaddition.Compost:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+  - outputDisplay
+  - input
+  - inputDisplay
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 crafttweaker.api.command.ICommand:
 - name: getUsage
   paramsSignature: crafttweaker.api.command.ICommandSender
@@ -5281,6 +7076,55 @@ crafttweaker.mc1120.world.expand.ExpandBlockPos:
   - x
   - y
   - z
+com.blamejared.compat.tcomplement.highoven.HighOven:
+- name: removeFuel
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - stack
+- name: addFuel
+  paramsSignature: crafttweaker.api.item.IIngredient,int,int
+  paramNames:
+  - fuel
+  - burnTime
+  - tempRate
+- name: addMeltingOverride
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient,int
+  paramNames:
+  - output
+  - input
+  - temp
+- name: removeMeltingOverride
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+  - input
+- name: removeHeatRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - input
+- name: addHeatRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - output
+  - input
+  - temp
+- name: removeMixRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - input
+- name: newMixRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,int
+  paramNames:
+  - output
+  - input
+  - temp
+- name: manageMixRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
+  - input
 youyihj.zenutils.api.player.IStatFormatter:
 - name: format
   paramsSignature: int
@@ -5296,6 +7140,39 @@ youyihj.zenutils.api.cotx.function.IPlacementChecker:
   paramNames:
   - world
   - pos
+com.blamejared.compat.botania.handlers.RuneAltar:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[],int
+  paramNames:
+  - output
+  - input
+  - mana
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+com.blamejared.compat.thermalexpansion.RedstoneFurnace:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - energy
+- name: addPyrolysisRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,int
+  paramNames:
+  - output
+  - input
+  - energy
+  - creosote
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
+- name: removePyrolysisRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
 youyihj.zenutils.api.cotx.block.CrTCoTBlockStateBridge:
 - name: castToCrT
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState
@@ -5563,3 +7440,43 @@ crafttweaker.api.util.MathUtil:
   paramsSignature: double
   paramNames:
   - input
+com.blamejared.compat.thermalexpansion.dynamos.NumisticDynamo:
+- name: addFuel
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - stack
+  - energy
+- name: removeFuel
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+- name: addGemFuel
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - stack
+  - energy
+- name: removeGemFuel
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+com.blamejared.compat.bloodmagic.AlchemyTable:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[],int,int,int
+  paramNames:
+  - output
+  - inputs
+  - syphon
+  - ticks
+  - minTier
+- name: addPotionRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack[],crafttweaker.api.potions.IPotionEffect,int,int,int
+  paramNames:
+  - inputs
+  - effects
+  - syphon
+  - ticks
+  - minTier
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
