@@ -214,6 +214,40 @@ com.teamacronymcoders.contenttweaker.modules.chickens.ChickenFactory:
   - name
   - color
   - iItemStack
+gregtech.integration.crafttweaker.terminal.CTTerminalRegistry$CTAppRegistryBuilder:
+- name: isDefaultApp
+  paramsSignature: boolean
+  paramNames:
+  - isDefaultApp
+- name: battery
+  paramsSignature: int,long
+  paramNames:
+  - batteryTier
+  - cost
+- name: battery
+  paramsSignature: int,int,long
+  paramNames:
+  - tier
+  - batteryTier
+  - cost
+- name: device
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - device
+- name: device
+  paramsSignature: int,java.lang.String[]
+  paramNames:
+  - tier
+  - device
+- name: upgrade
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - upgrades
+- name: upgrade
+  paramsSignature: int,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - tier
+  - upgrades
 crafttweaker.zenscript.expand.ExpandInt:
 - name: toData
   paramsSignature: int
@@ -283,6 +317,12 @@ crafttweaker.api.item.IngredientCondition:
   paramNames:
   - ingredient
   - amount
+codersafterdark.compatskills.common.compats.minecraft.item.weapon.DamageLockTweaker:
+- name: addDamageLock
+  paramsSignature: double,java.lang.String[]
+  paramNames:
+  - damage
+  - requirements
 youyihj.zenutils.api.command.ZenCommandTree:
 - name: create
   paramsSignature: java.lang.String,youyihj.zenutils.api.command.ZenCommand[]
@@ -293,6 +333,18 @@ youyihj.zenutils.api.command.ZenCommandTree:
   paramsSignature: net.minecraft.command.ICommandSender
   paramNames:
   - sender
+codersafterdark.compatskills.common.compats.minecraft.item.OreDictionaryTweaker:
+- name: addOreDictLock
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry,java.lang.String[]
+  paramNames:
+  - entry
+  - locked
+- name: addNBTOreDictLock
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry,crafttweaker.api.data.IData,java.lang.String[]
+  paramNames:
+  - entry
+  - tag
+  - locked
 com.blamejared.compat.immersivetech.SolarTower:
 - name: addRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,int
@@ -304,6 +356,11 @@ com.blamejared.compat.immersivetech.SolarTower:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - input
+codersafterdark.compatskills.common.compats.reskillable.skillchange.IChangeHandler:
+- name: handleChange
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
 youyihj.zenutils.api.event.ExpandEventManager:
 - name: onEntityRemove
   paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
@@ -357,6 +414,43 @@ crafttweaker.api.block.IMobilityFlag:
   paramsSignature: crafttweaker.api.block.IMobilityFlag
   paramNames:
   - other
+codersafterdark.compatskills.common.compats.reskillable.transmutations.RemovalTweakers:
+- name: removeStartStateFromReagent
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - reagent
+  - startState
+- name: removeStartStateFromReagent
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.block.IBlockState
+  paramNames:
+  - reagent
+  - state
+- name: removeStartStateReagentAgnostic
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - state
+- name: removeStartStateReagentAgnostic
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - state
+- name: removeEndStateFromReagent
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - reagent
+  - state
+- name: removeEndStateFromReagent
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.block.IBlockState
+  paramNames:
+  - reagent
+  - state
+- name: removeEndStateReagentAgnostic
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - state
+- name: removeEndStateReagentAgnostic
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - state
 com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemFoodEaten:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.mutableitemstack.IMutableItemStack,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.entity.player.CTPlayer
@@ -364,6 +458,51 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemFoodEaten:
   - stack
   - world
   - player
+codersafterdark.compatskills.common.compats.reskillable.customcontent.CrTTrait:
+- name: createTrait
+  paramsSignature: java.lang.String,int,int,java.lang.String,int,java.lang.String[]
+  paramNames:
+  - traitName
+  - x
+  - y
+  - skillLocation
+  - cost
+  - requirements
+- name: createTrait
+  paramsSignature: java.lang.String,int,int,codersafterdark.compatskills.common.compats.reskillable.customcontent.CrTSkill,int,java.lang.String[]
+  paramNames:
+  - traitName
+  - x
+  - y
+  - parentSkill
+  - cost
+  - requirements
+- name: createNewTrait
+  paramsSignature: java.lang.String,int,int,java.lang.String,int,java.lang.String[]
+  paramNames:
+  - traitLocation
+  - x
+  - y
+  - skillLocation
+  - cost
+  - requirements
+- name: createNewTrait
+  paramsSignature: java.lang.String,int,int,codersafterdark.compatskills.common.compats.reskillable.customcontent.CrTSkill,int,java.lang.String[]
+  paramNames:
+  - traitLocation
+  - x
+  - y
+  - parentSkill
+  - cost
+  - requirements
+- name: setEnabled
+  paramsSignature: boolean
+  paramNames:
+  - enabled
+- name: changeIcon
+  paramsSignature: java.lang.String
+  paramNames:
+  - resourceLocation
 crafttweaker.api.enchantments.IEnchantmentDefinition:
 - name: canApply
   paramsSignature: crafttweaker.api.item.IItemStack
@@ -407,6 +546,19 @@ com.blamejared.compat.thermalexpansion.dynamos.SteamDynamo:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - stack
+gregtech.integration.crafttweaker.recipe.CTRecipe:
+- name: getResultItemOutputs
+  paramsSignature: int
+  paramNames:
+  - tier
+- name: hasInputFluid
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - liquidStack
+- name: getProperty
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
 com.blamejared.compat.tconstruct.Melting:
 - name: addRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient,int
@@ -441,6 +593,16 @@ com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack:
   paramsSignature: int
   paramNames:
   - amount
+gregtech.integration.crafttweaker.item.CTItemRegistry:
+- name: registerItem
+  paramsSignature: java.lang.String,short,int,java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - name
+  - id
+  - rgb
+  - materialIconSet
+  - orePrefix
+  - chemicalFormula
 com.blamejared.compat.botania.handlers.ManaInfusion:
 - name: addInfusion
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,int
@@ -953,6 +1115,54 @@ crafttweaker.api.util.Position3f:
   paramsSignature: float
   paramNames:
   - z
+codersafterdark.compatskills.common.compats.reskillable.customcontent.CrTSkill:
+- name: createSkill
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - name
+  - backGroundLocation
+- name: createNewSkill
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - nameLocation
+  - backGroundLocation
+- name: setLevelCap
+  paramsSignature: int
+  paramNames:
+  - cap
+- name: setEnabled
+  paramsSignature: boolean
+  paramNames:
+  - enabled
+- name: setLevelStaggering
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - stagger
+- name: setSkillPointInterval
+  paramsSignature: int
+  paramNames:
+  - amount
+- name: setBaseLevelCost
+  paramsSignature: int
+  paramNames:
+  - cost
+- name: setHidden
+  paramsSignature: boolean
+  paramNames:
+  - hidden
+- name: setLevelButton
+  paramsSignature: boolean
+  paramNames:
+  - button
+- name: setRankIcon
+  paramsSignature: int,java.lang.String
+  paramNames:
+  - rank
+  - resourceLocation
+- name: removeRankIcon
+  paramsSignature: int
+  paramNames:
+  - rank
 youyihj.zenutils.api.util.delay.CTDelayManager:
 - name: addDelayWork
   paramsSignature: youyihj.zenutils.api.util.delay.DelayRunnable,long
@@ -1014,6 +1224,12 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFun
   - user
   - target
   - level
+codersafterdark.compatskills.common.compats.reskillable.ModLockTweaker:
+- name: addModLock
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - modId
+  - locked
 crafttweaker.api.event.NoteBlockPlayEvent:
 - name: setInstrument
   paramsSignature: java.lang.String
@@ -1467,6 +1683,15 @@ crafttweaker.api.liquid.ILiquidDefinition:
   paramsSignature: int
   paramNames:
   - millibuckets
+codersafterdark.compatskills.common.compats.reskillable.transmutations.ClearTweakers:
+- name: clearMapOfReagent
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+- name: clearReagentOfEntries
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
 crafttweaker.api.item.IngredientTransform:
 - name: transformDamage
   paramsSignature: crafttweaker.api.item.IIngredient
@@ -1591,6 +1816,25 @@ crafttweaker.api.vanilla.ILootRegistry:
   paramsSignature: java.lang.String
   paramNames:
   - name
+codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTPlayerSkillInfo:
+- name: setLevel
+  paramsSignature: int
+  paramNames:
+  - level
+- name: unlock
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTUnlockable,crafttweaker.api.player.IPlayer
+  paramNames:
+  - ctUnlockable
+  - player
+- name: lock
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTUnlockable,crafttweaker.api.player.IPlayer
+  paramNames:
+  - ctUnlockable
+  - player
+- name: isUnlocked
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTUnlockable
+  paramNames:
+  - ctUnlockable
 com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$BeforeBlockBreak:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation,crafttweaker.api.item.IItemStack,crafttweaker.api.event.BlockBreakEvent
@@ -1652,6 +1896,22 @@ crafttweaker.mc1120.world.expand.ExpandWorldProvider:
   paramsSignature: int
   paramNames:
   - id
+codersafterdark.compatskills.common.compats.minecraft.item.armor.ArmorLockTweaker:
+- name: addArmorLock
+  paramsSignature: double,java.lang.String[]
+  paramNames:
+  - armor
+  - requirements
+gregtech.integration.crafttweaker.terminal.CTTerminalRegistry:
+- name: createAppRegistryBuilder
+  paramsSignature: java.lang.String
+  paramNames:
+  - appName
+- name: registerDevice
+  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String
+  paramNames:
+  - device
+  - name
 crafttweaker.api.item.IItemUtils:
 - name: createPotion
   paramsSignature: java.lang.Object[][]
@@ -1697,6 +1957,26 @@ crafttweaker.api.item.IItemUtils:
   paramNames:
   - entity
   - customNBT
+codersafterdark.compatskills.common.compats.oreexcavator.tweakers.ExcavationLockTweaker:
+- name: addExcavationLock
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - requirements
+gregtech.api.unification.Elements:
+- name: add
+  paramsSignature: long,long,long,java.lang.String,java.lang.String,java.lang.String,boolean
+  paramNames:
+  - protons
+  - neutrons
+  - halfLifeSeconds
+  - decayTo
+  - name
+  - symbol
+  - isIsotope
+- name: get
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
 com.teamacronymcoders.contenttweaker.modules.materials.CTMaterialSystem:
 - name: createPartType
   paramsSignature: java.lang.String,com.teamacronymcoders.contenttweaker.modules.materials.functions.IRegisterMaterialPart
@@ -1739,6 +2019,155 @@ com.teamacronymcoders.contenttweaker.modules.materials.CTMaterialSystem:
   paramsSignature: java.lang.String
   paramNames:
   - regex
+gregtech.integration.crafttweaker.material.CTMaterialBuilder:
+- name: fluid
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - type
+  - hasBlock
+- name: fluid
+  paramsSignature: gregtech.api.fluids.fluidType.FluidType,boolean
+  paramNames:
+  - type
+  - hasBlock
+- name: dust
+  paramsSignature: int,int
+  paramNames:
+  - harvestLevel
+  - burnTime
+- name: ingot
+  paramsSignature: int,int
+  paramNames:
+  - harvestLevel
+  - burnTime
+- name: gem
+  paramsSignature: int,int
+  paramNames:
+  - harvestLevel
+  - burnTime
+- name: polymer
+  paramsSignature: int
+  paramNames:
+  - harvestLevel
+- name: color
+  paramsSignature: int
+  paramNames:
+  - color
+- name: iconSet
+  paramsSignature: java.lang.String
+  paramNames:
+  - iconSet
+- name: components
+  paramsSignature: gregtech.api.unification.stack.MaterialStack[]
+  paramNames:
+  - components
+- name: flags
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - names
+- name: element
+  paramsSignature: java.lang.String
+  paramNames:
+  - elementName
+- name: element
+  paramsSignature: gregtech.api.unification.Element
+  paramNames:
+  - element
+- name: toolStats
+  paramsSignature: float,float,int,int,int
+  paramNames:
+  - speed
+  - damage
+  - durability
+  - harvestLevel
+  - enchantability
+- name: rotorStats
+  paramsSignature: float,float,int
+  paramNames:
+  - speed
+  - damage
+  - durability
+- name: blastTemp
+  paramsSignature: int,java.lang.String,int,int
+  paramNames:
+  - temp
+  - gasTier
+  - eutOverride
+  - durationOverride
+- name: ore
+  paramsSignature: int,int,boolean
+  paramNames:
+  - oreMultiplier
+  - byproductMultiplier
+  - emissive
+- name: washedIn
+  paramsSignature: gregtech.api.unification.material.Material,int
+  paramNames:
+  - m
+  - washedAmount
+- name: separatedInto
+  paramsSignature: gregtech.api.unification.material.Material[]
+  paramNames:
+  - materials
+- name: addOreByproducts
+  paramsSignature: gregtech.api.unification.material.Material[]
+  paramNames:
+  - materials
+- name: oreSmeltInto
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: polarizesInto
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: arcSmeltInto
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: macerateInto
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: ingotSmeltInto
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: fluidTemp
+  paramsSignature: int
+  paramNames:
+  - temp
+- name: cableProperties
+  paramsSignature: long,int,int,boolean
+  paramNames:
+  - voltage
+  - amperage
+  - loss
+  - isSuperCon
+- name: fluidPipeProperties
+  paramsSignature: int,int,boolean
+  paramNames:
+  - maxTemp
+  - throughput
+  - gasProof
+- name: fluidPipeProperties
+  paramsSignature: int,int,boolean,boolean,boolean,boolean
+  paramNames:
+  - maxTemp
+  - throughput
+  - gasProof
+  - acidProof
+  - cryoProof
+  - plasmaProof
+- name: itemPipeProperties
+  paramsSignature: int,float
+  paramNames:
+  - priority
+  - stacksPerSec
+- name: addDefaultEnchant
+  paramsSignature: crafttweaker.api.enchantments.IEnchantment
+  paramNames:
+  - enchantment
 com.blamejared.compat.botania.handlers.OrechidIgnem:
 - name: addOre
   paramsSignature: crafttweaker.api.oredict.IOreDictEntry,int
@@ -1835,6 +2264,18 @@ com.teamacronymcoders.contenttweaker.api.ctobjects.mutableitemstack.IMutableItem
   paramNames:
   - amount
   - player
+codersafterdark.compatskills.common.compats.thaumcraft.ThaumcraftTweaker:
+- name: addResearchLock
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - researchKey
+  - requirements
+- name: addKnowledgeLock
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
+  paramNames:
+  - categoryName
+  - knowledgeType
+  - requirements
 crafttweaker.mc1120.entity.expand.ExpandEntity:
 - name: getUUID
   paramsSignature: crafttweaker.api.entity.IEntity
@@ -1942,6 +2383,13 @@ crafttweaker.api.entity.IEntityAnimal:
   paramsSignature: crafttweaker.api.entity.IEntityAnimal
   paramNames:
   - other
+codersafterdark.compatskills.common.compats.magneticraft.MagMultiBlockGates:
+- name: addGate
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
+  paramNames:
+  - multiBlockName
+  - failureMessage
+  - defaultRequirements
 com.blamejared.compat.thaumcraft.handlers.handlers.SmeltingBonus:
 - name: addSmeltingBonus
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.WeightedItemStack
@@ -2074,6 +2522,11 @@ com.blamejared.compat.botania.handlers.Knowledge:
   - localized
   - color
   - autoUnlock
+gregtech.api.GregTechAPI$MaterialRegistry:
+- name: get
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
 youyihj.zenutils.api.network.IByteBuf:
 - name: writeInt
   paramsSignature: int
@@ -2129,6 +2582,27 @@ crafttweaker.api.tooltip.ITooltipFunction:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - ingredient
+codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTUnlockable:
+- name: setRequirements
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - requirements
+- name: setCost
+  paramsSignature: int
+  paramNames:
+  - cost
+- name: setX
+  paramsSignature: int
+  paramNames:
+  - x
+- name: setY
+  paramsSignature: int
+  paramNames:
+  - y
+- name: setEnabled
+  paramsSignature: boolean
+  paramNames:
+  - enabled
 com.blamejared.compat.forestry.Moistener:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
@@ -2281,6 +2755,12 @@ com.blamejared.compat.botania.handlers.ElvenTrade:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - output
+codersafterdark.compatskills.common.compats.projecte.ProjectETweaker:
+- name: addEMCLock
+  paramsSignature: long,java.lang.String[]
+  paramNames:
+  - emc
+  - locked
 crafttweaker.tests.Optionals:
 - name: print
   paramsSignature: java.lang.String
@@ -2294,6 +2774,18 @@ crafttweaker.tests.Optionals:
   paramsSignature: int
   paramNames:
   - value
+gregtech.integration.crafttweaker.recipe.CTRecipeUtils:
+- name: removeRecipeByOutput
+  paramsSignature: gregtech.api.recipes.RecipeMap,crafttweaker.api.item.IItemStack[],crafttweaker.api.liquid.ILiquidStack[],boolean
+  paramNames:
+  - recipeMap
+  - outputs
+  - fluidOutputs
+  - useAmounts
+- name: removeAll
+  paramsSignature: gregtech.api.recipes.RecipeMap
+  paramNames:
+  - recipeMap
 crafttweaker.api.block.IBlockStateMatcher:
 - name: matches
   paramsSignature: crafttweaker.api.block.IBlockState
@@ -2433,6 +2925,22 @@ youyihj.zenutils.api.liquid.ILiquidTankProperties:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - liquidStack
+codersafterdark.compatskills.common.compats.bloodmagic.ritualhandler.RitualHandlerTweaker:
+- name: addRitualLock
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - ritual
+  - requirements
+- name: addRitualCostLock
+  paramsSignature: int,java.lang.String[]
+  paramNames:
+  - activationCost
+  - requirements
+- name: addRitualCrystalLock
+  paramsSignature: int,java.lang.String[]
+  paramNames:
+  - crystalLevel
+  - requirements
 crafttweaker.api.entity.IEntity:
 - name: setDimension
   paramsSignature: int
@@ -2624,6 +3132,32 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentBui
   paramsSignature: java.lang.String
   paramNames:
   - name
+gregtech.api.unification.material.Material:
+- name: setFormula
+  paramsSignature: java.lang.String
+  paramNames:
+  - formula
+- name: setFormula
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - formula
+  - withFormatting
+- name: addFlags
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - names
+- name: setMaterialRGB
+  paramsSignature: int
+  paramNames:
+  - materialRGB
+- name: compareTo
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - material
+- name: multiply
+  paramsSignature: long
+  paramNames:
+  - amount
 youyihj.zenutils.api.util.StaticString:
 - name: valueOf
   paramsSignature: int
@@ -3767,6 +4301,13 @@ crafttweaker.api.player.IPlayer:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - item
+codersafterdark.compatskills.common.compats.immersiveengineering.IEMultiBlockGates:
+- name: addGate
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
+  paramNames:
+  - multiBlockName
+  - failureMessage
+  - defaultRequirements
 crafttweaker.api.data.IData:
 - name: add
   paramsSignature: crafttweaker.api.data.IData
@@ -3917,11 +4458,102 @@ stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithDefaultMethod:
   paramsSignature: int
   paramNames:
   - a
+gregtech.api.unification.stack.MaterialStack:
+- name: copy
+  paramsSignature: long
+  paramNames:
+  - amount
+- name: equals
+  paramsSignature: java.lang.Object
+  paramNames:
+  - o
 crafttweaker.zenscript.expand.ExpandByte:
 - name: asData
   paramsSignature: byte
   paramNames:
   - value
+gregtech.integration.crafttweaker.material.MaterialExpansion:
+- name: setFormula
+  paramsSignature: gregtech.api.unification.material.Material,java.lang.String,boolean
+  paramNames:
+  - m
+  - formula
+  - withFormatting
+- name: hasFlag
+  paramsSignature: gregtech.api.unification.material.Material,java.lang.String
+  paramNames:
+  - m
+  - flagName
+- name: setIconSet
+  paramsSignature: gregtech.api.unification.material.Material,java.lang.String
+  paramNames:
+  - m
+  - iconSetName
+- name: setFluidTemperature
+  paramsSignature: gregtech.api.unification.material.Material,int
+  paramNames:
+  - m
+  - fluidTemperature
+- name: setHarvestLevel
+  paramsSignature: gregtech.api.unification.material.Material,int
+  paramNames:
+  - m
+  - harvestLevel
+- name: setBurnTime
+  paramsSignature: gregtech.api.unification.material.Material,int
+  paramNames:
+  - m
+  - burnTime
+- name: addToolEnchantment
+  paramsSignature: gregtech.api.unification.material.Material,crafttweaker.api.enchantments.IEnchantment
+  paramNames:
+  - m
+  - enchantment
+- name: addScaledToolEnchantment
+  paramsSignature: gregtech.api.unification.material.Material,crafttweaker.api.enchantments.IEnchantment,double
+  paramNames:
+  - m
+  - enchantment
+  - levelGrowth
+- name: setToolStats
+  paramsSignature: gregtech.api.unification.material.Material,float,float,int,int,boolean
+  paramNames:
+  - m
+  - toolSpeed
+  - toolAttackDamage
+  - toolDurability
+  - enchantability
+  - shouldIngoreCraftingTools
+- name: setToolStats
+  paramsSignature: gregtech.api.unification.material.Material,float,float,int,int,int,boolean
+  paramNames:
+  - m
+  - toolSpeed
+  - toolAttackDamage
+  - toolDurability
+  - enchantability
+  - toolHarvestLevel
+  - shouldIngoreCraftingTools
+- name: setBlastTemp
+  paramsSignature: gregtech.api.unification.material.Material,int
+  paramNames:
+  - m
+  - blastTemp
+gregtech.integration.crafttweaker.block.CTHeatingCoilBlockStats:
+- name: add
+  paramsSignature: crafttweaker.api.block.IBlockState,java.lang.String,int,int,int,int,gregtech.api.unification.material.Material
+  paramNames:
+  - state
+  - name
+  - coilTemperature
+  - level
+  - energyDiscount
+  - tier
+  - material
+- name: remove
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - state
 crafttweaker.api.item.IMutableItemStack:
 - name: shrink
   paramsSignature: int
@@ -3944,6 +4576,39 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemInteractionF
   - player
   - target
   - hand
+codersafterdark.compatskills.common.compats.reskillable.skillchange.SkillChangeTweaker:
+- name: addLevelUpCommands
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTSkill,int,java.lang.String[]
+  paramNames:
+  - skill
+  - level
+  - commands
+- name: addLevelUpHandler
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTSkill,int,codersafterdark.compatskills.common.compats.reskillable.skillchange.IChangeHandler
+  paramNames:
+  - skill
+  - level
+  - handler
+- name: addUnlockableLockCommands
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTUnlockable,java.lang.String[]
+  paramNames:
+  - unlockable
+  - commands
+- name: addUnlockableLockHandler
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTUnlockable,codersafterdark.compatskills.common.compats.reskillable.skillchange.IChangeHandler
+  paramNames:
+  - unlockable
+  - handler
+- name: addUnlockableUnlockCommands
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTUnlockable,java.lang.String[]
+  paramNames:
+  - unlockable
+  - commands
+- name: addUnlockableUnlockHandler
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTUnlockable,codersafterdark.compatskills.common.compats.reskillable.skillchange.IChangeHandler
+  paramNames:
+  - unlockable
+  - handler
 com.blamejared.compat.forestry.CharcoalPile:
 - name: addWall
   paramsSignature: crafttweaker.api.block.IBlock,int
@@ -4171,6 +4836,16 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemUseFinish:
   - stack
   - world
   - user
+gregtech.api.fluids.fluidType.FluidType:
+- name: setFluidPropertiesCT
+  paramsSignature: gregtech.api.fluids.fluidType.FluidType,gregtech.api.unification.material.Material
+  paramNames:
+  - fluidType
+  - material
+- name: getByName
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
 com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$CanApplyTogetherEnchantment:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation,crafttweaker.api.enchantments.IEnchantmentDefinition
@@ -4441,6 +5116,21 @@ com.blamejared.compat.chisel.Carving:
   paramNames:
   - groupName
   - stack
+codersafterdark.compatskills.common.compats.gamestages.gamestageunlockable.GameStageUnlockable:
+- name: addGameStageUnlockable
+  paramsSignature: java.lang.String,java.lang.String,int,int,java.lang.String,int,java.lang.String[]
+  paramNames:
+  - gameStage
+  - name
+  - x
+  - y
+  - skillName
+  - cost
+  - requirements
+- name: changeIcon
+  paramsSignature: java.lang.String
+  paramNames:
+  - resourceLocation
 com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$OnToolHeal:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation,crafttweaker.api.item.IItemStack,int,int,crafttweaker.api.entity.IEntityLivingBase
@@ -4450,6 +5140,11 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$OnToolHeal:
   - damage
   - newDamage
   - entity
+gregtech.common.metatileentities.primitive.MetaTileEntityCharcoalPileIgniter:
+- name: addWallBlockCT
+  paramsSignature: crafttweaker.api.block.IBlock
+  paramNames:
+  - block
 crafttweaker.api.recipes.IRecipeAction:
 - name: process
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.recipes.ICraftingInfo,crafttweaker.api.player.IPlayer
@@ -4480,6 +5175,11 @@ com.blamejared.compat.immersivetech.Distiller:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - input
+codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTPlayerData:
+- name: getSkillInfo
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTSkill
+  paramNames:
+  - skill
 crafttweaker.api.item.IItemTransformer:
 - name: transform
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.player.IPlayer
@@ -4526,6 +5226,12 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$IsCriticalH
   - tool
   - attacker
   - target
+codersafterdark.compatskills.common.compats.tinkersconstruct.materiallocks.MaterialLockTweaker:
+- name: addMaterialLock
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - id
+  - requirements
 crafttweaker.zenscript.expand.ExpandAnyDict:
 - name: asData
   paramsSignature: java.util.Map
@@ -4659,6 +5365,25 @@ com.blamejared.compat.tconstruct.Casting:
   paramNames:
   - output
   - input
+codersafterdark.compatskills.common.compats.minecraft.drops.BlockDropsTweaker:
+- name: addBlockDropLock
+  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String[]
+  paramNames:
+  - stack
+  - requirements
+gregtech.api.unification.ore.OrePrefix:
+- name: getPrefix
+  paramsSignature: java.lang.String
+  paramNames:
+  - prefixName
+- name: setIgnored
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - material
+- name: removeIgnored
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - material
 crafttweaker.mc1120.world.expand.ExpandBlockPos:
 - name: create
   paramsSignature: int,int,int
@@ -4871,6 +5596,15 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$Damage:
   - originalDamage
   - currentDamage
   - isCritical
+gregtech.api.recipes.builders.ImplosionRecipeBuilder:
+- name: explosivesAmount
+  paramsSignature: int
+  paramNames:
+  - explosivesAmount
+- name: explosivesType
+  paramsSignature: net.minecraft.item.ItemStack
+  paramNames:
+  - explosivesType
 crafttweaker.zenscript.expand.ExpandLong:
 - name: asData
   paramsSignature: long
@@ -4973,6 +5707,47 @@ crafttweaker.api.block.IMaterial:
   paramsSignature: crafttweaker.api.block.IMaterial
   paramNames:
   - other
+codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTSkill:
+- name: setBackgroundLocation
+  paramsSignature: java.lang.String
+  paramNames:
+  - resourceLocation
+- name: setCap
+  paramsSignature: int
+  paramNames:
+  - cap
+- name: setEnabled
+  paramsSignature: boolean
+  paramNames:
+  - enabled
+- name: setHidden
+  paramsSignature: boolean
+  paramNames:
+  - hidden
+- name: setLevelButton
+  paramsSignature: boolean
+  paramNames:
+  - button
+- name: compareTo
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTSkill
+  paramNames:
+  - other
+- name: setSkillPointInterval
+  paramsSignature: int
+  paramNames:
+  - amount
+- name: getLevelUpCost
+  paramsSignature: int
+  paramNames:
+  - level
+- name: setBaseLevelCost
+  paramsSignature: int
+  paramNames:
+  - cost
+- name: setLevelStaggering
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - stagger
 crafttweaker.zenscript.expand.ExpandString:
 - name: add
   paramsSignature: java.lang.String,crafttweaker.api.formatting.IFormattedText
@@ -5364,6 +6139,18 @@ com.blamejared.compat.botania.handlers.Orechid:
   paramsSignature: java.lang.String
   paramNames:
   - oreDict
+codersafterdark.compatskills.common.compats.tinkersconstruct.modifierlocks.ModifierLockTweaker:
+- name: addModifierLock
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - identifier
+  - requirements
+codersafterdark.compatskills.common.compats.gamestages.gamestagelocks.GameStageLockTweaker:
+- name: addGameStageLock
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - gamestage
+  - defaultRequirements
 crafttweaker.api.command.ICommandSender:
 - name: sendMessage
   paramsSignature: java.lang.String
@@ -5559,6 +6346,29 @@ crafttweaker.api.game.IGame:
   paramNames:
   - key
   - lang
+codersafterdark.compatskills.common.compats.reskillable.transmutations.AdditionsTweaker:
+- name: addEntryToReagent
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - reagent
+  - startState
+  - endState
+- name: addEntryToReagent
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.block.IBlockState,crafttweaker.api.block.IBlockState
+  paramNames:
+  - reagent
+  - state1
+  - state2
+- name: addEntryToReagentAgnostic
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - startState
+  - endState
+- name: addEntryToReagentAgnostic
+  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.block.IBlockState
+  paramNames:
+  - state1
+  - state2
 stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithStaticMethod:
 - name: apply
   paramsSignature: int
@@ -5919,6 +6729,13 @@ crafttweaker.api.text.ITextComponent:
   paramsSignature: crafttweaker.api.text.ITextComponent
   paramNames:
   - text
+codersafterdark.compatskills.common.compats.reskillable.levellocking.SkillLocksTweaker:
+- name: addLevelLock
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTSkill,int,java.lang.String[]
+  paramNames:
+  - skill
+  - level
+  - defaultRequirements
 com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFunctions$CalcModifierDamage:
 - name: handle
   paramsSignature: crafttweaker.api.enchantments.IEnchantmentDefinition,int,crafttweaker.api.damage.IDamageSource
@@ -6068,6 +6885,11 @@ crafttweaker.api.world.IBlockPos:
   paramNames:
   - direction
   - offset
+gregtech.integration.crafttweaker.recipe.CTUtilities:
+- name: removeMulti
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
 com.blamejared.compat.betterwithmods.Turntable:
 - name: add
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
@@ -6347,6 +7169,22 @@ crafttweaker.api.world.IBlockAccess:
   paramNames:
   - pos
   - facing
+gregtech.api.recipes.RecipeMap:
+- name: getByName
+  paramsSignature: java.lang.String
+  paramNames:
+  - unlocalizedName
+- name: setChanceFunction
+  paramsSignature: gregtech.api.recipes.RecipeMap$IChanceFunction
+  paramNames:
+  - function
+- name: ctFindRecipe
+  paramsSignature: long,crafttweaker.api.item.IItemStack[],crafttweaker.api.liquid.ILiquidStack[],int
+  paramNames:
+  - maxVoltage
+  - itemInputs
+  - fluidInputs
+  - outputFluidTankCapacity
 com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialDefinition:
 - name: compare
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialDefinition
@@ -6393,6 +7231,17 @@ youyihj.zenutils.api.block.ZenUtilsBlock:
   - world
   - pos
   - state
+codersafterdark.compatskills.common.compats.minecraft.item.food.FoodTweaker:
+- name: addHungerLock
+  paramsSignature: int,java.lang.String[]
+  paramNames:
+  - level
+  - requirements
+- name: addSaturationLock
+  paramsSignature: float,java.lang.String[]
+  paramNames:
+  - level
+  - requirements
 youyihj.zenutils.api.util.catenation.ICatenationBuilder:
 - name: run
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
@@ -6750,6 +7599,12 @@ crafttweaker.api.world.IWorld:
   paramsSignature: crafttweaker.api.world.IExplosion
   paramNames:
   - explosion
+codersafterdark.compatskills.common.compats.minecraft.tileentity.TileEntityLockTweaker:
+- name: addTileEntityLock
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - tileName
+  - locked
 com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing:
 - name: compare
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing
@@ -6782,6 +7637,18 @@ com.blamejared.compat.forestry.ThermionicFabricator:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - product
+codersafterdark.compatskills.common.compats.reskillable.NBTLockTweaker:
+- name: addModNBTLock
+  paramsSignature: java.lang.String,crafttweaker.api.data.IData,java.lang.String[]
+  paramNames:
+  - modId
+  - tag
+  - locked
+- name: addGenericNBTLock
+  paramsSignature: crafttweaker.api.data.IData,java.lang.String[]
+  paramNames:
+  - tag
+  - locked
 com.teamacronymcoders.contenttweaker.api.ctobjects.aabb.MCAxisAlignedBB:
 - name: create
   paramsSignature: double,double,double,double,double,double
@@ -6830,6 +7697,14 @@ com.blamejared.compat.betterwithmods.base.blockrecipes.TurntableBuilder:
   paramNames:
   - input
   - outputs
+gregtech.api.recipes.RecipeMap$IChanceFunction:
+- name: chanceFor
+  paramsSignature: int,int,int,int
+  paramNames:
+  - baseChance
+  - boostPerTier
+  - baseTier
+  - boostTier
 com.blamejared.compat.actuallyaddition.MiningLens:
 - name: addStoneOre
   paramsSignature: crafttweaker.api.oredict.IOreDictEntry,int
@@ -6859,6 +7734,148 @@ com.blamejared.compat.thermalexpansion.dynamos.EnervationDynamo:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - stack
+gregtech.integration.crafttweaker.material.MaterialPropertyExpansion:
+- name: hasBlastTemp
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasDust
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasFluidPipes
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasFluid
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasGem
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasIngot
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasItemPipes
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasOre
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasPlasma
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasTools
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: hasWires
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: addBlastTemp
+  paramsSignature: gregtech.api.unification.material.Material,int
+  paramNames:
+  - m
+  - blastTemp
+- name: addBlastProperty
+  paramsSignature: gregtech.api.unification.material.Material,int,java.lang.String,int,int
+  paramNames:
+  - m
+  - blastTemp
+  - gasTier
+  - durationOverride
+  - eutOverride
+- name: addDust
+  paramsSignature: gregtech.api.unification.material.Material,int,int
+  paramNames:
+  - m
+  - harvestLevel
+  - burnTime
+- name: addFluidPipes
+  paramsSignature: gregtech.api.unification.material.Material,int,int,boolean
+  paramNames:
+  - m
+  - maxFluidTemperature
+  - throughput
+  - gasProof
+- name: addFluidPipes
+  paramsSignature: gregtech.api.unification.material.Material,int,int,boolean,boolean,boolean,boolean
+  paramNames:
+  - m
+  - maxFluidTemperature
+  - throughput
+  - gasProof
+  - acidProof
+  - cryoProof
+  - plasmaProof
+- name: addFluid
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: addFluid
+  paramsSignature: gregtech.api.unification.material.Material,java.lang.String,boolean
+  paramNames:
+  - m
+  - fluidTypeName
+  - hasBlock
+- name: addFluid
+  paramsSignature: gregtech.api.unification.material.Material,gregtech.api.fluids.fluidType.FluidType,boolean
+  paramNames:
+  - m
+  - fluidType
+  - hasBlock
+- name: addGem
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: addIngot
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: addOre
+  paramsSignature: gregtech.api.unification.material.Material,int,int,boolean
+  paramNames:
+  - m
+  - oreMultiplier
+  - byproductMultiplier
+  - emissive
+- name: addItemPipes
+  paramsSignature: gregtech.api.unification.material.Material,int,float
+  paramNames:
+  - m
+  - priority
+  - transferRate
+- name: addPlasma
+  paramsSignature: gregtech.api.unification.material.Material
+  paramNames:
+  - m
+- name: addTools
+  paramsSignature: gregtech.api.unification.material.Material,float,float,float,int,int,int,int
+  paramNames:
+  - m
+  - toolSpeed
+  - toolAttackDamage
+  - toolAttackSpeed
+  - toolDurability
+  - toolHarvestLevel
+  - toolEnchantability
+  - durabilityMultiplier
+- name: addWires
+  paramsSignature: gregtech.api.unification.material.Material,int,int,int,boolean,int
+  paramNames:
+  - m
+  - voltage
+  - baseAmperage
+  - lossPerBlock
+  - isSuperCon
+  - criticalTemp
 crafttweaker.api.entity.IEntityDropFunction:
 - name: handle
   paramsSignature: crafttweaker.api.entity.IEntity,crafttweaker.api.damage.IDamageSource
@@ -6882,6 +7899,23 @@ crafttweaker.mc1120.command.expand.ExpandCommandSender:
   paramNames:
   - sender
   - textComponent
+codersafterdark.compatskills.common.compats.minecraft.item.harvestlevel.HarvestLevelTweaker:
+- name: addToolLevelLock
+  paramsSignature: int,java.lang.String[]
+  paramNames:
+  - level
+  - requirements
+- name: addToolLevelLock
+  paramsSignature: java.lang.String,int,java.lang.String[]
+  paramNames:
+  - type
+  - level
+  - requirements
+- name: addBlockLevelLock
+  paramsSignature: int,java.lang.String[]
+  paramNames:
+  - level
+  - requirements
 crafttweaker.api.entity.IProjectile:
 - name: shoot
   paramsSignature: double,double,double,float,float
@@ -7001,6 +8035,12 @@ com.blamejared.compat.betterwithmods.base.bulkrecipes.MillBuilder:
   paramNames:
   - inputs
   - outputs
+codersafterdark.compatskills.common.compats.tinkersconstruct.toollocks.ToolTypeLockTweaker:
+- name: addToolTypeLock
+  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String[]
+  paramNames:
+  - stack
+  - requirements
 com.blamejared.compat.thaumcraft.handlers.handlers.ArcaneWorkbench:
 - name: registerShapedRecipe
   paramsSignature: java.lang.String,java.lang.String,int,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[],crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][]
@@ -7413,6 +8453,12 @@ youyihj.zenutils.api.cotx.function.IEntityWalk:
   - world
   - pos
   - entity
+gregtech.api.util.CapesRegistry:
+- name: registerCape
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - advancement
+  - cape
 crafttweaker.api.chat.IChatMessage:
 - name: add
   paramsSignature: crafttweaker.api.chat.IChatMessage
@@ -7519,6 +8565,11 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.VanillaFactory:
   - name
   - color
 - name: createSoundEvent
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+gregtech.api.unification.material.info.MaterialIconSet:
+- name: getByName
   paramsSignature: java.lang.String
   paramNames:
   - name
@@ -8110,6 +9161,12 @@ crafttweaker.api.world.IFacing:
   paramsSignature: crafttweaker.api.world.IFacing
   paramNames:
   - other
+codersafterdark.compatskills.common.compats.minecraft.dimension.dimensionlocks.DimensionLockTweaker:
+- name: addDimensionLock
+  paramsSignature: int,java.lang.String[]
+  paramNames:
+  - dimension
+  - defaultRequirements
 youyihj.zenutils.api.util.delay.IsExecute:
 - name: setExec
   paramsSignature: boolean
@@ -8142,6 +9199,12 @@ crafttweaker.api.event.BlockHarvestDropsEvent:
   paramsSignature: crafttweaker.api.item.WeightedItemStack
   paramNames:
   - itemStack
+codersafterdark.compatskills.common.compats.minecraft.entity.entitymountevent.EntityMountEventTweaker:
+- name: addMountLock
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,java.lang.String[]
+  paramNames:
+  - definition
+  - defaultRequirements
 youyihj.zenutils.api.world.GameRuleHelper:
 - name: getBoolean
   paramsSignature: java.lang.String
@@ -8218,11 +9281,29 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFun
   - user
   - attacker
   - level
+codersafterdark.compatskills.common.compats.reskillable.RequirementTweaker:
+- name: addRequirement
+  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String[]
+  paramNames:
+  - item
+  - locked
 youyihj.zenutils.api.util.catenation.persistence.ICatenationFactory:
 - name: get
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
   - world
+codersafterdark.compatskills.common.compats.minecraft.entity.entitydamageevent.EntityDamageEventTweaker:
+- name: addEntityLock
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,java.lang.String[]
+  paramNames:
+  - definition
+  - defaultRequirements
+codersafterdark.compatskills.common.compats.minecraft.entity.animaltameevent.AnimalTameEventTweaker:
+- name: addTameLock
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,java.lang.String[]
+  paramNames:
+  - definition
+  - defaultRequirements
 com.teamacronymcoders.contenttweaker.modules.vanilla.items.ItemRepresentation:
 - name: setUnlocalizedName
   paramsSignature: java.lang.String
@@ -8390,6 +9471,12 @@ com.blamejared.compat.botania.handlers.RuneAltar:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - output
+codersafterdark.compatskills.common.compats.reskillable.skillhiding.VisibilityLockTweaker:
+- name: addVisibilityLock
+  paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTSkill,java.lang.String[]
+  paramNames:
+  - skill
+  - defaultRequirements
 com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFunctions$CalcTranslatedName:
 - name: handle
   paramsSignature: crafttweaker.api.enchantments.IEnchantmentDefinition,int
@@ -8583,6 +9670,79 @@ crafttweaker.api.entity.IEntityLivingBase:
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot
   paramNames:
   - slot
+gregtech.integration.crafttweaker.recipe.CTRecipeBuilder:
+- name: duration
+  paramsSignature: int
+  paramNames:
+  - duration
+- name: EUt
+  paramsSignature: int
+  paramNames:
+  - EUt
+- name: inputs
+  paramsSignature: crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - ingredients
+- name: notConsumable
+  paramsSignature: crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - ingredients
+- name: notConsumable
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - ingredient
+- name: circuit
+  paramsSignature: int
+  paramNames:
+  - num
+- name: fluidInputs
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - ingredients
+- name: outputs
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - ingredients
+- name: chancedOutput
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int
+  paramNames:
+  - outputStack
+  - chanceValue
+  - tierChanceBoost
+- name: fluidOutputs
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - ingredients
+- name: property
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - key
+  - value
+- name: property
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - key
+  - value
+- name: property
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - key
+  - value
+- name: property
+  paramsSignature: java.lang.String,long
+  paramNames:
+  - key
+  - value
+- name: property
+  paramsSignature: java.lang.String,float
+  paramNames:
+  - key
+  - value
+- name: property
+  paramsSignature: java.lang.String,crafttweaker.api.item.IItemStack
+  paramNames:
+  - key
+  - item
 crafttweaker.api.util.MathUtil:
 - name: max
   paramsSignature: double,double
