@@ -2246,6 +2246,43 @@ youyihj.zenutils.api.player.ZenUtilsPlayer:
   paramsSignature: crafttweaker.api.player.IPlayer
   paramNames:
   - player
+- name: simulateRightClickItem
+  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityEquipmentSlot
+  paramNames:
+  - player
+  - stack
+  - hand
+- name: simulateRightClickBlock
+  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityEquipmentSlot,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing,float,float,float
+  paramNames:
+  - player
+  - stack
+  - hand
+  - pos
+  - facing
+  - hitX
+  - hitY
+  - hitZ
+- name: simulateRightClickEntity
+  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.entity.IEntity,crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityEquipmentSlot
+  paramNames:
+  - player
+  - entity
+  - stack
+  - hand
+- name: simulateLeftClickBlock
+  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.item.IItemStack,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - player
+  - stack
+  - pos
+  - side
+- name: simulateUseItemFinish
+  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityEquipmentSlot
+  paramNames:
+  - player
+  - itemStack
+  - hand
 com.teamacronymcoders.contenttweaker.api.ctobjects.mutableitemstack.IMutableItemStack:
 - name: setCount
   paramsSignature: int
@@ -2528,6 +2565,10 @@ gregtech.api.GregTechAPI$MaterialRegistry:
   paramNames:
   - name
 youyihj.zenutils.api.network.IByteBuf:
+- name: writeBoolean
+  paramsSignature: boolean
+  paramNames:
+  - value
 - name: writeInt
   paramsSignature: int
   paramNames:
