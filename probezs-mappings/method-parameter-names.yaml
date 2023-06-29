@@ -71,6 +71,29 @@ crafttweaker.mc1120.oredict.ExpandOreDictEntry:
   paramNames:
   - thisEntry
   - p
+com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTParticle:
+- name: setPosition
+  paramsSignature: double,double,double
+  paramNames:
+  - x
+  - y
+  - z
+- name: setLife
+  paramsSignature: int
+  paramNames:
+  - life
+- name: setBackLayer
+  paramsSignature: boolean
+  paramNames:
+  - isBackLayer
+- name: setAddBlend
+  paramsSignature: boolean
+  paramNames:
+  - isBackLayer
+- name: setRenderRange
+  paramsSignature: int
+  paramNames:
+  - renderRange
 youyihj.zenutils.api.ftbq.FTBQEventManager:
 - name: onTaskCompleted
   paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
@@ -207,6 +230,12 @@ youyihj.zenutils.api.util.catenation.Catenation:
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
   - world
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IPredicateFunction:
+- name: test
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeLogic,com.cleanroommc.multiblocked.api.recipe.Recipe
+  paramNames:
+  - recipeLogic
+  - recipe
 com.teamacronymcoders.contenttweaker.modules.chickens.ChickenFactory:
 - name: createChicken
   paramsSignature: java.lang.String,com.teamacronymcoders.contenttweaker.api.ctobjects.color.CTColor,crafttweaker.api.item.IItemStack
@@ -317,6 +346,15 @@ crafttweaker.api.item.IngredientCondition:
   paramNames:
   - ingredient
   - amount
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandComponent:
+- name: asController
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent
+  paramNames:
+  - component
+- name: asPart
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent
+  paramNames:
+  - component
 codersafterdark.compatskills.common.compats.minecraft.item.weapon.DamageLockTweaker:
 - name: addDamageLock
   paramsSignature: double,java.lang.String[]
@@ -356,6 +394,16 @@ com.blamejared.compat.immersivetech.SolarTower:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - input
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IApplyContentModifier:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeLogic,com.cleanroommc.multiblocked.api.recipe.Recipe,com.cleanroommc.multiblocked.api.recipe.Content,com.cleanroommc.multiblocked.api.capability.MultiblockCapability,com.cleanroommc.multiblocked.api.capability.IO,boolean
+  paramNames:
+  - logic
+  - recipe
+  - content
+  - capability
+  - io
+  - isTickIO
 codersafterdark.compatskills.common.compats.reskillable.skillchange.IChangeHandler:
 - name: handleChange
   paramsSignature: crafttweaker.api.player.IPlayer
@@ -409,6 +457,12 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$MiningSpeed
   - thisTrait
   - tool
   - event
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IGetOutputRedstoneSignal:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,crafttweaker.api.world.IFacing
+  paramNames:
+  - componentTileEntity
+  - facing
 crafttweaker.api.block.IMobilityFlag:
 - name: matches
   paramsSignature: crafttweaker.api.block.IMobilityFlag
@@ -642,6 +696,47 @@ com.blamejared.compat.tconstruct.Alloy:
   paramNames:
   - output
   - input
+com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTLaserParticle:
+- name: setBody
+  paramsSignature: java.lang.String
+  paramNames:
+  - location
+- name: setHead
+  paramsSignature: java.lang.String
+  paramNames:
+  - location
+- name: setStartPos
+  paramsSignature: double,double,double
+  paramNames:
+  - x
+  - y
+  - z
+- name: setEndPos
+  paramsSignature: double,double,double
+  paramNames:
+  - x
+  - y
+  - z
+- name: setBeamHeight
+  paramsSignature: float
+  paramNames:
+  - beamHeight
+- name: setHeadWidth
+  paramsSignature: float
+  paramNames:
+  - headWidth
+- name: setAlpha
+  paramsSignature: float
+  paramNames:
+  - alpha
+- name: setEmit
+  paramsSignature: float
+  paramNames:
+  - emit
+- name: setVerticalMode
+  paramsSignature: boolean
+  paramNames:
+  - verticalMode
 com.blamejared.compat.betterwithmods.base.bulkrecipes.CookingPotBuilder:
 - name: setHeat
   paramsSignature: int
@@ -1230,6 +1325,63 @@ codersafterdark.compatskills.common.compats.reskillable.ModLockTweaker:
   paramNames:
   - modId
   - locked
+com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTTextureParticle:
+- name: setSize
+  paramsSignature: float,float
+  paramNames:
+  - particleWidth
+  - particleHeight
+- name: setMotionless
+  paramsSignature: boolean
+  paramNames:
+  - motionless
+- name: setMotion
+  paramsSignature: double,double,double
+  paramNames:
+  - xSpeedIn
+  - ySpeedIn
+  - zSpeedIn
+- name: setMotion
+  paramsSignature: crafttweaker.api.util.Position3f
+  paramNames:
+  - vec
+- name: setColor
+  paramsSignature: int
+  paramNames:
+  - color
+- name: setColor
+  paramsSignature: int,int,int,int
+  paramNames:
+  - alpha
+  - red
+  - green
+  - blue
+- name: setScale
+  paramsSignature: float
+  paramNames:
+  - scale
+- name: setGravity
+  paramsSignature: float
+  paramNames:
+  - gravity
+- name: setTexturesCount
+  paramsSignature: int
+  paramNames:
+  - texturesCount
+- name: setTexturesIndex
+  paramsSignature: int,int
+  paramNames:
+  - particleTextureIndexX
+  - particleTextureIndexY
+- name: setTexture
+  paramsSignature: java.lang.String
+  paramNames:
+  - texture
+- name: setLightingMap
+  paramsSignature: int,int
+  paramNames:
+  - block
+  - sky
 crafttweaker.api.event.NoteBlockPlayEvent:
 - name: setInstrument
   paramsSignature: java.lang.String
@@ -1480,6 +1632,16 @@ com.teamacronymcoders.contenttweaker.modules.materials.materialpartdata.IMateria
   paramNames:
   - name
   - defaultValue
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipe:
+- name: getData
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe,java.lang.String
+  paramNames:
+  - recipe
+  - key
+- name: getText
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe
+  paramNames:
+  - recipe
 crafttweaker.tests.test.CompareTests:
 - name: compare
   paramsSignature: crafttweaker.tests.test.CompareTests
@@ -1788,6 +1950,15 @@ com.blamejared.compat.thermalexpansion.dynamos.ReactantDynamo:
   paramNames:
   - stack
   - fluid
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandParticle:
+- name: asTexture
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTParticle
+  paramNames:
+  - particle
+- name: asLaser
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTParticle
+  paramNames:
+  - particle
 com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFunctions$CalcEnchantability:
 - name: handle
   paramsSignature: crafttweaker.api.enchantments.IEnchantmentDefinition,int
@@ -1847,6 +2018,13 @@ youyihj.zenutils.api.cotx.tile.TileEntityContent:
   paramsSignature: crafttweaker.api.data.IData
   paramNames:
   - data
+com.cleanroommc.multiblocked.api.recipe.ContentModifier:
+- name: <init>
+  paramsSignature: double,boolean,com.cleanroommc.multiblocked.api.recipe.ContentModifier$Operation
+  paramNames:
+  - value
+  - affectChance
+  - operation
 com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState:
 - name: isReplaceable
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos
@@ -2019,7 +2197,23 @@ com.teamacronymcoders.contenttweaker.modules.materials.CTMaterialSystem:
   paramsSignature: java.lang.String
   paramNames:
   - regex
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IReceiveCustomData:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,int,crafttweaker.api.data.IData
+  paramNames:
+  - componentTileEntity
+  - id
+  - data
 gregtech.integration.crafttweaker.material.CTMaterialBuilder:
+- name: <init>
+  paramsSignature: int,java.lang.String
+  paramNames:
+  - id
+  - name
+- name: <init>
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
 - name: fluid
   paramsSignature: java.lang.String,boolean
   paramNames:
@@ -2420,6 +2614,42 @@ crafttweaker.api.entity.IEntityAnimal:
   paramsSignature: crafttweaker.api.entity.IEntityAnimal
   paramNames:
   - other
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IDynamicPattern:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
+  paramNames:
+  - controllerTileEntity
+com.cleanroommc.multiblocked.api.crafttweaker.CTParticleUtils:
+- name: texture
+  paramsSignature: crafttweaker.api.world.IWorld,double,double,double,boolean
+  paramNames:
+  - world
+  - x
+  - y
+  - z
+  - isShader
+- name: texture
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.util.Position3f,boolean
+  paramNames:
+  - world
+  - position
+  - isShader
+- name: laser
+  paramsSignature: crafttweaker.api.world.IWorld,double,double,double,double,double,double
+  paramNames:
+  - world
+  - sX
+  - sY
+  - sZ
+  - eX
+  - eY
+  - eZ
+- name: laser
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.util.Position3f,crafttweaker.api.util.Position3f
+  paramNames:
+  - world
+  - startPos
+  - endPos
 codersafterdark.compatskills.common.compats.magneticraft.MagMultiBlockGates:
 - name: addGate
   paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
@@ -2438,6 +2668,345 @@ com.blamejared.compat.thaumcraft.handlers.handlers.SmeltingBonus:
   paramNames:
   - input
   - stack
+com.cleanroommc.multiblocked.api.recipe.RecipeBuilder:
+- name: <init>
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeMap
+  paramNames:
+  - recipeMap
+- name: duration
+  paramsSignature: int
+  paramNames:
+  - duration
+- name: data
+  paramsSignature: java.lang.String,crafttweaker.api.data.IData
+  paramNames:
+  - key
+  - object
+- name: text
+  paramsSignature: crafttweaker.api.text.ITextComponent
+  paramNames:
+  - text
+- name: perTick
+  paramsSignature: boolean
+  paramNames:
+  - perTick
+- name: name
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: slotName
+  paramsSignature: java.lang.String
+  paramNames:
+  - slotName
+- name: inputFE
+  paramsSignature: int
+  paramNames:
+  - forgeEnergy
+- name: outputFE
+  paramsSignature: int
+  paramNames:
+  - forgeEnergy
+- name: inputFE
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - forgeEnergy
+- name: outputFE
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - forgeEnergy
+- name: inputMana
+  paramsSignature: int
+  paramNames:
+  - mana
+- name: outputMana
+  paramsSignature: int
+  paramNames:
+  - mana
+- name: inputMana
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - mana
+- name: outputMana
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - mana
+- name: inputHeat
+  paramsSignature: double
+  paramNames:
+  - heat
+- name: outputHeat
+  paramsSignature: double
+  paramNames:
+  - heat
+- name: inputHeat
+  paramsSignature: float,double
+  paramNames:
+  - chance
+  - heat
+- name: outputHeat
+  paramsSignature: float,double
+  paramNames:
+  - chance
+  - heat
+- name: inputEU
+  paramsSignature: int
+  paramNames:
+  - eu
+- name: outputEU
+  paramsSignature: int
+  paramNames:
+  - eu
+- name: inputEU
+  paramsSignature: float,long
+  paramNames:
+  - chance
+  - eu
+- name: outputEU
+  paramsSignature: float,long
+  paramNames:
+  - chance
+  - eu
+- name: inputLE
+  paramsSignature: double
+  paramNames:
+  - le
+- name: outputLE
+  paramsSignature: double
+  paramNames:
+  - le
+- name: inputLE
+  paramsSignature: float,double
+  paramNames:
+  - chance
+  - le
+- name: outputLE
+  paramsSignature: float,double
+  paramNames:
+  - chance
+  - le
+- name: inputHotAir
+  paramsSignature: int
+  paramNames:
+  - hotAir
+- name: outputHotAir
+  paramsSignature: int
+  paramNames:
+  - hotAir
+- name: inputHotAir
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - hotAir
+- name: outputHotAir
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - hotAir
+- name: inputAura
+  paramsSignature: int
+  paramNames:
+  - aura
+- name: outputAura
+  paramsSignature: int
+  paramNames:
+  - aura
+- name: inputAura
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - aura
+- name: outputAura
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - aura
+- name: inputGP
+  paramsSignature: float
+  paramNames:
+  - gp
+- name: outputGP
+  paramsSignature: float
+  paramNames:
+  - gp
+- name: inputGP
+  paramsSignature: float,float
+  paramNames:
+  - chance
+  - gp
+- name: outputGP
+  paramsSignature: float,float
+  paramNames:
+  - chance
+  - gp
+- name: inputEMC
+  paramsSignature: long
+  paramNames:
+  - emc
+- name: outputEMC
+  paramsSignature: long
+  paramNames:
+  - emc
+- name: inputEMC
+  paramsSignature: float,long
+  paramNames:
+  - chance
+  - emc
+- name: outputEMC
+  paramsSignature: float,long
+  paramNames:
+  - chance
+  - emc
+- name: inputLP
+  paramsSignature: int
+  paramNames:
+  - lp
+- name: outputLP
+  paramsSignature: int
+  paramNames:
+  - lp
+- name: inputLP
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - lp
+- name: outputLP
+  paramsSignature: float,int
+  paramNames:
+  - chance
+  - lp
+- name: inputEmber
+  paramsSignature: double
+  paramNames:
+  - ember
+- name: outputEmber
+  paramsSignature: double
+  paramNames:
+  - ember
+- name: inputEmber
+  paramsSignature: float,double
+  paramNames:
+  - chance
+  - ember
+- name: outputEmber
+  paramsSignature: float,double
+  paramNames:
+  - chance
+  - ember
+- name: inputImpetus
+  paramsSignature: int
+  paramNames:
+  - impetus
+- name: outputImpetus
+  paramsSignature: int
+  paramNames:
+  - impetus
+- name: inputImpetus
+  paramsSignature: float,long
+  paramNames:
+  - chance
+  - impetus
+- name: outputImpetus
+  paramsSignature: float,long
+  paramNames:
+  - chance
+  - impetus
+- name: inputPressure
+  paramsSignature: float,float
+  paramNames:
+  - chance
+  - pressure
+- name: inputPressure
+  paramsSignature: float
+  paramNames:
+  - pressure
+- name: inputStarlight
+  paramsSignature: float,int,java.lang.String
+  paramNames:
+  - chance
+  - starlight
+  - constellation
+- name: outputStarlight
+  paramsSignature: float,int,java.lang.String
+  paramNames:
+  - chance
+  - starlight
+  - constellation
+- name: inputStarlight
+  paramsSignature: int,java.lang.String
+  paramNames:
+  - starlight
+  - constellation
+- name: outputStarlight
+  paramsSignature: int,java.lang.String
+  paramNames:
+  - starlight
+  - constellation
+- name: dimension
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - dimension
+  - reverse
+- name: dimension
+  paramsSignature: java.lang.String
+  paramNames:
+  - dimension
+- name: biome
+  paramsSignature: net.minecraft.util.ResourceLocation
+  paramNames:
+  - biome
+- name: rain
+  paramsSignature: float,boolean
+  paramNames:
+  - level
+  - reverse
+- name: thunder
+  paramsSignature: float,boolean
+  paramNames:
+  - level
+  - reverse
+- name: thunder
+  paramsSignature: float
+  paramNames:
+  - level
+- name: posY
+  paramsSignature: int,int,boolean
+  paramNames:
+  - min
+  - max
+  - reverse
+- name: posY
+  paramsSignature: int,int
+  paramNames:
+  - min
+  - max
+- name: predicate
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.functions.IPredicateFunction,java.lang.String,boolean
+  paramNames:
+  - predicate
+  - tooltip
+  - reverse
+- name: predicate
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.functions.IPredicateFunction,boolean
+  paramNames:
+  - predicate
+  - reverse
+- name: predicate
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.functions.IPredicateFunction,java.lang.String
+  paramNames:
+  - predicate
+  - tooltip
+- name: predicate
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.functions.IPredicateFunction
+  paramNames:
+  - predicate
+- name: buildAndRegister
+  paramsSignature: boolean
+  paramNames:
+  - isFuel
 crafttweaker.api.entity.IEntityMob:
 - name: isPreventingPlayerRest
   paramsSignature: crafttweaker.api.player.IPlayer
@@ -2449,6 +3018,29 @@ com.blamejared.compat.thaumcraft.handlers.handlers.Warp:
   paramNames:
   - stack
   - amount
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeBuilder$Particle:
+- name: inputParticles
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,lach_01298.qmd.crafttweaker.particle.IParticleStack[]
+  paramNames:
+  - builder
+  - inputs
+- name: outputParticles
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,lach_01298.qmd.crafttweaker.particle.IParticleStack[]
+  paramNames:
+  - builder
+  - outputs
+- name: inputParticles
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,lach_01298.qmd.crafttweaker.particle.IParticleStack[]
+  paramNames:
+  - builder
+  - chance
+  - inputs
+- name: outputParticles
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,lach_01298.qmd.crafttweaker.particle.IParticleStack[]
+  paramNames:
+  - builder
+  - chance
+  - outputs
 com.blamejared.compat.betterwithmods.Mill:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IIngredient[],crafttweaker.api.item.IItemStack[]
@@ -2759,6 +3351,12 @@ crafttweaker.api.block.IBlockPattern:
   paramsSignature: crafttweaker.api.block.IBlockPattern
   paramNames:
   - pattern
+com.cleanroommc.multiblocked.api.crafttweaker.functions.ILeftClick:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,crafttweaker.api.player.IPlayer
+  paramNames:
+  - componentTileEntity
+  - player
 com.teamacronymcoders.contenttweaker.api.ctobjects.enums.ActionResult:
 - name: compare
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.ActionResult
@@ -2882,6 +3480,16 @@ youyihj.zenutils.api.cotx.function.IGetEntityLifeSpan:
   paramNames:
   - iItemStack
   - world
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IRightClick:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,crafttweaker.api.player.IPlayer,crafttweaker.api.world.IFacing,float,float,float
+  paramNames:
+  - componentTileEntity
+  - player
+  - facing
+  - hitX
+  - hitY
+  - hitZ
 youyihj.zenutils.api.util.CrTUUID:
 - name: fromString
   paramsSignature: java.lang.String
@@ -2923,6 +3531,11 @@ crafttweaker.mc1120.liquid.ExpandLiquidStack:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - thisStack
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeContent$Gas:
+- name: asIGasStack
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
 com.blamejared.compat.betterwithmods.Saw:
 - name: add
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
@@ -4349,6 +4962,11 @@ codersafterdark.compatskills.common.compats.immersiveengineering.IEMultiBlockGat
   - multiBlockName
   - failureMessage
   - defaultRequirements
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IWriteInitialData:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent
+  paramNames:
+  - componentTileEntity
 crafttweaker.api.data.IData:
 - name: add
   paramsSignature: crafttweaker.api.data.IData
@@ -4713,6 +5331,11 @@ crafttweaker.api.creativetabs.ICreativeTab:
   paramsSignature: java.lang.String
   paramNames:
   - backgroundImage
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IShouldCheckPattern:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
+  paramNames:
+  - controllerTileEntity
 com.blamejared.compat.betterwithmods.StokedCauldron:
 - name: add
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
@@ -4729,6 +5352,43 @@ com.blamejared.compat.betterwithmods.StokedCauldron:
   paramsSignature: crafttweaker.api.item.IItemStack[]
   paramNames:
   - output
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeContent:
+- name: asString
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
+- name: asInteger
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
+- name: asFloat
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
+- name: asDouble
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
+- name: asBoolean
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
+- name: asIIngredient
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
+- name: asIItemStack
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
+- name: asILiquidStack
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
+- name: asAspectStack
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
 crafttweaker.api.recipes.IRecipeManager:
 - name: getRecipesFor
   paramsSignature: crafttweaker.api.item.IIngredient
@@ -5089,6 +5749,11 @@ com.teamacronymcoders.contenttweaker.modules.materials.functions.IRegisterMateri
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.materials.materialparts.IMaterialPart
   paramNames:
   - materialPart
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IUpdateTick:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent
+  paramNames:
+  - componentTileEntity
 com.blamejared.compat.botania.handlers.PureDaisy:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
@@ -5193,6 +5858,16 @@ crafttweaker.api.recipes.IRecipeAction:
   - output
   - craftingInfo
   - player
+com.cleanroommc.multiblocked.common.recipe.content.AspectStack:
+- name: <init>
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - aspect
+  - amount
+- name: multi
+  paramsSignature: int
+  paramNames:
+  - other
 crafttweaker.runtime.GlobalFunctions:
 - name: print
   paramsSignature: java.lang.String
@@ -5202,6 +5877,12 @@ crafttweaker.runtime.GlobalFunctions:
   paramsSignature: java.lang.Object
   paramNames:
   - any
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IRecipeFinish:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeLogic,com.cleanroommc.multiblocked.api.recipe.Recipe
+  paramNames:
+  - recipeLogic
+  - recipe
 com.blamejared.compat.immersivetech.Distiller:
 - name: addRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,int,double
@@ -5221,6 +5902,99 @@ codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.
   paramsSignature: codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTSkill
   paramNames:
   - skill
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeBuilder:
+- name: inputItems
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - builder
+  - inputs
+- name: outputItems
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - builder
+  - outputs
+- name: inputItems
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - builder
+  - chance
+  - inputs
+- name: outputItems
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - builder
+  - chance
+  - outputs
+- name: inputFluids
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - builder
+  - inputs
+- name: outputFluids
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - builder
+  - outputs
+- name: inputFluids
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - builder
+  - chance
+  - inputs
+- name: outputFluids
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - builder
+  - chance
+  - outputs
+- name: inputEntity
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,crafttweaker.api.entity.IEntityDefinition,crafttweaker.api.data.IData
+  paramNames:
+  - builder
+  - chance
+  - entity
+  - data
+- name: inputEntity
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,crafttweaker.api.entity.IEntityDefinition,crafttweaker.api.data.IData
+  paramNames:
+  - builder
+  - entity
+  - data
+- name: outputEntity
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,crafttweaker.api.entity.IEntityDefinition,crafttweaker.api.data.IData
+  paramNames:
+  - builder
+  - chance
+  - entity
+  - data
+- name: outputEntity
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,crafttweaker.api.entity.IEntityDefinition,crafttweaker.api.data.IData
+  paramNames:
+  - builder
+  - entity
+  - data
+- name: inputAspects
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,com.cleanroommc.multiblocked.common.recipe.content.AspectStack[]
+  paramNames:
+  - builder
+  - inputs
+- name: outputAspects
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,com.cleanroommc.multiblocked.common.recipe.content.AspectStack[]
+  paramNames:
+  - builder
+  - outputs
+- name: inputAspects
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,com.cleanroommc.multiblocked.common.recipe.content.AspectStack[]
+  paramNames:
+  - builder
+  - chance
+  - inputs
+- name: outputAspects
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,com.cleanroommc.multiblocked.common.recipe.content.AspectStack[]
+  paramNames:
+  - builder
+  - chance
+  - outputs
 crafttweaker.api.item.IItemTransformer:
 - name: transform
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.player.IPlayer
@@ -5713,6 +6487,12 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$KnockBack:
   - knockback
   - newKnockback
   - isCritical
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IPartRemovedFromMulti:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTPart,com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
+  paramNames:
+  - partTileEntity
+  - controllerTileEntity
 com.blamejared.compat.bloodmagic.BloodAltar:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,int,int,int
@@ -5789,6 +6569,13 @@ codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.
   paramsSignature: java.lang.String[]
   paramNames:
   - stagger
+com.cleanroommc.multiblocked.api.crafttweaker.functions.ICalcRecipeDuration:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeLogic,com.cleanroommc.multiblocked.api.recipe.Recipe,int
+  paramNames:
+  - logic
+  - recipe
+  - oldDuration
 crafttweaker.zenscript.expand.ExpandString:
 - name: add
   paramsSignature: java.lang.String,crafttweaker.api.formatting.IFormattedText
@@ -6092,6 +6879,20 @@ crafttweaker.api.item.IItemTransformerNew:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - item
+com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent:
+- name: isFrontFacingValid
+  paramsSignature: crafttweaker.api.world.IFacing
+  paramNames:
+  - facing
+- name: setExtraData
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: sendCustomData
+  paramsSignature: int,crafttweaker.api.data.IData
+  paramNames:
+  - id
+  - data
 com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IBlockColorSupplier:
 - name: getColor
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState,crafttweaker.api.world.IBlockAccess,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos,int
@@ -6284,6 +7085,12 @@ com.blamejared.compat.betterwithmods.Hopper:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - input
+com.cleanroommc.multiblocked.api.crafttweaker.functions.ISetupRecipe:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeLogic,com.cleanroommc.multiblocked.api.recipe.Recipe
+  paramNames:
+  - recipeLogic
+  - recipe
 com.teamacronymcoders.contenttweaker.modules.materials.materialparts.IMaterialPart:
 - name: setTextureLocation
   paramsSignature: java.lang.String
@@ -6508,6 +7315,44 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.materials.CoTTConMaterialBu
   paramNames:
   - accuracy
   - modifier
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandIRenderer:
+- name: createB3DRenderer
+  paramsSignature: java.lang.String
+  paramNames:
+  - model
+- name: createOBJRenderer
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - model
+  - flip
+- name: createGeoRenderer
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - modelName
+  - isGlobal
+- name: createGTRenderer
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - base
+  - overlay
+- name: createIModelRenderer
+  paramsSignature: java.lang.String
+  paramNames:
+  - model
+- name: createBlockStateRenderer
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - blockState
+- name: createTextureParticleRenderer
+  paramsSignature: java.lang.String,int,int,float,boolean,boolean,boolean
+  paramNames:
+  - texture
+  - renderRange
+  - light
+  - scale
+  - isAddBlend
+  - isBackLayer
+  - isShader
 com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$OnPlayerHurt:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation,crafttweaker.api.item.IItemStack,crafttweaker.api.player.IPlayer,crafttweaker.api.entity.IEntityLivingBase,crafttweaker.api.event.EntityLivingHurtEvent
@@ -6517,6 +7362,11 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$OnPlayerHur
   - player
   - attacker
   - event
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IStructureFormed:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
+  paramNames:
+  - controllerTileEntity
 crafttweaker.api.util.IAxisAlignedBB:
 - name: contract
   paramsSignature: double,double,double
@@ -6920,6 +7770,19 @@ youyihj.zenutils.api.util.CommandUtils:
   paramNames:
   - command
   - sender
+com.cleanroommc.multiblocked.api.crafttweaker.CTRegistry:
+- name: getDefinition
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: getRecipeMap
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: getCapability
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
 crafttweaker.api.world.IBlockPos:
 - name: getOffset
   paramsSignature: crafttweaker.api.world.IFacing,int
@@ -6962,6 +7825,46 @@ com.blamejared.compat.forestry.Centrifuge:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - input
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandComponentDefinition:
+- name: asController
+  paramsSignature: com.cleanroommc.multiblocked.api.definition.ComponentDefinition
+  paramNames:
+  - definition
+- name: asPart
+  paramsSignature: com.cleanroommc.multiblocked.api.definition.ComponentDefinition
+  paramNames:
+  - definition
+com.cleanroommc.multiblocked.api.pattern.FactoryBlockPattern:
+- name: aisleRepeatable
+  paramsSignature: int,int,java.lang.String[]
+  paramNames:
+  - minRepeat
+  - maxRepeat
+  - aisle
+- name: aisle
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - aisle
+- name: setRepeatable
+  paramsSignature: int,int
+  paramNames:
+  - minRepeat
+  - maxRepeat
+- name: setRepeatable
+  paramsSignature: int
+  paramNames:
+  - repeatCount
+- name: start
+  paramsSignature: com.cleanroommc.multiblocked.api.pattern.util.RelativeDirection,com.cleanroommc.multiblocked.api.pattern.util.RelativeDirection,com.cleanroommc.multiblocked.api.pattern.util.RelativeDirection
+  paramNames:
+  - charDir
+  - stringDir
+  - aisleDir
+- name: where
+  paramsSignature: java.lang.String,com.cleanroommc.multiblocked.api.pattern.TraceabilityPredicate
+  paramNames:
+  - symbol
+  - blockMatcher
 com.blamejared.compat.betterwithmods.base.blockrecipes.KilnBuilder:
 - name: setHeat
   paramsSignature: int
@@ -7097,6 +8000,23 @@ crafttweaker.api.formatting.IFormatter:
   paramsSignature: crafttweaker.api.formatting.IFormattedText
   paramNames:
   - text
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandPredicate:
+- name: states
+  paramsSignature: crafttweaker.api.block.IBlockState[]
+  paramNames:
+  - allowedStates
+- name: blocks
+  paramsSignature: crafttweaker.api.block.IBlock[]
+  paramNames:
+  - blocks
+- name: items
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - itemStacks
+- name: liquids
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - liquidStacks
 com.teamacronymcoders.contenttweaker.modules.materials.functions.IMaterialPartItemStackSupplier:
 - name: getItemStack
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.materials.materialparts.IMaterialPart
@@ -7180,6 +8100,12 @@ com.blamejared.compat.thermalexpansion.devicemanagers.Factorizer:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - in
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IDrops:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,crafttweaker.api.player.IPlayer
+  paramNames:
+  - componentTileEntity
+  - player
 crafttweaker.mc1120.world.expand.ExpandPosition3f:
 - name: create
   paramsSignature: float,float,float
@@ -7231,6 +8157,11 @@ com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialD
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialDefinition
   paramNames:
   - other
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IDynamicRenderer:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent
+  paramNames:
+  - componentTileEntity
 com.blamejared.compat.thaumcraft.handlers.handlers.Crucible:
 - name: registerRecipe
   paramsSignature: java.lang.String,java.lang.String,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[]
@@ -7248,6 +8179,42 @@ com.blamejared.compat.thaumcraft.handlers.handlers.Crucible:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - output
+com.cleanroommc.multiblocked.api.crafttweaker.functions.INeighborChanged:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent
+  paramNames:
+  - componentTileEntity
+com.cleanroommc.multiblocked.api.recipe.Recipe:
+- name: getInputContents
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.MultiblockCapability
+  paramNames:
+  - capability
+- name: getOutputContents
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.MultiblockCapability
+  paramNames:
+  - capability
+- name: matchRecipe
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.ICapabilityProxyHolder,com.cleanroommc.multiblocked.api.recipe.RecipeLogic
+  paramNames:
+  - holder
+  - logic
+- name: matchTickRecipe
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.ICapabilityProxyHolder,com.cleanroommc.multiblocked.api.recipe.RecipeLogic
+  paramNames:
+  - holder
+  - logic
+- name: handleTickRecipeIO
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.IO,com.cleanroommc.multiblocked.api.capability.ICapabilityProxyHolder,com.cleanroommc.multiblocked.api.recipe.RecipeLogic
+  paramNames:
+  - io
+  - holder
+  - logic
+- name: handleRecipeIO
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.IO,com.cleanroommc.multiblocked.api.capability.ICapabilityProxyHolder,com.cleanroommc.multiblocked.api.recipe.RecipeLogic
+  paramNames:
+  - io
+  - holder
+  - logic
 com.blamejared.compat.tcomplement.Blacklist:
 - name: addRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
@@ -7359,6 +8326,29 @@ com.blamejared.compat.thermalexpansion.Enchanter:
   paramNames:
   - input
   - secondInput
+com.cleanroommc.multiblocked.api.recipe.RecipeMap:
+- name: <init>
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: register
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeMap
+  paramNames:
+  - recipeMap
+- name: searchRecipe
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.ICapabilityProxyHolder,com.cleanroommc.multiblocked.api.recipe.RecipeLogic
+  paramNames:
+  - holder
+  - logic
+- name: searchFuelRecipe
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.ICapabilityProxyHolder,com.cleanroommc.multiblocked.api.recipe.RecipeLogic
+  paramNames:
+  - holder
+  - logic
+- name: getRecipe
+  paramsSignature: java.lang.String
+  paramNames:
+  - uid
 com.teamacronymcoders.contenttweaker.modules.vanilla.fluids.FluidRepresentation:
 - name: setUnlocalizedName
   paramsSignature: java.lang.String
@@ -7431,6 +8421,11 @@ crafttweaker.util.IEventHandler:
   paramsSignature: T
   paramNames:
   - event
+com.cleanroommc.multiblocked.api.capability.IO:
+- name: equals
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.IO
+  paramNames:
+  - io
 com.blamejared.compat.thermalexpansion.InductionSmelter:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack,int
@@ -7466,6 +8461,25 @@ com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Hand:
   paramsSignature: java.lang.String
   paramNames:
   - handString
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IPartAddedToMulti:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTPart,com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
+  paramNames:
+  - partTileEntity
+  - controllerTileEntity
+com.cleanroommc.multiblocked.api.recipe.RecipeLogic:
+- name: handleTickRecipe
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe
+  paramNames:
+  - recipe
+- name: setupRecipe
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe
+  paramNames:
+  - recipe
+- name: setStatus
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeLogic$Status
+  paramNames:
+  - status
 com.blamejared.compat.thermalexpansion.Imbuer:
 - name: addRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack,int
@@ -8186,6 +9200,11 @@ com.blamejared.compat.tcomplement.highoven.MixRecipeBuilder:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - purifier
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IUpdateFormed:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
+  paramNames:
+  - controllerTileEntity
 crafttweaker.api.item.IIngredient:
 - name: amount
   paramsSignature: int
@@ -8255,6 +9274,53 @@ com.blamejared.compat.thaumcraft.handlers.handlers.Infusion:
   paramsSignature: java.lang.String
   paramNames:
   - recipeName
+com.cleanroommc.multiblocked.api.pattern.TraceabilityPredicate:
+- name: addTooltips
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - tips
+- name: setMinGlobalLimited
+  paramsSignature: int
+  paramNames:
+  - min
+- name: setMinGlobalLimited
+  paramsSignature: int,int
+  paramNames:
+  - min
+  - previewCount
+- name: setMaxGlobalLimited
+  paramsSignature: int
+  paramNames:
+  - max
+- name: setMaxGlobalLimited
+  paramsSignature: int,int
+  paramNames:
+  - max
+  - previewCount
+- name: setExactLimit
+  paramsSignature: int
+  paramNames:
+  - limit
+- name: setPreviewCount
+  paramsSignature: int
+  paramNames:
+  - count
+- name: setIO
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.IO
+  paramNames:
+  - io
+- name: setNBTParser
+  paramsSignature: java.lang.String
+  paramNames:
+  - nbtParser
+- name: setSlotName
+  paramsSignature: java.lang.String
+  paramNames:
+  - slotName
+- name: or
+  paramsSignature: com.cleanroommc.multiblocked.api.pattern.TraceabilityPredicate
+  paramNames:
+  - other
 crafttweaker.api.item.IItemStack:
 - name: amount
   paramsSignature: int
@@ -8648,6 +9714,22 @@ crafttweaker.zenscript.expand.ExpandIntArray:
   paramsSignature: int[]
   paramNames:
   - values
+com.cleanroommc.multiblocked.api.capability.ICapabilityProxyHolder:
+- name: hasProxy
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.IO,com.cleanroommc.multiblocked.api.capability.MultiblockCapability
+  paramNames:
+  - io
+  - capability
+- name: mergeWith
+  paramsSignature: com.cleanroommc.multiblocked.api.capability.ICapabilityProxyHolder
+  paramNames:
+  - otherHolder
+- name: fromWorldPos
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,com.cleanroommc.multiblocked.api.capability.MultiblockCapability[]
+  paramNames:
+  - world
+  - pos
+  - capabilities
 crafttweaker.zenscript.expand.ExpandFloat:
 - name: asData
   paramsSignature: float
@@ -9240,6 +10322,16 @@ crafttweaker.api.event.BlockHarvestDropsEvent:
   paramsSignature: crafttweaker.api.item.WeightedItemStack
   paramNames:
   - itemStack
+stanhebben.zenscript.tests.TestArrayCasts$B:
+- name: <init>
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+stanhebben.zenscript.tests.TestArrayCasts$A:
+- name: <init>
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
 codersafterdark.compatskills.common.compats.minecraft.entity.entitymountevent.EntityMountEventTweaker:
 - name: addMountLock
   paramsSignature: crafttweaker.api.entity.IEntityDefinition,java.lang.String[]
@@ -9274,6 +10366,11 @@ com.teamacronymcoders.contenttweaker.api.ctobjects.enums.FaceShape:
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.FaceShape
   paramNames:
   - other
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IStructureInvalid:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
+  paramNames:
+  - controllerTileEntity
 youyihj.zenutils.api.util.catenation.IWorldFunction:
 - name: apply
   paramsSignature: crafttweaker.api.world.IWorld,youyihj.zenutils.api.util.catenation.CatenationContext
@@ -9333,6 +10430,12 @@ youyihj.zenutils.api.util.catenation.persistence.ICatenationFactory:
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
   - world
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IReadInitialData:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,crafttweaker.api.data.IData
+  paramNames:
+  - componentTileEntity
+  - data
 codersafterdark.compatskills.common.compats.minecraft.entity.entitydamageevent.EntityDamageEventTweaker:
 - name: addEntityLock
   paramsSignature: crafttweaker.api.entity.IEntityDefinition,java.lang.String[]
@@ -9711,6 +10814,12 @@ crafttweaker.api.entity.IEntityLivingBase:
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot
   paramNames:
   - slot
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IStatusChanged:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,java.lang.String
+  paramNames:
+  - componentTileEntity
+  - newStatus
 gregtech.integration.crafttweaker.recipe.CTRecipeBuilder:
 - name: duration
   paramsSignature: int
@@ -9950,3 +11059,31 @@ com.blamejared.compat.bloodmagic.AlchemyTable:
   paramsSignature: crafttweaker.api.item.IItemStack[]
   paramNames:
   - inputs
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeContent$Particle:
+- name: asIParticleStack
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
+  paramNames:
+  - content
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeBuilder$Gas:
+- name: inputGas
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,mekanism.common.integration.crafttweaker.gas.IGasStack[]
+  paramNames:
+  - builder
+  - inputs
+- name: outputGas
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,mekanism.common.integration.crafttweaker.gas.IGasStack[]
+  paramNames:
+  - builder
+  - outputs
+- name: inputGas
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,mekanism.common.integration.crafttweaker.gas.IGasStack[]
+  paramNames:
+  - builder
+  - chance
+  - inputs
+- name: outputGas
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,float,mekanism.common.integration.crafttweaker.gas.IGasStack[]
+  paramNames:
+  - builder
+  - chance
+  - outputs
