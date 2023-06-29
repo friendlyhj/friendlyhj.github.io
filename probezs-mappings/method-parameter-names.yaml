@@ -3151,11 +3151,6 @@ com.blamejared.compat.botania.handlers.Knowledge:
   - localized
   - color
   - autoUnlock
-gregtech.api.GregTechAPI$MaterialRegistry:
-- name: get
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
 youyihj.zenutils.api.network.IByteBuf:
 - name: writeBoolean
   paramsSignature: boolean
@@ -7367,6 +7362,12 @@ com.cleanroommc.multiblocked.api.crafttweaker.functions.IStructureFormed:
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
   paramNames:
   - controllerTileEntity
+gregtech.integration.crafttweaker.material.CTMaterialRegistry:
+- name: get
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - modid
+  - name
 crafttweaker.api.util.IAxisAlignedBB:
 - name: contract
   paramsSignature: double,double,double
