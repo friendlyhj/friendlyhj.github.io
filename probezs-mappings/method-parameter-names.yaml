@@ -158,6 +158,50 @@ youyihj.zenutils.api.util.ZenUtilsGlobal:
   paramsSignature: java.lang.Object
   paramNames:
   - object
+- name: addRegexLogFilter
+  paramsSignature: java.lang.String
+  paramNames:
+  - regex
+- name: arrayOf
+  paramsSignature: int,java.lang.Object
+  paramNames:
+  - length
+  - value
+- name: intArrayOf
+  paramsSignature: int,int
+  paramNames:
+  - length
+  - value
+- name: byteArrayOf
+  paramsSignature: int,byte
+  paramNames:
+  - length
+  - value
+- name: shortArrayOf
+  paramsSignature: int,short
+  paramNames:
+  - length
+  - value
+- name: longArrayOf
+  paramsSignature: int,long
+  paramNames:
+  - length
+  - value
+- name: floatArrayOf
+  paramsSignature: int,float
+  paramNames:
+  - length
+  - value
+- name: doubleArrayOf
+  paramsSignature: int,double
+  paramNames:
+  - length
+  - value
+- name: boolArrayOf
+  paramsSignature: int,boolean
+  paramNames:
+  - length
+  - value
 - name: typeof
   paramsSignature: int
   paramNames:
@@ -175,10 +219,6 @@ youyihj.zenutils.api.util.ZenUtilsGlobal:
   paramNames:
   - unused
 - name: typeof
-  paramsSignature: char
-  paramNames:
-  - unused
-- name: typeof
   paramsSignature: float
   paramNames:
   - unused
@@ -190,10 +230,6 @@ youyihj.zenutils.api.util.ZenUtilsGlobal:
   paramsSignature: boolean
   paramNames:
   - unused
-- name: addRegexLogFilter
-  paramsSignature: java.lang.String
-  paramNames:
-  - regex
 crafttweaker.api.recipes.ICraftingInventory:
 - name: getStack
   paramsSignature: int
@@ -416,6 +452,11 @@ youyihj.zenutils.api.event.ExpandEventManager:
   - manager
   - ev
 - name: onEntityItemFall
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
+- name: onEntityItemDeath
   paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
   paramNames:
   - manager
