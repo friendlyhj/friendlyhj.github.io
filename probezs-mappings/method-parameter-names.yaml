@@ -461,6 +461,21 @@ youyihj.zenutils.api.event.ExpandEventManager:
   paramNames:
   - manager
   - ev
+- name: onWorldLoad
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
+- name: onWorldUnload
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
+- name: onWorldSave
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
 com.blamejared.compat.betterwithmods.Kiln:
 - name: add
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
@@ -7744,6 +7759,10 @@ com.blamejared.compat.thermalexpansion.Compactor:
   paramNames:
   - input
 youyihj.zenutils.api.util.ExpandData:
+- name: createDataList
+  paramsSignature: java.util.List
+  paramNames:
+  - dataList
 - name: deepUpdate
   paramsSignature: crafttweaker.api.data.IData,crafttweaker.api.data.IData,crafttweaker.api.data.IData
   paramNames:
