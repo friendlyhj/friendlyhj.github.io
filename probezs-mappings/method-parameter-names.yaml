@@ -7424,6 +7424,10 @@ gregtech.integration.crafttweaker.material.CTMaterialRegistry:
   paramNames:
   - modid
   - name
+- name: get
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
 crafttweaker.api.util.IAxisAlignedBB:
 - name: contract
   paramsSignature: double,double,double
