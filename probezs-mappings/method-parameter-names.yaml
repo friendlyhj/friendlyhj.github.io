@@ -7890,6 +7890,19 @@ com.blamejared.compat.forestry.Centrifuge:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - input
+youyihj.zenutils.api.util.catenation.ITimerHandler:
+- name: apply
+  paramsSignature: youyihj.zenutils.api.util.catenation.Timer,crafttweaker.api.world.IWorld,youyihj.zenutils.api.util.catenation.CatenationContext
+  paramNames:
+  - timer
+  - world
+  - context
+- name: apply
+  paramsSignature: youyihj.zenutils.api.util.catenation.Timer,crafttweaker.api.world.IWorld,youyihj.zenutils.api.util.catenation.CatenationContext
+  paramNames:
+  - timer
+  - world
+  - context
 com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandComponentDefinition:
 - name: asController
   paramsSignature: com.cleanroommc.multiblocked.api.definition.ComponentDefinition
@@ -8328,6 +8341,11 @@ youyihj.zenutils.api.util.catenation.ICatenationBuilder:
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldCondition
   paramNames:
   - condition
+- name: customTimer
+  paramsSignature: long,youyihj.zenutils.api.util.catenation.ITimerHandler
+  paramNames:
+  - duration
+  - handler
 - name: stopWhen
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldCondition
   paramNames:
