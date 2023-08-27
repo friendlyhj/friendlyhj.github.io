@@ -1330,6 +1330,10 @@ crafttweaker.mc1120.player.expand.ExpandPlayer:
   paramsSignature: crafttweaker.api.player.IPlayer
   paramNames:
   - player
+- name: isSpectator
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
 crafttweaker.api.player.IFoodStats:
 - name: addStats
   paramsSignature: int,float
