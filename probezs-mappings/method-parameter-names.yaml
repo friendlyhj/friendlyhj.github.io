@@ -6574,6 +6574,15 @@ crafttweaker.mc1120.entity.expand.ExpandEntityLivingBase:
   paramNames:
   - entityLivingBase
   - moveVertical
+- name: getAbsorptionAmount
+  paramsSignature: crafttweaker.api.entity.IEntityLivingBase
+  paramNames:
+  - entityLivingBase
+- name: setAbsorptionAmount
+  paramsSignature: crafttweaker.api.entity.IEntityLivingBase,float
+  paramNames:
+  - entityLivingBase
+  - amount
 java.lang.Math:
 - name: min
   paramNames:
