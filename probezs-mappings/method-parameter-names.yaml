@@ -3376,6 +3376,15 @@ com.cleanroommc.multiblocked.api.recipe.RecipeBuilder:
   paramNames:
   - starlight
   - constellation
+- name: inputMystMechPower
+  paramsSignature: float,double
+  paramNames:
+  - chance
+  - minimumPower
+- name: inputMystMechPower
+  paramsSignature: double
+  paramNames:
+  - minimumPower
 - name: dimension
   paramsSignature: java.lang.String,boolean
   paramNames:
