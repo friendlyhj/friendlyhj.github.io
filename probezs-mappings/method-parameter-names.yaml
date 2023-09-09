@@ -7156,6 +7156,11 @@ gregtech.api.unification.ore.OrePrefix:
   paramsSignature: gregtech.api.unification.material.Material
   paramNames:
   - material
+- name: modifyMaterialAmount
+  paramsSignature: gregtech.api.unification.material.Material,float
+  paramNames:
+  - material
+  - amount
 ink.ikx.rt.api.mods.ftbultimine.IPlayerExpansionFTBU:
 - name: setAllowFTBUltimine
   paramsSignature: crafttweaker.api.player.IPlayer,boolean
