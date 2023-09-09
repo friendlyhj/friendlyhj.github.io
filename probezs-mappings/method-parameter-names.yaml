@@ -177,6 +177,11 @@ com.blamejared.compat.betterwithmods.Movement:
   paramNames:
   - input
   - speed
+hellfirepvp.modularmachinery.common.modifier.MultiBlockModifierReplacement:
+- name: matches
+  paramsSignature: hellfirepvp.modularmachinery.common.tiles.base.TileMultiblockMachineController
+  paramNames:
+  - ctrl
 youyihj.zenutils.api.network.IClientMessageHandler:
 - name: handle
   paramsSignature: crafttweaker.api.player.IPlayer,youyihj.zenutils.api.network.IByteBuf
@@ -2526,6 +2531,12 @@ gregtech.api.unification.Elements:
   paramsSignature: java.lang.String
   paramNames:
   - name
+hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT:
+- name: handle
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent,github.kasuminova.mmce.common.upgrade.MachineUpgrade
+  paramNames:
+  - event
+  - upgrade
 com.teamacronymcoders.contenttweaker.modules.materials.CTMaterialSystem:
 - name: createPartType
   paramsSignature: java.lang.String,com.teamacronymcoders.contenttweaker.modules.materials.functions.IRegisterMaterialPart
@@ -3520,6 +3531,11 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$OnToolRepai
   - thisTrait
   - tool
   - amount
+hellfirepvp.modularmachinery.common.machine.RecipeFailureActions:
+- name: getFailureAction
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
 crafttweaker.api.recipes.IFurnaceManager:
 - name: remove
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient
@@ -4368,6 +4384,16 @@ youyihj.zenutils.api.liquid.ILiquidTankProperties:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - liquidStack
+github.kasuminova.mmce.common.event.recipe.RecipeTickEvent:
+- name: preventProgressing
+  paramsSignature: java.lang.String
+  paramNames:
+  - reason
+- name: setFailed
+  paramsSignature: boolean,java.lang.String
+  paramNames:
+  - destructRecipe
+  - reason
 codersafterdark.compatskills.common.compats.bloodmagic.ritualhandler.RitualHandlerTweaker:
 - name: addRitualLock
   paramsSignature: java.lang.String,java.lang.String[]
@@ -4384,6 +4410,15 @@ codersafterdark.compatskills.common.compats.bloodmagic.ritualhandler.RitualHandl
   paramNames:
   - crystalLevel
   - requirements
+hellfirepvp.modularmachinery.common.machine.factory.FactoryRecipeThread:
+- name: createCoreThread
+  paramsSignature: java.lang.String
+  paramNames:
+  - threadName
+- name: addRecipe
+  paramsSignature: java.lang.String
+  paramNames:
+  - recipeName
 crafttweaker.api.entity.IEntity:
 - name: setDimension
   paramsSignature: int
@@ -4585,6 +4620,14 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentBui
   paramsSignature: java.lang.String
   paramNames:
   - name
+hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedBlockCheckerCT:
+- name: isMatch
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.block.IBlockState,crafttweaker.api.data.IData
+  paramNames:
+  - world
+  - pos
+  - blockState
+  - nbt
 gregtech.api.unification.material.Material:
 - name: setFormula
   paramsSignature: java.lang.String
@@ -6921,6 +6964,232 @@ crafttweaker.api.item.IItemTransformer:
   paramNames:
   - item
   - byPlayer
+hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
+- name: setParallelizeUnaffected
+  paramsSignature: boolean
+  paramNames:
+  - unaffected
+- name: setParallelized
+  paramsSignature: boolean
+  paramNames:
+  - isParallelized
+- name: setChance
+  paramsSignature: float
+  paramNames:
+  - chance
+- name: setTag
+  paramsSignature: java.lang.String
+  paramNames:
+  - selectorTag
+- name: setPreViewNBT
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - nbt
+- name: setNBTChecker
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemCheckerCT
+  paramNames:
+  - checker
+- name: addItemModifier
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemModifierCT
+  paramNames:
+  - modifier
+- name: setTriggerTime
+  paramsSignature: int
+  paramNames:
+  - tickTime
+- name: setTriggerRepeatable
+  paramsSignature: boolean
+  paramNames:
+  - repeatable
+- name: setIgnoreOutputCheck
+  paramsSignature: boolean
+  paramNames:
+  - ignoreOutputCheck
+- name: addRecipeTooltip
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - tooltips
+- name: addSmartInterfaceDataInput
+  paramsSignature: java.lang.String,float,float
+  paramNames:
+  - typeStr
+  - minValue
+  - maxValue
+- name: addSmartInterfaceDataInput
+  paramsSignature: java.lang.String,float
+  paramNames:
+  - typeStr
+  - value
+- name: setMaxThreads
+  paramsSignature: int
+  paramNames:
+  - maxThreads
+- name: setSingleThread
+  paramsSignature: boolean
+  paramNames:
+  - singleThread
+- name: setThreadName
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: addCheckHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addStartHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addPreTickHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addPostTickHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addTickHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addFailureHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addFinishHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addFactoryStartHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addFactoryPreTickHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addFactoryPostTickHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addFactoryTickHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addFactoryFailureHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addFactoryFinishHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addInput
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
+- name: addInputs
+  paramsSignature: crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - inputs
+- name: addOutput
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+- name: addOutputs
+  paramsSignature: crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - outputs
+- name: addEnergyPerTickInput
+  paramsSignature: long
+  paramNames:
+  - perTick
+- name: addEnergyPerTickOutput
+  paramsSignature: long
+  paramNames:
+  - perTick
+- name: addFluidInput
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - fluid
+- name: addFluidInputs
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - fluids
+- name: addFluidPerTickInput
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - fluid
+- name: addFluidPerTickInputs
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - fluids
+- name: addFluidOutput
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - fluid
+- name: addFluidOutputs
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - fluids
+- name: addFluidPerTickOutput
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - fluid
+- name: addFluidPerTickOutputs
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack[]
+  paramNames:
+  - fluids
+- name: addGasInput
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - gasName
+  - amount
+- name: addGasOutput
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - gasName
+  - amount
+- name: addItemInput
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
+- name: addItemInput
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry,int
+  paramNames:
+  - oreDict
+  - amount
+- name: addItemInputs
+  paramsSignature: crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - inputs
+- name: addFuelItemInput
+  paramsSignature: int
+  paramNames:
+  - requiredTotalBurnTime
+- name: addIngredientArrayInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.IngredientArrayPrimer
+  paramNames:
+  - ingredientArrayPrimer
+- name: addItemOutput
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+- name: addItemOutput
+  paramsSignature: crafttweaker.api.oredict.IOreDictEntry,int
+  paramNames:
+  - oreDict
+  - amount
+- name: addItemOutputs
+  paramsSignature: crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - inputs
+- name: addCatalystInput
+  paramsSignature: crafttweaker.api.item.IIngredient,java.lang.String[],hellfirepvp.modularmachinery.common.modifier.RecipeModifier[]
+  paramNames:
+  - input
+  - tooltips
+  - modifiers
 com.blamejared.compat.forestry.Carpenter:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][],int,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
@@ -6972,6 +7241,33 @@ ink.ikx.rt.api.mods.botania.ICocoon:
   paramsSignature: java.lang.String
   paramNames:
   - name
+hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.MachineUpgradeHelper:
+- name: registerSupportedItem
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - itemStack
+- name: addFixedUpgrade
+  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String
+  paramNames:
+  - itemStack
+  - upgradeName
+- name: addUpgradeToIItemStack
+  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String
+  paramNames:
+  - stackCT
+  - upgradeName
+- name: getUpgrade
+  paramsSignature: java.lang.String
+  paramNames:
+  - upgradeName
+- name: castToSimpleDynamicMachineUpgrade
+  paramsSignature: github.kasuminova.mmce.common.upgrade.MachineUpgrade
+  paramNames:
+  - upgrade
+- name: castToSimpleMachineUpgrade
+  paramsSignature: github.kasuminova.mmce.common.upgrade.MachineUpgrade
+  paramNames:
+  - upgrade
 codersafterdark.compatskills.common.compats.tinkersconstruct.materiallocks.MaterialLockTweaker:
 - name: addMaterialLock
   paramsSignature: java.lang.String,java.lang.String[]
@@ -7090,6 +7386,28 @@ youyihj.zenutils.api.player.PlayerStat:
   - id
   - name
   - formatter
+hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipeBuilder:
+- name: newBuilder
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - recipeRegistryName
+  - associatedMachineRegistryName
+  - processingTickTime
+- name: newBuilder
+  paramsSignature: java.lang.String,java.lang.String,int,int
+  paramNames:
+  - recipeRegistryName
+  - associatedMachineRegistryName
+  - processingTickTime
+  - sortingPriority
+- name: newBuilder
+  paramsSignature: java.lang.String,java.lang.String,int,int,boolean
+  paramNames:
+  - recipeRegistryName
+  - associatedMachineRegistryName
+  - processingTickTime
+  - sortingPriority
+  - cancelIfPerTickFails
 com.blamejared.compat.tconstruct.Casting:
 - name: addTableRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,boolean,int
@@ -7505,6 +7823,102 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$ItemLocaliz
   paramNames:
   - thisMaterial
   - itemName
+hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.DynamicMachineUpgradeBuilder:
+- name: newBuilder
+  paramsSignature: java.lang.String,java.lang.String,float,int
+  paramNames:
+  - name
+  - localizedName
+  - level
+  - maxStack
+- name: setDescriptionHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.IFunction
+  paramNames:
+  - handler
+- name: setBusGUIDescriptionHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.IFunction
+  paramNames:
+  - handler
+- name: addCompatibleMachines
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - machineNames
+- name: addIncompatibleMachines
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - machineNames
+- name: addRecipeCheckHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipeStartHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipePreTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipePostTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipeTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipeFailureHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipeFinishHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipeStartHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipePreTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipePostTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipeFailureHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipeFinishHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addMachinePreTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addMachinePostTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addStructureFormedHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addStructureUpdateHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addControllerGUIRenderHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addSmartInterfaceUpdateHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
 crafttweaker.mc1120.world.expand.ExpandFacing:
 - name: fromString
   paramsSignature: java.lang.String
@@ -7561,6 +7975,37 @@ codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.
   paramsSignature: java.lang.String[]
   paramNames:
   - stagger
+hellfirepvp.modularmachinery.common.util.SmartInterfaceType:
+- name: create
+  paramsSignature: java.lang.String,float
+  paramNames:
+  - type
+  - defaultValue
+- name: setHeaderInfo
+  paramsSignature: java.lang.String
+  paramNames:
+  - headerInfo
+- name: setValueInfo
+  paramsSignature: java.lang.String
+  paramNames:
+  - valueInfo
+- name: setFooterInfo
+  paramsSignature: java.lang.String
+  paramNames:
+  - footerInfo
+- name: setNotEqualMessage
+  paramsSignature: java.lang.String
+  paramNames:
+  - notEqualMessage
+- name: setJeiTooltip
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - jeiTooltip
+  - argsCount
+- name: setPriority
+  paramsSignature: int
+  paramNames:
+  - priority
 com.cleanroommc.multiblocked.api.crafttweaker.functions.ICalcRecipeDuration:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeLogic,com.cleanroommc.multiblocked.api.recipe.Recipe,int
@@ -7907,6 +8352,94 @@ crafttweaker.mc1120.block.expand.ExpandBlockStateMatcher:
   paramsSignature: crafttweaker.api.block.IBlockState[]
   paramNames:
   - blockStates
+hellfirepvp.modularmachinery.common.integration.crafttweaker.event.MMEvents:
+- name: onStructureFormed
+  paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
+  paramNames:
+  - machineRegistryName
+  - function
+- name: onStructureUpdate
+  paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
+  paramNames:
+  - machineRegistryName
+  - function
+- name: onMachinePreTick
+  paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
+  paramNames:
+  - machineRegistryName
+  - function
+- name: onMachinePostTick
+  paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
+  paramNames:
+  - machineRegistryName
+  - function
+- name: onMachineTick
+  paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
+  paramNames:
+  - machineRegistryName
+  - function
+- name: onControllerGUIRender
+  paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
+  paramNames:
+  - machineRegistryName
+  - function
+- name: onSmartInterfaceUpdate
+  paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
+  paramNames:
+  - machineRegistryName
+  - function
+- name: castToRecipeCheckEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToRecipeStartEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToRecipeTickEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToRecipeFailureEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToRecipeFinishEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToMachineStructureFormedEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToMachineStructureUpdateEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToMachineTickEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToSmartInterfaceUpdateEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToFactoryRecipeStartEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToFactoryRecipeTickEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToFactoryRecipeFailureEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
+- name: castToFactoryRecipeFinishEvent
+  paramsSignature: github.kasuminova.mmce.common.event.machine.MachineEvent
+  paramNames:
+  - event
 ink.ikx.rt.api.mods.jei.core.IJeiPanel:
 - name: setModid
   paramsSignature: java.lang.String
@@ -7962,6 +8495,19 @@ youyihj.zenutils.api.ftbq.event.CTCustomTaskEvent$ITaskChecker:
   paramNames:
   - player
   - currentProgress
+hellfirepvp.modularmachinery.common.integration.crafttweaker.modifier.MultiBlockModifierBuilder:
+- name: newBuilder
+  paramsSignature: java.lang.String
+  paramNames:
+  - modifierName
+- name: setBlockArray
+  paramsSignature: hellfirepvp.modularmachinery.common.util.BlockArray
+  paramNames:
+  - blockArray
+- name: addModifier
+  paramsSignature: hellfirepvp.modularmachinery.common.modifier.RecipeModifier[]
+  paramNames:
+  - modifiers
 com.blamejared.compat.thermalexpansion.Transposer:
 - name: addExtractRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.WeightedItemStack
@@ -8070,6 +8616,15 @@ ink.ikx.rt.api.mods.contenttweaker.subtile.ISubTileEntityInGame:
   paramsSignature: int
   paramNames:
   - mana
+github.kasuminova.mmce.common.event.recipe.RecipeCheckEvent:
+- name: setFailed
+  paramsSignature: java.lang.String
+  paramNames:
+  - reason
+- name: setParallelism
+  paramsSignature: int
+  paramNames:
+  - parallelism
 crafttweaker.api.command.ICommandSender:
 - name: sendMessage
   paramsSignature: java.lang.String
@@ -8189,6 +8744,11 @@ ink.ikx.rt.api.mods.thaumcraft.expand.ExpandIEntity:
   paramsSignature: crafttweaker.api.entity.IEntity
   paramNames:
   - entity
+hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.IFunction:
+- name: apply
+  paramsSignature: T
+  paramNames:
+  - param
 ink.ikx.rt.api.mods.botania.event.CTAlfPortalDroppedEvent:
 - name: addOutput
   paramsSignature: crafttweaker.api.item.IItemStack
@@ -8485,6 +9045,37 @@ com.cleanroommc.multiblocked.api.crafttweaker.functions.IStructureFormed:
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
   paramNames:
   - controllerTileEntity
+hellfirepvp.modularmachinery.common.machine.RecipeThread:
+- name: addModifier
+  paramsSignature: java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier
+  paramNames:
+  - name
+  - modifier
+- name: removeModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: hasModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: addPermanentModifier
+  paramsSignature: java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier
+  paramNames:
+  - name
+  - modifier
+- name: hasPermanentModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: removePermanentModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: setStatusInfo
+  paramsSignature: java.lang.String
+  paramNames:
+  - info
 gregtech.integration.crafttweaker.material.CTMaterialRegistry:
 - name: get
   paramsSignature: java.lang.String,java.lang.String
@@ -8801,6 +9392,12 @@ crafttweaker.api.vanilla.ISeedRegistry:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - item
+hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemModifierCT:
+- name: apply
+  paramsSignature: github.kasuminova.mmce.common.helper.IMachineController,crafttweaker.api.item.IItemStack
+  paramNames:
+  - controller
+  - stack
 com.blamejared.compat.thermalexpansion.Compactor:
 - name: addMintRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
@@ -9331,6 +9928,12 @@ crafttweaker.api.world.IBlockAccess:
   paramNames:
   - pos
   - facing
+hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemCheckerCT:
+- name: isMatch
+  paramsSignature: github.kasuminova.mmce.common.helper.IMachineController,crafttweaker.api.item.IItemStack
+  paramNames:
+  - controller
+  - stack
 ink.ikx.rt.api.mods.botania.ITileAlfPortal:
 - name: setInputList
   paramsSignature: crafttweaker.api.item.IItemStack[]
@@ -9787,6 +10390,61 @@ ink.ikx.rt.api.internal.utils.IInputPattern:
   paramsSignature: java.util.Map
   paramNames:
   - mapping
+github.kasuminova.mmce.common.helper.IMachineController:
+- name: getControllerAt
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - worldCT
+  - posCT
+- name: getControllerAt
+  paramsSignature: crafttweaker.api.world.IWorld,int,int,int
+  paramNames:
+  - worldCT
+  - x
+  - y
+  - z
+- name: addModifier
+  paramsSignature: java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier
+  paramNames:
+  - key
+  - modifier
+- name: removeModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: addPermanentModifier
+  paramsSignature: java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier
+  paramNames:
+  - key
+  - modifier
+- name: removePermanentModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: hasModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: getSmartInterfaceData
+  paramsSignature: java.lang.String
+  paramNames:
+  - type
+- name: hasModifierReplacement
+  paramsSignature: java.lang.String
+  paramNames:
+  - modifierName
+- name: hasMachineUpgrade
+  paramsSignature: java.lang.String
+  paramNames:
+  - upgradeName
+- name: getMachineUpgrade
+  paramsSignature: java.lang.String
+  paramNames:
+  - upgradeName
+- name: getDynamicPattern
+  paramsSignature: java.lang.String
+  paramNames:
+  - patternName
 com.cleanroommc.multiblocked.api.recipe.RecipeLogic:
 - name: handleTickRecipe
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe
@@ -10091,6 +10749,16 @@ com.blamejared.compat.betterwithmods.base.blockrecipes.TurntableBuilder:
   paramNames:
   - input
   - outputs
+github.kasuminova.mmce.common.event.recipe.FactoryRecipeTickEvent:
+- name: setFailed
+  paramsSignature: boolean,java.lang.String
+  paramNames:
+  - destructRecipe
+  - reason
+- name: preventProgressing
+  paramsSignature: java.lang.String
+  paramNames:
+  - reason
 gregtech.api.recipes.RecipeMap$IChanceFunction:
 - name: chanceFor
   paramsSignature: int,int,int,int
@@ -10099,6 +10767,11 @@ gregtech.api.recipes.RecipeMap$IChanceFunction:
   - boostPerTier
   - baseTier
   - boostTier
+github.kasuminova.mmce.common.concurrent.Sync:
+- name: addSyncTask
+  paramsSignature: github.kasuminova.mmce.common.util.concurrent.Action
+  paramNames:
+  - action
 com.blamejared.compat.actuallyaddition.MiningLens:
 - name: addStoneOre
   paramsSignature: crafttweaker.api.oredict.IOreDictEntry,int
@@ -10293,6 +10966,35 @@ crafttweaker.mc1120.command.expand.ExpandCommandSender:
   paramNames:
   - sender
   - textComponent
+hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipeModifierBuilder:
+- name: create
+  paramsSignature: java.lang.String,java.lang.String,float,int,boolean
+  paramNames:
+  - type
+  - ioTypeStr
+  - value
+  - operation
+  - affectChance
+- name: setRequirementType
+  paramsSignature: java.lang.String
+  paramNames:
+  - type
+- name: setIOType
+  paramsSignature: java.lang.String
+  paramNames:
+  - ioTypeStr
+- name: setValue
+  paramsSignature: float
+  paramNames:
+  - value
+- name: setOperation
+  paramsSignature: int
+  paramNames:
+  - operation
+- name: isAffectChance
+  paramsSignature: boolean
+  paramNames:
+  - affectChance
 codersafterdark.compatskills.common.compats.minecraft.item.harvestlevel.HarvestLevelTweaker:
 - name: addToolLevelLock
   paramsSignature: int,java.lang.String[]
@@ -10310,6 +11012,102 @@ codersafterdark.compatskills.common.compats.minecraft.item.harvestlevel.HarvestL
   paramNames:
   - level
   - requirements
+hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.MachineUpgradeBuilder:
+- name: newBuilder
+  paramsSignature: java.lang.String,java.lang.String,float,int
+  paramNames:
+  - name
+  - localizedName
+  - level
+  - maxStack
+- name: addDescriptions
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - descriptions
+- name: setBusGUIDescriptionHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.IFunction
+  paramNames:
+  - handler
+- name: addCompatibleMachines
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - machineNames
+- name: addIncompatibleMachines
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - machineNames
+- name: addRecipeCheckHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipeStartHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipePreTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipePostTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipeTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipeFailureHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addRecipeFinishHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipeStartHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipePreTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipePostTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipeFailureHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addFactoryRecipeFinishHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addMachinePreTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addMachinePostTickHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addStructureFormedHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addStructureUpdateHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addControllerGUIRenderHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addSmartInterfaceUpdateHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
 crafttweaker.api.entity.IProjectile:
 - name: shoot
   paramsSignature: double,double,double,float,float
@@ -11006,6 +11804,16 @@ crafttweaker.api.util.IRandom:
   paramNames:
   - minimum
   - maximum
+hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipeAdapterBuilder:
+- name: create
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - machineName
+  - parentMachineName
+- name: addModifier
+  paramsSignature: hellfirepvp.modularmachinery.common.modifier.RecipeModifier
+  paramNames:
+  - modifier
 crafttweaker.mc1120.entity.attribute.expand.ExpandEntityAttributeModifier:
 - name: createModifier
   paramsSignature: java.lang.String,double,int,java.lang.String
@@ -11295,6 +12103,15 @@ ink.ikx.rt.api.mods.contenttweaker.render.IBaubleRenderHelper:
   - x
   - y
   - z
+hellfirepvp.modularmachinery.common.integration.crafttweaker.StatedMachineComponentBuilder:
+- name: newBuilder
+  paramsSignature: java.lang.String
+  paramNames:
+  - registryName
+- name: setColoured
+  paramsSignature: boolean
+  paramNames:
+  - coloured
 crafttweaker.tests.wiki.DevWikiMethod:
 - name: staticMethod
   paramsSignature: int
@@ -11802,6 +12619,176 @@ crafttweaker.api.world.IFacing:
   paramsSignature: crafttweaker.api.world.IFacing
   paramNames:
   - other
+hellfirepvp.modularmachinery.common.integration.crafttweaker.IngredientArrayPrimer:
+- name: addIngredient
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
+- name: addIngredients
+  paramsSignature: crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - inputs
+- name: addChancedIngredient
+  paramsSignature: crafttweaker.api.item.IIngredient,float
+  paramNames:
+  - input
+  - chance
+- name: setChance
+  paramsSignature: float
+  paramNames:
+  - chance
+- name: setChecker
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemCheckerCT
+  paramNames:
+  - checker
+- name: addItemModifier
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemModifierCT
+  paramNames:
+  - modifier
+hellfirepvp.modularmachinery.common.integration.crafttweaker.BlockArrayBuilder:
+- name: newBuilder
+  paramsSignature: hellfirepvp.modularmachinery.common.machine.TaggedPositionBlockArray
+  paramNames:
+  - blockArray
+- name: addBlock
+  paramsSignature: int,int,int,crafttweaker.api.block.IBlockState[]
+  paramNames:
+  - x
+  - y
+  - z
+  - ctBlockStates
+- name: addBlock
+  paramsSignature: int[],int[],int[],crafttweaker.api.data.IData,crafttweaker.api.data.IData,hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedBlockCheckerCT,crafttweaker.api.block.IBlockState[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - nbt
+  - previewNBT
+  - checker
+  - ctBlockStates
+- name: addBlock
+  paramsSignature: int[],int[],int[],crafttweaker.api.data.IData,crafttweaker.api.data.IData,crafttweaker.api.block.IBlockState[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - nbt
+  - previewNBT
+  - ctBlockStates
+- name: addBlock
+  paramsSignature: int[],int[],int[],hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedBlockCheckerCT,crafttweaker.api.block.IBlockState[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - checker
+  - ctBlockStates
+- name: addBlock
+  paramsSignature: int[],int[],int[],crafttweaker.api.block.IBlockState[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - ctBlockStates
+- name: addBlock
+  paramsSignature: int,int,int,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - x
+  - y
+  - z
+  - ctItemStacks
+- name: addBlock
+  paramsSignature: int[],int[],int[],crafttweaker.api.data.IData,crafttweaker.api.data.IData,hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedBlockCheckerCT,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - nbt
+  - previewNBT
+  - checker
+  - ctItemStacks
+- name: addBlock
+  paramsSignature: int[],int[],int[],crafttweaker.api.data.IData,crafttweaker.api.data.IData,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - nbt
+  - previewNBT
+  - ctItemStacks
+- name: addBlock
+  paramsSignature: int[],int[],int[],hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedBlockCheckerCT,crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - checker
+  - ctItemStacks
+- name: addBlock
+  paramsSignature: int[],int[],int[],crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - ctItemStacks
+- name: addBlock
+  paramsSignature: int,int,int,java.lang.String[]
+  paramNames:
+  - x
+  - y
+  - z
+  - blockNames
+- name: addBlock
+  paramsSignature: int[],int[],int[],crafttweaker.api.data.IData,crafttweaker.api.data.IData,hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedBlockCheckerCT,java.lang.String[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - nbt
+  - previewNBT
+  - checker
+  - blockNames
+- name: addBlock
+  paramsSignature: int[],int[],int[],crafttweaker.api.data.IData,crafttweaker.api.data.IData,java.lang.String[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - nbt
+  - previewNBT
+  - blockNames
+- name: addBlock
+  paramsSignature: int[],int[],int[],hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedBlockCheckerCT,java.lang.String[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - checker
+  - blockNames
+- name: addBlock
+  paramsSignature: int[],int[],int[],java.lang.String[]
+  paramNames:
+  - xList
+  - yList
+  - zList
+  - blockNames
+- name: setNBT
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: setPreviewNBT
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: setBlockChecker
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedBlockCheckerCT
+  paramNames:
+  - checker
+- name: setTag
+  paramsSignature: java.lang.String
+  paramNames:
+  - tag
 codersafterdark.compatskills.common.compats.minecraft.dimension.dimensionlocks.DimensionLockTweaker:
 - name: addDimensionLock
   paramsSignature: int,java.lang.String[]
@@ -12051,6 +13038,148 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.items.ItemRepresentation:
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemUseFinish
   paramNames:
   - onItemUseFinish
+hellfirepvp.modularmachinery.common.integration.crafttweaker.MachineBuilder:
+- name: registerMachine
+  paramsSignature: java.lang.String,java.lang.String,boolean,boolean
+  paramNames:
+  - registryName
+  - localizedName
+  - hasFactory
+  - factoryOnly
+- name: registerMachine
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - registryName
+  - localizedName
+- name: registerMachine
+  paramsSignature: java.lang.String,java.lang.String,boolean,hellfirepvp.modularmachinery.common.machine.RecipeFailureActions,int,boolean,boolean
+  paramNames:
+  - registryName
+  - localizedName
+  - requiresBlueprint
+  - failureAction
+  - color
+  - hasFactory
+  - factoryOnly
+- name: registerMachine
+  paramsSignature: java.lang.String,java.lang.String,boolean,hellfirepvp.modularmachinery.common.machine.RecipeFailureActions,int
+  paramNames:
+  - registryName
+  - localizedName
+  - requiresBlueprint
+  - failureAction
+  - color
+- name: getBuilder
+  paramsSignature: java.lang.String
+  paramNames:
+  - registryName
+- name: setParallelizable
+  paramsSignature: boolean
+  paramNames:
+  - isParallelizable
+- name: setMaxParallelism
+  paramsSignature: int
+  paramNames:
+  - maxParallelism
+- name: setInternalParallelism
+  paramsSignature: int
+  paramNames:
+  - parallelism
+- name: addSingleBlockModifier
+  paramsSignature: int,int,int,crafttweaker.api.block.IBlockState,java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier[]
+  paramNames:
+  - x
+  - y
+  - z
+  - ctBlockState
+  - description
+  - modifiers
+- name: addSingleBlockModifier
+  paramsSignature: int,int,int,crafttweaker.api.item.IItemStack,java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier[]
+  paramNames:
+  - x
+  - y
+  - z
+  - ctItemStack
+  - description
+  - modifiers
+- name: addSingleBlockModifier
+  paramsSignature: int,int,int,java.lang.String,java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier[]
+  paramNames:
+  - x
+  - y
+  - z
+  - blockName
+  - description
+  - modifiers
+- name: addMultiBlockModifier
+  paramsSignature: hellfirepvp.modularmachinery.common.modifier.MultiBlockModifierReplacement
+  paramNames:
+  - multiBlockModifier
+- name: addSmartInterfaceType
+  paramsSignature: hellfirepvp.modularmachinery.common.util.SmartInterfaceType
+  paramNames:
+  - type
+- name: addStructureFormedHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - function
+- name: addStructureUpdateHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - function
+- name: addTickHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - function
+- name: addGUIRenderHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - function
+- name: addSmartInterfaceUpdateHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - function
+- name: setNBT
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: setPreviewNBT
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: setBlockChecker
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedBlockCheckerCT
+  paramNames:
+  - checker
+- name: setRequiresBlueprint
+  paramsSignature: boolean
+  paramNames:
+  - requiresBlueprint
+- name: setFailureAction
+  paramsSignature: hellfirepvp.modularmachinery.common.machine.RecipeFailureActions
+  paramNames:
+  - failureAction
+- name: setColor
+  paramsSignature: int
+  paramNames:
+  - color
+- name: setHasFactory
+  paramsSignature: boolean
+  paramNames:
+  - hasFactory
+- name: setFactoryOnly
+  paramsSignature: boolean
+  paramNames:
+  - factoryOnly
+- name: setMaxThreads
+  paramsSignature: int
+  paramNames:
+  - maxThreads
+- name: addCoreThread
+  paramsSignature: hellfirepvp.modularmachinery.common.machine.factory.FactoryRecipeThread
+  paramNames:
+  - thread
 com.teamacronymcoders.contenttweaker.api.ctobjects.enums.PushReaction:
 - name: compare
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.PushReaction
@@ -12145,6 +13274,32 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFun
   paramNames:
   - thisEnchantment
   - level
+hellfirepvp.modularmachinery.common.integration.crafttweaker.MachineModifier:
+- name: addSmartInterfaceType
+  paramsSignature: java.lang.String,hellfirepvp.modularmachinery.common.util.SmartInterfaceType
+  paramNames:
+  - machineName
+  - type
+- name: setMaxParallelism
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - machineName
+  - maxParallelism
+- name: setInternalParallelism
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - machineName
+  - parallelism
+- name: setMaxThreads
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - machineName
+  - maxThreads
+- name: addCoreThread
+  paramsSignature: java.lang.String,hellfirepvp.modularmachinery.common.machine.factory.FactoryRecipeThread
+  paramNames:
+  - machineName
+  - thread
 com.teamacronymcoders.contenttweaker.modules.vanilla.blocks.BlockRepresentation:
 - name: setUnlocalizedName
   paramsSignature: java.lang.String
