@@ -3194,6 +3194,24 @@ com.cleanroommc.multiblocked.api.recipe.RecipeBuilder:
   paramNames:
   - chance
   - heat
+- name: inputLaser
+  paramsSignature: double
+  paramNames:
+  - laser
+- name: outputLaser
+  paramsSignature: double
+  paramNames:
+  - laser
+- name: inputLaser
+  paramsSignature: float,double
+  paramNames:
+  - chance
+  - laser
+- name: outputLaser
+  paramsSignature: float,double
+  paramNames:
+  - chance
+  - laser
 - name: inputEU
   paramsSignature: int
   paramNames:
