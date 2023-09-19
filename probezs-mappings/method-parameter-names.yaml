@@ -249,6 +249,10 @@ youyihj.zenutils.api.util.ZenUtilsGlobal:
   paramNames:
   - length
   - value
+- name: addReloadableLoader
+  paramsSignature: java.lang.String
+  paramNames:
+  - loaderName
 - name: typeof
   paramsSignature: int
   paramNames:
