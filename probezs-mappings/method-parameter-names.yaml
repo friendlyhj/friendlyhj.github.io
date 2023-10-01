@@ -7704,6 +7704,11 @@ crafttweaker.mc1120.world.expand.ExpandWorld:
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
   - world
+- name: isBlockLoaded
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
 com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemUpdate:
 - name: onItemUpdate
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.mutableitemstack.IMutableItemStack,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,crafttweaker.api.entity.IEntity,int,boolean
