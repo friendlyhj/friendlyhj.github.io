@@ -8212,6 +8212,10 @@ youyihj.zenutils.api.world.ZenUtilsWorld:
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
   - world
+- name: getFakePlayer
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
 youyihj.zenutils.api.command.IGetTabCompletion:
 - name: get
   paramsSignature: crafttweaker.api.server.IServer,youyihj.zenutils.api.command.ZenUtilsCommandSender,crafttweaker.api.world.IBlockPos
