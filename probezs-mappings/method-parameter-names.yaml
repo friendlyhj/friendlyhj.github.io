@@ -7477,6 +7477,136 @@ ink.ikx.rt.api.mods.botania.subtile.IHydroangeas:
   paramNames:
   - block
   - factor
+kport.modularmagic.common.integration.crafttweaker.MagicPrimer:
+- name: addAspectInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int
+  paramNames:
+  - primer
+  - aspectString
+  - amount
+- name: addAspectOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int
+  paramNames:
+  - primer
+  - aspectString
+  - amount
+- name: addAuraInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int
+  paramNames:
+  - primer
+  - auraType
+  - amount
+- name: addAuraOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int
+  paramNames:
+  - primer
+  - auraType
+  - amount
+- name: addAuraInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int,int,int
+  paramNames:
+  - primer
+  - auraType
+  - amount
+  - max
+  - min
+- name: addAuraOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int,int,int
+  paramNames:
+  - primer
+  - auraType
+  - amount
+  - max
+  - min
+- name: addConstellationInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String
+  paramNames:
+  - primer
+  - constellationString
+- name: addGridPowerInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramNames:
+  - primer
+  - amount
+- name: addGridPowerOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramNames:
+  - primer
+  - amount
+- name: addRainbowInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer
+  paramNames:
+  - primer
+- name: addLifeEssenceInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int,boolean
+  paramNames:
+  - primer
+  - amount
+  - perTick
+- name: addLifeEssenceOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int,boolean
+  paramNames:
+  - primer
+  - amount
+  - perTick
+- name: addStarlightInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramNames:
+  - primer
+  - amount
+- name: addStarlightOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramNames:
+  - primer
+  - amount
+- name: addWillInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int
+  paramNames:
+  - primer
+  - willTypeString
+  - amount
+- name: addWillOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int
+  paramNames:
+  - primer
+  - willTypeString
+  - amount
+- name: addWillInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int,int,int
+  paramNames:
+  - primer
+  - willTypeString
+  - amount
+  - min
+  - max
+- name: addWillOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int,int,int
+  paramNames:
+  - primer
+  - willTypeString
+  - amount
+  - min
+  - max
+- name: addManaInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramNames:
+  - primer
+  - amount
+- name: addManaOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramNames:
+  - primer
+  - amount
+- name: addImpetusInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramNames:
+  - primer
+  - amount
+- name: addImpetusOutput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramNames:
+  - primer
+  - amount
 codersafterdark.compatskills.common.compats.minecraft.drops.BlockDropsTweaker:
 - name: addBlockDropLock
   paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String[]
