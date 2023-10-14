@@ -3674,6 +3674,11 @@ ink.ikx.rt.api.internal.item.IItemStackExpansion:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - stack
+youyihj.zenutils.api.player.BaublePlayerPatch:
+- name: getPlayerBaubleItemHandler
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
 com.blamejared.compat.botania.handlers.Knowledge:
 - name: registerKnowledgeType
   paramsSignature: java.lang.String,java.lang.String,java.lang.String,boolean
@@ -10650,6 +10655,11 @@ youyihj.zenutils.api.item.CrTItemHandler:
   paramsSignature: int
   paramNames:
   - slot
+- name: setStackInSlot
+  paramsSignature: int,crafttweaker.api.item.IItemStack
+  paramNames:
+  - slot
+  - stack
 - name: insertItem
   paramsSignature: int,crafttweaker.api.item.IItemStack,boolean
   paramNames:
