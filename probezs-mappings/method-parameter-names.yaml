@@ -10280,6 +10280,16 @@ com.blamejared.compat.tcomplement.Blacklist:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - input
+ink.ikx.rt.api.mods.tconstruct.IBook:
+- name: addHiddenMaterial
+  paramsSignature: java.lang.String
+  paramNames:
+  - material
+- name: changeMaterialItem
+  paramsSignature: java.lang.String,crafttweaker.api.item.IItemStack
+  paramNames:
+  - material
+  - item
 com.blamejared.compat.tconstruct.Fuel:
 - name: registerFuel
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,int
