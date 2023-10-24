@@ -10290,6 +10290,11 @@ ink.ikx.rt.api.mods.tconstruct.IBook:
   paramNames:
   - material
   - item
+- name: setMaterialPriority
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - material
+  - priority
 com.blamejared.compat.tconstruct.Fuel:
 - name: registerFuel
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,int
