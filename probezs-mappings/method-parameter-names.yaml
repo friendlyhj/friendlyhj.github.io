@@ -11927,6 +11927,10 @@ gregtech.api.util.CapesRegistry:
   paramNames:
   - advancement
   - cape
+- name: registerFreeCape
+  paramsSignature: java.lang.String
+  paramNames:
+  - cape
 crafttweaker.api.chat.IChatMessage:
 - name: add
   paramsSignature: crafttweaker.api.chat.IChatMessage
