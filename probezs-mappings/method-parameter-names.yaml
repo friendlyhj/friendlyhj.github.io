@@ -14,11 +14,6 @@ crafttweaker.api.entity.IEntityEquipmentSlot:
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot
   paramNames:
   - other
-com.teamacronymcoders.contenttweaker.modules.materials.DropTableSlotAdder:
-- name: newSlot
-  paramsSignature: com.teamacronymcoders.contenttweaker.modules.materials.CTDropTableBuilder
-  paramNames:
-  - builder
 com.blamejared.compat.botania.handlers.Brew:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IIngredient[],java.lang.String
@@ -29,6 +24,11 @@ com.blamejared.compat.botania.handlers.Brew:
   paramsSignature: java.lang.String
   paramNames:
   - brewName
+com.teamacronymcoders.contenttweaker.modules.materials.DropTableSlotAdder:
+- name: newSlot
+  paramsSignature: com.teamacronymcoders.contenttweaker.modules.materials.CTDropTableBuilder
+  paramNames:
+  - builder
 com.blamejared.compat.thermalexpansion.SawMill:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack,int
@@ -380,6 +380,11 @@ gregtech.integration.crafttweaker.terminal.CTTerminalRegistry$CTAppRegistryBuild
   paramNames:
   - tier
   - upgrades
+crafttweaker.zenscript.expand.ExpandInt:
+- name: toData
+  paramsSignature: int
+  paramNames:
+  - value
 ink.ikx.rt.api.mods.draconicevolution.IDraconicEvolutionFXHelper:
 - name: spawnFX
   paramsSignature: int,crafttweaker.api.world.IVector3d,crafttweaker.api.world.IVector3d,double,int[]
@@ -396,11 +401,6 @@ ink.ikx.rt.api.mods.draconicevolution.IDraconicEvolutionFXHelper:
   - pos
   - speed
   - args
-crafttweaker.zenscript.expand.ExpandInt:
-- name: toData
-  paramsSignature: int
-  paramNames:
-  - value
 youyihj.zenutils.api.liquid.CrTLiquidHandler:
 - name: drain
   paramsSignature: int,boolean
@@ -626,6 +626,11 @@ com.cleanroommc.multiblocked.api.crafttweaker.functions.IGetOutputRedstoneSignal
   paramNames:
   - componentTileEntity
   - facing
+crafttweaker.api.block.IMobilityFlag:
+- name: matches
+  paramsSignature: crafttweaker.api.block.IMobilityFlag
+  paramNames:
+  - other
 ink.ikx.rt.api.mods.jei.IJeiUtilsWithBotania:
 - name: createJeiManaBarElement
   paramsSignature: int,int,int,int
@@ -634,11 +639,6 @@ ink.ikx.rt.api.mods.jei.IJeiUtilsWithBotania:
   - y
   - mana
   - mode
-crafttweaker.api.block.IMobilityFlag:
-- name: matches
-  paramsSignature: crafttweaker.api.block.IMobilityFlag
-  paramNames:
-  - other
 codersafterdark.compatskills.common.compats.reskillable.transmutations.RemovalTweakers:
 - name: removeStartStateFromReagent
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
@@ -1085,6 +1085,12 @@ crafttweaker.mc1120.world.expand.ExpandVector3d:
   - x
   - y
   - z
+com.blamejared.compat.betterwithmods.Buoyancy:
+- name: set
+  paramsSignature: crafttweaker.api.item.IItemStack,float
+  paramNames:
+  - stack
+  - value
 com.teamacronymcoders.contenttweaker.api.ctobjects.color.CTColor:
 - name: fromHex
   paramsSignature: java.lang.String
@@ -1098,12 +1104,6 @@ com.teamacronymcoders.contenttweaker.api.ctobjects.color.CTColor:
   paramsSignature: int
   paramNames:
   - number
-com.blamejared.compat.betterwithmods.Buoyancy:
-- name: set
-  paramsSignature: crafttweaker.api.item.IItemStack,float
-  paramNames:
-  - stack
-  - value
 crafttweaker.mc1120.item.ExpandItemDefinition:
 - name: isArrow
   paramsSignature: crafttweaker.api.item.IItemDefinition
@@ -1778,16 +1778,6 @@ com.blamejared.compat.thaumcraft.handlers.expand.IItemAspectExpansion:
   paramNames:
   - stack
   - aspects
-youyihj.zenutils.api.util.catenation.persistence.CatenationPersistenceAPI:
-- name: registerPersistedCatenation
-  paramsSignature: java.lang.String
-  paramNames:
-  - key
-- name: startPersistedCatenation
-  paramsSignature: java.lang.String,crafttweaker.api.world.IWorld
-  paramNames:
-  - key
-  - world
 crafttweaker.api.block.IBlockDefinition:
 - name: getLightOpacity
   paramsSignature: crafttweaker.api.block.IBlockState
@@ -1861,6 +1851,16 @@ crafttweaker.api.block.IBlockDefinition:
   paramNames:
   - type
   - state
+youyihj.zenutils.api.util.catenation.persistence.CatenationPersistenceAPI:
+- name: registerPersistedCatenation
+  paramsSignature: java.lang.String
+  paramNames:
+  - key
+- name: startPersistedCatenation
+  paramsSignature: java.lang.String,crafttweaker.api.world.IWorld
+  paramNames:
+  - key
+  - world
 com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemDestroySpeed:
 - name: getDestroySpeed
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.mutableitemstack.IMutableItemStack,com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState
@@ -1941,6 +1941,16 @@ youyihj.zenutils.api.network.ZenNetworkHandler:
   paramNames:
   - key
   - serverMessageHandler
+com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipe:
+- name: getData
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe,java.lang.String
+  paramNames:
+  - recipe
+  - key
+- name: getText
+  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe
+  paramNames:
+  - recipe
 com.teamacronymcoders.contenttweaker.modules.materials.materialpartdata.IMaterialPartData:
 - name: addDataValue
   paramsSignature: java.lang.String,java.lang.String
@@ -1957,16 +1967,6 @@ com.teamacronymcoders.contenttweaker.modules.materials.materialpartdata.IMateria
   paramNames:
   - name
   - defaultValue
-com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipe:
-- name: getData
-  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe,java.lang.String
-  paramNames:
-  - recipe
-  - key
-- name: getText
-  paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe
-  paramNames:
-  - recipe
 crafttweaker.tests.test.CompareTests:
 - name: compare
   paramsSignature: crafttweaker.tests.test.CompareTests
@@ -2102,23 +2102,6 @@ crafttweaker.runtime.ILogger:
   paramsSignature: java.lang.String
   paramNames:
   - message
-com.teamacronymcoders.contenttweaker.api.ctobjects.itemlist.ICTItemList:
-- name: add
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - iItemStack
-- name: add
-  paramsSignature: crafttweaker.api.item.WeightedItemStack
-  paramNames:
-  - weightedItemStack
-- name: remove
-  paramsSignature: int
-  paramNames:
-  - index
-- name: get
-  paramsSignature: int
-  paramNames:
-  - index
 com.blamejared.compat.actuallyaddition.Empowerer:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,int,int,float[]
@@ -2136,6 +2119,23 @@ com.blamejared.compat.actuallyaddition.Empowerer:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - output
+com.teamacronymcoders.contenttweaker.api.ctobjects.itemlist.ICTItemList:
+- name: add
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - iItemStack
+- name: add
+  paramsSignature: crafttweaker.api.item.WeightedItemStack
+  paramNames:
+  - weightedItemStack
+- name: remove
+  paramsSignature: int
+  paramNames:
+  - index
+- name: get
+  paramsSignature: int
+  paramNames:
+  - index
 crafttweaker.api.game.ITeam:
 - name: formatString
   paramsSignature: java.lang.String
@@ -2460,16 +2460,6 @@ codersafterdark.compatskills.common.compats.minecraft.item.armor.ArmorLockTweake
   paramNames:
   - armor
   - requirements
-gregtech.integration.crafttweaker.terminal.CTTerminalRegistry:
-- name: createAppRegistryBuilder
-  paramsSignature: java.lang.String
-  paramNames:
-  - appName
-- name: registerDevice
-  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String
-  paramNames:
-  - device
-  - name
 crafttweaker.api.item.IItemUtils:
 - name: createPotion
   paramsSignature: java.lang.Object[][]
@@ -2515,6 +2505,16 @@ crafttweaker.api.item.IItemUtils:
   paramNames:
   - entity
   - customNBT
+gregtech.integration.crafttweaker.terminal.CTTerminalRegistry:
+- name: createAppRegistryBuilder
+  paramsSignature: java.lang.String
+  paramNames:
+  - appName
+- name: registerDevice
+  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String
+  paramNames:
+  - device
+  - name
 codersafterdark.compatskills.common.compats.oreexcavator.tweakers.ExcavationLockTweaker:
 - name: addExcavationLock
   paramsSignature: java.lang.String[]
@@ -2605,11 +2605,6 @@ gregtech.integration.crafttweaker.material.CTMaterialBuilder:
   paramNames:
   - type
   - hasBlock
-- name: fluid
-  paramsSignature: gregtech.api.fluids.fluidType.FluidType,boolean
-  paramNames:
-  - type
-  - hasBlock
 - name: dust
   paramsSignature: int,int
   paramNames:
@@ -2668,12 +2663,14 @@ gregtech.integration.crafttweaker.material.CTMaterialBuilder:
   - damage
   - durability
 - name: blastTemp
-  paramsSignature: int,java.lang.String,int,int
+  paramsSignature: int,java.lang.String,int,int,int,int
   paramNames:
   - temp
   - gasTier
   - eutOverride
   - durationOverride
+  - vacuumEUtOverride
+  - vacuumDurationOverride
 - name: ore
   paramsSignature: int,int,boolean
   paramNames:
@@ -2713,10 +2710,6 @@ gregtech.integration.crafttweaker.material.CTMaterialBuilder:
   paramsSignature: gregtech.api.unification.material.Material
   paramNames:
   - m
-- name: fluidTemp
-  paramsSignature: int
-  paramNames:
-  - temp
 - name: cableProperties
   paramsSignature: long,int,int,boolean
   paramNames:
@@ -3096,6 +3089,25 @@ com.cleanroommc.multiblocked.api.crafttweaker.CTParticleUtils:
   - world
   - startPos
   - endPos
+github.kasuminova.mmce.common.event.client.ControllerModelAnimationEvent:
+- name: addAnimation
+  paramsSignature: java.lang.String
+  paramNames:
+  - animationName
+- name: addAnimation
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - animationName
+  - loop
+- name: setAnimation
+  paramsSignature: java.lang.String
+  paramNames:
+  - animationName
+- name: setAnimation
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - animationName
+  - loop
 codersafterdark.compatskills.common.compats.magneticraft.MagMultiBlockGates:
 - name: addGate
   paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
@@ -3841,6 +3853,15 @@ crafttweaker.api.event.INoteBlockEvent:
   paramNames:
   - note
   - octave
+crafttweaker.api.block.IBlockPattern:
+- name: matches
+  paramsSignature: crafttweaker.api.block.IBlock
+  paramNames:
+  - block
+- name: or
+  paramsSignature: crafttweaker.api.block.IBlockPattern
+  paramNames:
+  - pattern
 youyihj.zenutils.api.cotx.ExpandVanillaFactory:
 - name: createEnergyItem
   paramsSignature: java.lang.String,int,int,int
@@ -3873,15 +3894,6 @@ youyihj.zenutils.api.cotx.ExpandVanillaFactory:
   paramNames:
   - id
   - tileEntityTick
-crafttweaker.api.block.IBlockPattern:
-- name: matches
-  paramsSignature: crafttweaker.api.block.IBlock
-  paramNames:
-  - block
-- name: or
-  paramsSignature: crafttweaker.api.block.IBlockPattern
-  paramNames:
-  - pattern
 com.cleanroommc.multiblocked.api.crafttweaker.functions.ILeftClick:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,crafttweaker.api.player.IPlayer
@@ -4205,18 +4217,6 @@ ink.ikx.rt.api.mods.botania.render.IBotaniaFXHelper:
   - motionY
   - motionZ
   - maxAgeMul
-gregtech.integration.crafttweaker.recipe.CTRecipeUtils:
-- name: removeRecipeByOutput
-  paramsSignature: gregtech.api.recipes.RecipeMap,crafttweaker.api.item.IItemStack[],crafttweaker.api.liquid.ILiquidStack[],boolean
-  paramNames:
-  - recipeMap
-  - outputs
-  - fluidOutputs
-  - useAmounts
-- name: removeAll
-  paramsSignature: gregtech.api.recipes.RecipeMap
-  paramNames:
-  - recipeMap
 crafttweaker.api.block.IBlockStateMatcher:
 - name: matches
   paramsSignature: crafttweaker.api.block.IBlockState
@@ -4240,6 +4240,18 @@ crafttweaker.api.block.IBlockStateMatcher:
   paramsSignature: java.lang.String
   paramNames:
   - name
+gregtech.integration.crafttweaker.recipe.CTRecipeUtils:
+- name: removeRecipeByOutput
+  paramsSignature: gregtech.api.recipes.RecipeMap,crafttweaker.api.item.IItemStack[],crafttweaker.api.liquid.ILiquidStack[],boolean
+  paramNames:
+  - recipeMap
+  - outputs
+  - fluidOutputs
+  - useAmounts
+- name: removeAll
+  paramsSignature: gregtech.api.recipes.RecipeMap
+  paramNames:
+  - recipeMap
 youyihj.zenutils.api.block.ZenUtilsBlockDefinition:
 - name: getFromNumericalId
   paramsSignature: int
@@ -5375,7 +5387,7 @@ youyihj.zenutils.api.util.StaticString:
   - str
   - searchStrs
 - name: join
-  paramsSignature: java.lang.Object[],java.lang.String
+  paramsSignature: java.lang.String[],java.lang.String
   paramNames:
   - array
   - separator
@@ -5405,7 +5417,7 @@ youyihj.zenutils.api.util.StaticString:
   - array
   - separator
 - name: join
-  paramsSignature: java.lang.Object[],java.lang.String,int,int
+  paramsSignature: java.lang.String[],java.lang.String,int,int
   paramNames:
   - array
   - separator
@@ -6027,11 +6039,6 @@ gregtech.integration.crafttweaker.material.MaterialExpansion:
   paramNames:
   - m
   - iconSetName
-- name: setFluidTemperature
-  paramsSignature: gregtech.api.unification.material.Material,int
-  paramNames:
-  - m
-  - fluidTemperature
 - name: setHarvestLevel
   paramsSignature: gregtech.api.unification.material.Material,int
   paramNames:
@@ -6153,6 +6160,11 @@ codersafterdark.compatskills.common.compats.reskillable.skillchange.SkillChangeT
   paramNames:
   - unlockable
   - handler
+youyihj.zenutils.api.command.DefaultGetTabCompletion:
+- name: fixedValues
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - values
 com.blamejared.compat.forestry.CharcoalPile:
 - name: addWall
   paramsSignature: crafttweaker.api.block.IBlock,int
@@ -6286,6 +6298,14 @@ com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeContent:
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
   paramNames:
   - content
+hellfirepvp.modularmachinery.common.integration.crafttweaker.model.GeoMachineModel:
+- name: registerGeoMachineModel
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - modelName
+  - modelLocation
+  - textureLocation
+  - animationFileLocation
 crafttweaker.api.recipes.IRecipeManager:
 - name: getRecipesFor
   paramsSignature: crafttweaker.api.item.IIngredient
@@ -6403,6 +6423,11 @@ crafttweaker.api.recipes.IRecipeManager:
   - toReplace
   - replaceWith
   - forOutput
+crafttweaker.mc1120.world.expand.ExpandBiomeType:
+- name: getBiomes
+  paramsSignature: crafttweaker.api.world.IBiomeType
+  paramNames:
+  - biomeType
 ink.ikx.rt.api.mods.contenttweaker.mana.IManaItem:
 - name: canExportManaToPool
   paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
@@ -6426,11 +6451,6 @@ ink.ikx.rt.api.mods.contenttweaker.mana.IManaItem:
   paramsSignature: int
   paramNames:
   - mana
-crafttweaker.mc1120.world.expand.ExpandBiomeType:
-- name: getBiomes
-  paramsSignature: crafttweaker.api.world.IBiomeType
-  paramNames:
-  - biomeType
 youyihj.zenutils.api.cotx.ExpandHand:
 - name: asEntityEquipmentSlot
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Hand
@@ -6457,16 +6477,6 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemUseFinish:
   - stack
   - world
   - user
-gregtech.api.fluids.fluidType.FluidType:
-- name: setFluidPropertiesCT
-  paramsSignature: gregtech.api.fluids.fluidType.FluidType,gregtech.api.unification.material.Material
-  paramNames:
-  - fluidType
-  - material
-- name: getByName
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
 com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$CanApplyTogetherEnchantment:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation,crafttweaker.api.enchantments.IEnchantmentDefinition
@@ -6500,69 +6510,6 @@ ink.ikx.rt.api.mods.thaumicadditions.IEdibleAspect$EatFunction:
   paramsSignature: int
   paramNames:
   - count
-youyihj.zenutils.api.util.StringList:
-- name: create
-  paramsSignature: java.util.Collection
-  paramNames:
-  - list
-- name: create
-  paramsSignature: java.lang.Object[]
-  paramNames:
-  - objects
-- name: singletonList
-  paramsSignature: java.lang.Object
-  paramNames:
-  - object
-- name: get
-  paramsSignature: int
-  paramNames:
-  - index
-- name: set
-  paramsSignature: int,java.lang.Object
-  paramNames:
-  - index
-  - obj
-- name: add
-  paramsSignature: java.lang.Object
-  paramNames:
-  - obj
-- name: remove
-  paramsSignature: java.lang.Object
-  paramNames:
-  - obj
-- name: removeIf
-  paramsSignature: youyihj.zenutils.api.util.StringPredicate
-  paramNames:
-  - predicate
-- name: contains
-  paramsSignature: java.lang.Object
-  paramNames:
-  - obj
-- name: add
-  paramsSignature: java.lang.String
-  paramNames:
-  - s
-- name: remove
-  paramsSignature: java.lang.String
-  paramNames:
-  - s
-- name: contains
-  paramsSignature: java.lang.String
-  paramNames:
-  - s
-- name: indexOf
-  paramsSignature: java.lang.String
-  paramNames:
-  - s
-- name: lastIndexOf
-  paramsSignature: java.lang.String
-  paramNames:
-  - s
-- name: subList
-  paramsSignature: int,int
-  paramNames:
-  - fromIndex
-  - toIndex
 crafttweaker.mc1120.entity.expand.ExpandEntityLivingBase:
 - name: isElytraFlying
   paramsSignature: crafttweaker.api.entity.IEntityLivingBase
@@ -6662,6 +6609,69 @@ crafttweaker.mc1120.entity.expand.ExpandEntityLivingBase:
   paramNames:
   - entityLivingBase
   - amount
+youyihj.zenutils.api.util.StringList:
+- name: create
+  paramsSignature: java.util.Collection
+  paramNames:
+  - list
+- name: create
+  paramsSignature: java.lang.Object[]
+  paramNames:
+  - objects
+- name: singletonList
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: get
+  paramsSignature: int
+  paramNames:
+  - index
+- name: set
+  paramsSignature: int,java.lang.Object
+  paramNames:
+  - index
+  - obj
+- name: add
+  paramsSignature: java.lang.Object
+  paramNames:
+  - obj
+- name: remove
+  paramsSignature: java.lang.Object
+  paramNames:
+  - obj
+- name: removeIf
+  paramsSignature: youyihj.zenutils.api.util.StringPredicate
+  paramNames:
+  - predicate
+- name: contains
+  paramsSignature: java.lang.Object
+  paramNames:
+  - obj
+- name: add
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: remove
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: contains
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: indexOf
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: lastIndexOf
+  paramsSignature: java.lang.String
+  paramNames:
+  - s
+- name: subList
+  paramsSignature: int,int
+  paramNames:
+  - fromIndex
+  - toIndex
 java.lang.Math:
 - name: min
   paramNames:
@@ -6678,16 +6688,16 @@ java.lang.Math:
   - a
   - b
   paramsSignature: double,double
-com.teamacronymcoders.contenttweaker.modules.materials.functions.IRegisterMaterialPart:
-- name: register
-  paramsSignature: com.teamacronymcoders.contenttweaker.modules.materials.materialparts.IMaterialPart
-  paramNames:
-  - materialPart
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IUpdateTick:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent
   paramNames:
   - componentTileEntity
+com.teamacronymcoders.contenttweaker.modules.materials.functions.IRegisterMaterialPart:
+- name: register
+  paramsSignature: com.teamacronymcoders.contenttweaker.modules.materials.materialparts.IMaterialPart
+  paramNames:
+  - materialPart
 ink.ikx.rt.api.mods.botania.event.CTEventManager:
 - name: onPoolTrade
   paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
@@ -6801,6 +6811,11 @@ gregtech.common.metatileentities.primitive.MetaTileEntityCharcoalPileIgniter:
   paramsSignature: crafttweaker.api.block.IBlock
   paramNames:
   - block
+java.util.function.Predicate:
+- name: test
+  paramsSignature: T
+  paramNames:
+  - arg0
 ink.ikx.rt.api.mods.jei.core.IJeiRecipe:
 - name: setInputs
   paramsSignature: crafttweaker.api.item.IIngredient[]
@@ -7593,15 +7608,17 @@ kport.modularmagic.common.integration.crafttweaker.MagicPrimer:
   - min
   - max
 - name: addManaInput
-  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int,boolean
   paramNames:
   - primer
   - amount
+  - perTick
 - name: addManaOutput
-  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int,boolean
   paramNames:
   - primer
   - amount
+  - perTick
 - name: addImpetusInput
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
   paramNames:
@@ -7947,6 +7964,12 @@ crafttweaker.api.oredict.IOreDictEntry:
   paramsSignature: crafttweaker.api.oredict.IOreDictEntry
   paramNames:
   - other
+com.cleanroommc.multiblocked.api.crafttweaker.functions.IPartRemovedFromMulti:
+- name: apply
+  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTPart,com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
+  paramNames:
+  - partTileEntity
+  - controllerTileEntity
 com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$KnockBack:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation,crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase,crafttweaker.api.entity.IEntityLivingBase,float,float,float,boolean
@@ -7959,12 +7982,6 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$KnockBack:
   - knockback
   - newKnockback
   - isCritical
-com.cleanroommc.multiblocked.api.crafttweaker.functions.IPartRemovedFromMulti:
-- name: apply
-  paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTPart,com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
-  paramNames:
-  - partTileEntity
-  - controllerTileEntity
 com.blamejared.compat.bloodmagic.BloodAltar:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,int,int,int
@@ -7985,6 +8002,16 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$ItemLocaliz
   paramNames:
   - thisMaterial
   - itemName
+crafttweaker.mc1120.world.expand.ExpandFacing:
+- name: fromString
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: getDirectionFromEntityLiving
+  paramsSignature: crafttweaker.api.world.IBlockPos,crafttweaker.api.entity.IEntityLivingBase
+  paramNames:
+  - pos
+  - placer
 hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.DynamicMachineUpgradeBuilder:
 - name: newBuilder
   paramsSignature: java.lang.String,java.lang.String,float,int
@@ -8081,16 +8108,6 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.DynamicMach
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
   paramNames:
   - handler
-crafttweaker.mc1120.world.expand.ExpandFacing:
-- name: fromString
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
-- name: getDirectionFromEntityLiving
-  paramsSignature: crafttweaker.api.world.IBlockPos,crafttweaker.api.entity.IEntityLivingBase
-  paramNames:
-  - pos
-  - placer
 crafttweaker.api.block.IMaterial:
 - name: matches
   paramsSignature: crafttweaker.api.block.IMaterial
@@ -8426,15 +8443,6 @@ crafttweaker.api.world.IWorldProvider:
   paramsSignature: crafttweaker.api.world.IBlockPos
   paramNames:
   - pos
-ink.ikx.rt.api.mods.botania.event.CTElvenTradeEvent:
-- name: setOutput
-  paramsSignature: crafttweaker.api.item.IItemStack[]
-  paramNames:
-  - output
-- name: addOutput
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - stack
 crafttweaker.mc1120.item.ExpandItemStack:
 - name: isBlock
   paramsSignature: crafttweaker.api.item.IItemStack
@@ -8460,6 +8468,15 @@ crafttweaker.mc1120.item.ExpandItemStack:
   paramNames:
   - stack
   - capNBT
+ink.ikx.rt.api.mods.botania.event.CTElvenTradeEvent:
+- name: setOutput
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - output
+- name: addOutput
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
 com.blamejared.compat.betterwithmods.StokedCrucible:
 - name: add
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[]
@@ -8545,6 +8562,16 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.event.MMEvents:
   - machineRegistryName
   - function
 - name: onControllerGUIRender
+  paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
+  paramNames:
+  - machineRegistryName
+  - function
+- name: onControllerModelAnimation
+  paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
+  paramNames:
+  - machineRegistryName
+  - function
+- name: onControllerModelGet
   paramsSignature: java.lang.String,crafttweaker.util.IEventHandler
   paramNames:
   - machineRegistryName
@@ -8782,6 +8809,11 @@ ink.ikx.rt.api.mods.contenttweaker.subtile.ISubTileEntityInGame:
   paramsSignature: int
   paramNames:
   - mana
+crafttweaker.api.command.ICommandSender:
+- name: sendMessage
+  paramsSignature: java.lang.String
+  paramNames:
+  - text
 github.kasuminova.mmce.common.event.recipe.RecipeCheckEvent:
 - name: setFailed
   paramsSignature: java.lang.String
@@ -8791,11 +8823,6 @@ github.kasuminova.mmce.common.event.recipe.RecipeCheckEvent:
   paramsSignature: int
   paramNames:
   - parallelism
-crafttweaker.api.command.ICommandSender:
-- name: sendMessage
-  paramsSignature: java.lang.String
-  paramNames:
-  - text
 youyihj.zenutils.api.network.IByteBufWriter:
 - name: write
   paramsSignature: youyihj.zenutils.api.network.IByteBuf
@@ -9444,6 +9471,11 @@ com.blamejared.compat.botania.handlers.Lexicon:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - stack
+crafttweaker.zenscript.expand.ExpandBool:
+- name: asData
+  paramsSignature: boolean
+  paramNames:
+  - value
 ink.ikx.rt.api.mods.botania.event.CTPoolTradeEvent:
 - name: setMana
   paramsSignature: int
@@ -9457,11 +9489,6 @@ ink.ikx.rt.api.mods.botania.event.CTPoolTradeEvent:
   paramsSignature: boolean
   paramNames:
   - allowExceed
-crafttweaker.zenscript.expand.ExpandBool:
-- name: asData
-  paramsSignature: boolean
-  paramNames:
-  - value
 crafttweaker.api.block.IBlockState:
 - name: isReplaceable
   paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
@@ -10134,10 +10161,6 @@ gregtech.api.recipes.RecipeMap:
   paramsSignature: java.lang.String
   paramNames:
   - unlocalizedName
-- name: setChanceFunction
-  paramsSignature: gregtech.api.recipes.RecipeMap$IChanceFunction
-  paramNames:
-  - function
 - name: ctFindRecipe
   paramsSignature: long,crafttweaker.api.item.IItemStack[],crafttweaker.api.liquid.ILiquidStack[],int
   paramNames:
@@ -10350,6 +10373,11 @@ youyihj.zenutils.api.util.catenation.ICatenationBuilder:
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
   paramNames:
   - function
+crafttweaker.zenscript.expand.ExpandItemStack:
+- name: asWeightedItemStack
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - value
 youyihj.zenutils.api.command.ZenCommand:
 - name: create
   paramsSignature: java.lang.String
@@ -10359,11 +10387,6 @@ youyihj.zenutils.api.command.ZenCommand:
   paramsSignature: net.minecraft.command.ICommandSender
   paramNames:
   - sender
-crafttweaker.zenscript.expand.ExpandItemStack:
-- name: asWeightedItemStack
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - value
 com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFunctions$CalcDamageByCreature:
 - name: handle
   paramsSignature: crafttweaker.api.enchantments.IEnchantmentDefinition,int,java.lang.String
@@ -10371,21 +10394,6 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFun
   - thisEnchantment
   - level
   - creatureType
-com.teamacronymcoders.contenttweaker.modules.vanilla.utils.commands.Commands:
-- name: call
-  paramsSignature: java.lang.String,crafttweaker.api.player.IPlayer,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld
-  paramNames:
-  - command
-  - player
-  - world
-- name: call
-  paramsSignature: java.lang.String,crafttweaker.api.player.IPlayer,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,boolean,boolean
-  paramNames:
-  - command
-  - player
-  - world
-  - logToChat
-  - overridePermissions
 com.blamejared.compat.thermalexpansion.Enchanter:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,int,boolean
@@ -10401,6 +10409,21 @@ com.blamejared.compat.thermalexpansion.Enchanter:
   paramNames:
   - input
   - secondInput
+com.teamacronymcoders.contenttweaker.modules.vanilla.utils.commands.Commands:
+- name: call
+  paramsSignature: java.lang.String,crafttweaker.api.player.IPlayer,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld
+  paramNames:
+  - command
+  - player
+  - world
+- name: call
+  paramsSignature: java.lang.String,crafttweaker.api.player.IPlayer,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,boolean,boolean
+  paramNames:
+  - command
+  - player
+  - world
+  - logToChat
+  - overridePermissions
 com.cleanroommc.multiblocked.api.recipe.RecipeMap:
 - name: <init>
   paramsSignature: java.lang.String
@@ -10848,11 +10871,6 @@ com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing:
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing
   paramNames:
   - other
-com.teamacronymcoders.contenttweaker.api.ctobjects.resourcelocation.CTResourceLocation:
-- name: create
-  paramsSignature: java.lang.String
-  paramNames:
-  - resourceLocation
 com.blamejared.compat.forestry.ThermionicFabricator:
 - name: addSmelting
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,int
@@ -10875,6 +10893,11 @@ com.blamejared.compat.forestry.ThermionicFabricator:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - product
+com.teamacronymcoders.contenttweaker.api.ctobjects.resourcelocation.CTResourceLocation:
+- name: create
+  paramsSignature: java.lang.String
+  paramNames:
+  - resourceLocation
 codersafterdark.compatskills.common.compats.reskillable.NBTLockTweaker:
 - name: addModNBTLock
   paramsSignature: java.lang.String,crafttweaker.api.data.IData,java.lang.String[]
@@ -10945,14 +10968,6 @@ github.kasuminova.mmce.common.event.recipe.FactoryRecipeTickEvent:
   paramsSignature: java.lang.String
   paramNames:
   - reason
-gregtech.api.recipes.RecipeMap$IChanceFunction:
-- name: chanceFor
-  paramsSignature: int,int,int,int
-  paramNames:
-  - baseChance
-  - boostPerTier
-  - baseTier
-  - boostTier
 github.kasuminova.mmce.common.concurrent.Sync:
 - name: addSyncTask
   paramsSignature: github.kasuminova.mmce.common.util.concurrent.Action
@@ -11020,10 +11035,6 @@ gregtech.integration.crafttweaker.material.MaterialPropertyExpansion:
   paramsSignature: gregtech.api.unification.material.Material
   paramNames:
   - m
-- name: hasPlasma
-  paramsSignature: gregtech.api.unification.material.Material
-  paramNames:
-  - m
 - name: hasTools
   paramsSignature: gregtech.api.unification.material.Material
   paramNames:
@@ -11038,13 +11049,15 @@ gregtech.integration.crafttweaker.material.MaterialPropertyExpansion:
   - m
   - blastTemp
 - name: addBlastProperty
-  paramsSignature: gregtech.api.unification.material.Material,int,java.lang.String,int,int
+  paramsSignature: gregtech.api.unification.material.Material,int,java.lang.String,int,int,int,int
   paramNames:
   - m
   - blastTemp
   - gasTier
   - durationOverride
   - eutOverride
+  - vacuumDurationOverride
+  - vacuumEUtOverride
 - name: addDust
   paramsSignature: gregtech.api.unification.material.Material,int,int
   paramNames:
@@ -11077,12 +11090,6 @@ gregtech.integration.crafttweaker.material.MaterialPropertyExpansion:
   paramNames:
   - m
   - fluidTypeName
-  - hasBlock
-- name: addFluid
-  paramsSignature: gregtech.api.unification.material.Material,gregtech.api.fluids.fluidType.FluidType,boolean
-  paramNames:
-  - m
-  - fluidType
   - hasBlock
 - name: addGem
   paramsSignature: gregtech.api.unification.material.Material
@@ -11358,17 +11365,6 @@ youyihj.zenutils.api.command.ExpandedCommandManager:
   - commandManager
   - sender
   - rawCommand
-com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos:
-- name: getOffset
-  paramsSignature: java.lang.String,int
-  paramNames:
-  - directionName
-  - offset
-- name: getOffset
-  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing,int
-  paramNames:
-  - facing
-  - offset
 com.blamejared.compat.tcomplement.highoven.MixRecipeManager:
 - name: addOxidizer
   paramsSignature: crafttweaker.api.item.IIngredient,int
@@ -11397,6 +11393,17 @@ com.blamejared.compat.tcomplement.highoven.MixRecipeManager:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - purifier
+com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos:
+- name: getOffset
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - directionName
+  - offset
+- name: getOffset
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing,int
+  paramNames:
+  - facing
+  - offset
 youyihj.zenutils.api.command.TabCompletionCase:
 - name: add
   paramsSignature: java.lang.String,java.util.List
@@ -11652,36 +11659,6 @@ com.cleanroommc.multiblocked.api.pattern.TraceabilityPredicate:
   paramsSignature: com.cleanroommc.multiblocked.api.pattern.TraceabilityPredicate
   paramNames:
   - other
-ink.ikx.rt.api.vanilla.IItemAttributeModificationEvent:
-- name: getModifier
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
-- name: putModifier
-  paramsSignature: java.lang.String,crafttweaker.api.entity.attribute.IEntityAttributeModifier
-  paramNames:
-  - name
-  - modifier
-- name: removeModifier
-  paramsSignature: java.lang.String,java.lang.String
-  paramNames:
-  - name
-  - uuid
-- name: clearModifier
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
-ink.ikx.rt.api.mods.contenttweaker.mana.IManaBauble:
-- name: canEquip
-  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase
-  paramNames:
-  - baubleItem
-  - wearer
-- name: canUnEquip
-  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase
-  paramNames:
-  - baubleItem
-  - wearer
 crafttweaker.api.item.IItemStack:
 - name: amount
   paramsSignature: int
@@ -11787,6 +11764,36 @@ crafttweaker.api.item.IItemStack:
   - toolClass
   - player
   - blockState
+ink.ikx.rt.api.vanilla.IItemAttributeModificationEvent:
+- name: getModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: putModifier
+  paramsSignature: java.lang.String,crafttweaker.api.entity.attribute.IEntityAttributeModifier
+  paramNames:
+  - name
+  - modifier
+- name: removeModifier
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - name
+  - uuid
+- name: clearModifier
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+ink.ikx.rt.api.mods.contenttweaker.mana.IManaBauble:
+- name: canEquip
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase
+  paramNames:
+  - baubleItem
+  - wearer
+- name: canUnEquip
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase
+  paramNames:
+  - baubleItem
+  - wearer
 youyihj.zenutils.api.util.CrTIntRange:
 - name: get
   paramsSignature: int,int
@@ -11921,6 +11928,11 @@ youyihj.zenutils.api.cotx.function.IEntityWalk:
   - world
   - pos
   - entity
+crafttweaker.api.chat.IChatMessage:
+- name: add
+  paramsSignature: crafttweaker.api.chat.IChatMessage
+  paramNames:
+  - other
 gregtech.api.util.CapesRegistry:
 - name: registerCape
   paramsSignature: java.lang.String,java.lang.String
@@ -11931,11 +11943,6 @@ gregtech.api.util.CapesRegistry:
   paramsSignature: java.lang.String
   paramNames:
   - cape
-crafttweaker.api.chat.IChatMessage:
-- name: add
-  paramsSignature: crafttweaker.api.chat.IChatMessage
-  paramNames:
-  - other
 ink.ikx.rt.api.mods.naturesaura.IWorldExpansionNa:
 - name: getAuraChunk
   paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
@@ -12093,15 +12100,6 @@ gregtech.api.unification.material.info.MaterialIconSet:
   paramsSignature: java.lang.String
   paramNames:
   - name
-youyihj.zenutils.api.util.HexHelper:
-- name: toHexString
-  paramsSignature: int
-  paramNames:
-  - i
-- name: toDecInteger
-  paramsSignature: java.lang.String
-  paramNames:
-  - hex
 crafttweaker.api.dispenser.IDispenserBehavior:
 - name: apply
   paramsSignature: crafttweaker.api.dispenser.IBlockSource,crafttweaker.api.item.IItemStack
@@ -12113,6 +12111,15 @@ crafttweaker.api.dispenser.IDispenserBehavior:
   paramNames:
   - source
   - stack
+youyihj.zenutils.api.util.HexHelper:
+- name: toHexString
+  paramsSignature: int
+  paramNames:
+  - i
+- name: toDecInteger
+  paramsSignature: java.lang.String
+  paramNames:
+  - hex
 ink.ikx.rt.api.mods.contenttweaker.function.subtile.Update:
 - name: call
   paramsSignature: ink.ikx.rt.api.mods.contenttweaker.subtile.ISubTileEntityInGame,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos
@@ -12120,6 +12127,11 @@ ink.ikx.rt.api.mods.contenttweaker.function.subtile.Update:
   - subTile
   - world
   - pos
+crafttweaker.zenscript.expand.ExpandIntArray:
+- name: asData
+  paramsSignature: int[]
+  paramNames:
+  - values
 youyihj.zenutils.api.ftbq.CTQuestObjectBase:
 - name: hasTag
   paramsSignature: java.lang.String
@@ -12129,11 +12141,6 @@ youyihj.zenutils.api.ftbq.CTQuestObjectBase:
   paramsSignature: youyihj.zenutils.api.ftbq.CTQuestObjectBase
   paramNames:
   - others
-crafttweaker.zenscript.expand.ExpandIntArray:
-- name: asData
-  paramsSignature: int[]
-  paramNames:
-  - values
 com.cleanroommc.multiblocked.api.capability.ICapabilityProxyHolder:
 - name: hasProxy
   paramsSignature: com.cleanroommc.multiblocked.api.capability.IO,com.cleanroommc.multiblocked.api.capability.MultiblockCapability
@@ -12256,6 +12263,19 @@ stanhebben.zenscript.tests.TestZenProperty$PropertyTester:
   paramsSignature: java.lang.String
   paramNames:
   - b
+crafttweaker.tests.wiki.DevWikiMethod:
+- name: staticMethod
+  paramsSignature: int
+  paramNames:
+  - arg1
+- name: staticMethodVarArg
+  paramsSignature: int[]
+  paramNames:
+  - args
+- name: printWithVarArg
+  paramsSignature: int[]
+  paramNames:
+  - args
 ink.ikx.rt.api.mods.contenttweaker.render.IBaubleRenderHelper:
 - name: bindTexture
   paramsSignature: java.lang.String
@@ -12302,19 +12322,6 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.StatedMachineCompon
   paramsSignature: boolean
   paramNames:
   - coloured
-crafttweaker.tests.wiki.DevWikiMethod:
-- name: staticMethod
-  paramsSignature: int
-  paramNames:
-  - arg1
-- name: staticMethodVarArg
-  paramsSignature: int[]
-  paramNames:
-  - args
-- name: printWithVarArg
-  paramsSignature: int[]
-  paramNames:
-  - args
 com.blamejared.compat.betterwithmods.base.blockrecipes.SawBuilder:
 - name: buildRecipe
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
@@ -12985,15 +12992,6 @@ codersafterdark.compatskills.common.compats.minecraft.dimension.dimensionlocks.D
   paramNames:
   - dimension
   - defaultRequirements
-youyihj.zenutils.api.util.delay.IsExecute:
-- name: setExec
-  paramsSignature: boolean
-  paramNames:
-  - exec
-- name: of
-  paramsSignature: boolean
-  paramNames:
-  - exec
 crafttweaker.mc1120.text.expand.ExpandTextComponent:
 - name: fromString
   paramsSignature: java.lang.String
@@ -13012,6 +13010,15 @@ crafttweaker.mc1120.text.expand.ExpandTextComponent:
   paramsSignature: crafttweaker.api.data.IData
   paramNames:
   - data
+youyihj.zenutils.api.util.delay.IsExecute:
+- name: setExec
+  paramsSignature: boolean
+  paramNames:
+  - exec
+- name: of
+  paramsSignature: boolean
+  paramNames:
+  - exec
 crafttweaker.api.event.BlockHarvestDropsEvent:
 - name: addItem
   paramsSignature: crafttweaker.api.item.WeightedItemStack
@@ -13326,6 +13333,14 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.MachineBuilder:
   paramsSignature: crafttweaker.util.IEventHandler
   paramNames:
   - function
+- name: addControllerModelAnimationHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - function
+- name: addControllerModelGetHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - function
 - name: addSmartInterfaceUpdateHandler
   paramsSignature: crafttweaker.util.IEventHandler
   paramNames:
@@ -13370,11 +13385,6 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.MachineBuilder:
   paramsSignature: hellfirepvp.modularmachinery.common.machine.factory.FactoryRecipeThread
   paramNames:
   - thread
-com.teamacronymcoders.contenttweaker.api.ctobjects.enums.PushReaction:
-- name: compare
-  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.PushReaction
-  paramNames:
-  - other
 com.blamejared.compat.actuallyaddition.Compost:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
@@ -13387,6 +13397,11 @@ com.blamejared.compat.actuallyaddition.Compost:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - output
+com.teamacronymcoders.contenttweaker.api.ctobjects.enums.PushReaction:
+- name: compare
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.PushReaction
+  paramNames:
+  - other
 crafttweaker.api.command.ICommand:
 - name: getUsage
   paramsSignature: crafttweaker.api.command.ICommandSender
@@ -13490,6 +13505,11 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.MachineModifier:
   paramNames:
   - machineName
   - thread
+- name: setMachineGeoModel
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - machineName
+  - modelName
 com.teamacronymcoders.contenttweaker.modules.vanilla.blocks.BlockRepresentation:
 - name: setUnlocalizedName
   paramsSignature: java.lang.String
@@ -13619,11 +13639,6 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.blocks.BlockRepresentation:
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.resourcelocation.CTResourceLocation
   paramNames:
   - resourceLocation
-youyihj.zenutils.api.cotx.block.CrTCoTBlockStateBridge:
-- name: castToCrT
-  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState
-  paramNames:
-  - state
 crafttweaker.api.entity.IEntityLivingBase:
 - name: isPotionActive
   paramsSignature: crafttweaker.api.potions.IPotion
@@ -13677,6 +13692,11 @@ crafttweaker.api.entity.IEntityLivingBase:
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot
   paramNames:
   - slot
+youyihj.zenutils.api.cotx.block.CrTCoTBlockStateBridge:
+- name: castToCrT
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState
+  paramNames:
+  - state
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IStatusChanged:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,java.lang.String
