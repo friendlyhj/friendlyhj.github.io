@@ -8113,6 +8113,15 @@ crafttweaker.api.block.IMaterial:
   paramsSignature: crafttweaker.api.block.IMaterial
   paramNames:
   - other
+crafttweaker.api.event.ExplosionDetonateEvent:
+- name: setAffectedEntities
+  paramsSignature: java.util.List
+  paramNames:
+  - entities
+- name: setAffectedPositions
+  paramsSignature: java.util.List
+  paramNames:
+  - positions
 codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTSkill:
 - name: setBackgroundLocation
   paramsSignature: java.lang.String
