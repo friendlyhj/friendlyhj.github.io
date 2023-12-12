@@ -583,6 +583,13 @@ youyihj.zenutils.api.event.ExpandEventManager:
   paramNames:
   - manager
   - ev
+- name: register
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler,youyihj.zenutils.api.event.CTEventPriority,boolean
+  paramNames:
+  - manager
+  - eventHandler
+  - priority
+  - receiveCanceled
 com.blamejared.compat.betterwithmods.Kiln:
 - name: add
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
@@ -989,6 +996,11 @@ com.blamejared.compat.actuallyaddition.OilGen:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - output
+github.kasuminova.mmce.common.upgrade.SimpleDynamicMachineUpgrade:
+- name: decrementItemDurability
+  paramsSignature: int
+  paramNames:
+  - durability
 com.teamacronymcoders.contenttweaker.api.ctobjects.capabilities.item.TileEntityItemCapExpansion:
 - name: getItemHandler
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.tileentity.IMCTileEntity,com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing
@@ -7035,6 +7047,11 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemModifierCT
   paramNames:
   - modifier
+- name: setMinMaxAmount
+  paramsSignature: int,int
+  paramNames:
+  - min
+  - max
 - name: setTriggerTime
   paramsSignature: int
   paramNames:
@@ -7210,6 +7227,10 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramNames:
   - requiredTotalBurnTime
 - name: addIngredientArrayInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.IngredientArrayPrimer
+  paramNames:
+  - ingredientArrayPrimer
+- name: addRandomItemOutput
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.IngredientArrayPrimer
   paramNames:
   - ingredientArrayPrimer
@@ -9646,6 +9667,16 @@ youyihj.zenutils.api.util.ExpandData:
   paramsSignature: java.util.List
   paramNames:
   - dataList
+- name: createDataList
+  paramsSignature: crafttweaker.api.data.IData[]
+  paramNames:
+  - dataArray
+- name: setAtCopied
+  paramsSignature: crafttweaker.api.data.IData,int,crafttweaker.api.data.IData
+  paramNames:
+  - dataList
+  - index
+  - element
 - name: deepUpdate
   paramsSignature: crafttweaker.api.data.IData,crafttweaker.api.data.IData,crafttweaker.api.data.IData
   paramNames:
@@ -12839,6 +12870,11 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.IngredientArrayPrim
   paramNames:
   - input
   - chance
+- name: setMinMaxAmount
+  paramsSignature: int,int
+  paramNames:
+  - min
+  - max
 - name: setChance
   paramsSignature: float
   paramNames:
