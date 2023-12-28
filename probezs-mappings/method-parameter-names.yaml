@@ -2891,6 +2891,15 @@ youyihj.zenutils.api.player.ZenUtilsPlayer:
   paramsSignature: crafttweaker.api.player.IPlayer
   paramNames:
   - player
+- name: getXpPoints
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: setXpPoints
+  paramsSignature: crafttweaker.api.player.IPlayer,int
+  paramNames:
+  - player
+  - xpPoints
 - name: simulateRightClickItem
   paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityEquipmentSlot
   paramNames:
