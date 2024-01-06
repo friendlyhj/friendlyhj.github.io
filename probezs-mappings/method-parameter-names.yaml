@@ -7600,12 +7600,12 @@ kport.modularmagic.common.integration.crafttweaker.MagicPrimer:
   - amount
   - perTick
 - name: addStarlightInput
-  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,float
   paramNames:
   - primer
   - amount
 - name: addStarlightOutput
-  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,int
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,float
   paramNames:
   - primer
   - amount
