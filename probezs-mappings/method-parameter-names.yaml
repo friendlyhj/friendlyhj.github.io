@@ -1522,6 +1522,11 @@ crafttweaker.api.dispenser.IDispenserSoundFunction:
   paramsSignature: crafttweaker.api.dispenser.IBlockSource
   paramNames:
   - source
+youyihj.zenutils.api.entity.IEntityTick:
+- name: tick
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - entity
 ink.ikx.rt.api.mods.naturesaura.IAuraChunk:
 - name: drainAura
   paramsSignature: crafttweaker.api.world.IBlockPos,int
@@ -10909,6 +10914,13 @@ crafttweaker.api.world.IWorld:
   paramsSignature: crafttweaker.api.world.IExplosion
   paramNames:
   - explosion
+youyihj.zenutils.api.entity.ZenUtilsEntityDefinition:
+- name: onTick
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,youyihj.zenutils.api.entity.IEntityTick,int
+  paramNames:
+  - definition
+  - operation
+  - interval
 codersafterdark.compatskills.common.compats.minecraft.tileentity.TileEntityLockTweaker:
 - name: addTileEntityLock
   paramsSignature: java.lang.String,java.lang.String[]
