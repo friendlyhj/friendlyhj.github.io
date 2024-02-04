@@ -8543,6 +8543,36 @@ youyihj.zenutils.api.util.ExpandGame:
   paramNames:
   - game
   - name
+- name: getBiome
+  paramsSignature: crafttweaker.api.game.IGame,java.lang.String
+  paramNames:
+  - game
+  - name
+- name: getBiomeType
+  paramsSignature: crafttweaker.api.game.IGame,java.lang.String
+  paramNames:
+  - game
+  - name
+- name: getCreativeTab
+  paramsSignature: crafttweaker.api.game.IGame,java.lang.String
+  paramNames:
+  - game
+  - name
+- name: getEnchantment
+  paramsSignature: crafttweaker.api.game.IGame,java.lang.String
+  paramNames:
+  - game
+  - name
+- name: getPotionType
+  paramsSignature: crafttweaker.api.game.IGame,java.lang.String
+  paramNames:
+  - game
+  - name
+- name: getOreDictEntry
+  paramsSignature: crafttweaker.api.game.IGame,java.lang.String
+  paramNames:
+  - game
+  - name
 crafttweaker.api.item.IItemTransformerNew:
 - name: transform
   paramsSignature: crafttweaker.api.item.IItemStack
