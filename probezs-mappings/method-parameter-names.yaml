@@ -7267,6 +7267,12 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   - input
   - tooltips
   - modifiers
+- name: addCatalystInput
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.IngredientArrayPrimer,java.lang.String[],hellfirepvp.modularmachinery.common.modifier.RecipeModifier[]
+  paramNames:
+  - input
+  - tooltips
+  - modifiers
 com.blamejared.compat.forestry.Carpenter:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][],int,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
