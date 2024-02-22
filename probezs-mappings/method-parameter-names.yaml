@@ -13612,6 +13612,11 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.MachineModifier:
   paramNames:
   - machineName
   - modelName
+- name: setMachinePrefix
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - machineName
+  - prefixName
 com.teamacronymcoders.contenttweaker.modules.vanilla.blocks.BlockRepresentation:
 - name: setUnlocalizedName
   paramsSignature: java.lang.String
