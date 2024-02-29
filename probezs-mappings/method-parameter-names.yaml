@@ -7223,6 +7223,22 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramNames:
   - gasName
   - amount
+- name: addGasInput
+  paramsSignature: mekanism.common.integration.crafttweaker.gas.IGasStack
+  paramNames:
+  - gasStack
+- name: addGasOutput
+  paramsSignature: mekanism.common.integration.crafttweaker.gas.IGasStack
+  paramNames:
+  - gasStack
+- name: addGasInputs
+  paramsSignature: mekanism.common.integration.crafttweaker.gas.IGasStack[]
+  paramNames:
+  - gasStacks
+- name: addGasOutputs
+  paramsSignature: mekanism.common.integration.crafttweaker.gas.IGasStack[]
+  paramNames:
+  - gasStacks
 - name: addItemInput
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
