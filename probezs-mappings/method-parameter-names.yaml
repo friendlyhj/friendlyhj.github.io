@@ -7097,14 +7097,18 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramsSignature: int
   paramNames:
   - maxThreads
-- name: setSingleThread
-  paramsSignature: boolean
-  paramNames:
-  - singleThread
 - name: setThreadName
   paramsSignature: java.lang.String
   paramNames:
   - name
+- name: addPreCheckHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
+- name: addPostCheckHandler
+  paramsSignature: crafttweaker.util.IEventHandler
+  paramNames:
+  - handler
 - name: addCheckHandler
   paramsSignature: crafttweaker.util.IEventHandler
   paramNames:
@@ -7118,10 +7122,6 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramNames:
   - handler
 - name: addPostTickHandler
-  paramsSignature: crafttweaker.util.IEventHandler
-  paramNames:
-  - handler
-- name: addTickHandler
   paramsSignature: crafttweaker.util.IEventHandler
   paramNames:
   - handler
@@ -7142,10 +7142,6 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramNames:
   - handler
 - name: addFactoryPostTickHandler
-  paramsSignature: crafttweaker.util.IEventHandler
-  paramNames:
-  - handler
-- name: addFactoryTickHandler
   paramsSignature: crafttweaker.util.IEventHandler
   paramNames:
   - handler
@@ -8097,6 +8093,14 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.DynamicMach
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
   paramNames:
   - handler
+- name: addPreRecipeCheckHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addPostRecipeCheckHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
 - name: addRecipeStartHandler
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
   paramNames:
@@ -8797,6 +8801,10 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.modifier.MultiBlock
   paramsSignature: hellfirepvp.modularmachinery.common.modifier.RecipeModifier[]
   paramNames:
   - modifiers
+- name: setDescriptiveStack
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - descriptiveStack
 com.blamejared.compat.thermalexpansion.Transposer:
 - name: addExtractRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.WeightedItemStack
@@ -11342,7 +11350,20 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.MachineUpgr
   paramsSignature: java.lang.String[]
   paramNames:
   - machineNames
+- name: addModifier
+  paramsSignature: boolean,hellfirepvp.modularmachinery.common.modifier.RecipeModifier[]
+  paramNames:
+  - stackAble
+  - modifiers
 - name: addRecipeCheckHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addPreRecipeCheckHandler
+  paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
+  paramNames:
+  - handler
+- name: addPostRecipeCheckHandler
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
   paramNames:
   - handler
