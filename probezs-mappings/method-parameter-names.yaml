@@ -8356,6 +8356,20 @@ youyihj.zenutils.api.world.ZenUtilsWorld:
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
   - iWorld
+- name: nearbyEntities
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IVector3d,double,crafttweaker.api.entity.IEntity
+  paramNames:
+  - world
+  - pos
+  - radius
+  - exclude
+- name: nearbyEntities
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.entity.IEntity,double,boolean
+  paramNames:
+  - world
+  - entity
+  - radius
+  - excludeSelf
 - name: getCustomWorldData
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
@@ -8438,6 +8452,21 @@ youyihj.zenutils.api.world.ZenUtilsWorld:
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
   - world
+- name: getTeam
+  paramsSignature: crafttweaker.api.world.IWorld,java.lang.String
+  paramNames:
+  - world
+  - name
+- name: createTeam
+  paramsSignature: crafttweaker.api.world.IWorld,java.lang.String
+  paramNames:
+  - world
+  - name
+- name: removeTeam
+  paramsSignature: crafttweaker.api.world.IWorld,java.lang.String
+  paramNames:
+  - world
+  - name
 youyihj.zenutils.api.command.IGetTabCompletion:
 - name: get
   paramsSignature: crafttweaker.api.server.IServer,youyihj.zenutils.api.command.ZenUtilsCommandSender,crafttweaker.api.world.IBlockPos
@@ -10282,6 +10311,15 @@ gregtech.api.recipes.RecipeMap:
   - itemInputs
   - fluidInputs
   - outputFluidTankCapacity
+youyihj.zenutils.api.entity.IEntityPredicate:
+- name: test
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - entity
+- name: test
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - entity
 ink.ikx.rt.api.mods.contenttweaker.aspect.IAspectRepresentation:
 - name: setTag
   paramsSignature: java.lang.String
@@ -11113,6 +11151,15 @@ com.blamejared.compat.actuallyaddition.MiningLens:
   paramsSignature: crafttweaker.api.oredict.IOreDictEntry
   paramNames:
   - ore
+youyihj.zenutils.api.entity.INearbyEntityList:
+- name: filterType
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition
+  paramNames:
+  - definition
+- name: filter
+  paramsSignature: youyihj.zenutils.api.entity.IEntityPredicate
+  paramNames:
+  - predicate
 com.blamejared.compat.thermalexpansion.dynamos.EnervationDynamo:
 - name: addFuel
   paramsSignature: crafttweaker.api.item.IItemStack,int
