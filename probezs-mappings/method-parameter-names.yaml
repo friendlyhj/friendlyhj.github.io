@@ -11398,10 +11398,11 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.MachineUpgr
   paramNames:
   - machineNames
 - name: addModifier
-  paramsSignature: boolean,hellfirepvp.modularmachinery.common.modifier.RecipeModifier[]
+  paramsSignature: boolean,java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier
   paramNames:
   - stackAble
-  - modifiers
+  - modifierKey
+  - modifier
 - name: addRecipeCheckHandler
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
   paramNames:
