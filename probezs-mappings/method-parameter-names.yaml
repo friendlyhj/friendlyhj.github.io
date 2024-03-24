@@ -4144,22 +4144,6 @@ crafttweaker.tests.Optionals:
   paramNames:
   - value
 ink.ikx.rt.api.mods.botania.render.IBotaniaFXHelper:
-- name: setWispFXDistanceLimit
-  paramsSignature: boolean
-  paramNames:
-  - limit
-- name: setWispFXDepthTest
-  paramsSignature: boolean
-  paramNames:
-  - depth
-- name: setSparkleFXNoClip
-  paramsSignature: boolean
-  paramNames:
-  - noclip
-- name: setSparkleFXCorrupt
-  paramsSignature: boolean
-  paramNames:
-  - corrupt
 - name: sparkleFX
   paramsSignature: double,double,double,float,float,float,float,int
   paramNames:
