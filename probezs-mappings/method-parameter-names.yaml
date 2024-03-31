@@ -14250,6 +14250,10 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.MachineBuilder:
   paramsSignature: hellfirepvp.modularmachinery.common.machine.factory.FactoryRecipeThread
   paramNames:
   - thread
+- name: setControllerBoundingBox
+  paramsSignature: crafttweaker.api.util.IAxisAlignedBB
+  paramNames:
+  - aabb
 com.blamejared.compat.actuallyaddition.Compost:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack
