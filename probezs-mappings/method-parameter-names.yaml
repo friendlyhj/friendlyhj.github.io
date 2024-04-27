@@ -4210,6 +4210,12 @@ codersafterdark.compatskills.common.compats.projecte.ProjectETweaker:
   paramNames:
   - emc
   - locked
+youyihj.zenutils.api.item.ItemTooltipModification:
+- name: modifyTooltip
+  paramsSignature: crafttweaker.api.item.IIngredient,youyihj.zenutils.api.item.ITooltipFunction
+  paramNames:
+  - ingredient
+  - function
 crafttweaker.tests.Optionals:
 - name: print
   paramsSignature: java.lang.String
@@ -6821,6 +6827,11 @@ youyihj.zenutils.api.util.StringList:
 - name: add
   paramsSignature: java.lang.String
   paramNames:
+  - s
+- name: insert
+  paramsSignature: int,java.lang.String
+  paramNames:
+  - index
   - s
 - name: remove
   paramsSignature: java.lang.String
@@ -11662,6 +11673,14 @@ codersafterdark.compatskills.common.compats.reskillable.NBTLockTweaker:
   paramNames:
   - tag
   - locked
+youyihj.zenutils.api.item.ITooltipFunction:
+- name: apply
+  paramsSignature: crafttweaker.api.item.IItemStack,youyihj.zenutils.api.util.StringList,boolean,boolean
+  paramNames:
+  - stack
+  - tooltip
+  - shiftPressed
+  - advanced
 com.teamacronymcoders.contenttweaker.api.ctobjects.aabb.MCAxisAlignedBB:
 - name: create
   paramsSignature: double,double,double,double,double,double
