@@ -4212,10 +4212,10 @@ codersafterdark.compatskills.common.compats.projecte.ProjectETweaker:
   - locked
 youyihj.zenutils.api.item.ItemTooltipModification:
 - name: modifyTooltip
-  paramsSignature: crafttweaker.api.item.IIngredient,youyihj.zenutils.api.item.ITooltipFunction
+  paramsSignature: crafttweaker.api.item.IIngredient,youyihj.zenutils.api.item.ITooltipModifier
   paramNames:
   - ingredient
-  - function
+  - modifier
 crafttweaker.tests.Optionals:
 - name: print
   paramsSignature: java.lang.String
@@ -11623,6 +11623,14 @@ youyihj.zenutils.api.entity.ZenUtilsEntityDefinition:
   - definition
   - operation
   - interval
+youyihj.zenutils.api.item.ITooltipModifier:
+- name: apply
+  paramsSignature: crafttweaker.api.item.IItemStack,youyihj.zenutils.api.util.StringList,boolean,boolean
+  paramNames:
+  - stack
+  - tooltip
+  - shiftPressed
+  - advanced
 codersafterdark.compatskills.common.compats.minecraft.tileentity.TileEntityLockTweaker:
 - name: addTileEntityLock
   paramsSignature: java.lang.String,java.lang.String[]
@@ -11673,14 +11681,6 @@ codersafterdark.compatskills.common.compats.reskillable.NBTLockTweaker:
   paramNames:
   - tag
   - locked
-youyihj.zenutils.api.item.ITooltipFunction:
-- name: apply
-  paramsSignature: crafttweaker.api.item.IItemStack,youyihj.zenutils.api.util.StringList,boolean,boolean
-  paramNames:
-  - stack
-  - tooltip
-  - shiftPressed
-  - advanced
 com.teamacronymcoders.contenttweaker.api.ctobjects.aabb.MCAxisAlignedBB:
 - name: create
   paramsSignature: double,double,double,double,double,double
