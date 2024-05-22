@@ -7913,6 +7913,19 @@ kport.modularmagic.common.integration.crafttweaker.MagicPrimer:
   paramNames:
   - primer
   - amount
+github.kasuminova.mmce.common.helper.MachineController:
+- name: getControllerAt
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - worldCT
+  - posCT
+- name: getControllerAt
+  paramsSignature: crafttweaker.api.world.IWorld,int,int,int
+  paramNames:
+  - worldCT
+  - x
+  - y
+  - z
 codersafterdark.compatskills.common.compats.minecraft.drops.BlockDropsTweaker:
 - name: addBlockDropLock
   paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String[]
@@ -11330,18 +11343,6 @@ ink.ikx.rt.api.internal.utils.IInputPattern:
   paramNames:
   - mapping
 github.kasuminova.mmce.common.helper.IMachineController:
-- name: getControllerAt
-  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
-  paramNames:
-  - worldCT
-  - posCT
-- name: getControllerAt
-  paramsSignature: crafttweaker.api.world.IWorld,int,int,int
-  paramNames:
-  - worldCT
-  - x
-  - y
-  - z
 - name: addModifier
   paramsSignature: java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier
   paramNames:
