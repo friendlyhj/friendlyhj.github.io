@@ -7990,6 +7990,33 @@ xyz.tcreopargh.ctintegration.vanilla.advancement.AdvancementHelper:
   paramsSignature: crafttweaker.api.server.IServer
   paramNames:
   - server
+youyihj.zenutils.api.util.catenation.ICatenationTaskQueueBuilder:
+- name: run
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
+  paramNames:
+  - function
+- name: sleep
+  paramsSignature: long
+  paramNames:
+  - ticks
+- name: sleepUntil
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldCondition
+  paramNames:
+  - condition
+- name: customTimer
+  paramsSignature: long,youyihj.zenutils.api.util.catenation.ITimerHandler
+  paramNames:
+  - duration
+  - handler
+- name: repeat
+  paramsSignature: int,youyihj.zenutils.api.util.catenation.ICatenationTaskQueueBuilderConsumer
+  paramNames:
+  - times
+  - builderConsumer
+- name: then
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
+  paramNames:
+  - function
 com.blamejared.compat.tcomplement.highoven.HighOven:
 - name: removeFuel
   paramsSignature: crafttweaker.api.item.IIngredient
@@ -9274,6 +9301,15 @@ com.blamejared.compat.botania.handlers.Orechid:
   paramsSignature: java.lang.String
   paramNames:
   - oreDict
+youyihj.zenutils.api.util.catenation.ICatenationTaskQueueBuilderConsumer:
+- name: apply
+  paramsSignature: youyihj.zenutils.api.util.catenation.ICatenationTaskQueueBuilder
+  paramNames:
+  - builder
+- name: apply
+  paramsSignature: youyihj.zenutils.api.util.catenation.ICatenationTaskQueueBuilder
+  paramNames:
+  - builder
 codersafterdark.compatskills.common.compats.tinkersconstruct.modifierlocks.ModifierLockTweaker:
 - name: addModifierLock
   paramsSignature: java.lang.String,java.lang.String[]
@@ -11080,6 +11116,11 @@ youyihj.zenutils.api.util.catenation.ICatenationBuilder:
   paramNames:
   - duration
   - handler
+- name: repeat
+  paramsSignature: int,youyihj.zenutils.api.util.catenation.ICatenationTaskQueueBuilderConsumer
+  paramNames:
+  - times
+  - builderConsumer
 - name: stopWhen
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldCondition
   paramNames:
@@ -11088,6 +11129,10 @@ youyihj.zenutils.api.util.catenation.ICatenationBuilder:
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
   paramNames:
   - function
+- name: data
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
 - name: then
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
   paramNames:
