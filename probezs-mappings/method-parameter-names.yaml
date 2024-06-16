@@ -4751,6 +4751,10 @@ ink.ikx.rt.api.mods.jei.JEIExpansion:
   paramsSignature: java.lang.String
   paramNames:
   - uid
+- name: addItemNBTSubtype
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
 com.teamacronymcoders.contenttweaker.modules.vanilla.tileentity.ITileEntityUpdate:
 - name: onUpdate
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos,crafttweaker.api.data.IData
