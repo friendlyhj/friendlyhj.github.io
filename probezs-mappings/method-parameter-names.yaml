@@ -3982,11 +3982,13 @@ youyihj.zenutils.api.cotx.ExpandVanillaFactory:
   - unlocalizedName
   - blockMaterial
 - name: createDirectionalBlock
-  paramsSignature: java.lang.String,com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialDefinition,java.lang.String
+  paramsSignature: java.lang.String,com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialDefinition,java.lang.String,boolean,boolean
   paramNames:
   - unlocalizedName
   - blockMaterial
   - directions
+  - planeRotatable
+  - placingOpposite
 - name: createExpandItem
   paramsSignature: java.lang.String
   paramNames:
