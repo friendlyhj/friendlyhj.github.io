@@ -4232,6 +4232,22 @@ crafttweaker.tests.Optionals:
   paramNames:
   - value
 ink.ikx.rt.api.mods.botania.render.IBotaniaFXHelper:
+- name: setWispFXDistanceLimit
+  paramsSignature: boolean
+  paramNames:
+  - limit
+- name: setWispFXDepthTest
+  paramsSignature: boolean
+  paramNames:
+  - depth
+- name: setSparkleFXNoClip
+  paramsSignature: boolean
+  paramNames:
+  - noclip
+- name: setSparkleFXCorrupt
+  paramsSignature: boolean
+  paramNames:
+  - corrupt
 - name: sparkleFX
   paramsSignature: double,double,double,float,float,float,float,int
   paramNames:
@@ -7420,6 +7436,22 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramNames:
   - gasStacks
 - name: addGasOutputs
+  paramsSignature: mekanism.common.integration.crafttweaker.gas.IGasStack[]
+  paramNames:
+  - gasStacks
+- name: addGasPerTickInput
+  paramsSignature: mekanism.common.integration.crafttweaker.gas.IGasStack
+  paramNames:
+  - gasStack
+- name: addGasPerTickOutput
+  paramsSignature: mekanism.common.integration.crafttweaker.gas.IGasStack
+  paramNames:
+  - gasStack
+- name: addGasPerTickInputs
+  paramsSignature: mekanism.common.integration.crafttweaker.gas.IGasStack[]
+  paramNames:
+  - gasStacks
+- name: addGasPerTickOutputs
   paramsSignature: mekanism.common.integration.crafttweaker.gas.IGasStack[]
   paramNames:
   - gasStacks
