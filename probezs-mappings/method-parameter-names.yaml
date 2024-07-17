@@ -4438,6 +4438,11 @@ youyihj.zenutils.api.cotx.function.IGetEntityLifeSpan:
   paramNames:
   - iItemStack
   - world
+github.kasuminova.mmce.common.helper.IBlockStatePredicate:
+- name: test
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - t
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IRightClick:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,crafttweaker.api.player.IPlayer,crafttweaker.api.world.IFacing,float,float,float
@@ -11468,6 +11473,22 @@ github.kasuminova.mmce.common.helper.IMachineController:
   paramsSignature: java.lang.String
   paramNames:
   - patternName
+- name: getBlocksInPattern
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - blockStack
+- name: getBlocksInPattern
+  paramsSignature: crafttweaker.api.block.IBlockStateMatcher
+  paramNames:
+  - blockStateMatcher
+- name: getBlocksInPattern
+  paramsSignature: java.lang.String
+  paramNames:
+  - blockName
+- name: getBlocksInPattern
+  paramsSignature: github.kasuminova.mmce.common.helper.IBlockStatePredicate
+  paramNames:
+  - predicate
 com.cleanroommc.multiblocked.api.recipe.RecipeLogic:
 - name: handleTickRecipe
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe
