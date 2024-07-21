@@ -11431,6 +11431,10 @@ ink.ikx.rt.api.internal.utils.IInputPattern:
   paramNames:
   - mapping
 github.kasuminova.mmce.common.helper.IMachineController:
+- name: rotateWithControllerFacing
+  paramsSignature: crafttweaker.api.world.IBlockPos
+  paramNames:
+  - pos
 - name: addModifier
   paramsSignature: java.lang.String,hellfirepvp.modularmachinery.common.modifier.RecipeModifier
   paramNames:
