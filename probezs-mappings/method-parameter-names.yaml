@@ -11569,6 +11569,11 @@ youyihj.zenutils.api.item.CrTItemHandler:
   - slot
   - stack
   - simulate
+- name: insertItem
+  paramsSignature: crafttweaker.api.item.IItemStack,boolean
+  paramNames:
+  - stack
+  - simulate
 - name: extractItem
   paramsSignature: int,int,boolean
   paramNames:
