@@ -2613,7 +2613,22 @@ codersafterdark.compatskills.common.compats.oreexcavator.tweakers.ExcavationLock
   - requirements
 gregtech.api.unification.Elements:
 - name: add
-  paramsSignature: long,long,long,java.lang.String,java.lang.String,java.lang.String,boolean
+  paramsSignature: long,long,java.lang.String,java.lang.String
+  paramNames:
+  - protons
+  - neutrons
+  - name
+  - symbol
+- name: add
+  paramsSignature: long,long,java.lang.String,java.lang.String,boolean
+  paramNames:
+  - protons
+  - neutrons
+  - name
+  - symbol
+  - isotope
+- name: add
+  paramsSignature: long,long,double,java.lang.String,java.lang.String,java.lang.String,boolean
   paramNames:
   - protons
   - neutrons
