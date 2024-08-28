@@ -8075,6 +8075,10 @@ youyihj.zenutils.api.util.catenation.ICatenationTaskQueueBuilder:
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
   paramNames:
   - function
+- name: alwaysUntil
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldCondition
+  paramNames:
+  - condition
 com.blamejared.compat.tcomplement.highoven.HighOven:
 - name: removeFuel
   paramsSignature: crafttweaker.api.item.IIngredient
@@ -11195,6 +11199,10 @@ youyihj.zenutils.api.util.catenation.ICatenationBuilder:
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
   paramNames:
   - function
+- name: alwaysUntil
+  paramsSignature: youyihj.zenutils.api.util.catenation.IWorldCondition
+  paramNames:
+  - condition
 crafttweaker.zenscript.expand.ExpandItemStack:
 - name: asWeightedItemStack
   paramsSignature: crafttweaker.api.item.IItemStack
