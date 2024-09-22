@@ -816,10 +816,6 @@ gregtech.integration.crafttweaker.recipe.CTRecipe:
   paramsSignature: crafttweaker.api.liquid.ILiquidStack
   paramNames:
   - liquidStack
-- name: getProperty
-  paramsSignature: java.lang.String
-  paramNames:
-  - key
 com.blamejared.compat.tconstruct.Melting:
 - name: addRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient,int
@@ -8297,14 +8293,14 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$Damage:
   - currentDamage
   - isCritical
 gregtech.api.recipes.builders.ImplosionRecipeBuilder:
-- name: explosivesAmount
+- name: explosives
   paramsSignature: int
   paramNames:
-  - explosivesAmount
-- name: explosivesType
+  - amount
+- name: explosives
   paramsSignature: net.minecraft.item.ItemStack
   paramNames:
-  - explosivesType
+  - explosive
 crafttweaker.zenscript.expand.ExpandLong:
 - name: asData
   paramsSignature: long
