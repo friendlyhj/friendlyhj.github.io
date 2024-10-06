@@ -375,40 +375,6 @@ com.teamacronymcoders.contenttweaker.modules.chickens.ChickenFactory:
   - name
   - color
   - iItemStack
-gregtech.integration.crafttweaker.terminal.CTTerminalRegistry$CTAppRegistryBuilder:
-- name: isDefaultApp
-  paramsSignature: boolean
-  paramNames:
-  - isDefaultApp
-- name: battery
-  paramsSignature: int,long
-  paramNames:
-  - batteryTier
-  - cost
-- name: battery
-  paramsSignature: int,int,long
-  paramNames:
-  - tier
-  - batteryTier
-  - cost
-- name: device
-  paramsSignature: java.lang.String[]
-  paramNames:
-  - device
-- name: device
-  paramsSignature: int,java.lang.String[]
-  paramNames:
-  - tier
-  - device
-- name: upgrade
-  paramsSignature: crafttweaker.api.item.IItemStack[]
-  paramNames:
-  - upgrades
-- name: upgrade
-  paramsSignature: int,crafttweaker.api.item.IItemStack[]
-  paramNames:
-  - tier
-  - upgrades
 crafttweaker.zenscript.expand.ExpandInt:
 - name: toData
   paramsSignature: int
@@ -2592,16 +2558,6 @@ crafttweaker.api.item.IItemUtils:
   paramNames:
   - entity
   - customNBT
-gregtech.integration.crafttweaker.terminal.CTTerminalRegistry:
-- name: createAppRegistryBuilder
-  paramsSignature: java.lang.String
-  paramNames:
-  - appName
-- name: registerDevice
-  paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String
-  paramNames:
-  - device
-  - name
 codersafterdark.compatskills.common.compats.oreexcavator.tweakers.ExcavationLockTweaker:
 - name: addExcavationLock
   paramsSignature: java.lang.String[]
