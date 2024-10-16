@@ -51,6 +51,17 @@ com.blamejared.compat.betterwithmods.base.blockrecipes.BlockRecipeBuilder:
   paramsSignature: crafttweaker.api.item.IItemStack[]
   paramNames:
   - inputs
+youyihj.zenutils.api.energy.CrTEnergyStorage:
+- name: receiveEnergy
+  paramsSignature: int,boolean
+  paramNames:
+  - maxReceive
+  - simulate
+- name: extractEnergy
+  paramsSignature: int,boolean
+  paramNames:
+  - maxExtract
+  - simulate
 ink.ikx.rt.api.mods.contenttweaker.function.mana.IManaWithPool:
 - name: call
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
@@ -8709,6 +8720,12 @@ youyihj.zenutils.api.world.ZenUtilsWorld:
   - pos
   - facing
 - name: getLiquidHandler
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
+  paramNames:
+  - world
+  - pos
+  - facing
+- name: getEnergyStorage
   paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.world.IFacing
   paramNames:
   - world
