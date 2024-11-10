@@ -1983,6 +1983,10 @@ youyihj.zenutils.api.network.ZenNetworkHandler:
   paramNames:
   - key
   - serverMessageHandler
+- name: addValidationBlacklist
+  paramsSignature: java.lang.String
+  paramNames:
+  - className
 com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipe:
 - name: getData
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe,java.lang.String
