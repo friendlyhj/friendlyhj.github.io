@@ -4440,6 +4440,11 @@ youyihj.zenutils.api.util.CrTUUID:
   paramsSignature: java.lang.String
   paramNames:
   - name
+- name: fromSignificantBits
+  paramsSignature: long,long
+  paramNames:
+  - most
+  - least
 - name: compareTo
   paramsSignature: youyihj.zenutils.api.util.CrTUUID
   paramNames:
