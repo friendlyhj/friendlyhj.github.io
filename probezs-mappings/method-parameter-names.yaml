@@ -4855,6 +4855,10 @@ gregtech.api.unification.material.Material:
   paramNames:
   - formula
   - withFormatting
+- name: setComponents
+  paramsSignature: gregtech.api.unification.stack.MaterialStack[]
+  paramNames:
+  - components
 - name: addFlags
   paramsSignature: java.lang.String[]
   paramNames:
