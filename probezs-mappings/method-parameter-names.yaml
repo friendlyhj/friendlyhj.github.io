@@ -14060,6 +14060,21 @@ youyihj.zenutils.api.world.GameRuleHelper:
   paramsSignature: java.lang.String
   paramNames:
   - name
+- name: setInt
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - name
+  - value
+- name: setBoolean
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - name
+  - value
+- name: setString
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - name
+  - value
 - name: addGameRule
   paramsSignature: java.lang.String,java.lang.String,java.lang.String
   paramNames:
