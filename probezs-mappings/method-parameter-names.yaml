@@ -4867,6 +4867,10 @@ gregtech.api.unification.material.Material:
   paramsSignature: int
   paramNames:
   - materialRGB
+- name: setWorkingTier
+  paramsSignature: int
+  paramNames:
+  - workingTier
 - name: compareTo
   paramsSignature: gregtech.api.unification.material.Material
   paramNames:
