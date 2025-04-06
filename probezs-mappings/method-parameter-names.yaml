@@ -590,12 +590,13 @@ youyihj.zenutils.api.event.ExpandEventManager:
   - manager
   - ev
 - name: register
-  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler,youyihj.zenutils.api.event.CTEventPriority,boolean
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler,youyihj.zenutils.api.event.CTEventPriority,boolean,int
   paramNames:
   - manager
   - eventHandler
   - priority
   - receiveCanceled
+  - busID
 com.blamejared.compat.betterwithmods.Kiln:
 - name: add
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[]
