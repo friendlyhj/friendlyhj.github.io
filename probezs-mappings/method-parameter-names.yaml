@@ -589,6 +589,11 @@ youyihj.zenutils.api.event.ExpandEventManager:
   paramNames:
   - manager
   - ev
+- name: onRandomTick
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - ev
 - name: register
   paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler,youyihj.zenutils.api.event.CTEventPriority,boolean,int
   paramNames:
