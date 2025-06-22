@@ -3591,6 +3591,35 @@ com.blamejared.compat.thaumcraft.handlers.handlers.Warp:
   paramNames:
   - stack
   - amount
+youyihj.zenutils.api.cotx.function.IPlacementFacingFunction:
+- name: apply
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos,com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing,float,float,float,int,crafttweaker.api.entity.IEntityLivingBase,com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Hand
+  paramNames:
+  - world
+  - pos
+  - facing
+  - hitX
+  - hitY
+  - hitZ
+  - meta
+  - placer
+  - hand
+- name: placer
+  paramsSignature: youyihj.zenutils.api.cotx.block.DirectionalBlockRepresentation
+  paramNames:
+  - blockRepresentation
+- name: apply
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos,com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Facing,float,float,float,int,crafttweaker.api.entity.IEntityLivingBase,com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Hand
+  paramNames:
+  - world
+  - pos
+  - facing
+  - hitX
+  - hitY
+  - hitZ
+  - meta
+  - placer
+  - hand
 com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeBuilder$Particle:
 - name: inputParticles
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,lach_01298.qmd.crafttweaker.particle.IParticleStack[]
