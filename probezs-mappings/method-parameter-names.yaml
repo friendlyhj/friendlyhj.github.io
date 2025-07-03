@@ -1569,6 +1569,48 @@ ink.ikx.rt.api.vanilla.CTEventHandler:
   paramsSignature: crafttweaker.util.IEventHandler
   paramNames:
   - handler
+com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$InteractionEventBuilder:
+- name: createSetBlockEvent
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - blockState
+- name: createExplosionEvent
+  paramsSignature: float,boolean,boolean
+  paramNames:
+  - strength
+  - damagesTerrain
+  - hasParticles
+- name: createSpawnEntityEvent
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition
+  paramNames:
+  - entityDefinition
+- name: createSpawnEntityItemEvent
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - itemStack
+  - amount
+- name: createSetFluidEvent
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean
+  paramNames:
+  - liquidStack
+  - isSpreadingUpward
+- name: createSetFluidEvent
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - liquidStack
+- name: addCondition
+  paramsSignature: com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$EnumConditionWrapper,java.lang.Object[]
+  paramNames:
+  - conditionWrapper
+  - params
+- name: setSound
+  paramsSignature: java.lang.String
+  paramNames:
+  - sound
+- name: setParticle
+  paramsSignature: java.lang.String
+  paramNames:
+  - particle
 com.teamacronymcoders.contenttweaker.modules.materials.CTDropTableBuilder:
 - name: addItem
   paramsSignature: java.lang.String
@@ -2199,6 +2241,144 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFun
   paramNames:
   - thisEnchantment
   - other
+com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean,crafttweaker.api.liquid.ILiquidStack,boolean,crafttweaker.api.block.IBlockState,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - isSourceA
+  - liquidSurrounding
+  - isSourceB
+  - outputBlock
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.block.IBlockState,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - isSourceA
+  - liquidSurrounding
+  - outputBlock
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.block.IBlockState,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - liquidSurrounding
+  - outputBlock
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean,crafttweaker.api.block.IBlockState,crafttweaker.api.block.IBlockState,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - isSourceA
+  - blockSurrounding
+  - outputBlock
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.block.IBlockState,crafttweaker.api.block.IBlockState,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - blockSurrounding
+  - outputBlock
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.liquid.ILiquidStack,boolean,crafttweaker.api.block.IBlockState,java.lang.String
+  paramNames:
+  - blockInitiator
+  - liquidSurrounding
+  - isSourceB
+  - outputBlock
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.block.IBlockState,java.lang.String
+  paramNames:
+  - blockInitiator
+  - liquidSurrounding
+  - outputBlock
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean,crafttweaker.api.liquid.ILiquidStack,boolean,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - isSourceA
+  - liquidSurrounding
+  - isSourceB
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean,crafttweaker.api.liquid.ILiquidStack,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - isSourceA
+  - liquidSurrounding
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - liquidSurrounding
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean,crafttweaker.api.block.IBlockState,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - isSourceA
+  - blockSurrounding
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.block.IBlockState,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - blockSurrounding
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.liquid.ILiquidStack,boolean,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - blockInitiator
+  - liquidSurrounding
+  - isSourceB
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
+- name: addRecipe
+  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.liquid.ILiquidStack,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - blockInitiator
+  - liquidSurrounding
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
+- name: autoAddJEIRecipe
+  paramsSignature: boolean
+  paramNames:
+  - flag
+- name: addJEIRecipeWrapper
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int,crafttweaker.api.liquid.ILiquidStack,int,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - fluidStateA
+  - liquidSurrounding
+  - fluidStateB
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
+- name: addJEIRecipeWrapper
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int,crafttweaker.api.block.IBlockState,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - liquidInitiator
+  - fluidStateA
+  - blockSurrounding
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
+- name: addJEIRecipeWrapper
+  paramsSignature: crafttweaker.api.block.IBlockState,crafttweaker.api.liquid.ILiquidStack,int,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder,java.lang.String
+  paramNames:
+  - blockInitiator
+  - liquidSurrounding
+  - fluidStateB
+  - complexOutputBuilder
+  - extraInfoLocalizationKey
 youyihj.zenutils.api.cotx.function.IEntityItemUpdate:
 - name: update
   paramsSignature: crafttweaker.api.entity.IEntityItem
@@ -2584,6 +2764,17 @@ codersafterdark.compatskills.common.compats.oreexcavator.tweakers.ExcavationLock
   paramsSignature: java.lang.String[]
   paramNames:
   - requirements
+com.tttsaurus.fluidintetweaker.plugin.crt.impl.CrTEventManager:
+- name: onCustomFluidInteraction
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - event
+- name: onCustomFluidBehavior
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - event
 gregtech.api.unification.Elements:
 - name: add
   paramsSignature: long,long,java.lang.String,java.lang.String
@@ -6431,6 +6622,32 @@ crafttweaker.zenscript.expand.ExpandAnyArray:
   paramsSignature: crafttweaker.api.data.IData[]
   paramNames:
   - values
+com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker$BehaviorEventBuilder:
+- name: createPotionEffectEvent
+  paramsSignature: java.lang.String,int,int
+  paramNames:
+  - id
+  - duration
+  - amplifier
+- name: createEntityConversionEvent
+  paramsSignature: crafttweaker.api.entity.IEntityDefinition,crafttweaker.api.entity.IEntityDefinition
+  paramNames:
+  - entityDefinitionFrom
+  - entityDefinitionTo
+- name: createTeleportEvent
+  paramsSignature: int,int
+  paramNames:
+  - xRange
+  - yRange
+- name: createBreakSurroundingEvent
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - ingredient
+- name: addCondition
+  paramsSignature: com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker$EnumConditionWrapper,java.lang.Object[]
+  paramNames:
+  - conditionWrapper
+  - params
 com.blamejared.compat.thermalexpansion.Pulverizer:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack,int
@@ -11445,6 +11662,11 @@ xyz.tcreopargh.ctintegration.vanilla.advancement.IAdvancementProgress:
   paramsSignature: java.lang.String
   paramNames:
   - criterion
+com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker$ComplexOutputBuilder:
+- name: addEvent
+  paramsSignature: com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker$BehaviorEventBuilder
+  paramNames:
+  - eventBuilder
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IPartAddedToMulti:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTPart,com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
@@ -12495,6 +12717,28 @@ com.blamejared.compat.tcomplement.highoven.MixRecipeBuilder:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - purifier
+com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,boolean,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker$ComplexOutputBuilder
+  paramNames:
+  - liquid
+  - isSource
+  - complexOutputBuilder
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker$ComplexOutputBuilder
+  paramNames:
+  - liquid
+  - complexOutputBuilder
+- name: autoAddJEIRecipe
+  paramsSignature: boolean
+  paramNames:
+  - flag
+- name: addJEIRecipeWrapper
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int,com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker$ComplexOutputBuilder
+  paramNames:
+  - liquid
+  - fluidState
+  - complexOutputBuilder
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IUpdateFormed:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
@@ -14505,6 +14749,11 @@ xyz.tcreopargh.ctintegration.cot.BaubleVanillaFactoryExpansion:
   paramsSignature: java.lang.String
   paramNames:
   - unlocalizedName
+com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$ComplexOutputBuilder:
+- name: addEvent
+  paramsSignature: com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$InteractionEventBuilder
+  paramNames:
+  - eventBuilder
 com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$AfterHit:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation,crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase,crafttweaker.api.entity.IEntityLivingBase,float,boolean,boolean
