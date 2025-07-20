@@ -6382,6 +6382,15 @@ crafttweaker.zenscript.expand.ExpandShort:
   paramsSignature: short
   paramNames:
   - value
+youyihj.zenutils.api.config.ConfigUtils:
+- name: named
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: dataMap
+  paramsSignature: java.util.Map
+  paramNames:
+  - dataMap
 ink.ikx.rt.api.mods.thaumcraft.expand.ExpandIAspect:
 - name: asCTAspect
   paramsSignature: ink.ikx.rt.api.mods.thaumcraft.IAspect
@@ -7896,6 +7905,135 @@ crafttweaker.api.recipes.IBrewingManager:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - ingredient
+youyihj.zenutils.api.config.elements.ConfigGroup:
+- name: category
+  paramsSignature: java.lang.String
+  paramNames:
+  - nameIn
+- name: integer
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - nameIn
+  - defaultVal
+- name: integerArray
+  paramsSignature: java.lang.String,int[]
+  paramNames:
+  - nameIn
+  - defaultVal
+- name: rangedInteger
+  paramsSignature: java.lang.String,int,int,int
+  paramNames:
+  - nameIn
+  - defaultVal
+  - min
+  - max
+- name: upperRangedInteger
+  paramsSignature: java.lang.String,int,int
+  paramNames:
+  - nameIn
+  - defaultVal
+  - max
+- name: lowerRangedInteger
+  paramsSignature: java.lang.String,int,int
+  paramNames:
+  - nameIn
+  - defaultVal
+  - min
+- name: stringValue
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - nameIn
+  - defaultVal
+- name: stringValues
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - nameIn
+  - strings
+- name: doubleValue
+  paramsSignature: java.lang.String,double
+  paramNames:
+  - nameIn
+  - defaultVal
+- name: doubleValues
+  paramsSignature: java.lang.String,double[]
+  paramNames:
+  - nameIn
+  - doubles
+- name: rangedDouble
+  paramsSignature: java.lang.String,double,double,double
+  paramNames:
+  - nameIn
+  - defaultVal
+  - min
+  - max
+- name: upperRangedDouble
+  paramsSignature: java.lang.String,double,double
+  paramNames:
+  - nameIn
+  - defaultVal
+  - max
+- name: lowerRangedDouble
+  paramsSignature: java.lang.String,double,double
+  paramNames:
+  - nameIn
+  - defaultVal
+  - min
+- name: booleanValue
+  paramsSignature: java.lang.String,boolean
+  paramNames:
+  - nameIn
+  - defaultVal
+- name: booleanValues
+  paramsSignature: java.lang.String,boolean[]
+  paramNames:
+  - nameIn
+  - defaultVal
+- name: booleanArrayMap
+  paramsSignature: java.lang.String,java.util.Map
+  paramNames:
+  - name
+  - defaultVal
+- name: doubleArrayMap
+  paramsSignature: java.lang.String,java.util.Map
+  paramNames:
+  - name
+  - defaultVal
+- name: intArrayMap
+  paramsSignature: java.lang.String,java.util.Map
+  paramNames:
+  - name
+  - defaultVal
+- name: stringArrayMap
+  paramsSignature: java.lang.String,java.util.Map
+  paramNames:
+  - name
+  - defaultVal
+- name: booleanMap
+  paramsSignature: java.lang.String,java.util.Map
+  paramNames:
+  - name
+  - defaultVal
+- name: doubleMap
+  paramsSignature: java.lang.String,java.util.Map
+  paramNames:
+  - name
+  - defaultVal
+- name: intMap
+  paramsSignature: java.lang.String,java.util.Map
+  paramNames:
+  - name
+  - defaultVal
+- name: stringMap
+  paramsSignature: java.lang.String,java.util.Map
+  paramNames:
+  - name
+  - defaultVal
+- name: configEnum
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String[]
+  paramNames:
+  - name
+  - defaultValue
+  - enums
 crafttweaker.mc1120.potions.MCPotionTypeExpand:
 - name: fromString
   paramsSignature: java.lang.String
@@ -14385,6 +14523,19 @@ youyihj.zenutils.api.util.catenation.IWorldFunction:
   paramNames:
   - world
   - context
+youyihj.zenutils.api.config.elements.ConfigElement:
+- name: langKey
+  paramsSignature: java.lang.String
+  paramNames:
+  - langKey
+- name: comment
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - comment
+- name: displayName
+  paramsSignature: java.lang.String
+  paramNames:
+  - displayName
 crafttweaker.api.liquid.ILiquidStack:
 - name: withTag
   paramsSignature: crafttweaker.api.data.IData
