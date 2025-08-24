@@ -1647,6 +1647,11 @@ crafttweaker.zenscript.expand.ExpandDouble:
   paramsSignature: double
   paramNames:
   - value
+crafttweaker.mc1120.util.expand.ExpandRandom:
+- name: getInstance
+  paramsSignature: long
+  paramNames:
+  - seed
 com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFunctions$OnEntityDamaged:
 - name: handle
   paramsSignature: crafttweaker.api.enchantments.IEnchantmentDefinition,crafttweaker.api.entity.IEntityLivingBase,crafttweaker.api.entity.IEntity,int
@@ -13345,6 +13350,10 @@ crafttweaker.api.util.IRandom:
   paramNames:
   - minimum
   - maximum
+- name: setSeed
+  paramsSignature: long
+  paramNames:
+  - seed
 hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipeAdapterBuilder:
 - name: create
   paramsSignature: java.lang.String,java.lang.String
