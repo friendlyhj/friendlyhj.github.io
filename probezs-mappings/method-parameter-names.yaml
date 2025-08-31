@@ -7507,10 +7507,6 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramsSignature: boolean
   paramNames:
   - unaffected
-- name: setParallelized
-  paramsSignature: boolean
-  paramNames:
-  - isParallelized
 - name: setChance
   paramsSignature: float
   paramNames:
@@ -7563,14 +7559,6 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramNames:
   - typeStr
   - value
-- name: setMaxThreads
-  paramsSignature: int
-  paramNames:
-  - maxThreads
-- name: setThreadName
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
 - name: addPreCheckHandler
   paramsSignature: crafttweaker.util.IEventHandler
   paramNames:
@@ -7771,6 +7759,22 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   - input
   - tooltips
   - modifiers
+- name: setParallelized
+  paramsSignature: boolean
+  paramNames:
+  - isParallelized
+- name: setMaxThreads
+  paramsSignature: int
+  paramNames:
+  - maxThreads
+- name: setThreadName
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: setLoadJEI
+  paramsSignature: boolean
+  paramNames:
+  - load
 com.blamejared.compat.forestry.Carpenter:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][],int,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
@@ -8964,15 +8968,15 @@ hellfirepvp.modularmachinery.common.util.SmartInterfaceType:
   paramsSignature: java.lang.String
   paramNames:
   - notEqualMessage
+- name: setPriority
+  paramsSignature: int
+  paramNames:
+  - priority
 - name: setJeiTooltip
   paramsSignature: java.lang.String,int
   paramNames:
   - jeiTooltip
   - argsCount
-- name: setPriority
-  paramsSignature: int
-  paramNames:
-  - priority
 com.cleanroommc.multiblocked.api.crafttweaker.functions.ICalcRecipeDuration:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeLogic,com.cleanroommc.multiblocked.api.recipe.Recipe,int
