@@ -147,6 +147,17 @@ ink.ikx.rt.api.mods.astralsorcery.IPlayerExpansionAs:
   paramNames:
   - player
   - exp
+roidrole.roidtweaker.mods.thermalexpansion.Collector:
+- name: addCatalyst
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int
+  paramNames:
+  - catalyst
+  - xp
+  - factor
+- name: removeCatalyst
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - catalyst
 youyihj.zenutils.api.ftbq.FTBQEventManager:
 - name: onTaskCompleted
   paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
@@ -200,12 +211,25 @@ youyihj.zenutils.api.network.IClientMessageHandler:
   - player
   - byteBuf
 xyz.tcreopargh.ctintegration.scalinghealth.WorldExpansionSH:
+- name: getWorldDifficulty
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
+- name: setWorldDifficulty
+  paramsSignature: crafttweaker.api.world.IWorld,double
+  paramNames:
+  - world
+  - value
 - name: getAreaDifficultyAt
   paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
   paramNames:
   - world
   - pos
 xyz.tcreopargh.ctintegration.projecte.EMCManager:
+- name: mapEMC
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - item
 - name: getEMC
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
@@ -321,6 +345,11 @@ youyihj.zenutils.api.util.ZenUtilsGlobal:
   paramsSignature: boolean
   paramNames:
   - unused
+crafttweakerutils.IPlayerExpansion:
+- name: isFake
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
 ink.ikx.rt.api.mods.contenttweaker.mana.bauble.IManaBaubleRepresentation:
 - name: setBaubleType
   paramsSignature: java.lang.String
@@ -828,6 +857,22 @@ youyihj.zenutils.api.command.ICommandExecute:
   - server
   - sender
   - args
+roidrole.roidtweaker.mods.baubles.CTBubbleInventory:
+- name: growBaubleSlot
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - type
+  - amount
+- name: shrinkBaubleSlot
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - type
+  - amount
+- name: setBaubleSlot
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - type
+  - amount
 ink.ikx.rt.api.mods.botania.function.ICocoonTileEntity:
 - name: updateData
   paramsSignature: crafttweaker.api.data.IData
@@ -871,6 +916,16 @@ com.blamejared.compat.botania.handlers.ManaInfusion:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - output
+xyz.tcreopargh.ctintegration.date.DateUtil:
+- name: fromTimeInMillis
+  paramsSignature: long
+  paramNames:
+  - timeInMillis
+- name: parse
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - format
+  - dateString
 com.teamacronymcoders.contenttweaker.modules.materials.functions.MaterialPartColorSupplier:
 - name: create
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.materials.materialparts.IMaterialPart
@@ -1150,6 +1205,24 @@ crafttweaker.mc1120.item.ExpandItemDefinition:
   - projectile
   - inaccuracy
   - velocity
+roidrole.roidtweaker.mods.f0resources.F0RWorld:
+- name: getChunkData
+  paramsSignature: roidrole.roidtweaker.mods.minecraft.IChunkPos
+  paramNames:
+  - pos
+- name: setChunkData
+  paramsSignature: roidrole.roidtweaker.mods.minecraft.IChunkPos,roidrole.roidtweaker.mods.f0resources.ChunkData
+  paramNames:
+  - pos
+  - data
+- name: removeChunkData
+  paramsSignature: roidrole.roidtweaker.mods.minecraft.IChunkPos
+  paramNames:
+  - pos
+- name: hasChunkData
+  paramsSignature: roidrole.roidtweaker.mods.minecraft.IChunkPos
+  paramNames:
+  - pos
 com.teamacronymcoders.contenttweaker.modules.materials.parttypes.IPartType:
 - name: setData
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.materials.materialpartdata.IPartDataPiece[]
@@ -1535,6 +1608,41 @@ youyihj.zenutils.api.entity.IEntityTick:
   paramsSignature: crafttweaker.api.entity.IEntity
   paramNames:
   - entity
+roidrole.roidtweaker.mods.crafttweaker.data.DataUtil:
+- name: fromJson
+  paramsSignature: java.lang.String
+  paramNames:
+  - jsonString
+- name: parse
+  paramsSignature: java.lang.String
+  paramNames:
+  - jsonString
+- name: toNBTString
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: getRawString
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: toJson
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: read
+  paramsSignature: java.lang.String
+  paramNames:
+  - file
+- name: write
+  paramsSignature: java.lang.String,crafttweaker.api.data.IData
+  paramNames:
+  - file
+  - data
+roidrole.roidtweaker.mods.immersivepetroleum.ReservoirExpansion:
+- name: getReservoir
+  paramsSignature: java.lang.String
+  paramNames:
+  - reservoir
 ink.ikx.rt.api.mods.naturesaura.IAuraChunk:
 - name: drainAura
   paramsSignature: crafttweaker.api.world.IBlockPos,int
@@ -1784,29 +1892,35 @@ crafttweaker.api.event.NoteBlockPlayEvent:
   paramsSignature: java.lang.String
   paramNames:
   - instrument
-xyz.tcreopargh.ctintegration.vanilla.expansion.ServerExpansionMC:
-- name: getPlayerByUUID
-  paramsSignature: crafttweaker.api.server.IServer,java.lang.String
+roidrole.roidtweaker.mods.baubles.CTBaubleInventory:
+- name: isItemValidForSlot
+  paramsSignature: int,crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase
   paramNames:
-  - server
-  - uuid
-- name: getPlayerByUsername
-  paramsSignature: crafttweaker.api.server.IServer,java.lang.String
+  - slot
+  - item
+  - living
+- name: isItemValid
+  paramsSignature: int,crafttweaker.api.item.IItemStack
   paramNames:
-  - server
-  - name
-- name: changePlayerDimension
-  paramsSignature: crafttweaker.api.server.IServer,crafttweaker.api.player.IPlayer,int
+  - slot
+  - item
+- name: insertBaublesItem
+  paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
-  - server
-  - player
-  - dimensionId
-- name: broadcastMessage
-  paramsSignature: crafttweaker.api.server.IServer,crafttweaker.api.text.ITextComponent,boolean
+  - stack
+- name: getStackInSlot
+  paramsSignature: int
   paramNames:
-  - server
-  - message
-  - isSystem
+  - slot
+- name: setStackInSlot
+  paramsSignature: int,crafttweaker.api.item.IItemStack
+  paramNames:
+  - slot
+  - item
+- name: isBaubleEquipped
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - bauble
 crafttweaker.mc1120.damage.expand.MCDamageSourceExpand:
 - name: createEntityDamage
   paramsSignature: java.lang.String,crafttweaker.api.entity.IEntity
@@ -1946,6 +2060,25 @@ crafttweaker.api.block.IBlockDefinition:
   paramNames:
   - type
   - state
+roidrole.roidtweaker.mods.thermalexpansion.Fisher:
+- name: addFish
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - fish
+  - weight
+- name: removeFish
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - fish
+- name: addBait
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - bait
+  - multiplier
+- name: removeBait
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - bait
 youyihj.zenutils.api.util.catenation.persistence.CatenationPersistenceAPI:
 - name: registerPersistedCatenation
   paramsSignature: java.lang.String
@@ -1956,6 +2089,45 @@ youyihj.zenutils.api.util.catenation.persistence.CatenationPersistenceAPI:
   paramNames:
   - key
   - world
+roidrole.roidtweaker.mods.minecraft.villager.Villager:
+- name: addProfession
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - name
+  - texture
+  - zombie
+- name: addCareer
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - profession
+  - career
+- name: addCareers
+  paramsSignature: java.lang.String,java.lang.String[]
+  paramNames:
+  - profession
+  - career
+- name: removeProfession
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: removeCareer
+  paramsSignature: java.lang.String
+  paramNames:
+  - career
+- name: clearCareers
+  paramsSignature: java.lang.String
+  paramNames:
+  - profession
+- name: getCareer
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - profession
+  - index
+- name: getCareer
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - profession
+  - name
 com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemDestroySpeed:
 - name: getDestroySpeed
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.mutableitemstack.IMutableItemStack,com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState
@@ -2131,6 +2303,23 @@ crafttweaker.api.damage.IDamageSource:
   paramsSignature: crafttweaker.api.entity.IEntity
   paramNames:
   - entity
+xyz.tcreopargh.ctintegration.vanilla.expansion.IItemStackExpansion:
+- name: asData
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - itemStack
+- name: fromData
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: getEnergy
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - itemStack
+- name: isEnergyStorage
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - itemStack
 ink.ikx.rt.api.mods.astralsorcery.event.CTAttunementRecipeCompleteEvent:
 - name: setOutput
   paramsSignature: crafttweaker.api.item.IItemStack
@@ -2389,6 +2578,16 @@ youyihj.zenutils.api.cotx.function.IEntityItemUpdate:
   paramsSignature: crafttweaker.api.entity.IEntityItem
   paramNames:
   - entityItem
+roidrole.roidtweaker.mods.immersiveengineering.BlueprintExpansion:
+- name: addVillagerTrade
+  paramsSignature: java.lang.String,crafttweaker.api.item.IItemStack
+  paramNames:
+  - category
+  - price
+- name: addBlueprint
+  paramsSignature: java.lang.String
+  paramNames:
+  - category
 crafttweaker.api.tooltip.IngredientTooltips:
 - name: addTooltip
   paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.formatting.IFormattedText
@@ -2703,6 +2902,33 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IBlockDropHandler
   - pos
   - state
   - fortune
+xyz.tcreopargh.ctintegration.scalinghealth.PlayerExpansionSH:
+- name: getDifficulty
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: setDifficulty
+  paramsSignature: crafttweaker.api.player.IPlayer,double
+  paramNames:
+  - player
+  - value
+- name: getLastTimePlayed
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: getMaxHealth
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: setMaxHealth
+  paramsSignature: crafttweaker.api.player.IPlayer,float
+  paramNames:
+  - player
+  - value
+- name: getAreaDifficulty
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
 crafttweaker.mc1120.world.expand.ExpandWorldProvider:
 - name: getFromID
   paramsSignature: int
@@ -3112,11 +3338,6 @@ youyihj.zenutils.api.util.JourneyMap:
   - pos
   - world
   - color
-stanhebben.zenscript.tests.TestLambdas$FunInterface:
-- name: apply
-  paramsSignature: int
-  paramNames:
-  - a
 com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$CanApplyTogetherTrait:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation,java.lang.String
@@ -3781,6 +4002,84 @@ crafttweaker.api.entity.IEntityMob:
   paramsSignature: crafttweaker.api.player.IPlayer
   paramNames:
   - player
+roidrole.roidtweaker.mods.forge.config.IConfigFile:
+- name: getBool
+  paramsSignature: java.lang.String,java.lang.String,java.lang.Boolean,java.lang.String
+  paramNames:
+  - category
+  - name
+  - defaultValue
+  - comment
+- name: getBoolean
+  paramsSignature: java.lang.String,java.lang.String,java.lang.Boolean,java.lang.String
+  paramNames:
+  - category
+  - name
+  - defaultValue
+  - comment
+- name: getString
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - category
+  - name
+  - defaultValue
+  - comment
+- name: getInt
+  paramsSignature: java.lang.String,java.lang.String,java.lang.Integer,java.lang.String,java.lang.Integer,java.lang.Integer
+  paramNames:
+  - category
+  - name
+  - defaultValue
+  - comment
+  - min
+  - max
+- name: getDouble
+  paramsSignature: java.lang.String,java.lang.String,java.lang.Double,java.lang.String,java.lang.Double,java.lang.Double
+  paramNames:
+  - category
+  - name
+  - defaultValue
+  - comment
+  - min
+  - max
+- name: getLong
+  paramsSignature: java.lang.String,java.lang.String,java.lang.Long,java.lang.String,java.lang.Long,java.lang.Long
+  paramNames:
+  - category
+  - name
+  - defaultValue
+  - comment
+  - min
+  - max
+- name: getBooleanArray
+  paramsSignature: java.lang.String,java.lang.String,boolean[],java.lang.String,boolean,int
+  paramNames:
+  - category
+  - name
+  - defaultValue
+  - comment
+  - isLengthFixed
+  - maxLength
+- name: getStringArray
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String[],java.lang.String,boolean,int
+  paramNames:
+  - category
+  - name
+  - defaultValue
+  - comment
+  - isLengthFixed
+  - maxLength
+- name: getIntArray
+  paramsSignature: java.lang.String,java.lang.String,int[],java.lang.String,java.lang.Integer,java.lang.Integer,boolean,int
+  paramNames:
+  - category
+  - name
+  - defaultValue
+  - comment
+  - min
+  - max
+  - isLengthFixed
+  - maxLength
 com.blamejared.compat.thaumcraft.handlers.handlers.Warp:
 - name: setWarp
   paramsSignature: crafttweaker.api.item.IItemStack,int
@@ -3878,6 +4177,16 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$OnToolRepai
   - thisTrait
   - tool
   - amount
+roidrole.roidtweaker.mods.thermalexpansion.InductionSmelter:
+- name: addOreOverride
+  paramsSignature: crafttweaker.api.item.IIngredient,boolean
+  paramNames:
+  - input
+  - value
+- name: removeOreOverride
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
 hellfirepvp.modularmachinery.common.machine.RecipeFailureActions:
 - name: getFailureAction
   paramsSignature: java.lang.String
@@ -4012,6 +4321,46 @@ com.blamejared.compat.botania.handlers.Knowledge:
   - localized
   - color
   - autoUnlock
+xyz.tcreopargh.ctintegration.vanilla.expansion.IPlayerExpansion:
+- name: addExperience
+  paramsSignature: crafttweaker.api.player.IPlayer,int
+  paramNames:
+  - player
+  - amount
+- name: removeExperience
+  paramsSignature: crafttweaker.api.player.IPlayer,int
+  paramNames:
+  - player
+  - amount
+- name: getTotalXP
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: playSound
+  paramsSignature: crafttweaker.api.player.IPlayer,java.lang.String,float,float
+  paramNames:
+  - player
+  - soundResourceLocation
+  - volume
+  - pitch
+- name: sendPlaySoundPacket
+  paramsSignature: crafttweaker.api.player.IPlayer,java.lang.String,java.lang.String,crafttweaker.api.util.Position3f,float,float
+  paramNames:
+  - player
+  - soundResourceLocation
+  - soundCategory
+  - pos
+  - volume
+  - pitch
+- name: isPlayerMP
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: getAdvancementProgress
+  paramsSignature: crafttweaker.api.player.IPlayer,xyz.tcreopargh.ctintegration.vanilla.advancement.IAdvancement
+  paramNames:
+  - player
+  - advancement
 youyihj.zenutils.api.network.IByteBuf:
 - name: writeBoolean
   paramsSignature: boolean
@@ -5063,6 +5412,11 @@ xyz.tcreopargh.ctintegration.cot.BaubleEventHandler$CanEquip:
   paramNames:
   - bauble
   - wearer
+xyz.tcreopargh.ctintegration.sereneseasons.WorldExpansionSS:
+- name: getSeasonState
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
 com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentBuilder:
 - name: create
   paramsSignature: java.lang.String
@@ -6387,6 +6741,11 @@ crafttweaker.zenscript.expand.ExpandShort:
   paramsSignature: short
   paramNames:
   - value
+roidrole.roidtweaker.mods.forge.Registries:
+- name: disable
+  paramsSignature: java.lang.String
+  paramNames:
+  - registryName
 youyihj.zenutils.api.config.ConfigUtils:
 - name: named
   paramsSignature: java.lang.String
@@ -6421,19 +6780,6 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.traits.CoTTraitBuilder:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - itemStack
-stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithDefaultMethod:
-- name: apply
-  paramsSignature: int
-  paramNames:
-  - a
-- name: isEven
-  paramsSignature: int
-  paramNames:
-  - a
-- name: apply
-  paramsSignature: int
-  paramNames:
-  - a
 gregtech.api.unification.stack.MaterialStack:
 - name: copy
   paramsSignature: long
@@ -6908,19 +7254,6 @@ youyihj.zenutils.api.cotx.ExpandHand:
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.Hand
   paramNames:
   - hand
-xyz.tcreopargh.ctintegration.vanilla.expansion.ItemStackExpansionMC:
-- name: asData
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - itemStack
-- name: fromData
-  paramsSignature: crafttweaker.api.data.IData
-  paramNames:
-  - data
-- name: isEnergyStorage
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - itemStack
 com.teamacronymcoders.contenttweaker.modules.vanilla.utils.Particles:
 - name: createParticle
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,java.lang.String
@@ -7074,6 +7407,32 @@ crafttweaker.mc1120.entity.expand.ExpandEntityLivingBase:
   paramNames:
   - entityLivingBase
   - amount
+xyz.tcreopargh.ctintegration.gamestages.events.EventsExpansion:
+- name: onGameStageAdd
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - event
+- name: onGameStageRemove
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - event
+- name: onGameStageAdded
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - event
+- name: onGameStageRemoved
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - event
+- name: onGameStageCleared
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
+  paramNames:
+  - manager
+  - event
 youyihj.zenutils.api.util.StringList:
 - name: create
   paramsSignature: java.util.Collection
@@ -7142,32 +7501,6 @@ youyihj.zenutils.api.util.StringList:
   paramNames:
   - fromIndex
   - toIndex
-xyz.tcreopargh.ctintegration.gamestages.events.EventsExpansion:
-- name: onGameStageAdd
-  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
-  paramNames:
-  - manager
-  - event
-- name: onGameStageRemove
-  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
-  paramNames:
-  - manager
-  - event
-- name: onGameStageAdded
-  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
-  paramNames:
-  - manager
-  - event
-- name: onGameStageRemoved
-  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
-  paramNames:
-  - manager
-  - event
-- name: onGameStageCleared
-  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
-  paramNames:
-  - manager
-  - event
 java.lang.Math:
 - name: min
   paramNames:
@@ -7348,6 +7681,13 @@ crafttweaker.api.recipes.IRecipeAction:
   - output
   - craftingInfo
   - player
+roidrole.roidtweaker.mods.immersiveengineering.SlagReplacer:
+- name: setSlag
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,java.lang.String
+  paramNames:
+  - slag
+  - filter
+  - filterBy
 com.cleanroommc.multiblocked.common.recipe.content.AspectStack:
 - name: <init>
   paramsSignature: java.lang.String,int
@@ -7373,6 +7713,11 @@ com.cleanroommc.multiblocked.api.crafttweaker.functions.IRecipeFinish:
   paramNames:
   - recipeLogic
   - recipe
+roidrole.roidtweaker.mods.baubles.CTBaubleExpansion:
+- name: createBauble
+  paramsSignature: java.lang.String
+  paramNames:
+  - type
 com.blamejared.compat.immersivetech.Distiller:
 - name: addRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,int,double
@@ -8057,6 +8402,44 @@ crafttweaker.api.mods.ILoadedMods:
   paramsSignature: java.lang.String
   paramNames:
   - name
+roidrole.roidtweaker.mods.thermalexpansion.Pulverizer:
+- name: addOreOverride
+  paramsSignature: crafttweaker.api.item.IIngredient,boolean
+  paramNames:
+  - input
+  - value
+- name: removeOreOverride
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
+crafttweakerutils.world.IGameRules:
+- name: getBoolean
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: getString
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: getInt
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: hasRule
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: addGameRule
+  paramsSignature: java.lang.String,java.lang.String,java.lang.String
+  paramNames:
+  - key
+  - value
+  - type
+- name: setOrCreateGameRule
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - key
+  - value
 youyihj.zenutils.api.player.PlayerStat:
 - name: getBasicStat
   paramsSignature: java.lang.String
@@ -8218,6 +8601,15 @@ ink.ikx.rt.api.mods.botania.subtile.IHydroangeas:
   paramNames:
   - block
   - factor
+roidrole.roidtweaker.mods.projecte.FuelManager:
+- name: addFuel
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - item
+- name: removeFuel
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - item
 kport.modularmagic.common.integration.crafttweaker.MagicPrimer:
 - name: addAspectInput
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer,java.lang.String,int
@@ -8363,6 +8755,39 @@ github.kasuminova.mmce.common.helper.MachineController:
   - x
   - y
   - z
+roidrole.roidtweaker.mods.baubles.CTInjectableBauble:
+- name: setOnWornTick
+  paramsSignature: roidrole.roidtweaker.utils.FunctionalInterfaces$VoidBiFunction
+  paramNames:
+  - function
+- name: setOnEquipped
+  paramsSignature: roidrole.roidtweaker.utils.FunctionalInterfaces$VoidBiFunction
+  paramNames:
+  - function
+- name: setOnUnequipped
+  paramsSignature: roidrole.roidtweaker.utils.FunctionalInterfaces$VoidBiFunction
+  paramNames:
+  - function
+- name: setCanEquip
+  paramsSignature: roidrole.roidtweaker.utils.FunctionalInterfaces$BooleanBiFunction
+  paramNames:
+  - function
+- name: setCanUnequip
+  paramsSignature: roidrole.roidtweaker.utils.FunctionalInterfaces$BooleanBiFunction
+  paramNames:
+  - function
+- name: setWillAutoSync
+  paramsSignature: roidrole.roidtweaker.utils.FunctionalInterfaces$BooleanBiFunction
+  paramNames:
+  - function
+- name: setOnDeath
+  paramsSignature: roidrole.roidtweaker.mods.baubles.CTInjectableBauble$OnDeathFunction
+  paramNames:
+  - function
+- name: register
+  paramsSignature: crafttweaker.api.item.IItemDefinition
+  paramNames:
+  - item
 codersafterdark.compatskills.common.compats.minecraft.drops.BlockDropsTweaker:
 - name: addBlockDropLock
   paramsSignature: crafttweaker.api.item.IItemStack,java.lang.String[]
@@ -8410,6 +8835,19 @@ ink.ikx.rt.api.mods.thaumcraft.IAspect:
   paramsSignature: ink.ikx.rt.api.mods.thaumcraft.IAspect
   paramNames:
   - other
+roidrole.roidtweaker.mods.crafttweaker.data.IDataExpansion:
+- name: toNBTString
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: getRawString
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
+- name: toJson
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - data
 crafttweaker.mc1120.world.expand.ExpandBlockPos:
 - name: create
   paramsSignature: int,int,int
@@ -8507,6 +8945,15 @@ com.blamejared.compat.tcomplement.highoven.HighOven:
   paramNames:
   - output
   - input
+roidrole.roidtweaker.mods.baubles.CTBauble:
+- name: getBaubleType
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - item
+- name: getValidSlots
+  paramsSignature: java.lang.String
+  paramNames:
+  - type
 youyihj.zenutils.api.player.IStatFormatter:
 - name: format
   paramsSignature: int
@@ -8545,6 +8992,42 @@ ink.ikx.rt.api.mods.botania.function.DynamicSpawnTable:
   - stack
   - player
   - tile
+roidrole.roidtweaker.mods.minecraft.villager.IVillagerCareer:
+- name: addTrade
+  paramsSignature: int,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,java.util.function.BiFunction
+  paramNames:
+  - level
+  - sell
+  - buy1
+  - buy2
+  - getOutput
+- name: addTradeForEnchantedItem
+  paramsSignature: int,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,int,int
+  paramNames:
+  - level
+  - sell
+  - buy1
+  - buy2
+  - minLevel
+  - maxLevel
+- name: addTradeForPotionItem
+  paramsSignature: int,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,java.lang.String[]
+  paramNames:
+  - level
+  - sell
+  - buy1
+  - buy2
+  - potionKeys
+- name: addTradeAdvanced
+  paramsSignature: int,java.util.function.Function
+  paramNames:
+  - level
+  - recipe
+- name: removeTrade
+  paramsSignature: int,java.lang.Integer
+  paramNames:
+  - level
+  - index
 com.blamejared.compat.thermalexpansion.RedstoneFurnace:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int
@@ -8739,6 +9222,32 @@ crafttweaker.api.oredict.IOreDictEntry:
   paramsSignature: crafttweaker.api.oredict.IOreDictEntry
   paramNames:
   - other
+roidrole.roidtweaker.mods.f0resources.OreData:
+- name: create
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - stack
+  - amount
+- name: getStack
+  paramsSignature: int
+  paramNames:
+  - amount
+- name: setStack
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - stack
+- name: setAmount
+  paramsSignature: int
+  paramNames:
+  - amount
+- name: setRequiredTier
+  paramsSignature: int
+  paramNames:
+  - tier
+- name: mine
+  paramsSignature: int
+  paramNames:
+  - quantity
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IPartRemovedFromMulti:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTPart,com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
@@ -8891,6 +9400,11 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.DynamicMach
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
   paramNames:
   - handler
+roidrole.roidtweaker.mods.crafttweaker.IIngredientExpansion:
+- name: spread
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
 crafttweaker.api.block.IMaterial:
 - name: matches
   paramsSignature: crafttweaker.api.block.IMaterial
@@ -9433,46 +9947,6 @@ youyihj.zenutils.api.util.ExpandGame:
   paramNames:
   - game
   - name
-xyz.tcreopargh.ctintegration.vanilla.expansion.PlayerExpansionMC:
-- name: addExperience
-  paramsSignature: crafttweaker.api.player.IPlayer,int
-  paramNames:
-  - player
-  - amount
-- name: removeExperience
-  paramsSignature: crafttweaker.api.player.IPlayer,int
-  paramNames:
-  - player
-  - amount
-- name: getTotalXP
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: playSound
-  paramsSignature: crafttweaker.api.player.IPlayer,java.lang.String,float,float
-  paramNames:
-  - player
-  - soundResourceLocation
-  - volume
-  - pitch
-- name: sendPlaySoundPacket
-  paramsSignature: crafttweaker.api.player.IPlayer,java.lang.String,java.lang.String,crafttweaker.api.util.Position3f,float,float
-  paramNames:
-  - player
-  - soundResourceLocation
-  - soundCategory
-  - pos
-  - volume
-  - pitch
-- name: isPlayerMP
-  paramsSignature: crafttweaker.api.player.IPlayer
-  paramNames:
-  - player
-- name: getAdvancementProgress
-  paramsSignature: crafttweaker.api.player.IPlayer,xyz.tcreopargh.ctintegration.vanilla.advancement.IAdvancement
-  paramNames:
-  - player
-  - advancement
 crafttweaker.api.item.IItemTransformerNew:
 - name: transform
   paramsSignature: crafttweaker.api.item.IItemStack
@@ -9656,6 +10130,16 @@ ink.ikx.rt.api.mods.jei.core.IJeiPanel:
   paramsSignature: java.lang.String
   paramNames:
   - elementName
+xyz.tcreopargh.ctintegration.ftbmoney.PlayerExpansionFTBM:
+- name: getFtbMoney
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: setFtbMoney
+  paramsSignature: crafttweaker.api.player.IPlayer,long
+  paramNames:
+  - player
+  - value
 youyihj.zenutils.api.ftbq.event.CTCustomTaskEvent$ITaskChecker:
 - name: check
   paramsSignature: crafttweaker.api.player.IPlayer,int
@@ -9862,6 +10346,18 @@ youyihj.zenutils.api.command.TabCompletion:
   paramsSignature: java.lang.String[]
   paramNames:
   - info
+be.lorexe.mekatweaker.crafttweaker.InfuserType:
+- name: addType
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - name
+  - icon
+- name: addTypeObject
+  paramsSignature: crafttweaker.api.item.IIngredient,java.lang.String,int
+  paramNames:
+  - ingredients
+  - typeName
+  - typeQty
 com.blamejared.compat.betterwithmods.Hopper:
 - name: addFilter
   paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient
@@ -9964,6 +10460,16 @@ ink.ikx.rt.api.mods.contenttweaker.ExpandVanillaFactory:
   paramNames:
   - unlocalizedName
   - potion
+xyz.tcreopargh.ctintegration.projecte.PlayerExpansionProjectE:
+- name: getPersonalEMC
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: setPersonalEMC
+  paramsSignature: crafttweaker.api.player.IPlayer,long
+  paramNames:
+  - player
+  - emc
 crafttweaker.api.block.IBlockProperties:
 - name: getLightValue
   paramsSignature: crafttweaker.api.world.IBlockAccess,crafttweaker.api.world.IBlockPos
@@ -10058,6 +10564,65 @@ crafttweaker.api.game.IGame:
   paramNames:
   - key
   - lang
+roidrole.roidtweaker.mods.randomthings.Imbuing:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - output
+  - input
+  - ingredients
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+- name: removeRecipe
+  paramsSignature: int
+  paramNames:
+  - index
+roidrole.roidtweaker.mods.minecraft.anvil.CTAnvil:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - left
+  - right
+  - output
+  - xpCost
+- name: addRecipeShapeless
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - left
+  - right
+  - output
+  - xpCost
+- name: addRecipes
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient[],crafttweaker.api.item.IItemStack[],int[]
+  paramNames:
+  - left
+  - right
+  - output
+  - xpCost
+- name: remove
+  paramsSignature: crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - inputs
+- name: remove
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - output
+- name: addRepair
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,int,int
+  paramNames:
+  - repaired
+  - material
+  - amount
+  - xpCost
+- name: addRepair
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient,float,int
+  paramNames:
+  - repaired
+  - material
+  - amount
+  - xpCost
 codersafterdark.compatskills.common.compats.reskillable.transmutations.AdditionsTweaker:
 - name: addEntryToReagent
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack
@@ -10081,15 +10646,11 @@ codersafterdark.compatskills.common.compats.reskillable.transmutations.Additions
   paramNames:
   - state1
   - state2
-stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithStaticMethod:
-- name: apply
-  paramsSignature: int
+roidrole.roidtweaker.mods.f0resources.IWorldExpansion:
+- name: getF0RWorld
+  paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
-  - a
-- name: apply
-  paramsSignature: int
-  paramNames:
-  - a
+  - world
 com.blamejared.compat.bloodmagic.AlchemyArray:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,java.lang.String
@@ -10331,19 +10892,6 @@ youyihj.zenutils.api.util.ExpandPotion:
   paramsSignature: int
   paramNames:
   - id
-xyz.tcreopargh.ctintegration.data.DataExpansion:
-- name: toNBTString
-  paramsSignature: crafttweaker.api.data.IData
-  paramNames:
-  - data
-- name: getRawString
-  paramsSignature: crafttweaker.api.data.IData
-  paramNames:
-  - data
-- name: toJson
-  paramsSignature: crafttweaker.api.data.IData
-  paramNames:
-  - data
 com.blamejared.compat.botania.handlers.Lexicon:
 - name: addBrewPage
   paramsSignature: java.lang.String,java.lang.String,int,java.lang.String,crafttweaker.api.item.IIngredient[],java.lang.String
@@ -10488,6 +11036,15 @@ com.blamejared.compat.botania.handlers.Lexicon:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - stack
+roidrole.roidtweaker.mods.forge.config.Reader:
+- name: getConfigFile
+  paramsSignature: java.lang.String
+  paramNames:
+  - path
+- name: getConfig
+  paramsSignature: java.lang.String
+  paramNames:
+  - path
 crafttweaker.zenscript.expand.ExpandBool:
 - name: asData
   paramsSignature: boolean
@@ -10602,6 +11159,38 @@ crafttweaker.api.vanilla.ISeedRegistry:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - item
+roidrole.roidtweaker.mods.crafttweaker.IWorldExpansion:
+- name: getTopBlock
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: getTopSolidBlock
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: playSound
+  paramsSignature: crafttweaker.api.world.IWorld,java.lang.String,java.lang.String,crafttweaker.api.util.Position3f,float,float,boolean
+  paramNames:
+  - world
+  - soundResourceLocation
+  - soundCategory
+  - location
+  - volume
+  - pitch
+  - distanceDelay
+- name: getEntityItemsWithinAABB
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.util.IAxisAlignedBB
+  paramNames:
+  - world
+  - aabb
+- name: getEntitiesWithinAABB
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.util.IAxisAlignedBB,crafttweaker.api.entity.IEntityDefinition
+  paramNames:
+  - world
+  - aabb
+  - entity
 hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemModifierCT:
 - name: apply
   paramsSignature: github.kasuminova.mmce.common.helper.IMachineController,crafttweaker.api.item.IItemStack
@@ -10670,15 +11259,6 @@ youyihj.zenutils.api.util.ExpandData:
   - data
   - toUpdate
   - updateOperation
-stanhebben.zenscript.tests.TestLambdas$FunInterfaceWithZenMethod:
-- name: apply
-  paramsSignature: int
-  paramNames:
-  - a
-- name: apply
-  paramsSignature: int
-  paramNames:
-  - a
 youyihj.zenutils.api.util.CommandUtils:
 - name: getCommandSenderAsPlayer
   paramsSignature: youyihj.zenutils.api.command.ZenUtilsCommandSender
@@ -10793,6 +11373,20 @@ com.blamejared.compat.betterwithmods.Turntable:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - output
+roidrole.roidtweaker.mods.baubles.PlayerExpansionBaubles:
+- name: getBaublesInventory
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: getBubblesInventory
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: isBaubleEquipped
+  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.item.IItemStack
+  paramNames:
+  - player
+  - bauble
 com.blamejared.compat.forestry.Centrifuge:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.WeightedItemStack[],crafttweaker.api.item.IItemStack,int
@@ -10914,11 +11508,6 @@ com.blamejared.compat.thermalexpansion.Insolator:
   paramNames:
   - primaryInput
   - secondaryInput
-stanhebben.zenscript.tests.TestFunctionTypes$MyNativeType:
-- name: create
-  paramsSignature: java.lang.String
-  paramNames:
-  - s
 crafttweaker.api.formatting.IFormatter:
 - name: black
   paramsSignature: crafttweaker.api.formatting.IFormattedText
@@ -11154,6 +11743,55 @@ crafttweaker.api.world.IBlockAccess:
   paramNames:
   - pos
   - facing
+roidrole.roidtweaker.mods.immersivepetroleum.MTReservoir:
+- name: setCapacity
+  paramsSignature: int
+  paramNames:
+  - capacity
+- name: setCurrent
+  paramsSignature: int
+  paramNames:
+  - current
+- name: setType
+  paramsSignature: java.lang.String
+  paramNames:
+  - type
+- name: setName
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: setFluid
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: setMinSize
+  paramsSignature: int
+  paramNames:
+  - size
+- name: setMaxSize
+  paramsSignature: int
+  paramNames:
+  - size
+- name: setReplenishRate
+  paramsSignature: int
+  paramNames:
+  - rate
+- name: setDimensionWhitelist
+  paramsSignature: int[]
+  paramNames:
+  - list
+- name: setDimensionBlacklist
+  paramsSignature: int[]
+  paramNames:
+  - list
+- name: setBiomeBlacklist
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - list
+- name: setBiomeWhitelist
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - list
 xyz.tcreopargh.ctintegration.util.IMutableString:
 - name: append
   paramsSignature: java.lang.String
@@ -11245,6 +11883,10 @@ xyz.tcreopargh.ctintegration.util.IMutableString:
   paramNames:
   - offset
   - s
+- name: indexOf
+  paramsSignature: java.lang.String
+  paramNames:
+  - character
 - name: equals
   paramsSignature: java.lang.Object
   paramNames:
@@ -11258,22 +11900,6 @@ xyz.tcreopargh.ctintegration.util.IMutableString:
   paramsSignature: java.lang.String
   paramNames:
   - str
-xyz.tcreopargh.ctintegration.baubles.IBaublesInventory:
-- name: isItemValidForSlot
-  paramsSignature: int,crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase
-  paramNames:
-  - slot
-  - item
-  - living
-- name: isItemValid
-  paramsSignature: int,crafttweaker.api.item.IItemStack
-  paramNames:
-  - slot
-  - item
-- name: getStackInSlot
-  paramsSignature: int
-  paramNames:
-  - slot
 hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemCheckerCT:
 - name: isMatch
   paramsSignature: github.kasuminova.mmce.common.helper.IMachineController,crafttweaker.api.item.IItemStack
@@ -11351,6 +11977,14 @@ ink.ikx.rt.api.mods.contenttweaker.aspect.IAspectRepresentation:
   paramsSignature: java.lang.String
   paramNames:
   - chatcolor
+roidrole.roidtweaker.mods.immersiveengineering.MetalPressExpansion:
+- name: addRecipeNBT
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - output
+  - input
+  - mold
+  - energy
 com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialDefinition:
 - name: compare
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.blockmaterial.IBlockMaterialDefinition
@@ -11379,6 +12013,13 @@ xyz.tcreopargh.ctintegration.bloodmagic.SoulNetwork:
   paramNames:
   - player
   - syphon
+crafttweakerutils.utils.RegexMatcher:
+- name: find
+  paramsSignature: java.lang.String,java.lang.String,int
+  paramNames:
+  - input
+  - regex
+  - options
 ink.ikx.rt.api.mods.contenttweaker.function.mana.IBaubleFunctionWithReturn:
 - name: call
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase
@@ -11393,23 +12034,6 @@ ink.ikx.rt.api.mods.contenttweaker.function.subtile.CanSelect:
   - wand
   - pos
   - side
-xyz.tcreopargh.ctintegration.vanilla.expansion.WorldExpansionMC:
-- name: setOrCreateGameRule
-  paramsSignature: crafttweaker.api.world.IWorld,java.lang.String,java.lang.String
-  paramNames:
-  - world
-  - key
-  - value
-- name: playSound
-  paramsSignature: crafttweaker.api.world.IWorld,java.lang.String,java.lang.String,crafttweaker.api.util.Position3f,float,float,boolean
-  paramNames:
-  - world
-  - soundResourceLocation
-  - soundCategory
-  - location
-  - volume
-  - pitch
-  - distanceDelay
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IDynamicRenderer:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent
@@ -11437,6 +12061,55 @@ com.cleanroommc.multiblocked.api.crafttweaker.functions.INeighborChanged:
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent
   paramNames:
   - componentTileEntity
+crafttweakerutils.world.IWorldExpansion:
+- name: canSeeSky
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: canSnowAt
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,boolean
+  paramNames:
+  - world
+  - pos
+  - lightCheck
+- name: canBlockFreeze
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,boolean
+  paramNames:
+  - world
+  - pos
+  - noWaterAdj
+- name: getGameRules
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
+- name: getSkyLight
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: getBlockLight
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: setSpawnerEntity
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.entity.IEntityLivingBase
+  paramNames:
+  - world
+  - pos
+  - entity
+- name: createEntityXp
+  paramsSignature: crafttweaker.api.world.IWorld,int
+  paramNames:
+  - world
+  - value
+- name: spawnEntityXp
+  paramsSignature: crafttweaker.api.world.IWorld,int,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - value
+  - pos
 com.cleanroommc.multiblocked.api.recipe.Recipe:
 - name: getInputContents
   paramsSignature: com.cleanroommc.multiblocked.api.capability.MultiblockCapability
@@ -11526,6 +12199,13 @@ com.blamejared.compat.tconstruct.Fuel:
   paramNames:
   - fluid
   - duration
+roidrole.roidtweaker.utils.FunctionalInterfaces$FloatTriFunction:
+- name: apply
+  paramsSignature: A,B,C
+  paramNames:
+  - a
+  - b
+  - c
 youyihj.zenutils.api.block.ZenUtilsBlock:
 - name: getItem
   paramsSignature: crafttweaker.api.block.IBlock,crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,crafttweaker.api.block.IBlockState
@@ -11809,6 +12489,20 @@ xyz.tcreopargh.ctintegration.vanilla.advancement.IAdvancementProgress:
   paramsSignature: java.lang.String
   paramNames:
   - criterion
+xyz.tcreopargh.ctintegration.projecte.IItemStackExpansionProjectE:
+- name: getEMC
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - itemStack
+- name: setEMC
+  paramsSignature: crafttweaker.api.item.IItemStack,long
+  paramNames:
+  - itemStack
+  - value
+- name: getEMCSellValue
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - itemStack
 com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker$ComplexOutputBuilder:
 - name: addEvent
   paramsSignature: com.tttsaurus.fluidintetweaker.plugin.crt.impl.FBTweaker$BehaviorEventBuilder
@@ -11919,27 +12613,6 @@ com.cleanroommc.multiblocked.api.recipe.RecipeLogic:
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeLogic$Status
   paramNames:
   - status
-xyz.tcreopargh.ctintegration.data.DataUtil:
-- name: fromJson
-  paramsSignature: java.lang.String
-  paramNames:
-  - jsonString
-- name: parse
-  paramsSignature: java.lang.String
-  paramNames:
-  - jsonString
-- name: toNBTString
-  paramsSignature: crafttweaker.api.data.IData
-  paramNames:
-  - data
-- name: getRawString
-  paramsSignature: crafttweaker.api.data.IData
-  paramNames:
-  - data
-- name: toJson
-  paramsSignature: crafttweaker.api.data.IData
-  paramNames:
-  - data
 com.blamejared.compat.thermalexpansion.Imbuer:
 - name: addRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack,int
@@ -12002,6 +12675,29 @@ youyihj.zenutils.api.item.CrTItemHandler:
   paramNames:
   - slot
   - stack
+roidrole.roidtweaker.mods.thermalexpansion.Extruder:
+- name: addRecipeIgneous
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int,int
+  paramNames:
+  - output
+  - lava
+  - water
+  - energy
+- name: addRecipeSedimentary
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int,int
+  paramNames:
+  - output
+  - lava
+  - water
+  - energy
+- name: removeRecipeIgneous
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
+- name: removeRecipeSedimentary
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 com.blamejared.compat.thaumcraft.handlers.handlers.DustTrigger:
 - name: addSingleConversion
   paramsSignature: crafttweaker.api.block.IBlock,crafttweaker.api.item.IItemStack,java.lang.String
@@ -12019,6 +12715,25 @@ com.blamejared.compat.thaumcraft.handlers.handlers.DustTrigger:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - output
+roidrole.roidtweaker.mods.thermalexpansion.RedstoneFurnace:
+- name: addFoodOverride
+  paramsSignature: crafttweaker.api.item.IIngredient,boolean
+  paramNames:
+  - input
+  - value
+- name: removeFoodOverride
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
+- name: addOreOverride
+  paramsSignature: crafttweaker.api.item.IIngredient,boolean
+  paramNames:
+  - input
+  - value
+- name: removeOreOverride
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - input
 com.blamejared.compat.actuallyaddition.Crusher:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack,int
@@ -12143,6 +12858,28 @@ crafttweaker.api.world.IWorld:
   paramsSignature: crafttweaker.api.world.IExplosion
   paramNames:
   - explosion
+roidrole.roidtweaker.mods.f0resources.FluidData:
+- name: create
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,long
+  paramNames:
+  - fluid
+  - amount
+- name: getStack
+  paramsSignature: int
+  paramNames:
+  - amount
+- name: setStack
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - stack
+- name: setAmount
+  paramsSignature: long
+  paramNames:
+  - amount
+- name: mine
+  paramsSignature: long
+  paramNames:
+  - quantity
 youyihj.zenutils.api.entity.ZenUtilsEntityDefinition:
 - name: onTick
   paramsSignature: crafttweaker.api.entity.IEntityDefinition,youyihj.zenutils.api.entity.IEntityTick,int
@@ -12679,6 +13416,29 @@ crafttweaker.api.entity.attribute.IEntityAttribute:
   paramsSignature: double
   paramNames:
   - value
+be.lorexe.mekatweaker.crafttweaker.gas.GasFactory:
+- name: createGas
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - stackFluid
+- name: createGas
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - unlocalizedName
+  - icon
+- name: createGas
+  paramsSignature: java.lang.String,int
+  paramNames:
+  - unlocalizedName
+  - color
+- name: createGas
+  paramsSignature: java.lang.String
+  paramNames:
+  - unlocalizedName
+- name: createFromFluid
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - stackFluid
 youyihj.zenutils.api.command.ExpandedCommandManager:
 - name: executeCommandSilent
   paramsSignature: crafttweaker.api.command.ICommandManager,crafttweaker.api.command.ICommandSender,java.lang.String
@@ -12725,17 +13485,17 @@ com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos:
   paramNames:
   - facing
   - offset
+xyz.tcreopargh.ctintegration.util.RawLogger:
+- name: logRaw
+  paramsSignature: java.lang.String
+  paramNames:
+  - message
 youyihj.zenutils.api.command.TabCompletionCase:
 - name: add
   paramsSignature: java.lang.String,java.util.List
   paramNames:
   - key
   - value
-xyz.tcreopargh.ctintegration.util.RawLogger:
-- name: logRaw
-  paramsSignature: java.lang.String
-  paramNames:
-  - message
 com.blamejared.compat.betterwithmods.base.bulkrecipes.MillBuilder:
 - name: setPriority
   paramsSignature: int
@@ -13296,6 +14056,11 @@ gregtech.api.util.CapesRegistry:
   paramsSignature: java.lang.String
   paramNames:
   - cape
+roidrole.roidtweaker.mods.crafttweaker.IRandomExpansion:
+- name: nextGaussian
+  paramsSignature: crafttweaker.api.util.IRandom
+  paramNames:
+  - random
 ink.ikx.rt.api.mods.naturesaura.IWorldExpansionNa:
 - name: getAuraChunk
   paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
@@ -13452,6 +14217,35 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.VanillaFactory:
   paramsSignature: java.lang.String
   paramNames:
   - name
+roidrole.roidtweaker.mods.f0resources.ChunkData:
+- name: addData
+  paramsSignature: roidrole.roidtweaker.mods.f0resources.OreData
+  paramNames:
+  - data
+- name: addData
+  paramsSignature: roidrole.roidtweaker.mods.f0resources.FluidData
+  paramNames:
+  - data
+- name: getDataOre
+  paramsSignature: java.lang.Integer
+  paramNames:
+  - index
+- name: getDataFluid
+  paramsSignature: java.lang.Integer
+  paramNames:
+  - index
+- name: removeData
+  paramsSignature: roidrole.roidtweaker.mods.f0resources.OreData
+  paramNames:
+  - data
+- name: removeData
+  paramsSignature: roidrole.roidtweaker.mods.f0resources.FluidData
+  paramNames:
+  - data
+- name: getSize
+  paramsSignature: java.lang.String
+  paramNames:
+  - type
 gregtech.api.unification.material.info.MaterialIconSet:
 - name: getByName
   paramsSignature: java.lang.String
@@ -13615,11 +14409,6 @@ crafttweaker.api.recipes.IRecipeFunction:
   - output
   - inputs
   - craftingInfo
-stanhebben.zenscript.tests.TestZenProperty$PropertyTester:
-- name: setB
-  paramsSignature: java.lang.String
-  paramNames:
-  - b
 crafttweaker.tests.wiki.DevWikiMethod:
 - name: staticMethod
   paramsSignature: int
@@ -14094,6 +14883,55 @@ crafttweaker.api.event.IEventManager:
   paramsSignature: crafttweaker.util.IEventHandler
   paramNames:
   - ev
+roidrole.roidtweaker.mods.immersiveengineering.GardenCloche:
+- name: addFertilizer
+  paramsSignature: crafttweaker.api.item.IIngredient,float
+  paramNames:
+  - fertilizer
+  - multiplier
+- name: addFertilizer
+  paramsSignature: crafttweaker.api.item.IIngredient,roidrole.roidtweaker.mods.immersiveengineering.helpers.GardenClocheMultiplierFunction
+  paramNames:
+  - fertilizer
+  - multiplier
+- name: removeFertilizer
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - fertilizer
+- name: clearFertilizers
+  paramsSignature: java.lang.Boolean
+  paramNames:
+  - restrictionReadWiki
+- name: addPlantHandler
+  paramsSignature: java.lang.String
+  paramNames:
+  - type
+- name: addCrop
+  paramsSignature: java.lang.String,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient,crafttweaker.api.block.IBlock
+  paramNames:
+  - type
+  - seed
+  - drops
+  - soil
+  - display
+- name: addCrop
+  paramsSignature: java.lang.String,crafttweaker.api.item.IIngredient,crafttweaker.api.item.IItemStack[],crafttweaker.api.item.IIngredient,crafttweaker.api.block.IBlockState
+  paramNames:
+  - type
+  - seed
+  - drops
+  - soil
+  - display
+- name: removeCrop
+  paramsSignature: crafttweaker.api.item.IIngredient,java.lang.String
+  paramNames:
+  - crop
+  - type
+- name: setSoilTexture
+  paramsSignature: crafttweaker.api.item.IIngredient,java.lang.String
+  paramNames:
+  - soil
+  - texture
 ink.ikx.rt.api.mods.contenttweaker.function.subtile.PopulateDropStackNBTs:
 - name: call
   paramsSignature: crafttweaker.api.item.IItemStack[]
@@ -14141,6 +14979,214 @@ ink.ikx.rt.api.vanilla.AttributeModificationListeners:
   - ingredient
   - attributeName
   - slot
+roidrole.roidtweaker.mods.crafttweaker.CTMath:
+- name: max
+  paramsSignature: double,double
+  paramNames:
+  - d1
+  - d2
+- name: max
+  paramsSignature: float,float
+  paramNames:
+  - f1
+  - f2
+- name: max
+  paramsSignature: long,long
+  paramNames:
+  - l1
+  - l2
+- name: max
+  paramsSignature: int,int
+  paramNames:
+  - i1
+  - i2
+- name: min
+  paramsSignature: double,double
+  paramNames:
+  - d1
+  - d2
+- name: min
+  paramsSignature: float,float
+  paramNames:
+  - f1
+  - f2
+- name: min
+  paramsSignature: long,long
+  paramNames:
+  - l1
+  - l2
+- name: min
+  paramsSignature: int,int
+  paramNames:
+  - i1
+  - i2
+- name: floor
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: ceil
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: abs
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: abs
+  paramsSignature: float
+  paramNames:
+  - f1
+- name: abs
+  paramsSignature: long
+  paramNames:
+  - l1
+- name: abs
+  paramsSignature: int
+  paramNames:
+  - i1
+- name: sin
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: cos
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: tan
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: asin
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: acos
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: atan
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: sinh
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: cosh
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: tanh
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: sqrt
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: round
+  paramsSignature: float
+  paramNames:
+  - f1
+- name: round
+  paramsSignature: double
+  paramNames:
+  - d1
+- name: clamp
+  paramsSignature: double,double,double
+  paramNames:
+  - value
+  - min
+  - max
+- name: clamp
+  paramsSignature: float,float,float
+  paramNames:
+  - value
+  - min
+  - max
+- name: clamp
+  paramsSignature: int,int,int
+  paramNames:
+  - value
+  - min
+  - max
+- name: clamp
+  paramsSignature: long,long,long
+  paramNames:
+  - value
+  - min
+  - max
+- name: log
+  paramsSignature: double
+  paramNames:
+  - input
+- name: log10
+  paramsSignature: double
+  paramNames:
+  - input
+- name: getRandom
+  paramsSignature: long
+  paramNames:
+  - seed
+- name: exp
+  paramsSignature: double
+  paramNames:
+  - exponent
+- name: exp
+  paramsSignature: double,double
+  paramNames:
+  - exponent
+  - base
+- name: log
+  paramsSignature: double,double
+  paramNames:
+  - input
+  - base
+- name: sign
+  paramsSignature: double
+  paramNames:
+  - value
+- name: sign
+  paramsSignature: int
+  paramNames:
+  - value
+- name: sign
+  paramsSignature: float
+  paramNames:
+  - value
+- name: sign
+  paramsSignature: long
+  paramNames:
+  - value
+- name: fastInvSqrt
+  paramsSignature: double
+  paramNames:
+  - value
+- name: average
+  paramsSignature: long[]
+  paramNames:
+  - values
+- name: average
+  paramsSignature: double[]
+  paramNames:
+  - values
+- name: average
+  paramsSignature: int[]
+  paramNames:
+  - values
+- name: average
+  paramsSignature: float[]
+  paramNames:
+  - values
+- name: hypot
+  paramsSignature: double,double
+  paramNames:
+  - cat1
+  - cat2
+- name: cbrt
+  paramsSignature: double
+  paramNames:
+  - value
 crafttweaker.api.potions.IPotion:
 - name: makePotionEffect
   paramsSignature: int,int
@@ -14204,16 +15250,6 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.IngredientArrayPrim
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.AdvancedItemModifierCT
   paramNames:
   - modifier
-xyz.tcreopargh.ctintegration.util.DateUtil:
-- name: fromTimeInMillis
-  paramsSignature: long
-  paramNames:
-  - timeInMillis
-- name: parse
-  paramsSignature: java.lang.String,java.lang.String
-  paramNames:
-  - format
-  - dateString
 hellfirepvp.modularmachinery.common.integration.crafttweaker.BlockArrayBuilder:
 - name: newBuilder
   paramsSignature: hellfirepvp.modularmachinery.common.machine.TaggedPositionBlockArray
@@ -14396,81 +15432,41 @@ crafttweaker.api.event.BlockHarvestDropsEvent:
   paramsSignature: crafttweaker.api.item.WeightedItemStack
   paramNames:
   - itemStack
-stanhebben.zenscript.tests.TestArrayCasts$B:
-- name: <init>
-  paramsSignature: java.lang.String
+xyz.tcreopargh.ctintegration.vanilla.expansion.IServerExpansion:
+- name: getPlayers
+  paramsSignature: crafttweaker.api.server.IServer
   paramNames:
-  - s
-stanhebben.zenscript.tests.TestArrayCasts$A:
-- name: <init>
-  paramsSignature: java.lang.String
+  - server
+- name: getPlayerByUUID
+  paramsSignature: crafttweaker.api.server.IServer,java.lang.String
   paramNames:
-  - s
-xyz.tcreopargh.ctintegration.util.ArrayUtil:
-- name: sort
-  paramsSignature: int[]
+  - server
+  - uuid
+- name: getPlayerByUsername
+  paramsSignature: crafttweaker.api.server.IServer,java.lang.String
   paramNames:
-  - array
-- name: sort
-  paramsSignature: double[]
+  - server
+  - name
+- name: getPlayerCount
+  paramsSignature: crafttweaker.api.server.IServer
   paramNames:
-  - array
-- name: sort
-  paramsSignature: float[]
+  - server
+- name: getMaxPlayers
+  paramsSignature: crafttweaker.api.server.IServer
   paramNames:
-  - array
-- name: sort
-  paramsSignature: java.lang.String[]
+  - server
+- name: changePlayerDimension
+  paramsSignature: crafttweaker.api.server.IServer,crafttweaker.api.player.IPlayer,int
   paramNames:
-  - array
-- name: sort
-  paramsSignature: short[]
+  - server
+  - player
+  - dimensionId
+- name: broadcastMessage
+  paramsSignature: crafttweaker.api.server.IServer,crafttweaker.api.text.ITextComponent,boolean
   paramNames:
-  - array
-- name: sort
-  paramsSignature: byte[]
-  paramNames:
-  - array
-- name: sort
-  paramsSignature: long[]
-  paramNames:
-  - array
-- name: sort
-  paramsSignature: char[]
-  paramNames:
-  - array
-- name: reverse
-  paramsSignature: int[]
-  paramNames:
-  - array
-- name: reverse
-  paramsSignature: double[]
-  paramNames:
-  - array
-- name: reverse
-  paramsSignature: float[]
-  paramNames:
-  - array
-- name: reverse
-  paramsSignature: java.lang.String[]
-  paramNames:
-  - array
-- name: reverse
-  paramsSignature: short[]
-  paramNames:
-  - array
-- name: reverse
-  paramsSignature: byte[]
-  paramNames:
-  - array
-- name: reverse
-  paramsSignature: long[]
-  paramNames:
-  - array
-- name: reverse
-  paramsSignature: char[]
-  paramNames:
-  - array
+  - server
+  - message
+  - isSystem
 codersafterdark.compatskills.common.compats.minecraft.entity.entitymountevent.EntityMountEventTweaker:
 - name: addMountLock
   paramsSignature: crafttweaker.api.entity.IEntityDefinition,java.lang.String[]
@@ -14520,11 +15516,59 @@ com.teamacronymcoders.contenttweaker.api.ctobjects.enums.FaceShape:
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.enums.FaceShape
   paramNames:
   - other
+roidrole.roidtweaker.mods.immersiveengineering.CTMineralMixExpansion:
+- name: toString
+  paramsSignature: blusunrize.immersiveengineering.common.util.compat.crafttweaker.Excavator$MTMineralMix
+  paramNames:
+  - mix
+- name: getWeight
+  paramsSignature: blusunrize.immersiveengineering.common.util.compat.crafttweaker.Excavator$MTMineralMix
+  paramNames:
+  - mix
+- name: setWeight
+  paramsSignature: blusunrize.immersiveengineering.common.util.compat.crafttweaker.Excavator$MTMineralMix,int
+  paramNames:
+  - mix
+  - weight
+- name: getOres
+  paramsSignature: blusunrize.immersiveengineering.common.util.compat.crafttweaker.Excavator$MTMineralMix
+  paramNames:
+  - mix
+- name: getDimensionWhitelist
+  paramsSignature: blusunrize.immersiveengineering.common.util.compat.crafttweaker.Excavator$MTMineralMix
+  paramNames:
+  - mix
+- name: setDimensionWhitelist
+  paramsSignature: blusunrize.immersiveengineering.common.util.compat.crafttweaker.Excavator$MTMineralMix,int[]
+  paramNames:
+  - mix
+  - whitelist
+- name: getDimensionBlacklist
+  paramsSignature: blusunrize.immersiveengineering.common.util.compat.crafttweaker.Excavator$MTMineralMix
+  paramNames:
+  - mix
+- name: setDimensionBlacklist
+  paramsSignature: blusunrize.immersiveengineering.common.util.compat.crafttweaker.Excavator$MTMineralMix,int[]
+  paramNames:
+  - mix
+  - blacklist
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IStructureInvalid:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTController
   paramNames:
   - controllerTileEntity
+roidrole.roidtweaker.mods.immersivepetroleum.IWorldExpansion:
+- name: setReservoir
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,roidrole.roidtweaker.mods.immersivepetroleum.MTReservoir
+  paramNames:
+  - world
+  - pos
+  - reservoir
+- name: getReservoir
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
 youyihj.zenutils.api.util.catenation.IWorldFunction:
 - name: apply
   paramsSignature: crafttweaker.api.world.IWorld,youyihj.zenutils.api.util.catenation.CatenationContext
@@ -14929,6 +15973,136 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$AfterHit:
   - damageDealt
   - wasCritical
   - wasHit
+roidrole.roidtweaker.mods.crafttweaker.ArrayUtil:
+- name: sort
+  paramsSignature: int[]
+  paramNames:
+  - array
+- name: sort
+  paramsSignature: double[]
+  paramNames:
+  - array
+- name: sort
+  paramsSignature: float[]
+  paramNames:
+  - array
+- name: sort
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - array
+- name: sort
+  paramsSignature: short[]
+  paramNames:
+  - array
+- name: sort
+  paramsSignature: byte[]
+  paramNames:
+  - array
+- name: sort
+  paramsSignature: long[]
+  paramNames:
+  - array
+- name: reverse
+  paramsSignature: int[]
+  paramNames:
+  - array
+- name: reverse
+  paramsSignature: double[]
+  paramNames:
+  - array
+- name: reverse
+  paramsSignature: float[]
+  paramNames:
+  - array
+- name: reverse
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - array
+- name: reverse
+  paramsSignature: short[]
+  paramNames:
+  - array
+- name: reverse
+  paramsSignature: byte[]
+  paramNames:
+  - array
+- name: reverse
+  paramsSignature: long[]
+  paramNames:
+  - array
+- name: reverse
+  paramsSignature: char[]
+  paramNames:
+  - array
+- name: reverse
+  paramsSignature: crafttweaker.api.data.IData[]
+  paramNames:
+  - array
+- name: fill
+  paramsSignature: int[],int
+  paramNames:
+  - array
+  - element
+- name: fill
+  paramsSignature: double[],double
+  paramNames:
+  - array
+  - element
+- name: fill
+  paramsSignature: float[],float
+  paramNames:
+  - array
+  - element
+- name: fill
+  paramsSignature: java.lang.String[],java.lang.String
+  paramNames:
+  - array
+  - element
+- name: fill
+  paramsSignature: short[],short
+  paramNames:
+  - array
+  - element
+- name: fill
+  paramsSignature: byte[],byte
+  paramNames:
+  - array
+  - element
+- name: fill
+  paramsSignature: long[],long
+  paramNames:
+  - array
+  - element
+- name: fill
+  paramsSignature: char[],char
+  paramNames:
+  - array
+  - element
+- name: fill
+  paramsSignature: crafttweaker.api.data.IData[],crafttweaker.api.data.IData
+  paramNames:
+  - array
+  - element
+- name: merge
+  paramsSignature: crafttweaker.api.data.IData[],crafttweaker.api.data.IData[]
+  paramNames:
+  - array1
+  - array2
+- name: trim
+  paramsSignature: crafttweaker.api.data.IData[],int,int
+  paramNames:
+  - array
+  - startIndexInclusive
+  - endIndexExclusive
+- name: createArray
+  paramsSignature: crafttweaker.api.data.IData,int
+  paramNames:
+  - element
+  - amount
+- name: toString
+  paramsSignature: crafttweaker.api.data.IData[]
+  paramNames:
+  - array
 xyz.tcreopargh.ctintegration.cot.BaubleEventHandler$WillAutoSync:
 - name: handle
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase
@@ -15019,6 +16193,29 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFun
   paramNames:
   - thisEnchantment
   - level
+be.lorexe.mekatweaker.crafttweaker.gas.GasRepresentation:
+- name: setIcon
+  paramsSignature: java.lang.String
+  paramNames:
+  - icon
+- name: setIcon
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - domain
+  - icon
+- name: setIconFlowing
+  paramsSignature: java.lang.String
+  paramNames:
+  - icon
+- name: setIconFlowing
+  paramsSignature: java.lang.String,java.lang.String
+  paramNames:
+  - domain
+  - icon
+- name: setUnlocalizedName
+  paramsSignature: java.lang.String
+  paramNames:
+  - translatationKey
 hellfirepvp.modularmachinery.common.integration.crafttweaker.MachineModifier:
 - name: addSmartInterfaceType
   paramsSignature: java.lang.String,hellfirepvp.modularmachinery.common.util.SmartInterfaceType
@@ -15189,12 +16386,6 @@ xyz.tcreopargh.ctintegration.vanilla.advancement.IAdvancement:
   paramsSignature: crafttweaker.api.player.IPlayer
   paramNames:
   - player
-xyz.tcreopargh.ctintegration.baubles.PlayerExpansionBaubles:
-- name: isBaubleEquipped
-  paramsSignature: crafttweaker.api.player.IPlayer,crafttweaker.api.item.IItemStack
-  paramNames:
-  - player
-  - bauble
 crafttweaker.api.entity.IEntityLivingBase:
 - name: isPotionActive
   paramsSignature: crafttweaker.api.potions.IPotion
@@ -15248,11 +16439,46 @@ crafttweaker.api.entity.IEntityLivingBase:
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot
   paramNames:
   - slot
+roidrole.roidtweaker.mods.thermalexpansion.Tapper:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.block.IBlockState,crafttweaker.api.block.IBlockState[]
+  paramNames:
+  - output
+  - log
+  - leaf
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.block.IBlockState,crafttweaker.api.block.IBlockState
+  paramNames:
+  - output
+  - log
+  - leaf
+- name: addFertilizer
+  paramsSignature: crafttweaker.api.item.IItemStack,int
+  paramNames:
+  - fertilizer
+  - multiplier
+- name: removeFertilizer
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - fertilizer
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.block.IBlockState
+  paramNames:
+  - log
 youyihj.zenutils.api.cotx.block.CrTCoTBlockStateBridge:
 - name: castToCrT
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState
   paramNames:
   - state
+roidrole.roidtweaker.mods.immersiveengineering.ArcFurnaceExpansion:
+- name: addRecycling
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - ingredient
+- name: removeRecyclingOutput
+  paramsSignature: crafttweaker.api.item.IIngredient
+  paramNames:
+  - ingredient
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IStatusChanged:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,java.lang.String
@@ -15498,11 +16724,43 @@ com.blamejared.compat.bloodmagic.AlchemyTable:
   paramsSignature: crafttweaker.api.item.IItemStack[]
   paramNames:
   - inputs
+roidrole.roidtweaker.mods.immersiveengineering.IWorldExpansion:
+- name: setMineralMix
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos,blusunrize.immersiveengineering.common.util.compat.crafttweaker.Excavator$MTMineralMix
+  paramNames:
+  - world
+  - pos
+  - mix
+- name: getMineralMix
+  paramsSignature: crafttweaker.api.world.IWorld,crafttweaker.api.world.IBlockPos
+  paramNames:
+  - world
+  - pos
+- name: getMineralMap
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
 com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeContent$Particle:
 - name: asIParticleStack
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
   paramNames:
   - content
+roidrole.roidtweaker.mods.minecraft.IChunkPos:
+- name: getChunkPos
+  paramsSignature: int,int
+  paramNames:
+  - x
+  - z
+- name: getChunkPos
+  paramsSignature: crafttweaker.api.world.IBlockPos
+  paramNames:
+  - pos
+- name: getBlockPos
+  paramsSignature: int,int,int
+  paramNames:
+  - x
+  - y
+  - z
 com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeBuilder$Gas:
 - name: inputGas
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.RecipeBuilder,mekanism.common.integration.crafttweaker.gas.IGasStack[]
