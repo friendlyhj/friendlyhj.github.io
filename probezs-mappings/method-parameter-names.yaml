@@ -10444,6 +10444,21 @@ ink.ikx.rt.api.mods.botania.event.CTAlfPortalDroppedEvent:
   paramsSignature: boolean
   paramNames:
   - dead
+youyihj.zenutils.api.cotx.function.IBoundingBoxFunction:
+- name: apply
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.aabb.MCAxisAlignedBB,com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState,crafttweaker.api.world.IBlockAccess,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos
+  paramNames:
+  - origin
+  - blockState
+  - world
+  - pos
+- name: apply
+  paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.aabb.MCAxisAlignedBB,com.teamacronymcoders.contenttweaker.api.ctobjects.blockstate.ICTBlockState,crafttweaker.api.world.IBlockAccess,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos
+  paramNames:
+  - origin
+  - blockState
+  - world
+  - pos
 ink.ikx.rt.api.mods.modtweaker.ExpandCTAspect:
 - name: asIAstral
   paramsSignature: com.blamejared.compat.thaumcraft.handlers.aspects.CTAspect
