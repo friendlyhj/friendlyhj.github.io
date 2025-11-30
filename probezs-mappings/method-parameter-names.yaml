@@ -7877,6 +7877,10 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramNames:
   - min
   - max
+- name: consumeDurability
+  paramsSignature: int
+  paramNames:
+  - durability
 - name: setTriggerTime
   paramsSignature: int
   paramNames:
