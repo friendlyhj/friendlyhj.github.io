@@ -12619,6 +12619,22 @@ github.kasuminova.mmce.common.helper.IMachineController:
   paramsSignature: github.kasuminova.mmce.common.helper.IBlockStatePredicate
   paramNames:
   - predicate
+- name: getBlockPosInPattern
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - blockStack
+- name: getBlockPosInPattern
+  paramsSignature: crafttweaker.api.block.IBlockStateMatcher
+  paramNames:
+  - blockStateMatcher
+- name: getBlockPosInPattern
+  paramsSignature: java.lang.String
+  paramNames:
+  - blockName
+- name: getBlockPosInPattern
+  paramsSignature: github.kasuminova.mmce.common.helper.IBlockStatePredicate
+  paramNames:
+  - predicate
 com.cleanroommc.multiblocked.api.recipe.RecipeLogic:
 - name: handleTickRecipe
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.Recipe
