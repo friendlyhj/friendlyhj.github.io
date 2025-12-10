@@ -11331,6 +11331,11 @@ youyihj.zenutils.api.util.CommandUtils:
   paramNames:
   - command
   - sender
+- name: notifyCommandFailure
+  paramsSignature: java.lang.String,java.lang.Object[]
+  paramNames:
+  - message
+  - replacements
 com.cleanroommc.multiblocked.api.crafttweaker.CTRegistry:
 - name: getDefinition
   paramsSignature: java.lang.String
