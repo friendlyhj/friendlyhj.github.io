@@ -1674,8 +1674,9 @@ ink.ikx.rt.api.mods.naturesaura.IAuraChunk:
   - pos
 ink.ikx.rt.api.vanilla.CTEventHandler:
 - name: onItemAttributeModificationEvent
-  paramsSignature: crafttweaker.util.IEventHandler
+  paramsSignature: crafttweaker.api.event.IEventManager,crafttweaker.util.IEventHandler
   paramNames:
+  - manager
   - handler
 com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$InteractionEventBuilder:
 - name: createSetBlockEvent
