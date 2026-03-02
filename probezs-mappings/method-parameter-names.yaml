@@ -14,6 +14,13 @@ crafttweaker.api.entity.IEntityEquipmentSlot:
   paramsSignature: crafttweaker.api.entity.IEntityEquipmentSlot
   paramNames:
   - other
+daomephsta.loot_shared.zenscript.api.factory.ZenLambdaLootFunction$Delegate:
+- name: apply
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.util.IRandom,daomephsta.loot_shared.zenscript.api.factory.ZenLootContext
+  paramNames:
+  - stack
+  - rand
+  - context
 com.blamejared.compat.botania.handlers.Brew:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IIngredient[],java.lang.String
@@ -29,6 +36,24 @@ com.teamacronymcoders.contenttweaker.modules.materials.DropTableSlotAdder:
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.materials.CTDropTableBuilder
   paramNames:
   - builder
+leviathan143.loottweaker.common.zenscript.factory.StaticLootConditionFactory:
+- name: randomChance
+  paramsSignature: float
+  paramNames:
+  - chance
+- name: randomChanceWithLooting
+  paramsSignature: float,float
+  paramNames:
+  - chance
+  - lootingMultiplier
+- name: parse
+  paramsSignature: java.util.Map
+  paramNames:
+  - json
+- name: zenscript
+  paramsSignature: daomephsta.loot_shared.zenscript.api.factory.ZenLambdaLootCondition$Delegate
+  paramNames:
+  - delegate
 com.blamejared.compat.thermalexpansion.SawMill:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,int,crafttweaker.api.item.IItemStack,int
@@ -392,6 +417,15 @@ crafttweaker.api.event.IPotionBrewEvent:
   paramNames:
   - index
   - stack
+daomephsta.loot_shared.zenscript.api.LootTableView:
+- name: getPool
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: getPool
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
 youyihj.zenutils.api.util.catenation.Catenation:
 - name: tick
   paramsSignature: crafttweaker.api.world.IWorld
@@ -1008,6 +1042,23 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IBlockAction:
   - world
   - blockPos
   - blockState
+daomephsta.loot_shared.zenscript.api.EditableLootTable:
+- name: getPool
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: addPool
+  paramsSignature: java.lang.String,float,float,float,float
+  paramNames:
+  - name
+  - minRolls
+  - maxRolls
+  - minBonusRolls
+  - maxBonusRolls
+- name: removePool
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
 crafttweaker.api.entity.IEntityFishHook:
 - name: setState
   paramsSignature: java.lang.String
@@ -1678,6 +1729,41 @@ ink.ikx.rt.api.vanilla.CTEventHandler:
   paramNames:
   - manager
   - handler
+daomephsta.loot_shared.zenscript.api.LootGenerator:
+- name: luck
+  paramsSignature: float
+  paramNames:
+  - luck
+- name: lootedEntity
+  paramsSignature: crafttweaker.api.entity.IEntity
+  paramNames:
+  - entity
+- name: player
+  paramsSignature: crafttweaker.api.player.IPlayer
+  paramNames:
+  - player
+- name: damageSource
+  paramsSignature: crafttweaker.api.damage.IDamageSource
+  paramNames:
+  - damageSource
+- name: generate
+  paramsSignature: java.lang.String
+  paramNames:
+  - tableId
+- name: generateInto
+  paramsSignature: java.lang.String,crafttweaker.api.entity.IEntity,java.lang.String,java.lang.String
+  paramNames:
+  - tableId
+  - iEntity
+  - face
+  - overflow
+- name: generateInto
+  paramsSignature: java.lang.String,crafttweaker.api.world.IBlockPos,java.lang.String,java.lang.String
+  paramNames:
+  - tableId
+  - inventoryPos
+  - face
+  - overflow
 com.tttsaurus.fluidintetweaker.plugin.crt.impl.FITweaker$InteractionEventBuilder:
 - name: createSetBlockEvent
   paramsSignature: crafttweaker.api.block.IBlockState
@@ -6857,6 +6943,23 @@ gregtech.integration.crafttweaker.material.MaterialExpansion:
   paramNames:
   - m
   - blastTemp
+leviathan143.loottweaker.common.zenscript.wrapper.ZenLootTableWrapper:
+- name: getPool
+  paramsSignature: java.lang.String
+  paramNames:
+  - poolName
+- name: addPool
+  paramsSignature: java.lang.String,float,float,float,float
+  paramNames:
+  - poolName
+  - minRolls
+  - maxRolls
+  - minBonusRolls
+  - maxBonusRolls
+- name: removePool
+  paramsSignature: java.lang.String
+  paramNames:
+  - poolName
 gregtech.integration.crafttweaker.block.CTHeatingCoilBlockStats:
 - name: add
   paramsSignature: crafttweaker.api.block.IBlockState,java.lang.String,int,int,int,int,gregtech.api.unification.material.Material
@@ -9124,6 +9227,46 @@ crafttweaker.mc1120.world.expand.ExpandWorld:
   paramNames:
   - world
   - pos
+daomephsta.loot_shared.zenscript.api.factory.LootFunctionFactory:
+- name: enchantRandomly
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - enchantIDList
+- name: enchantWithLevels
+  paramsSignature: int,int,boolean
+  paramNames:
+  - min
+  - max
+  - isTreasure
+- name: lootingEnchantBonus
+  paramsSignature: int,int,int
+  paramNames:
+  - min
+  - max
+  - limit
+- name: setCount
+  paramsSignature: int,int
+  paramNames:
+  - min
+  - max
+- name: setDamage
+  paramsSignature: float,float
+  paramNames:
+  - min
+  - max
+- name: setMetadata
+  paramsSignature: int,int
+  paramNames:
+  - min
+  - max
+- name: setNBT
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - nbtData
+- name: zenscript
+  paramsSignature: daomephsta.loot_shared.zenscript.api.factory.ZenLambdaLootFunction$Delegate
+  paramNames:
+  - delegate
 com.teamacronymcoders.contenttweaker.modules.vanilla.functions.IItemUpdate:
 - name: onItemUpdate
   paramsSignature: com.teamacronymcoders.contenttweaker.api.ctobjects.mutableitemstack.IMutableItemStack,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,crafttweaker.api.entity.IEntity,int,boolean
@@ -10671,6 +10814,86 @@ roidrole.roidtweaker.mods.f0resources.IWorldExpansion:
   paramsSignature: crafttweaker.api.world.IWorld
   paramNames:
   - world
+leviathan143.loottweaker.common.zenscript.wrapper.ZenLootPoolWrapper:
+- name: addConditions
+  paramsSignature: daomephsta.loot_shared.zenscript.api.ZenLootCondition[]
+  paramNames:
+  - conditions
+- name: removeEntry
+  paramsSignature: java.lang.String
+  paramNames:
+  - entryName
+- name: addItemEntry
+  paramsSignature: crafttweaker.api.item.IItemStack,int,java.lang.String
+  paramNames:
+  - stack
+  - weight
+  - name
+- name: addItemEntry
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int,java.lang.String
+  paramNames:
+  - stack
+  - weight
+  - quality
+  - name
+- name: addItemEntry
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int,daomephsta.loot_shared.zenscript.api.ZenLootFunction[],daomephsta.loot_shared.zenscript.api.ZenLootCondition[],java.lang.String
+  paramNames:
+  - stack
+  - weight
+  - quality
+  - functions
+  - conditions
+  - name
+- name: addLootTableEntry
+  paramsSignature: java.lang.String,int,java.lang.String
+  paramNames:
+  - tableName
+  - weight
+  - name
+- name: addLootTableEntry
+  paramsSignature: java.lang.String,int,int,java.lang.String
+  paramNames:
+  - tableName
+  - weight
+  - quality
+  - name
+- name: addLootTableEntry
+  paramsSignature: java.lang.String,int,int,daomephsta.loot_shared.zenscript.api.ZenLootCondition[],java.lang.String
+  paramNames:
+  - tableName
+  - weight
+  - quality
+  - conditions
+  - name
+- name: addEmptyEntry
+  paramsSignature: int,java.lang.String
+  paramNames:
+  - weight
+  - name
+- name: addEmptyEntry
+  paramsSignature: int,int,java.lang.String
+  paramNames:
+  - weight
+  - quality
+  - name
+- name: addEmptyEntry
+  paramsSignature: int,int,daomephsta.loot_shared.zenscript.api.ZenLootCondition[],java.lang.String
+  paramNames:
+  - weight
+  - quality
+  - conditions
+  - name
+- name: setRolls
+  paramsSignature: float,float
+  paramNames:
+  - minRolls
+  - maxRolls
+- name: setBonusRolls
+  paramsSignature: float,float
+  paramNames:
+  - minBonusRolls
+  - maxBonusRolls
 com.blamejared.compat.bloodmagic.AlchemyArray:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,crafttweaker.api.item.IItemStack,java.lang.String
@@ -10798,6 +11021,12 @@ com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandIRenderer:
   - isAddBlend
   - isBackLayer
   - isShader
+daomephsta.loot_shared.zenscript.api.factory.ZenLambdaLootCondition$Delegate:
+- name: test
+  paramsSignature: crafttweaker.api.util.IRandom,daomephsta.loot_shared.zenscript.api.factory.ZenLootContext
+  paramNames:
+  - rand
+  - context
 com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$OnPlayerHurt:
 - name: handle
   paramsSignature: com.teamacronymcoders.contenttweaker.modules.tinkers.traits.TConTraitRepresentation,crafttweaker.api.item.IItemStack,crafttweaker.api.player.IPlayer,crafttweaker.api.entity.IEntityLivingBase,crafttweaker.api.event.EntityLivingHurtEvent
@@ -11258,6 +11487,15 @@ com.blamejared.compat.thermalexpansion.Compactor:
   paramsSignature: crafttweaker.api.item.IItemStack
   paramNames:
   - input
+daomephsta.loot_shared.zenscript.impl.JsonMapConversions:
+- name: asLootCondition
+  paramsSignature: java.util.Map
+  paramNames:
+  - json
+- name: asLootFunction
+  paramsSignature: java.util.Map
+  paramNames:
+  - json
 youyihj.zenutils.api.util.ExpandData:
 - name: createDataList
   paramsSignature: java.util.List
@@ -11476,6 +11714,20 @@ com.cleanroommc.multiblocked.api.pattern.FactoryBlockPattern:
   paramNames:
   - symbol
   - blockMatcher
+daomephsta.loot_shared.zenscript.api.factory.LootConditionFactory:
+- name: randomChance
+  paramsSignature: float
+  paramNames:
+  - chance
+- name: randomChanceWithLooting
+  paramsSignature: float,float
+  paramNames:
+  - chance
+  - lootingMultiplier
+- name: zenscript
+  paramsSignature: daomephsta.loot_shared.zenscript.api.factory.ZenLambdaLootCondition$Delegate
+  paramNames:
+  - delegate
 ink.ikx.rt.api.mods.contenttweaker.function.mana.IGetEntityLifeSpan:
 - name: call
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.world.IWorld
@@ -11488,6 +11740,15 @@ ink.ikx.rt.api.mods.thaumicadditions.IEdibleAspect$EatFunctionWithEntity:
   paramNames:
   - entity
   - count
+daomephsta.loot_shared.zenscript.impl.IDataConversions:
+- name: asLootCondition
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - json
+- name: asLootFunction
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - json
 com.blamejared.compat.betterwithmods.base.blockrecipes.KilnBuilder:
 - name: setHeat
   paramsSignature: int
@@ -11533,6 +11794,50 @@ com.blamejared.compat.thermalexpansion.Insolator:
   paramNames:
   - primaryInput
   - secondaryInput
+leviathan143.loottweaker.common.zenscript.factory.StaticLootFunctionFactory:
+- name: enchantRandomly
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - enchantIDList
+- name: enchantWithLevels
+  paramsSignature: int,int,boolean
+  paramNames:
+  - min
+  - max
+  - isTreasure
+- name: lootingEnchantBonus
+  paramsSignature: int,int,int
+  paramNames:
+  - min
+  - max
+  - limit
+- name: setCount
+  paramsSignature: int,int
+  paramNames:
+  - min
+  - max
+- name: setDamage
+  paramsSignature: float,float
+  paramNames:
+  - min
+  - max
+- name: setMetadata
+  paramsSignature: int,int
+  paramNames:
+  - min
+  - max
+- name: setNBT
+  paramsSignature: crafttweaker.api.data.IData
+  paramNames:
+  - nbtData
+- name: parse
+  paramsSignature: java.util.Map
+  paramNames:
+  - json
+- name: zenscript
+  paramsSignature: daomephsta.loot_shared.zenscript.api.factory.ZenLambdaLootFunction$Delegate
+  paramNames:
+  - delegate
 crafttweaker.api.formatting.IFormatter:
 - name: black
   paramsSignature: crafttweaker.api.formatting.IFormattedText
@@ -13742,6 +14047,90 @@ crafttweaker.api.item.IIngredient:
   paramsSignature: crafttweaker.api.item.IItemTransformer
   paramNames:
   - transformer
+daomephsta.loot_shared.zenscript.api.EditableLootPool:
+- name: removeEntry
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: addItemEntry
+  paramsSignature: crafttweaker.api.item.IItemStack,int,java.lang.String
+  paramNames:
+  - stack
+  - weight
+  - name
+- name: addItemEntry
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int,java.lang.String
+  paramNames:
+  - stack
+  - weight
+  - quality
+  - name
+- name: addItemEntry
+  paramsSignature: crafttweaker.api.item.IItemStack,int,int,daomephsta.loot_shared.zenscript.api.ZenLootFunction[],daomephsta.loot_shared.zenscript.api.ZenLootCondition[],java.lang.String
+  paramNames:
+  - stack
+  - weight
+  - quality
+  - functions
+  - conditions
+  - name
+- name: addLootTableEntry
+  paramsSignature: java.lang.String,int,java.lang.String
+  paramNames:
+  - tableName
+  - weight
+  - name
+- name: addLootTableEntry
+  paramsSignature: java.lang.String,int,int,java.lang.String
+  paramNames:
+  - tableName
+  - weight
+  - quality
+  - name
+- name: addLootTableEntry
+  paramsSignature: java.lang.String,int,int,daomephsta.loot_shared.zenscript.api.ZenLootCondition[],java.lang.String
+  paramNames:
+  - tableName
+  - weight
+  - quality
+  - conditions
+  - name
+- name: addEmptyEntry
+  paramsSignature: int,java.lang.String
+  paramNames:
+  - weight
+  - name
+- name: addEmptyEntry
+  paramsSignature: int,int,java.lang.String
+  paramNames:
+  - weight
+  - quality
+  - name
+- name: addEmptyEntry
+  paramsSignature: int,int,daomephsta.loot_shared.zenscript.api.ZenLootCondition[],java.lang.String
+  paramNames:
+  - weight
+  - quality
+  - conditions
+  - name
+- name: setConditions
+  paramsSignature: daomephsta.loot_shared.zenscript.api.ZenLootCondition[]
+  paramNames:
+  - conditions
+- name: addConditions
+  paramsSignature: daomephsta.loot_shared.zenscript.api.ZenLootCondition[]
+  paramNames:
+  - conditions
+- name: setRolls
+  paramsSignature: float,float
+  paramNames:
+  - minRolls
+  - maxRolls
+- name: setBonusRolls
+  paramsSignature: float,float
+  paramNames:
+  - minBonusRolls
+  - maxBonusRolls
 com.blamejared.compat.thaumcraft.handlers.handlers.Infusion:
 - name: registerRecipe
   paramsSignature: java.lang.String,java.lang.String,crafttweaker.api.item.IItemStack,int,com.blamejared.compat.thaumcraft.handlers.aspects.CTAspectStack[],crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient[]
@@ -15700,6 +16089,11 @@ codersafterdark.compatskills.common.compats.minecraft.entity.animaltameevent.Ani
   paramNames:
   - definition
   - defaultRequirements
+daomephsta.loot_shared.zenscript.api.ZenLootFunction:
+- name: addConditions
+  paramsSignature: daomephsta.loot_shared.zenscript.api.ZenLootCondition[]
+  paramNames:
+  - conditions
 com.teamacronymcoders.contenttweaker.modules.vanilla.items.ItemRepresentation:
 - name: setUnlocalizedName
   paramsSignature: java.lang.String
@@ -16786,6 +17180,19 @@ com.cleanroommc.multiblocked.api.crafttweaker.expanders.ExpandRecipeContent$Part
   paramsSignature: com.cleanroommc.multiblocked.api.recipe.Content
   paramNames:
   - content
+leviathan143.loottweaker.common.zenscript.ZenLootTableTweakManager:
+- name: getTable
+  paramsSignature: java.lang.String
+  paramNames:
+  - tableName
+- name: newTable
+  paramsSignature: java.lang.String
+  paramNames:
+  - id
+- name: createLootGenerator
+  paramsSignature: crafttweaker.api.world.IWorld
+  paramNames:
+  - world
 roidrole.roidtweaker.mods.minecraft.IChunkPos:
 - name: getChunkPos
   paramsSignature: int,int
