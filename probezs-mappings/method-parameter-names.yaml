@@ -2722,6 +2722,18 @@ crafttweaker.api.liquid.ILiquidDefinition:
   paramsSignature: int
   paramNames:
   - millibuckets
+bada774.endertweaker.SliceNSplice:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[],int,float
+  paramNames:
+  - output
+  - inputs
+  - energyCost
+  - xp
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 codersafterdark.compatskills.common.compats.reskillable.transmutations.ClearTweakers:
 - name: clearMapOfReagent
   paramsSignature: crafttweaker.api.item.IItemStack
@@ -2886,6 +2898,22 @@ crafttweaker.api.vanilla.ILootRegistry:
   paramsSignature: java.lang.String
   paramNames:
   - name
+bada774.endertweaker.Vat:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,float,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IIngredient[],float[],crafttweaker.api.item.IIngredient[],float[],int
+  paramNames:
+  - output
+  - inMult
+  - input
+  - slot1Solids
+  - slot1Mults
+  - slot2Solids
+  - slot2Mults
+  - energyCost
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - output
 codersafterdark.compatskills.common.compats.reskillable.playerexpansion.wrapper.CTPlayerSkillInfo:
 - name: setLevel
   paramsSignature: int
@@ -8973,6 +9001,19 @@ xyz.tcreopargh.ctintegration.vanilla.advancement.AdvancementHelper:
   paramsSignature: crafttweaker.api.server.IServer
   paramNames:
   - server
+bada774.endertweaker.SoulBinder:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,java.lang.String[],int,int
+  paramNames:
+  - output
+  - input
+  - entities
+  - xp
+  - energyCost
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - output
 youyihj.zenutils.api.util.catenation.ICatenationTaskQueueBuilder:
 - name: run
   paramsSignature: youyihj.zenutils.api.util.catenation.IWorldFunction
@@ -9548,6 +9589,26 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.upgrade.DynamicMach
   paramsSignature: hellfirepvp.modularmachinery.common.integration.crafttweaker.helper.UpgradeEventHandlerCT
   paramNames:
   - handler
+bada774.endertweaker.CombustionGen:
+- name: addFuel
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,int,int
+  paramNames:
+  - fuel
+  - powerPerCycleRF
+  - totalBurnTime
+- name: removeFuel
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - fuel
+- name: addCoolant
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack,float
+  paramNames:
+  - coolant
+  - degreesCoolingPerMB
+- name: removeCoolant
+  paramsSignature: crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - coolant
 roidrole.roidtweaker.mods.crafttweaker.IIngredientExpansion:
 - name: spread
   paramsSignature: crafttweaker.api.item.IIngredient
@@ -11950,6 +12011,20 @@ ink.ikx.rt.api.mods.thaumcraft.expand.ExpandIPlayer:
   paramsSignature: crafttweaker.api.player.IPlayer
   paramNames:
   - player
+bada774.endertweaker.Tank:
+- name: addRecipe
+  paramsSignature: boolean,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
+  paramNames:
+  - fill
+  - input
+  - fluid
+  - output
+- name: removeRecipe
+  paramsSignature: boolean,crafttweaker.api.item.IItemStack,crafttweaker.api.liquid.ILiquidStack
+  paramNames:
+  - fill
+  - input
+  - fluid
 crafttweaker.api.entity.IEntityDefinition:
 - name: addDrop
   paramsSignature: crafttweaker.api.item.IItemStack,int,int,float
@@ -13226,6 +13301,28 @@ roidrole.roidtweaker.mods.f0resources.FluidData:
   paramsSignature: long
   paramNames:
   - quantity
+bada774.endertweaker.SagMill:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack[],float[],crafttweaker.api.item.IIngredient,java.lang.String,int,float[]
+  paramNames:
+  - output
+  - chances
+  - input
+  - bonusType
+  - energyCost
+  - xp
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.WeightedItemStack[],crafttweaker.api.item.IIngredient,java.lang.String,int,float[]
+  paramNames:
+  - output
+  - input
+  - bonusType
+  - energyCost
+  - xp
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - input
 youyihj.zenutils.api.entity.ZenUtilsEntityDefinition:
 - name: onTick
   paramsSignature: crafttweaker.api.entity.IEntityDefinition,youyihj.zenutils.api.entity.IEntityTick,int
@@ -14701,6 +14798,26 @@ youyihj.zenutils.api.util.HexHelper:
   paramsSignature: java.lang.String
   paramNames:
   - hex
+bada774.endertweaker.AlloySmelter:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[],int,float
+  paramNames:
+  - output
+  - input
+  - energyCost
+  - xp
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - outputs
+- name: removeByInputs
+  paramsSignature: crafttweaker.api.item.IItemStack[][]
+  paramNames:
+  - inputs
+- name: removeByInputs
+  paramsSignature: crafttweaker.api.item.IItemStack[]
+  paramNames:
+  - inputs
 ink.ikx.rt.api.mods.contenttweaker.function.subtile.Update:
 - name: call
   paramsSignature: ink.ikx.rt.api.mods.contenttweaker.subtile.ISubTileEntityInGame,com.teamacronymcoders.contenttweaker.api.ctobjects.world.IWorld,com.teamacronymcoders.contenttweaker.api.ctobjects.blockpos.IBlockPos
@@ -16628,6 +16745,18 @@ com.teamacronymcoders.contenttweaker.modules.vanilla.enchantments.EnchantmentFun
   paramNames:
   - thisEnchantment
   - level
+bada774.endertweaker.Enchanter:
+- name: addRecipe
+  paramsSignature: crafttweaker.api.enchantments.IEnchantmentDefinition,crafttweaker.api.item.IIngredient,int,double
+  paramNames:
+  - output
+  - input
+  - amountPerLevel
+  - costMultiplier
+- name: removeRecipe
+  paramsSignature: crafttweaker.api.enchantments.IEnchantmentDefinition
+  paramNames:
+  - output
 be.lorexe.mekatweaker.crafttweaker.gas.GasRepresentation:
 - name: setIcon
   paramsSignature: java.lang.String
