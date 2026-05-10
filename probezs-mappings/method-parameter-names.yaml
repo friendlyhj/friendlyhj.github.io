@@ -8305,6 +8305,11 @@ hellfirepvp.modularmachinery.common.integration.crafttweaker.RecipePrimer:
   paramsSignature: boolean
   paramNames:
   - load
+crafttweaker.zenscript.expand.ExpandDataList:
+- name: asData
+  paramsSignature: java.util.List
+  paramNames:
+  - data
 com.blamejared.compat.forestry.Carpenter:
 - name: addRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient[][],int,crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.item.IItemStack
@@ -11656,6 +11661,11 @@ youyihj.zenutils.api.util.CommandUtils:
   paramNames:
   - message
   - replacements
+crafttweaker.zenscript.expand.ExpandDataArray:
+- name: asData
+  paramsSignature: crafttweaker.api.data.IData[]
+  paramNames:
+  - data
 com.cleanroommc.multiblocked.api.crafttweaker.CTRegistry:
 - name: getDefinition
   paramsSignature: java.lang.String
@@ -11815,6 +11825,11 @@ ink.ikx.rt.api.mods.contenttweaker.function.mana.IGetEntityLifeSpan:
   paramNames:
   - stack
   - world
+crafttweaker.zenscript.expand.ExpandDataStringDict:
+- name: asData
+  paramsSignature: java.util.Map
+  paramNames:
+  - data
 ink.ikx.rt.api.mods.thaumicadditions.IEdibleAspect$EatFunctionWithEntity:
 - name: apply
   paramsSignature: crafttweaker.api.entity.IEntityLivingBase,int
