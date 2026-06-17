@@ -9922,6 +9922,34 @@ youyihj.zenutils.api.util.ZenUtilsGlobal:
   paramsSignature: java.lang.String
   paramNames:
   - loaderName
+- name: isBool
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: isInt
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: isFloat
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: isDouble
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: isByte
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: isShort
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
+- name: isLong
+  paramsSignature: java.lang.Object
+  paramNames:
+  - object
 - name: typeof
   paramsSignature: int
   paramNames:
