@@ -15306,6 +15306,11 @@ crafttweaker.api.event.PlayerDeathDropsEvent:
   paramsSignature: crafttweaker.api.entity.IEntityItem
   paramNames:
   - entityItem
+youyihj.zenutils.impl.zenscript.nat.ItemStackNonnullListCaster$List:
+- name: cast
+  paramsSignature: java.util.List
+  paramNames:
+  - list
 crafttweaker.api.world.IBlockAccess:
 - name: getBlockState
   paramsSignature: crafttweaker.api.world.IBlockPos
@@ -17143,6 +17148,11 @@ codersafterdark.compatskills.common.compats.reskillable.RequirementTweaker:
   paramNames:
   - item
   - locked
+youyihj.zenutils.impl.zenscript.nat.ItemStackNonnullListCaster$Array:
+- name: cast
+  paramsSignature: net.minecraft.item.ItemStack[]
+  paramNames:
+  - array
 com.cleanroommc.multiblocked.api.crafttweaker.functions.IReadInitialData:
 - name: apply
   paramsSignature: com.cleanroommc.multiblocked.api.crafttweaker.interfaces.ICTComponent,crafttweaker.api.data.IData
