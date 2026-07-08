@@ -11539,6 +11539,14 @@ youyihj.zenutils.api.network.IByteBuf:
   paramsSignature: byte
   paramNames:
   - value
+- name: writeBytes
+  paramsSignature: byte[]
+  paramNames:
+  - value
+- name: writeShort
+  paramsSignature: short
+  paramNames:
+  - value
 - name: writeLong
   paramsSignature: long
   paramNames:
