@@ -2740,6 +2740,11 @@ com.teamacronymcoders.contenttweaker.modules.tinkers.utils.Functions$OnToolRepai
   - thisTrait
   - tool
   - amount
+crafttweaker.zenscript.expand.ExpandLongArray:
+- name: asData
+  paramsSignature: long[]
+  paramNames:
+  - value
 ink.ikx.rt.api.internal.item.IItemStackExpansion:
 - name: getTagSize
   paramsSignature: crafttweaker.api.item.IItemStack
