@@ -289,6 +289,12 @@ codersafterdark.compatskills.common.compats.minecraft.item.OreDictionaryTweaker:
   - entry
   - tag
   - locked
+roidrole.roidtweaker.mods.chisel.CarvingExtension:
+- name: addVariationAndGroup
+  paramsSignature: java.lang.String,crafttweaker.api.item.IItemStack
+  paramNames:
+  - group
+  - item
 com.blamejared.compat.immersivetech.SolarTower:
 - name: addRecipe
   paramsSignature: crafttweaker.api.liquid.ILiquidStack,crafttweaker.api.liquid.ILiquidStack,int
@@ -6795,11 +6801,6 @@ com.bada774.fet.Tank:
   - fill
   - input
   - fluid
-roidrole.roidtweaker.mods.crafttweaker.ArrayExpansion:
-- name: asIIngredient
-  paramsSignature: crafttweaker.api.item.IItemStack[]
-  paramNames:
-  - instance
 ink.ikx.rt.api.mods.contenttweaker.function.mana.IBaubleFunctionWithReturn:
 - name: call
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.entity.IEntityLivingBase
@@ -11094,65 +11095,6 @@ xyz.tcreopargh.ctintegration.scalinghealth.PlayerExpansionSH:
   paramsSignature: crafttweaker.api.player.IPlayer
   paramNames:
   - player
-alfinivia.integration.crafttweaker.crossmod.BulletBuilder:
-- name: get
-  paramsSignature: java.lang.String
-  paramNames:
-  - name
-- name: setTextures
-  paramsSignature: java.lang.String[]
-  paramNames:
-  - textures
-- name: setCasing
-  paramsSignature: crafttweaker.api.item.IItemStack
-  paramNames:
-  - casing
-- name: setTickLimit
-  paramsSignature: int
-  paramNames:
-  - tickLimit
-- name: setMovementDecay
-  paramsSignature: float
-  paramNames:
-  - movementDecay
-- name: setGravity
-  paramsSignature: float
-  paramNames:
-  - gravity
-- name: setBulletAmount
-  paramsSignature: int
-  paramNames:
-  - bulletAmount
-- name: setValidForTurret
-  paramsSignature: boolean
-  paramNames:
-  - validForTurret
-- name: setProperCartridge
-  paramsSignature: boolean
-  paramNames:
-  - properCartridge
-- name: setColor
-  paramsSignature: int,int
-  paramNames:
-  - layer
-  - color
-- name: setColorNBT
-  paramsSignature: int,java.lang.String
-  paramNames:
-  - layer
-  - tag
-- name: impactBlock
-  paramsSignature: alfinivia.integration.crafttweaker.crossmod.BulletBuilder$IBulletBlockImpact
-  paramNames:
-  - impact
-- name: impactEntity
-  paramsSignature: alfinivia.integration.crafttweaker.crossmod.BulletBuilder$IBulletEntityImpact
-  paramNames:
-  - impact
-- name: onFired
-  paramsSignature: alfinivia.integration.crafttweaker.crossmod.BulletBuilder$IBulletFired
-  paramNames:
-  - fired
 codersafterdark.compatskills.common.compats.minecraft.item.armor.ArmorLockTweaker:
 - name: addArmorLock
   paramsSignature: double,java.lang.String[]
@@ -13770,6 +13712,65 @@ crafttweaker.api.mods.ILoadedMods:
   paramsSignature: java.lang.String
   paramNames:
   - name
+alfinivia.integration.crafttweaker.crossmod.BulletBuilderRT:
+- name: get
+  paramsSignature: java.lang.String
+  paramNames:
+  - name
+- name: setTextures
+  paramsSignature: java.lang.String[]
+  paramNames:
+  - textures
+- name: setCasing
+  paramsSignature: crafttweaker.api.item.IItemStack
+  paramNames:
+  - casing
+- name: setTickLimit
+  paramsSignature: int
+  paramNames:
+  - tickLimit
+- name: setMovementDecay
+  paramsSignature: float
+  paramNames:
+  - movementDecay
+- name: setGravity
+  paramsSignature: float
+  paramNames:
+  - gravity
+- name: setBulletAmount
+  paramsSignature: int
+  paramNames:
+  - bulletAmount
+- name: setValidForTurret
+  paramsSignature: boolean
+  paramNames:
+  - validForTurret
+- name: setProperCartridge
+  paramsSignature: boolean
+  paramNames:
+  - properCartridge
+- name: setColor
+  paramsSignature: int,int
+  paramNames:
+  - layer
+  - color
+- name: setColorNBT
+  paramsSignature: int,java.lang.String
+  paramNames:
+  - layer
+  - tag
+- name: impactBlock
+  paramsSignature: alfinivia.integration.crafttweaker.crossmod.BulletBuilderRT$IBulletBlockImpact
+  paramNames:
+  - impact
+- name: impactEntity
+  paramsSignature: alfinivia.integration.crafttweaker.crossmod.BulletBuilderRT$IBulletEntityImpact
+  paramNames:
+  - impact
+- name: onFired
+  paramsSignature: alfinivia.integration.crafttweaker.crossmod.BulletBuilderRT$IBulletFired
+  paramNames:
+  - fired
 com.blamejared.compat.tconstruct.Casting:
 - name: addTableRecipe
   paramsSignature: crafttweaker.api.item.IItemStack,crafttweaker.api.item.IIngredient,crafttweaker.api.liquid.ILiquidStack,int,boolean,int
@@ -14245,6 +14246,11 @@ roidrole.roidtweaker.mods.crafttweaker.IIngredientExpansion:
   paramsSignature: crafttweaker.api.item.IIngredient
   paramNames:
   - input
+- name: orArray
+  paramsSignature: crafttweaker.api.item.IIngredient,crafttweaker.api.item.IIngredient[]
+  paramNames:
+  - instance
+  - ingredients
 crafttweaker.api.block.IMaterial:
 - name: matches
   paramsSignature: crafttweaker.api.block.IMaterial
