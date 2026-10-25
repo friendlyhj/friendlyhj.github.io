@@ -9744,10 +9744,6 @@ leviathan143.loottweaker.common.zenscript.factory.StaticLootConditionFactory:
   paramNames:
   - chance
   - lootingMultiplier
-- name: parse
-  paramsSignature: java.util.Map
-  paramNames:
-  - json
 - name: zenscript
   paramsSignature: daomephsta.loot_shared.zenscript.api.factory.ZenLambdaLootCondition$Delegate
   paramNames:
@@ -15280,10 +15276,6 @@ leviathan143.loottweaker.common.zenscript.factory.StaticLootFunctionFactory:
   paramsSignature: crafttweaker.api.data.IData
   paramNames:
   - nbtData
-- name: parse
-  paramsSignature: java.util.Map
-  paramNames:
-  - json
 - name: zenscript
   paramsSignature: daomephsta.loot_shared.zenscript.api.factory.ZenLambdaLootFunction$Delegate
   paramNames:
